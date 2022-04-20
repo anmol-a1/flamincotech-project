@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="clientdetails"  style="width: 700px;border: 2px solid grey;" class="container my-5">
+        <div style="text-align: center;" class="container my-5">
+            <p>Client Details</p>
+        </div>
+        <div class="container my-5">
+            <form class="my-5">
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">Company Name</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" placeholder="Company Name">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">Address</label>
+                    <div class="col-sm-8">
+                        <input type="password" class="form-control" placeholder="Address">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">Contact Number</label>
+                    <div class="col-sm-8">
+                        <input type="password" class="form-control" placeholder="Contact Number">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">E-mail</label>
+                    <div class="col-sm-8">
+                        <input type="password" class="form-control" placeholder="E-mail">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">Subject</label>
+                    <div class="col-sm-8">
+                        <input type="password" class="form-control" placeholder="Subject">
+                    </div>
+                </div>
+                <div class="my-5">
+                    <button type="submit" onclick="hideclientdiv(event)" class="btn btn-primary mb-2">Submit & Create Quote</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <div id="inputsheet" hidden="true" class="contanier">
+        <form style="width: 800px;margin: 20px auto;">
+
+            <div class="form-group row">
+                <label class="col" for="exampleFormControlTextarea1">Number of Site(s) / Building(s) </label>
+                <input type="number" class="form-control col" rows="3"></input>
+            </div>
+            <div class="form-group row">
+                <label class="col" for="exampleFormControlTextarea1">Total number of floors across building</label>
+                <input type="number" class="form-control col" rows="3"></input>
+            </div>
+            <div class="form-group row">
+                <label class="col">Total Sq.ft. area of the workspace</label>
+                <input onchange="wsnre()" id="d5" placeholder="in Sq ft" type="number" class="form-control col"
+                    rows="3"></input>
+            </div>
+            <div class="form-group row">
+                <label class="col" for="exampleFormControlTextarea1">Enter the Number of Mobile Users</label>
+                <input onchange="myFunction(event)" id="2" placeholder="Enter 0 if not required" type="number"
+                    class="form-control col" rows="3"></input>
+            </div>
+            <div class="form-group row">
+                <label class="col" for="exampleFormControlTextarea1">Enter the Number of Kiosk(s) Required</label>
+                <input id="1" onchange="myFunction(event)" type="number" class="form-control col" rows="3"></input>
+            </div>
+            <div class="form-group row">
+                <label class="col" for="exampleFormControlTextarea1">Type of Sensor Hardware (IP or ZigBee)</label>
+                <select id="d8" onchange="wsnre()" class="form-control col">
+                    <option value="0" selected>Select</option>
+                    <option value="0" selected>not required</option>
+                    <option value="1">IP Variant</option>
+                    <option value="2">ZigBee Variant</option>
+                </select>
+            </div>
+            <div class="form-group row">
+                <label class="col" for="exampleFormControlTextarea1">Enter Total Number of Desks</label>
+                <input onchange="DOS4()" id="d10" type="number" placeholder="Enter 0 if not required"
+                    class="form-control col" rows="3"></input>
+            </div>
+            <div class="form-group row">
+                <label class="col" for="exampleFormControlTextarea1">Enter the Number of Desks for Desk Booking
+                    Requirement</label>
+                <input type="number" placeholder="Enter the desk count" class="form-control col" id="5"
+                    onchange="myFunction(event)" rows="3"></input>
+            </div>
+            <div class="form-group row">
+                <label class="col" for="exampleFormControlTextarea1">Enter the Number of Desks for Space Planning
+                    Requirement - (Fixed Seating)</label>
+                <input id="3" onchange="myFunction(event)" type="number" placeholder="Enter the desk count"
+                    class="form-control col"  rows="3"></input>
+            </div>
+            <div class="form-group row">
+                <label class="col" for="exampleFormControlTextarea1">Enter the Number of Desks for Space Utilization
+                    Requirement</label>
+                <input type="number" placeholder="Enter the desk count" class="form-control col" id="4"
+                    onchange="myFunction(event)" rows="3"></input>
+            </div>
+            <div class="form-group row">
+                <label class="col" for="exampleFormControlTextarea1">Which sensor needs to considered for Space
+                    Utilization tracking</label>
+                <select onchange="wsnre()" id="d14" class="form-control col">
+                    <option selected value="0">Select</option>
+                    <option value="0">not required</option>
+                    <option value="1">Desk Sensor</option>
+                    <option value="2">Pixel Sensor</option>
+                </select>
+            </div>
+            <div class="form-group row">
+                <label class="col" for="exampleFormControlTextarea1">For Desk Occupancy sensors, do you prefer 2 Yrs or
+                    4 Yrs Battery Life </label>
+                <select id="d15" onchange="DOS4()" class="form-control col">
+                    <option selected value="0">Select</option>
+                    <option value="0">Enter '0' if not required</option>
+                    <option value="1">Enter '1' for 2 Yrs Battery</option>
+                    <option value="2"> Enter '2' for 4 Yrs Battery</option>
+                </select>
+            </div>
+            <div class="form-group row">
+                <label class="col" for="exampleFormControlTextarea1">Enter Number of Meeting Rooms</label>
+                <input id="d16" onchange="occupancylicense()" type="number" placeholder="Enter 0 if not required"
+                    class="form-control col" rows="3"></input>
+            </div>
+            <div class="form-group row">
+                <label class="col" for="exampleFormControlTextarea1">Is Meeting Room Booking Required</label>
+                <select id="d17" onchange="mirbl()" class="form-control col">
+                    <option selected value="0">Select</option>
+                    <option value="0">Enter '0' if room booking not required</option>
+                    <option value="1">Enter '1' for room booking </option>
+                </select>
+            </div>
+            <div class="form-group row">
+                <label class="col" for="exampleFormControlTextarea1">Meeting Room Solution Options</label>
+                <select id="d18" onchange="occupancylicense()" class="form-control col">
+                    <option selected value="0">Select</option>
+                    <option value="0">Enter '0' if not required</option>
+                    <option value="1">Enter '1' for Occupancy Status (MROS)</option>
+                    <option value="2"> Enter '2' for People Count</option>
+                    <option value="3">Enter '3' for Occupancy Status + People Count (Pixel)</option>
+                </select>
+            </div>
+            <div class="form-group row">
+                <label class="col" for="exampleFormControlTextarea1">Number of employees to be registered for Access
+                    card based check-in</label>
+                <input type="number" placeholder="Enter '0' if not Applicable" class="form-control col"
+                    rows="3"></input>
+            </div>
+            <div class="form-group row">
+                <label class="col" for="exampleFormControlTextarea1">Enter Number of Restrooms</label>
+                <input onchange="rilpc()" type="number" placeholder="Enter '0' if not required" class="form-control col"
+                    id="d21" rows="3"></input>
+            </div>
+            <div class="form-group row">
+                <label class="col" for="exampleFormControlTextarea1">Restroom Solution Options</label>
+                <select id="d22" onchange="rilpc()" class="form-control col">
+                    <option selected value="0">Select</option>
+                    <option value="0">Enter '0' if not required</option>
+                    <option value="1">Enter '1' for Only People count</option>
+                    <option value="2">Enter '2' for Only Wet floor detection sensor</option>
+                    <option value="3">Enter '3' for People Count + Wet floor detection sensor - Not Available</option>
+                    <option value="4">Enter '4' for Odour + Wet floor detection sensor</option>
+                    <option value="5">Enter '5' for People count + Odour + Wet floor detection sensor</option>
+                </select>
+            </div>
+            <div class="form-group row">
+                <label class="col" for="exampleFormControlTextarea1">IAQ Solution Option</label>
+                <select onchange="wsnre()" id="d24" class="form-control col">
+                    <option selected value="0">Select</option>
+                    <option value="0">Enter '0' if not required</option>
+                    <option value="1">Enter '1' for Sensors in Advanced Sensor with T+RH, Co2, tVOC,PM-2.5 & PM-10
+                    </option>
+                    <option value="2">Enter '2' for Partial Sensor with T+RH, Co2, tVOC</option>
+                    <option value="3">Enter '3' for IAQ A & P</option>
+                </select>
+            </div>
+            <div class="form-group row">
+                <label class="col" for="exampleFormControlTextarea1">Enter the Required Point of Interest or '0' if not
+                    required</label>
+                <input type="number" id="d26" class="form-control col" onchange="wipi()" rows="3"></input>
+            </div>
+            <div class="form-group row">
+                <label class="col" for="exampleFormControlTextarea1">Enter the Required Point of Interest or '0' if not
+                    required</label>
+                <input id="d28" onchange="fipi()" type="number" class="form-control col" rows="3"></input>
+            </div>
+            <div class="form-group row">
+                <label class="col" for="exampleFormControlTextarea1">Enter the License Type Required</label>
+                <input type="number" placeholder="Enter '1' for Basic License 
+Enter '2' for Permium Licesne" class="form-control col" rows="3"></input>
+            </div>
+            <div class="form-group row">
+                <label class="col" for="exampleFormControlTextarea1">Enter the Number of Point or KPI required</label>
+                <input type="number" class="form-control col"  rows="3"></input>
+            </div>
+        </form>
+
+        <form style="width: 800px;margin: 20px auto;" action="" method="post">
+
+            <br>
+
+            <hr>
+            <br>
+
+            <p>Software Details</p>
+            <div class="form-group row">
+                <label class="col" for="exampleFormControlTextarea1">Total Number of Kiosk Licenses</label>
+                <input id="s1" type="number" class="form-control col" rows="3"></input>
+            </div>
+            <div class="form-group row">
+                <label class="col" for="exampleFormControlTextarea1">Total Number of Mobile Users</label>
+                <input id="s2" type="number" class="form-control col" rows="3"></input>
+            </div>
+            <div class="form-group row">
+                <label class="col" for="exampleFormControlTextarea1">Total Number of Desk for Space Planning
+                    Licenses</label>
+                <input id="s3" type="number" class="form-control col" rows="3"></input>
+            </div>
+            <div class="form-group row">
+                <label class="col" for="exampleFormControlTextarea1">Total Number of Space Utilization Licenses</label>
+                <input id="s4" type="number" class="form-control col" rows="3"></input>
+            </div>
+            <div class="form-group row">
+                <label class="col" for="exampleFormControlTextarea1">Total Number of Desk Booking Licenses</label>
+                <input id="s5" type="number" class="form-control col" rows="3"></input>
+            </div>
+            <div class="form-group row">
+                <label class="col" for="exampleFoTotal Number of Meeting Room for Occupancy
+                    LicensesrmControlTextarea1">Total Number of Meeting Room for Occupancy
+                    Licenses</label>
+                <input id="s6" type="number" class="form-control col" rows="3"></input>
+            </div>
+            <div class="form-group row">
+                <label class="col" for="exampleFormControlTextarea1">Total Number of Meeting Room for People count
+                    Licenses</label>
+                <input id="s7" type="number" class="form-control col" rows="3"></input>
+            </div>
+            <div class="form-group row">
+                <label class="col" for="exampleFormControlTextarea1">Total Number of Meeting Room Booking
+                    Licenses</label>
+                <input id="s8" type="number" class="form-control col" rows="3"></input>
+            </div>
+            <div class="form-group row">
+                <label class="col" for="exampleFormControlTextarea1">Wayfinding Point of Interest</label>
+                <input id="s9" type="number" class="form-control col" rows="3"></input>
+            </div>
+            <div class="form-group row">
+                <label class="col" for="exampleFormControlTextarea1">Feedback Point of Interest</label>
+                <input id="s10" type="number" class="form-control col" rows="3"></input>
+            </div>
+            <div class="form-group row">
+                <label class="col" for="exampleFormControlTextarea1">Restroom License (People Count)</label>
+                <input id="s11" type="number" class="form-control col" rows="3"></input>
+            </div>
+            <div class="form-group row">
+                <label class="col" for="exampleFormControlTextarea1">Restroom License (Wet Floor Detection)</label>
+                <input id="s12" type="number" class="form-control col" rows="3"></input>
+            </div>
+            <div class="form-group row">
+                <label class="col" for="exampleFormControlTextarea1">Restroom License (Odour)</label>
+                <input id="s13" type="number" class="form-control col" rows="3"></input>
+            </div>
+            <div class="form-group row">
+                <label class="col" for="exampleFormControlTextarea1">Total IAQ Points</label>
+                <input id="s14" type="number" class="form-control col" rows="3"></input>
+            </div>
+            <br>
+            <hr>
+            <p>Hardware Details</p>
+            <div class="form-group row">
+                <label class="col" for="exampleFormControlTextarea1">DB -Spazio Desk Occupancy Sensor with 4 Year
+                    battery life</label>
+                <input id="h1" type="number" class="form-control col" id="exampleFormControlTextarea1" rows="3"></input>
+            </div>
+            <div class="form-group row">
+                <label class="col" for="exampleFormControlTextarea1">DB -Spazio Desk Occupancy Sensor with 2 Year
+                    battery life</label>
+                <input id="h2" type="number" class="form-control col" rows="3"></input>
+            </div>
+            <div class="form-group row">
+                <label class="col" for="exampleFormControlTextarea1">Wireless Sensor Network Range extender</label>
+                <input id="h3" type="number" class="form-control col" rows="3"></input>
+            </div>
+            <div class="form-group row">
+                <label class="col" for="exampleFormControlTextarea1">Wireless Sensor Network Gateway</label>
+                <input id="h4" type="number" class="form-control col" rows="3"></input>
+            </div>
+            <div class="form-group row">
+                <label class="col" for="exampleFormControlTextarea1">DB -Spazio Meeting Room Occupancy Sensor
+                    (ZigBee)</label>
+                <input id="h5" type="number" class="form-control col" rows="3"></input>
+            </div>
+            <div class="form-group row">
+                <label class="col" for="exampleFormControlTextarea1">OccuSenZ Pixel Sensor ZB variant</label>
+                <input id="h6" type="number" class="form-control col" rows="3"></input>
+            </div>
+            <div class="form-group row">
+                <label class="col" for="exampleFormControlTextarea1">OccuSenZ Pixel Sensor IP variant </label>
+                <input id="h7" type="number" class="form-control col" rows="3"></input>
+            </div>
+            <div class="form-group row">
+                <label class="col" for="exampleFormControlTextarea1">OccuSenZ- PC People Count Sensor ZB variant
+                </label>
+                <input id="h8" type="number" class="form-control col" rows="3"></input>
+            </div>
+            <div class="form-group row">
+                <label class="col" for="exampleFormControlTextarea1">OccuSenZ- PC People Count Sensor IP variant
+                </label>
+                <input id="h9" type="number" class="form-control col" rows="3"></input>
+            </div>
+            <div class="form-group row">
+                <label class="col" for="exampleFormControlTextarea1">EnviSenZ -IAQ Indoor Air Quality Sensor ZB variant
+                    (T+Rh, Co2, TVOC, PM 2.5, PM 10) </label>
+                <input id="h10" type="number" class="form-control col" rows="3"></input>
+            </div>
+            <div class="form-group row">
+                <label class="col" for="exampleFormControlTextarea1">EnviSenZ -IAQ Indoor Air Quality Sensor IP variant
+                    (T+Rh, Co2, TVOC, PM 2.5, PM 10)</label>
+                <input id="h11" type="number" class="form-control col" rows="3"></input>
+            </div>
+            <div class="form-group row">
+                <label class="col" for="exampleFormControlTextarea1">EnviSenZ -IAQ Indoor Air Quality Sensor ZB variant
+                    (T+Rh, Co2, TVOC)</label>
+                <input id="h12" type="number" class="form-control col" rows="3"></input>
+            </div>
+            <div class="form-group row">
+                <label class="col" for="exampleFormControlTextarea1">EnviSenZ -IAQ Indoor Air Quality Sensor IP variant
+                    (T+Rh, Co2, TVOC)</label>
+                <input id="h13" type="number" class="form-control col" rows="3"></input>
+            </div>
+            <div class="form-group row">
+                <label class="col" for="exampleFormControlTextarea1">EnviSenZ Rest Room Sensor ZB variant T+Rh, TVOC,
+                    Odour, Wetfloor detection sensor</label>
+                <input id="h14" type="number" class="form-control col" rows="3"></input>
+            </div>
+            <div class="form-group row">
+                <label class="col" for="exampleFormControlTextarea1">EnviSenZ Rest Room Sensor IP variant T+Rh, TVOC,
+                    Odour, Wetfloor detection sensor</label>
+                <input id="h15" type="number" class="form-control col" rows="3"></input>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <script>
+        var softwaredetails = [{ "id": 1, "details": "Total Number of Kiosk Licenses", "quant": 0 }, { "id": 2, "details": "Total  Number of Mobile Users", "quant": 0 }, {
+            "id": 3, "details": "Total Number of Desk for Space Planning Licenses", "quant": 0
+        }, { "id": 4, "details": "Total Number of Space Utilization Licenses", "quant": 0 }, { "id": 5, "details": "Total Number of Desk Booking Licenses", "quant": 0 }, { "id": 6, "details": "Total Number of Meeting Room for Occupancy Licenses", "quant": 0 }, { "id": 7, "details": "Total Number of Meeting Room for People count Licenses", "quant": 0 }, { "id": 8, "details": "Total Number of Meeting Room Booking Licenses", "quant": 0 }, { "id": 9, "details": "> Wayfinding Point of Interest", "quant": 0 }, { "id": 10, "details": "Feedback Point of Interest", "quant": 0 }, { "id": 11, "details": "Restroom License(People Count)", "quant": 0 }, { "id": 12, "details": "", "Restroom License(Wet Floor Detection)quant": 0 }, { "id": 13, "details": "Restroom License(Odour)", "quant": 0 }, { "id": 14, "details": "Total IAQ Points", "quant": 0 }];
+        function hideclientdiv(e){
+            console.log("edehduiehd");
+            e.preventDefault();
+            document.getElementById("clientdetails").hidden=true;
+            document.getElementById("inputsheet").hidden=false;
+
+        }
+        function myFunction(e) {
+            var id = "s" + e.target.id;
+            document.getElementById(id).value = e.target.value;
+            DOS4();
+            wsnre();
+        }
+
+        function mirbl() {
+            if (document.getElementById('d17').value === '0') {
+                document.getElementById('s8').value = 0;
+            }
+            else {
+                document.getElementById('s8').value = document.getElementById("d16").value;
+            }
+
+        }
+        function DOS4() {
+            if (document.getElementById('d15').value === '0') {
+                document.getElementById('h1').value = 0;
+                document.getElementById('h2').value = 0;
+            }
+            else if (document.getElementById('d15').value === '1') {
+                document.getElementById('h1').value = 0;
+                document.getElementById('h2').value = document.getElementById('4').value
+
+
+            }
+            else {
+                document.getElementById('h1').value = document.getElementById('d10').value;
+                document.getElementById('h2').value = 0;
+            }
+            wsnre();
+        }
+
+
+
+        function wipi() {
+            if (document.getElementById('d26').value > 0 && document.getElementById('d26').value <= 250) {
+                document.getElementById('s9').value = 250;
+            }
+            else {
+                document.getElementById('s9').value = document.getElementById('d26').value;
+            }
+        }
+        function rilpc() {
+            if (document.getElementById('d22').value === '0') {
+                document.getElementById('s11').value = 0;
+                document.getElementById('s12').value = 0;
+                document.getElementById('s13').value = 0;
+            }
+            else if (document.getElementById('d22').value === '1') {
+                document.getElementById('s11').value = document.getElementById('d21').value;
+                document.getElementById('s12').value = 0;
+                document.getElementById('s13').value = 0;
+
+
+            }
+            else if (document.getElementById('d22').value === '2') {
+                document.getElementById('s12').value = document.getElementById('d21').value;
+                document.getElementById('s11').value = 0;
+                document.getElementById('s13').value = 0;
+
+            }
+            else if (document.getElementById('d22').value === '3') {
+                document.getElementById('s12').value = document.getElementById('d21').value;
+                document.getElementById('s11').value = document.getElementById('d21').value;
+                document.getElementById('s13').value = 0;
+
+            }
+            else {
+                document.getElementById('s12').value = document.getElementById('d21').value;
+                document.getElementById('s11').value = 0;
+                document.getElementById('s13').value = document.getElementById('d21').value;
+
+            }
+            wsnre();
+        }
+
+        function fipi() {
+            if (document.getElementById('d28').value > 0 && document.getElementById('d28').value <= 250) {
+                document.getElementById('s10').value = 250;
+            }
+            else {
+                document.getElementById('s10').value = document.getElementById('d28').value;
+            }
+        }
+        function occupancylicense() {
+            mirbl();
+
+            var ans = document.getElementById("d18").value;
+            var elm = document.getElementById("s6");
+            var elm2 = document.getElementById("s7");
+            if (ans === '0') {
+                document.getElementById('h5').value = 0;
+                elm.value = 0;
+                elm2.value = 0;
+            }
+            else if (ans === '1') {
+                elm.value = document.getElementById("d16").value;
+                document.getElementById('h5').value = document.getElementById("d16").value;
+                elm2.value = 0;
+            }
+            else if (ans === '2') {
+                elm.value = 0;
+                elm2.value = document.getElementById("d16").value;
+                document.getElementById('h5').value = 0;
+
+            }
+            else {
+                elm.value = document.getElementById("d16").value;
+                elm2.value = document.getElementById("d16").value;
+                document.getElementById('h5').value = 0;
+            }
+            wsnre();
+        }
+
+        function wsnre() {
+            if (document.getElementById('d8').value === '2') {
+                document.getElementById("h11").value = 0;
+                console.log("wjwjb");
+                var val = 0;
+                var val2 = 0;
+                var d13 = parseInt(document.getElementById('4').value);
+                var d14 = parseInt(document.getElementById('d14').value);
+                var d16 = parseInt(document.getElementById('d16').value);
+                var d18 = parseInt(document.getElementById('d18').value);
+                var d22 = parseInt(document.getElementById('d22').value);
+                var d24 = parseInt(document.getElementById('d24').value);
+                var d21 = parseInt(document.getElementById('d21').value);
+                var d5 = parseInt(document.getElementById('d5').value);
+                var d61 = parseInt(document.getElementById('h1').value);
+                var d62 = parseInt(document.getElementById('h2').value);
+                var d63 = parseInt(document.getElementById('h3').value);
+                var d65 = parseInt(document.getElementById('h5').value);
+                if (d14 === 1) {
+                    val = parseInt(document.getElementById('h1').value) + parseInt(document.getElementById('h2').value);
+                    console.log(document.getElementById('h1').value, document.getElementById('h2').value);
+                    val = val / 12;
+                    val = Math.round(val);
+                    val2 = val2 + Math.round(d61 + d62 + d63 + d65 / 150);
+                    console.log(val);
+                }
+                if (d14 > 1 && d18 > 0) {
+                    val = val + Math.round(d5 / 12500) * 4;
+                    val2 = val2 + Math.round(d5 / 12500) * 1;
+                    console.log(val);
+                }
+                else if (d14 > 1 && d22 > 0) {
+                    val = val + Math.round(d5 / 12500) * 4;
+                    val2 = val2 + Math.round(d5 / 12500) * 1;
+                    console.log(val);
+                }
+                else if (d14 > 1 && d18 > 0 && d22 > 0) {
+                    val = val + Math.round(d5 / 12500) * 4;
+                    val2 = val2 + Math.round(d5 / 12500) * 1;
+                    console.log(val);
+                }
+                else if (d14 > 1 && d18 === 0 && d22 === 0) {
+                    val = val + Math.round(d5 / 12500) * 4;
+                    val2 = val2 + Math.round(d5 / 12500) * 1;
+                    console.log(val);
+                }
+                if (d14 > 1 && d18 === 0 && d22 === 0 && d24 === 0) {
+                    val = val + Math.round(d5 / 12500) * 4;
+                    console.log(val);
+                }
+                else if (d14 === 0 && d24 > 0) {
+                    val = val + Math.round(d5 / 12500) * 4;
+                    console.log(val);
+                }
+                if (d14 > 1 && d18 === 0 && d22 === 0 && d24 > 0) {
+                    val2 = val2 + Math.round(d5 / 12500) * 1;
+                    console.log(val);
+                }
+                else if (d14 === 0 && d24 > 0) {
+                    val2 = val2 + Math.round(d5 / 12500) * 1;
+                    console.log(val);
+                }
+                if (d14 === 0 && d18 === 0 && d22 > 0) {
+                    val2 = val2 + d21;
+                }
+                else if (d14 === 0 && d18 > 0 && d22 === 0) {
+                    val2 = val2 + d16;
+                }
+                else if (d14 === 0 && d18 > 0 && d22 > 0) {
+                    val2 = val2 + d16 + d21;
+                }
+                else if (d14 > 1 && d18 === 0 && d22 === 0) {
+                    val = val + Math.round(d5 / 12500) * 4;
+                    console.log(val);
+                }
+                var val3 = 0;
+                if (d14 === 2) {
+                    val3 = val3 + Math.round(d13 / 8);
+                }
+                if (d18 === 3) {
+                    val3 = val3 + d16;
+                }
+                var val5 = 0;
+                if (d18 === 2) {
+                    val5 = val5 + d16;
+                }
+                if (d22 === 1 || d22 === 3 || d22 === 5) {
+                    val5 = val5 + d21;
+                }
+                if (d24 === 0 || d24 === 2) {
+                    document.getElementById("h10").value = 0;
+                }
+                else if (d24 === 1) {
+                    document.getElementById("h10").value = Math.round(d5 / 4000);
+                }
+                if (d24 === 0 || d24 === 1) {
+                    document.getElementById("h12").value = 0;
+                }
+                else if (d24 === 2) {
+                    document.getElementById("h12").value = Math.round(d5 / 4000);
+                }
+                if (d22 === 0 || d22 === 1 || d22 === 2 || d22 === 3) {
+                    document.getElementById("h14").value = 0;
+                }
+                else if (d22 === 4 || d22 === 5) {
+                    document.getElementById("h14").value = d21;
+                }
+                document.getElementById("h15").value = 0;
+                document.getElementById("h3").value = val;
+                document.getElementById("h4").value = val2;
+                document.getElementById("h6").value = val3;
+                document.getElementById("h8").value = val5;
+                document.getElementById("h13").value = 0;
+            }
+
+
+            else if (document.getElementById('d8').value === '1') {
+                document.getElementById("h10").value = 0;
+                document.getElementById("h14").value = 0;
+                var d13 = parseInt(document.getElementById('4').value);
+                var d14 = parseInt(document.getElementById('d14').value);
+                var d16 = parseInt(document.getElementById('d16').value);
+                var d18 = parseInt(document.getElementById('d18').value);
+                var d22 = parseInt(document.getElementById('d22').value);
+                var d21 = parseInt(document.getElementById('d21').value);
+                var val4 = 0;
+                if (d14 === 2) {
+                    val4 = val4 + Math.round(d13 / 8);
+                }
+                if (d18 === 3) {
+                    val4 = val4 + d16;
+                }
+                var val6 = 0;
+                if (d18 === 2) {
+                    val6 = val6 + d16;
+                }
+                if (d22 === 1 || d22 === 3 || d22) {
+                    val6 = val6 + d21;
+                }
+                document.getElementById("h7").value = val4;
+                document.getElementById("h9").value = val6;
+                if (d24 === 0 || d24 === 2) {
+                    document.getElementById("h11").value = 0;
+                }
+                else if (d24 === 1) {
+                    document.getElementById("h11").value = Math.round(d5 / 4000);
+                }
+                if (d24 === 0 || d24 === 1) {
+                    document.getElementById("h13").value = 0;
+                }
+                else if (d24 === 2) {
+                    document.getElementById("h13").value = Math.round(d5 / 4000);
+                }
+                if (d22 === 0 || d22 === 1 || d22 === 2 || d22 === 3) {
+                    document.getElementById("h15").value = 0;
+                }
+                else if (d22 === 4 || d22 === 5) {
+                    document.getElementById("h15").value = d21;
+                }
+                document.getElementById("h12").value = 0;
+
+            }
+            else if (document.getElementById('d8').value === '0') {
+
+                document.getElementById("h15").value = 0;
+                document.getElementById("h14").value = 0;
+                document.getElementById("h13").value = 0;
+                document.getElementById("h12").value = 0;
+                document.getElementById("h11").value = 0;
+                document.getElementById("h10").value = 0;
+
+            }
+        }
+    </script>
+</body>
+
+</html>
