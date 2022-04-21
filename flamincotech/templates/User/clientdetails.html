@@ -11,9 +11,9 @@
 </head>
 
 <body>
-    <div id="clientdetails"  style="width: 700px;border: 2px solid grey;" class="container my-5">
+    <div id="div1" style="width: 700px;border: 2px solid grey;" class="container my-5 maindiv">
         <div style="text-align: center;" class="container my-5">
-            <p>Client Details</p>
+            <p class=".bg-secondary.bg-gradient">Client Details</p>
         </div>
         <div class="container my-5">
             <form class="my-5">
@@ -48,14 +48,14 @@
                     </div>
                 </div>
                 <div class="my-5">
-                    <button type="submit" onclick="hideclientdiv(event)" class="btn btn-primary mb-2">Submit & Create Quote</button>
+                    <button id="but1" type="submit" class="btn btn-primary mb-2 next">Next</button>
                 </div>
             </form>
         </div>
     </div>
-    
-    <div id="inputsheet" hidden="true" class="contanier">
-        <form style="width: 800px;margin: 20px auto;">
+
+    <div id="inputsheet" class="contanier">
+        <form id="div2"  class="maindiv" style="width: 800px;margin: 20px auto;">
 
             <div class="form-group row">
                 <label class="col" for="exampleFormControlTextarea1">Number of Site(s) / Building(s) </label>
@@ -103,7 +103,7 @@
                 <label class="col" for="exampleFormControlTextarea1">Enter the Number of Desks for Space Planning
                     Requirement - (Fixed Seating)</label>
                 <input id="3" onchange="myFunction(event)" type="number" placeholder="Enter the desk count"
-                    class="form-control col"  rows="3"></input>
+                    class="form-control col" rows="3"></input>
             </div>
             <div class="form-group row">
                 <label class="col" for="exampleFormControlTextarea1">Enter the Number of Desks for Space Utilization
@@ -205,14 +205,15 @@ Enter '2' for Permium Licesne" class="form-control col" rows="3"></input>
             </div>
             <div class="form-group row">
                 <label class="col" for="exampleFormControlTextarea1">Enter the Number of Point or KPI required</label>
-                <input type="number" class="form-control col"  rows="3"></input>
-            </div>
+                <input type="number" class="form-control col" rows="3"></input>
+            </div> <button id="but2" type="submit" class="btn btn-primary mb-2 prev">Previous</button>
+                <button id="ijk2" type="submit" class="btn btn-primary mb-2 next">Next</button>
+
         </form>
 
-        <form style="width: 800px;margin: 20px auto;" action="" method="post">
+        <form  class="maindiv" id="div3" style="width: 800px;margin: 20px auto;" action="" method="post">
 
             <br>
-
             <hr>
             <br>
 
@@ -352,6 +353,8 @@ Enter '2' for Permium Licesne" class="form-control col" rows="3"></input>
                     Odour, Wetfloor detection sensor</label>
                 <input id="h15" type="number" class="form-control col" rows="3"></input>
             </div>
+            <button id="but3" type="submit" class="btn btn-primary mb-2 prev">Previous</button>
+
         </form>
     </div>
 
@@ -365,14 +368,20 @@ Enter '2' for Permium Licesne" class="form-control col" rows="3"></input>
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
     <script>
+        var hardwaredetails = [{ "id": 1, "details": "DB -Spazio Desk Occupancy Sensor with 4 Yearbattery life", "quant": 0 }, { "id": 2, "details": "DB -Spazio Desk Occupancy Sensor with 2 Yearbattery life", "quant": 0 }, {
+            "id": 3, "details": "Wireless Sensor Network Range extender", "quant": 0
+        }, { "id": 4, "details": "Wireless Sensor Network Gateway", "quant": 0 }, { "id": 5, "details": "DB -Spazio Meeting Room Occupancy Sensor(ZigBee)", "quant": 0 }, { "id": 6, "details": "OccuSenZ Pixel Sensor ZB variant", "quant": 0 }, { "id": 7, "details": "OccuSenZ Pixel Sensor IP variant", "quant": 0 }, { "id": 8, "details": "OccuSenZ- PC People Count Sensor ZB variant", "quant": 0 }, { "id": 9, "details": "OccuSenZ- PC People Count Sensor IP variant", "quant": 0 }, { "id": 10, "details": "EnviSenZ -IAQ Indoor Air Quality Sensor ZB variant", "quant": 0 }, { "id": 11, "details": "EnviSenZ -IAQ Indoor Air Quality Sensor IP variant", "quant": 0 }, { "id": 12, "details": "EnviSenZ -IAQ Indoor Air Quality Sensor ZB variant", "quant": 0 }, { "id": 13, "details": "EnviSenZ -IAQ Indoor Air Quality Sensor IP variant", "quant": 0 }, { "id": 14, "details": "EnviSenZ Rest Room Sensor ZB variant T+Rh, TVOC,Odour, Wetfloor detection sensor", "quant": 0 }, { "id": 15, "details": "EnviSenZ Rest Room Sensor IP variant T+Rh, TVOC,Odour, Wetfloor detection sensor", "quant": 0 }];
+        var requiredsoftwaredetails = [{ "id": 1, "details": "Total Number of Kiosk Licenses", "quant": 0 }, { "id": 2, "details": "Total  Number of Mobile Users", "quant": 0 }, {
+            "id": 3, "details": "Total Number of Desk for Space Planning Licenses", "quant": 0
+        }, { "id": 4, "details": "Total Number of Space Utilization Licenses", "quant": 0 }, { "id": 5, "details": "Total Number of Desk Booking Licenses", "quant": 0 }, { "id": 6, "details": "Total Number of Meeting Room for Occupancy Licenses", "quant": 0 }, { "id": 7, "details": "Total Number of Meeting Room for People count Licenses", "quant": 0 }, { "id": 8, "details": "Total Number of Meeting Room Booking Licenses", "quant": 0 }, { "id": 9, "details": "> Wayfinding Point of Interest", "quant": 0 }, { "id": 10, "details": "Feedback Point of Interest", "quant": 0 }, { "id": 11, "details": "Restroom License(People Count)", "quant": 0 }, { "id": 12, "details": "", "Restroom License(Wet Floor Detection)quant": 0 }, { "id": 13, "details": "Restroom License(Odour)", "quant": 0 }, { "id": 14, "details": "Total IAQ Points", "quant": 0 }];
         var softwaredetails = [{ "id": 1, "details": "Total Number of Kiosk Licenses", "quant": 0 }, { "id": 2, "details": "Total  Number of Mobile Users", "quant": 0 }, {
             "id": 3, "details": "Total Number of Desk for Space Planning Licenses", "quant": 0
         }, { "id": 4, "details": "Total Number of Space Utilization Licenses", "quant": 0 }, { "id": 5, "details": "Total Number of Desk Booking Licenses", "quant": 0 }, { "id": 6, "details": "Total Number of Meeting Room for Occupancy Licenses", "quant": 0 }, { "id": 7, "details": "Total Number of Meeting Room for People count Licenses", "quant": 0 }, { "id": 8, "details": "Total Number of Meeting Room Booking Licenses", "quant": 0 }, { "id": 9, "details": "> Wayfinding Point of Interest", "quant": 0 }, { "id": 10, "details": "Feedback Point of Interest", "quant": 0 }, { "id": 11, "details": "Restroom License(People Count)", "quant": 0 }, { "id": 12, "details": "", "Restroom License(Wet Floor Detection)quant": 0 }, { "id": 13, "details": "Restroom License(Odour)", "quant": 0 }, { "id": 14, "details": "Total IAQ Points", "quant": 0 }];
-        function hideclientdiv(e){
+        function hideclientdiv(e) {
             console.log("edehduiehd");
             e.preventDefault();
-            document.getElementById("clientdetails").hidden=true;
-            document.getElementById("inputsheet").hidden=false;
+            document.getElementById("clientdetails").hidden = true;
+            document.getElementById("inputsheet").hidden = false;
 
         }
         function myFunction(e) {
@@ -664,7 +673,51 @@ Enter '2' for Permium Licesne" class="form-control col" rows="3"></input>
 
             }
         }
+        document.querySelectorAll('.prev').forEach(item => {
+            item.addEventListener('click', event => {
+                event.preventDefault();
+                console.log(typeof(item.id));
+                let abc=(item.id).substr(3,1);
+                abc=abc-1;
+                let eleme = 'div' + abc;
+                document.querySelectorAll('.maindiv').forEach(item2 => {
+                    if(item2.id===eleme){
+                        item2.hidden=false;
+
+                    }
+                    else{
+                        item2.hidden=true;
+                    }
+                })
+
+
+            })
+        })
+        document.querySelectorAll('.next').forEach(item => {
+            item.addEventListener('click', event => {
+                event.preventDefault();
+                console.log(typeof(item.id));
+                let abc=(item.id).substr(3,1);
+                abc=parseInt(abc)+1;
+                console.log(abc);
+                let eleme = 'div' + abc;
+                console.log(eleme);
+                document.querySelectorAll('.maindiv').forEach(item2 => {
+                    console.log(item2.id);
+                    if(item2.id===eleme){
+                        item2.hidden=false;
+
+                    }
+                    else{
+                        item2.hidden=true;
+                    }
+                })
+
+
+            })
+        })
     </script>
+
 </body>
 
 </html>
