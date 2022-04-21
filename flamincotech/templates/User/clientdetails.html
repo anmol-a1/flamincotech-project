@@ -26,36 +26,36 @@
                 <div class="form-group row">
                     <label class="col-sm-4 col-form-label">Address</label>
                     <div class="col-sm-8">
-                        <input type="password" class="form-control" placeholder="Address">
+                        <input type="text" class="form-control" placeholder="Address">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-4 col-form-label">Contact Number</label>
                     <div class="col-sm-8">
-                        <input type="password" class="form-control" placeholder="Contact Number">
+                        <input type="text" class="form-control" placeholder="Contact Number">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-4 col-form-label">E-mail</label>
                     <div class="col-sm-8">
-                        <input type="password" class="form-control" placeholder="E-mail">
+                        <input type="email" class="form-control" placeholder="E-mail">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-4 col-form-label">Subject</label>
                     <div class="col-sm-8">
-                        <input type="password" class="form-control" placeholder="Subject">
+                        <input type="text" class="form-control" placeholder="Subject">
                     </div>
                 </div>
                 <div class="my-5">
-                    <button id="but1" type="submit" class="btn btn-primary mb-2 next">Next</button>
+                    <button id="but1"  type="submit" class="btn btn-primary mb-2 next">Next</button>
                 </div>
             </form>
         </div>
     </div>
 
-    <div id="inputsheet" class="contanier">
-        <form id="div2"  class="maindiv" style="width: 800px;margin: 20px auto;">
+    <div id="inputsheet" class="contanier" >
+        <form id="div2" hidden class="maindiv" style="width: 800px;margin: 20px auto;border: 2px solid grey;padding: 30px;">
 
             <div class="form-group row">
                 <label class="col" for="exampleFormControlTextarea1">Number of Site(s) / Building(s) </label>
@@ -207,11 +207,11 @@ Enter '2' for Permium Licesne" class="form-control col" rows="3"></input>
                 <label class="col" for="exampleFormControlTextarea1">Enter the Number of Point or KPI required</label>
                 <input type="number" class="form-control col" rows="3"></input>
             </div> <button id="but2" type="submit" class="btn btn-primary mb-2 prev">Previous</button>
-                <button id="ijk2" type="submit" class="btn btn-primary mb-2 next">Next</button>
+                <button id="ijk2" onclick="saveautovalues()" type="submit" class="btn btn-primary mb-2 next">Next</button>
 
         </form>
 
-        <form  class="maindiv" id="div3" style="width: 800px;margin: 20px auto;" action="" method="post">
+        <form hidden class="maindiv" id="div3" style="width: 800px;margin: 20px auto;border: 2px solid grey;padding: 30px;" action="" method="post">
 
             <br>
             <hr>
@@ -377,13 +377,6 @@ Enter '2' for Permium Licesne" class="form-control col" rows="3"></input>
         var softwaredetails = [{ "id": 1, "details": "Total Number of Kiosk Licenses", "quant": 0 }, { "id": 2, "details": "Total  Number of Mobile Users", "quant": 0 }, {
             "id": 3, "details": "Total Number of Desk for Space Planning Licenses", "quant": 0
         }, { "id": 4, "details": "Total Number of Space Utilization Licenses", "quant": 0 }, { "id": 5, "details": "Total Number of Desk Booking Licenses", "quant": 0 }, { "id": 6, "details": "Total Number of Meeting Room for Occupancy Licenses", "quant": 0 }, { "id": 7, "details": "Total Number of Meeting Room for People count Licenses", "quant": 0 }, { "id": 8, "details": "Total Number of Meeting Room Booking Licenses", "quant": 0 }, { "id": 9, "details": "> Wayfinding Point of Interest", "quant": 0 }, { "id": 10, "details": "Feedback Point of Interest", "quant": 0 }, { "id": 11, "details": "Restroom License(People Count)", "quant": 0 }, { "id": 12, "details": "", "Restroom License(Wet Floor Detection)quant": 0 }, { "id": 13, "details": "Restroom License(Odour)", "quant": 0 }, { "id": 14, "details": "Total IAQ Points", "quant": 0 }];
-        function hideclientdiv(e) {
-            console.log("edehduiehd");
-            e.preventDefault();
-            document.getElementById("clientdetails").hidden = true;
-            document.getElementById("inputsheet").hidden = false;
-
-        }
         function myFunction(e) {
             var id = "s" + e.target.id;
             document.getElementById(id).value = e.target.value;
@@ -499,7 +492,15 @@ Enter '2' for Permium Licesne" class="form-control col" rows="3"></input>
             }
             wsnre();
         }
+        function saveautovalues(){
+            for(let i=0;i<14;i++){
+                softwaredetails[i].id=document.getElementById('s'+(i+1)).value;
+            }
+            for(let i=0;i<15;i++){
+                hardwaredetails[i].id=document.getElementById('h'+(i+1)).value;
+            }
 
+        }
         function wsnre() {
             if (document.getElementById('d8').value === '2') {
                 document.getElementById("h11").value = 0;
