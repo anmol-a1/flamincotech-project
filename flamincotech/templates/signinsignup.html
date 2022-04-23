@@ -76,7 +76,7 @@ html,body{
 .slide-controls .slider-tab{
   position: absolute;
   height: 100%;
-  width: 50%;
+  width: 100%;
   left: 0;
   z-index: 0;
   border-radius: 15px;
@@ -161,11 +161,10 @@ form .field input:focus::placeholder{
   text-decoration: underline;
 }
 form .btn{
-  height: 50px;
+  height: 70px;
   width: 100%;
   border-radius: 15px;
   position: relative;
-  overflow: hidden;
 }
 form .btn .btn-layer{
   height: 100%;
@@ -206,15 +205,15 @@ form .btn input[type="submit"]{
       {% endfor %}   
      <div class="wrapper">
       <div class="title-text">
-        <div class="title login">Login Form</div>
+        <div class="title login">Flamencotech</div>
         <div class="title signup">Signup Form</div>
       </div>
       <div class="form-container">
         <div class="slide-controls">
           <input type="radio" name="slide" id="login" checked>
           <input type="radio" name="slide" id="signup">
-          <label for="login" class="slide login">Login</label>
-          <label for="signup" class="slide signup">Signup</label>
+          <label for="login" class="slide login">Login Form</label>
+          <!-- <label for="signup" class="slide signup">Signup</label> -->
           <div class="slider-tab"></div>
         </div>
         <div class="form-inner">
@@ -226,12 +225,11 @@ form .btn input[type="submit"]{
             <div class="field">
                {% render_field LoginForm.password type="password"  placeholder="Password" %} 
             </div>
-            <div class="pass-link"><a href="/password_reset">Forgot password?</a></div>
+
             <div class="field btn">
               <div class="btn-layer"></div>
               <input type="submit" value="Login">
             </div>
-            <div class="signup-link">Not a member? <a href="">Signup now</a></div>
           </form>
 
 
@@ -240,7 +238,7 @@ form .btn input[type="submit"]{
 
 
 
-
+<!-- 
           <form  method="POST" enctype="multipart/form-data" class="signup">
   {%csrf_token%}
             <div class="field">
@@ -262,7 +260,7 @@ form .btn input[type="submit"]{
               <div class="btn-layer"></div>
               <input type="submit" value="Signup">
             </div>
-          </form>
+          </form> -->
         </div>
       </div>
     </div>
