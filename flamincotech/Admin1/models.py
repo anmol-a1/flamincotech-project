@@ -45,3 +45,25 @@ class NewUser(AbstractBaseUser, PermissionsMixin):
     
     def __int__(self):
         return self.id
+class InputConfiguration(models.Model):
+    sr_no=models.IntegerField()
+    desc=models.CharField(max_length=500)
+    ft_hardware=models.IntegerField()
+    active=models.IntegerField()
+    passive=models.IntegerField()
+    ddcsensor=models.IntegerField()
+    thirdparty=models.IntegerField()
+    cabpiptray=models.IntegerField()
+    ft_hardware1=models.IntegerField()
+    active1=models.IntegerField()
+    passive1=models.IntegerField()
+    ddcsensor1=models.IntegerField()
+    thirdparty1=models.IntegerField()
+    cabpiptray1=models.IntegerField()
+    ftmandayeffort=models.IntegerField()
+    othersmicffort=models.IntegerField()
+    ft2=models.IntegerField()
+    ft3=models.IntegerField()
+    ft4=models.IntegerField()
+
+    
