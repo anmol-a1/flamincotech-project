@@ -21,35 +21,35 @@
                 <div class="form-group row">
                     <label class="col-sm-4 col-form-label">Company Name</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" placeholder="Company Name">
+                        <input id="c1" type="text" class="form-control" placeholder="Company Name">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-4 col-form-label">Location</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" placeholder="City Name">
+                        <input id="c2" type="text" class="form-control" placeholder="City Name">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-4 col-form-label">Contact Number</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" placeholder="Contact Number">
+                        <input id="c3"  type="text" class="form-control" placeholder="Contact Number">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-4 col-form-label">E-mail</label>
                     <div class="col-sm-8">
-                        <input type="email" class="form-control" placeholder="E-mail">
+                        <input id="c4"  type="email" class="form-control" placeholder="E-mail">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-4 col-form-label">Subject</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" placeholder="Subject">
+                        <input id="c5"  type="text" class="form-control" placeholder="Subject">
                     </div>
                 </div>
                 <div class="my-5">
-                    <button id="but1" type="submit" class="btn btn-primary mb-2 next">Save & Next</button>
+                    <button id="but1" type="submit" onclick="saveautovalues1()" class="btn btn-primary mb-2 next">Save & Next</button>
                 </div>
             </form>
         </div>
@@ -251,7 +251,7 @@ Enter '2' for Permium Licesne" class="form-control col" rows="3"></input>
                 <h4>
                     <p>Software Details</p>
                 </h4><hr>
-            <div class="form-group row" style="margin: 20px;">
+            <div class="form-group row">
                 <label class="col" for="exampleFormControlTextarea1">Total Number of Kiosk Licenses</label>
                 <input id="s1" type="number" class="form-control col" rows="3"></input>
             </div>
@@ -387,6 +387,8 @@ Enter '2' for Permium Licesne" class="form-control col" rows="3"></input>
                 <input id="h15" type="number" class="form-control col" rows="3"></input>
             </div>
             <button id="but3" type="submit" class="btn btn-primary mb-2 prev">Previous</button>
+            <button id="abc3" type="submit"
+                    class="btn btn-primary mb-2 next">Next</button>
 
         </form>
     </div>
@@ -401,6 +403,9 @@ Enter '2' for Permium Licesne" class="form-control col" rows="3"></input>
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
     <script>
+        var clientdetails   = [{ "id": 1, "details": "Company Name", "quant": 0 }, { "id": 2, "details": "Location", "quant": 0 }, {
+            "id": 3, "details": "Contact Number", "quant": 0
+        }, { "id": 4, "details": "E-mail", "quant": 0 }, { "id": 5, "details": "Subject", "quant": 0 }];
         var hardwaredetails = [{ "id": 1, "details": "DB -Spazio Desk Occupancy Sensor with 4 Yearbattery life", "quant": 0 }, { "id": 2, "details": "DB -Spazio Desk Occupancy Sensor with 2 Yearbattery life", "quant": 0 }, {
             "id": 3, "details": "Wireless Sensor Network Range extender", "quant": 0
         }, { "id": 4, "details": "Wireless Sensor Network Gateway", "quant": 0 }, { "id": 5, "details": "DB -Spazio Meeting Room Occupancy Sensor(ZigBee)", "quant": 0 }, { "id": 6, "details": "OccuSenZ Pixel Sensor ZB variant", "quant": 0 }, { "id": 7, "details": "OccuSenZ Pixel Sensor IP variant", "quant": 0 }, { "id": 8, "details": "OccuSenZ- PC People Count Sensor ZB variant", "quant": 0 }, { "id": 9, "details": "OccuSenZ- PC People Count Sensor IP variant", "quant": 0 }, { "id": 10, "details": "EnviSenZ -IAQ Indoor Air Quality Sensor ZB variant", "quant": 0 }, { "id": 11, "details": "EnviSenZ -IAQ Indoor Air Quality Sensor IP variant", "quant": 0 }, { "id": 12, "details": "EnviSenZ -IAQ Indoor Air Quality Sensor ZB variant", "quant": 0 }, { "id": 13, "details": "EnviSenZ -IAQ Indoor Air Quality Sensor IP variant", "quant": 0 }, { "id": 14, "details": "EnviSenZ Rest Room Sensor ZB variant T+Rh, TVOC,Odour, Wetfloor detection sensor", "quant": 0 }, { "id": 15, "details": "EnviSenZ Rest Room Sensor IP variant T+Rh, TVOC,Odour, Wetfloor detection sensor", "quant": 0 }];
@@ -525,13 +530,28 @@ Enter '2' for Permium Licesne" class="form-control col" rows="3"></input>
             }
             wsnre();
         }
+        function saveautovalues1() {
+            for (let i = 0; i < 5; i++) {
+                clientdetails[i].quant = document.getElementById('c' + (i + 1)).value;
+            }
+        localStorage.setItem('clientdetails',JSON.stringify(clientdetails));
+        localStorage.setItem('requiredsoftwaredetails',JSON.stringify(requiredsoftwaredetails));
+
+        }
         function saveautovalues() {
             for (let i = 0; i < 14; i++) {
-                softwaredetails[i].id = document.getElementById('s' + (i + 1)).value;
+                softwaredetails[i].quant = document.getElementById('s' + (i + 1)).value;
             }
             for (let i = 0; i < 15; i++) {
-                hardwaredetails[i].id = document.getElementById('h' + (i + 1)).value;
+                hardwaredetails[i].quant= document.getElementById('h' + (i + 1)).value;
             }
+            for (let i = 0; i < 14; i++) {
+                requiredsoftwaredetails[i].quant= document.getElementById('r' + (i + 1)).value;
+            }
+        localStorage.setItem('harddetails',JSON.stringify(hardwaredetails));
+        localStorage.setItem('softdetails',JSON.stringify(softwaredetails));
+        localStorage.setItem('requiredsoftwaredetails',JSON.stringify(requiredsoftwaredetails));
+
         }
         function wsnre() {
             if (document.getElementById('d8').value === '2') {
@@ -749,6 +769,12 @@ Enter '2' for Permium Licesne" class="form-control col" rows="3"></input>
 
             })
         })
+
+        //code for localstorage
+        // function saveData(){
+        // localStorage.saveautovalues
+        // }
+        
     </script>
 
 </body>
