@@ -121,12 +121,10 @@
             console.log(sr_no);
             sr_no=sr_no;
             document.getElementById(sr_no).disabled=false;
-            sr_no='.'+sr_no;
-            const boxes1 = document.querySelectorAll(".uu");
-            console.log(boxes1)
-            const boxes = document.querySelectorAll(sr_no);
+            const boxes = document.getElementsByClassName(sr_no);
             for (const box of boxes) {
-                box.readonly=false;
+                box.readOnly=false;
+                console.log(box);
             }
           
             
