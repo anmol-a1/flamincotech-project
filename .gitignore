@@ -1,4 +1,16 @@
+<<<<<<< HEAD
 myenv
 /myenv
 \myenv
 
+=======
+myenc
+/myenc
+\myenc
+venv
+/venv
+\venv
+myenv
+/myenv
+\myenv
+>>>>>>> 60e9a749a56a65cec7d9ce0a2d91f37dd1e6b8e8
