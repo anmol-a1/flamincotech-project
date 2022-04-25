@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponseRedirect,HttpResponse
+from django.http import HttpResponseRedirect,HttpResponse,JsonResponse
 from .models import InputConfiguration
 def index(request):
     return render(request,'Admin1/index.html')
@@ -14,4 +14,12 @@ def configuration(request):
     print(len(entries))
     context={'entries':entries}
     return render(request,'Admin1/configuration.html',context)
+def editconfiguration(request):
+    print("s")
+    print("ugugui")
+    sr_no=request.POST.get('sr_no')
+    print(sr_no)
+    if True:
+        print("hhh")
+    return JsonResponse({'adg':'jyyj'})
 # Create your views here.
