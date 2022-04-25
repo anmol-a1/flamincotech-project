@@ -548,10 +548,8 @@ Enter '2' for Permium Licesne" class="form-control col" rows="3"></input>
             for (let i = 0; i < 14; i++) {
                 requiredsoftwaredetails[i].quant= document.getElementById('r' + (i + 1)).value;
             }
-            // console.log(localStorage);
         localStorage.setItem('harddetails',JSON.stringify(hardwaredetails));
         localStorage.setItem('softdetails',JSON.stringify(softwaredetails));
-        // localStorage.setItem('clientdetails',JSON.stringify(clientdetails));
         localStorage.setItem('requiredsoftwaredetails',JSON.stringify(requiredsoftwaredetails));
 
         }

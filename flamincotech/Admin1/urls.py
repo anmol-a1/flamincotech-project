@@ -26,5 +26,6 @@ urlpatterns = [
     path('history/',views.history,name='history'),
     path('trackp/',views.trackp,name='trackp'),
     path('configuration/',views.configuration,name='configuration'),
+    path('vpss/',views.vpss,name='vpss'),
   
 ]

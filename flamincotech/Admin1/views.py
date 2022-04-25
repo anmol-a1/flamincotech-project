@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect,HttpResponse
-from .models import InputConfiguration
+from .models import InputConfiguration,vpss
 def index(request):
     return render(request,'Admin1/index.html')
 def registeruser(request):
@@ -14,4 +14,8 @@ def configuration(request):
     print(len(entries))
     context={'entries':entries}
     return render(request,'Admin1/configuration.html',context)
+def vpss(request):
+    entries=vpss.objects.all()
+    context={'entries':entries}
+    return render(request,'Admin1/vpss.html',context)
 # Create your views here.
