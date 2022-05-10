@@ -12,7 +12,7 @@
 
 <body>
     {%csrf_token%}
-    <div style="width: auto;background-color: rgb(241, 241, 241);" class="my-5 shadow p-3 mb-5 rounded">
+    <div style="width: auto;background-color: rgb(241, 241, 241);" class="shadow p-3 mb-5 rounded">
         <div style="text-align: center;" class="container my-5">
             <h3><b>Supply</b></h3>
         </div>
@@ -36,17 +36,17 @@
                         <tr>
                             <td>{{entry.sr_no}}</td>
                             <td>{{entry.desc}}</td>
-                            <td><input class="{{entry.sr_no}}1" style="width: 55px;border:none" readonly="true" value="{{entry.ft_hardware}}"
+                            <td><input class="{{entry.sr_no}}1" id="{{entry.sr_no}}1hardware" style="width: 55px;border:none" readonly="true" value="{{entry.ft_hardware}}"
                                     type="number"></td>
-                            <td><input class="{{entry.sr_no}}1" style="width: 55px;border:none" readonly="true" value="{{entry.active}}"
+                            <td><input class="{{entry.sr_no}}1" id="{{entry.sr_no}}1active" style="width: 55px;border:none" readonly="true" value="{{entry.active}}"
                                     type="number"></td>
-                            <td><input class="{{entry.sr_no}}1" style="width: 55px;border:none" readonly="true" value="{{entry.passive}}"
+                            <td><input class="{{entry.sr_no}}1" id="{{entry.sr_no}}1passive" style="width: 55px;border:none" readonly="true" value="{{entry.passive}}"
                                     type="number"></td>
-                            <td><input class="{{entry.sr_no}}1" style="width: 55px;border:none" readonly="true" value="{{entry.ddcsensor}}"
+                            <td><input class="{{entry.sr_no}}1" id="{{entry.sr_no}}1ddcsensor" style="width: 55px;border:none" readonly="true" value="{{entry.ddcsensor}}"
                                     type="number"></td>
-                            <td><input class="{{entry.sr_no}}1" style="width: 55px;border:none" readonly="true" value="{{entry.thirdparty}}"
+                            <td><input class="{{entry.sr_no}}1" id="{{entry.sr_no}}1thirdparty" style="width: 55px;border:none" readonly="true" value="{{entry.thirdparty}}"
                                     type="number"></td>
-                            <td><input class="{{entry.sr_no}}1" style="width: 55px;border:none" readonly="true" value="{{entry.cabpiptray}}"
+                            <td><input class="{{entry.sr_no}}1" id="{{entry.sr_no}}1cabpiptray" style="width: 55px;border:none" readonly="true" value="{{entry.cabpiptray}}"
                                     type="number"></td>
                             <td><button value="{{entry.sr_no}}1" type="submit" class="btn btn-primary edit">Edit</button></td>
                             <td><button value="{{entry.sr_no}}1" id="{{entry.sr_no}}1" type="submit" disabled class="btn btn-primary save">Save</button></td>
@@ -86,30 +86,30 @@
                         <tr>
                               <td>{{entry.sr_no}}</td>
                             <td>{{entry.desc}}</td>
-                            <td><input class="{{entry.sr_no}}2" style="width: 55px;border:none" readonly="true" value="{{entry.ft_hardware1}}"
+                            <td><input class="{{entry.sr_no}}2" id="{{entry.sr_no}}2hardware"  style="width: 55px;border:none" readonly="true" value="{{entry.ft_hardware1}}"
                                     type="number"></td>
-                            <td><input class="{{entry.sr_no}}2" style="width: 55px;border:none" readonly="true" value="{{entry.active1}}"
+                            <td><input class="{{entry.sr_no}}2" id="{{entry.sr_no}}2active" style="width: 55px;border:none" readonly="true" value="{{entry.active1}}"
                                     type="number"></td>
-                            <td><input class="{{entry.sr_no}}2" style="width: 55px;border:none" readonly="true" value="{{entry.passive1}}"
+                            <td><input class="{{entry.sr_no}}2" id="{{entry.sr_no}}2passive" style="width: 55px;border:none" readonly="true" value="{{entry.passive1}}"
                                     type="number"></td>
-                            <td><input class="{{entry.sr_no}}2" style="width: 55px;border:none" readonly="true" value="{{entry.ddcsensor1}}"
+                            <td><input class="{{entry.sr_no}}2" id="{{entry.sr_no}}2ddcsensor" style="width: 55px;border:none" readonly="true" value="{{entry.ddcsensor1}}"
                                     type="number"></td>
-                            <td><input class="{{entry.sr_no}}2" style="width: 55px;border:none" readonly="true" value="{{entry.thirdparty1}}"
+                            <td><input class="{{entry.sr_no}}2" id="{{entry.sr_no}}2thirdparty" style="width: 55px;border:none" readonly="true" value="{{entry.thirdparty1}}"
                                     type="number"></td>
-                            <td><input class="{{entry.sr_no}}2" style="width: 55px;border:none" readonly="true" value="{{entry.cabpiptray1}}"
+                            <td><input class="{{entry.sr_no}}2" id="{{entry.sr_no}}2cabpiptray" style="width: 55px;border:none" readonly="true" value="{{entry.cabpiptray1}}"
                                     type="number"></td>
-                            <td><input class="{{entry.sr_no}}2" style="width: 55px;border:none" readonly="true" value="{{entry.ftmandayeffort}}"
+                            <td><input class="{{entry.sr_no}}2" id="{{entry.sr_no}}2ftmandayeffort" style="width: 55px;border:none" readonly="true" value="{{entry.ftmandayeffort}}"
                                     type="number"></td>
-                            <td><input class="{{entry.sr_no}}2" style="width: 55px;border:none" readonly="true" value="{{entry.othersmicffort}}"
+                            <td><input class="{{entry.sr_no}}2" id="{{entry.sr_no}}2othersmicffort" style="width: 55px;border:none" readonly="true" value="{{entry.othersmicffort}}"
                                     type="number"></td>
-                            <td><input class="{{entry.sr_no}}2" style="width: 55px;border:none" readonly="true" value="{{entry.ft2}}"
+                            <td><input class="{{entry.sr_no}}2" id="{{entry.sr_no}}2ft2" style="width: 55px;border:none" readonly="true" value="{{entry.ft2}}"
                                     type="number"></td>
-                            <td><input class="{{entry.sr_no}}2" style="width: 55px;border:none" readonly="true" value="{{entry.ft3}}"
+                            <td><input class="{{entry.sr_no}}2" id="{{entry.sr_no}}2ft3" style="width: 55px;border:none" readonly="true" value="{{entry.ft3}}"
                                     type="number"></td>
-                            <td><input class="{{entry.sr_no}}2" style="width: 55px;border:none" readonly="true" value="{{entry.ft4}}"
+                            <td><input class="{{entry.sr_no}}2" id="{{entry.sr_no}}2ft4" style="width: 55px;border:none" readonly="true" value="{{entry.ft4}}"
                                     type="number"></td>
                             <td><button value="{{entry.sr_no}}2" type="submit" class="btn btn-primary edit">Edit</button></td>
-                            <td><button value="{{entry.sr_no}}2" id="{{entry.sr_no}}2" type="submit" disabled class="btn btn-primary save">Save</button></td>
+                            <td><button value="{{entry.sr_no}}2" id="{{entry.sr_no}}2" type="submit" disabled class="btn btn-primary save1">Save</button></td>
                         </tr>
                         {% endfor %}
                     </tbody>
@@ -128,8 +128,6 @@
         crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script>
-
-    
         $(document).on('click', '.edit', function (e) {
             e.preventDefault();
             var sr_no=$(this).val();
@@ -141,28 +139,92 @@
                 box.readOnly=false;
                 console.log(box);
             }
-          
-            
-           
         })
         $(document).on('click', '.save', function (e) {
+            e.preventDefault();
+            let sr_no=$(this).val();
+            var ft_hardware=document.getElementById(sr_no+"hardware").value;
+            var active=document.getElementById(sr_no+"active").value;
+            var passive=document.getElementById(sr_no+"passive").value;
+            var ddcsensor=document.getElementById(sr_no+"ddcsensor").value;
+            var thirdparty=document.getElementById(sr_no+"thirdparty").value;
+            var cabpiptray=document.getElementById(sr_no+"cabpiptray").value;
             e.preventDefault();
             $.ajax({
                 type: 'POST',
                 url: '{% url "editconfiguration" %}',
                 data: {
-                    sr_no:$(this).val(),
+                    sr_no:sr_no,
+                    ft_hardware:ft_hardware,
+                    active:active,
+                    passive:passive,
+                    ddcsensor:ddcsensor,
+                    thirdparty:thirdparty,
+                    cabpiptray:cabpiptray,
                     csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
                     action: 'post'
                 },
                 success: function (json) {
-                   console.log(json.Error)
+                   console.log(json.adg);
+                   document.getElementById(json.sr_no).disabled=true;
+                   const boxes = document.getElementsByClassName(json.sr_no);
+                   for (const box of boxes) {
+                   box.readOnly=true;
+            }
                 },
                 error: function (xhr, errmsg, err) {
             
                 }
             });
         })
+        $(document).on('click', '.save1', function (e) {
+            e.preventDefault();
+            let sr_no=$(this).val();
+            var ft_hardware=document.getElementById(sr_no+"hardware").value;
+            var active=document.getElementById(sr_no+"active").value;
+            var passive=document.getElementById(sr_no+"passive").value;
+            var ddcsensor=document.getElementById(sr_no+"ddcsensor").value;
+            var thirdparty=document.getElementById(sr_no+"thirdparty").value;
+            var cabpiptray=document.getElementById(sr_no+"cabpiptray").value;
+            var ftmandayeffort=document.getElementById(sr_no+"ftmandayeffort").value;
+            var othersmicffort=document.getElementById(sr_no+"othersmicffort").value;
+            var ft2=document.getElementById(sr_no+"ft2").value;
+            var ft3=document.getElementById(sr_no+"ft3").value;
+            var ft4=document.getElementById(sr_no+"ft4").value;
+            e.preventDefault();
+            $.ajax({
+                type: 'POST',
+                url: '{% url "editconfiguration1" %}',
+                data: {
+                    sr_no:sr_no,
+                    ft_hardware:ft_hardware,
+                    active:active,
+                    passive:passive,
+                    ddcsensor:ddcsensor,
+                    thirdparty:thirdparty,
+                    cabpiptray:cabpiptray,
+                    ftmandayeffort:ftmandayeffort,
+                    othersmicffort:othersmicffort,
+                    ft2:ft2,
+                    ft3:ft3,
+                    ft4:ft4,
+                    csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+                    action: 'post'
+                },
+                success: function (json) {
+                   console.log(json.adg);
+                   document.getElementById(json.sr_no).disabled=true;
+                   const boxes = document.getElementsByClassName(json.sr_no);
+                   for (const box of boxes) {
+                   box.readOnly=true;
+            }
+                },
+                error: function (xhr, errmsg, err) {
+            
+                }
+            });
+        })
+        
     </script>
 
 </body>

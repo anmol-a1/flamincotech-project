@@ -47,10 +47,9 @@ def signin(request):
 			return redirect('sign')
 	else:
 		return render(request,'signinsignup.html',{'LoginForm':LoginForm,'AddMemberForm':AddMemberForm})
-
 def logout_view(request):
-	logout(request) 
-	return redirect('sign')
+    logout(request)
+    return redirect('sign')
 
 def password_reset_request(request):
 	if request.method == "POST":

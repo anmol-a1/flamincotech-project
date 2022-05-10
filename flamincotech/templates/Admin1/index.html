@@ -36,21 +36,65 @@
                             class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="/admins/history">Client History <span
-                            class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/admins/history">Client History <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="/admins/trackp">Track Proposal<span
-                            class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/admins/SpazioPriceCalculator">SpazioPriceCalculator <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/admins/trackp">Track Proposal<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="/admins/configuration">Configuration Details<span
                             class="sr-only">(current)</span></a>
                 </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/admins/vpss">Variable Project Specific Sheet<span
+                            class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Hardware Cost Equipments
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/admins/hardwaregeneral">Flamicotech Hardware</a>
+                        <a class="dropdown-item" href="/admins/hardwareipvariant">IP Variant</a>
+                        <a class="dropdown-item" href="/admins/hardwareactive">Active Components i.e. Server & Switches</a>
+                        <a class="dropdown-item" href="/admins/hardwarepassive">Passive Components i.e. Cat6 & Fiber components </a>
+                        <a class="dropdown-item" href="/admins/hardwareethernet">Ethernet Component</a>
+                        <a class="dropdown-item" href="/admins/hardwareddc">DDC Controllers</a>
+                        <a class="dropdown-item" href="/admins/hardwarebmssensors">BMS Sensors </a>
+                        <a class="dropdown-item" href="/admins/hardwarethirdparty">Third Party Software </a>
+                        <a class="dropdown-item" href="/admins/hardwarebmscabling">BMS Cabling</a>
+                        <a class="dropdown-item" href="/admins/hardwarepiping">Piping</a>
+                        <a class="dropdown-item" href="/admins/hardwaretrays">Trays</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Hardware Cost Installation Equipments
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/admins/hardwaregeneralinstall">Flamicotech Hardware</a>
+                        <a class="dropdown-item" href="/admins/hardwareipvariantinstall">IP VARIANT</a>
+                        <a class="dropdown-item" href="/admins/hardwareactiveinstall">Active Components i.e. Server & Switches</a>
+                        <a class="dropdown-item" href="/admins/hardwarepassiveinstall">Passive Components i.e. Cat6 & Fiber components> </a>
+                        <a class="dropdown-item" href="/admins/hardwareethernetinstall">Ethernet Component</a>
+                        <a class="dropdown-item" href="/admins/hardwareddcinstall">DDC Controllers</a>
+                        <a class="dropdown-item" href="/admins/hardwarebmssensorsinstall">BMS Sensors </a>
+                        <a class="dropdown-item" href="/admins/hardwarethirdpartyinstall">Third Party Software </a>
+                        <a class="dropdown-item" href="/admins/hardwarebmscablinginstall">BMS Cabling</a>
+                        <a class="dropdown-item" href="/admins/hardwarepipininstallginstall">Piping</a>
+                        <a class="dropdown-item" href="/admins/hardwaretraysinstall">Trays</a>
+                        <a class="dropdown-item" href="/admins/">Flamenco Tech Efforts in Man Days</a>
+                    </div>
+                </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <a href="/logout/"> <button class="btn btn-outline-success my-2 my-sm-0"
+                        type="submit">Search</button></a>
             </form>
         </div>
     </nav>

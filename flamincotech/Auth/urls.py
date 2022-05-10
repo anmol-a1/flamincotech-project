@@ -22,6 +22,6 @@ from django.conf import settings
 from django.contrib.auth import views as auth_views
 urlpatterns = [
     path('',views.signin,name='sign'),
-    path('logout/',views.logout_view,name='logout'),
+    path('logout',views.logout_view,name='logout'),
   
 ]
