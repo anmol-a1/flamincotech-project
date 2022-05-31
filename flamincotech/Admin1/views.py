@@ -1,6 +1,7 @@
 from django.shortcuts import render
+import json
 from django.http import HttpResponseRedirect,HttpResponse,JsonResponse
-from .models import InputConfiguration,vpss,HardWareGeneral,HardWareIpVariant,HardWareActive,HardWarePassive,HardWareEthernet,HardWareDdc,HardWareBmsSensors,HardWareThirdParty,HardWareBmsScabling,HardWarePiping,HardWareTrays,HardWareGeneralInstall,HardWareIpVariantInstall,HardWareActiveInstall,HardWarePassiveInstall,HardWareEthernetInstall,HardWareDdcInstall,HardWareBmsSensorsInstall,HardWareThirdPartyInstall,HardWareBmsScablingInstall,HardWarePipingInstall,HardWareTraysInstall,SpazioPriceCalculator
+from .models import InputConfiguration,vpss,HardWareGeneral,HardWareIpVariant,HardWareActive,HardWarePassive,HardWareEthernet,HardWareDdc,HardWareBmsSensors,HardWareThirdParty,HardWareBmsScabling,HardWarePiping,HardWareTrays,HardWareGeneralInstall,HardWareIpVariantInstall,HardWareActiveInstall,HardWarePassiveInstall,HardWareEthernetInstall,HardWareDdcInstall,HardWareBmsSensorsInstall,HardWareThirdPartyInstall,HardWareBmsScablingInstall,HardWarePipingInstall,HardWareTraysInstall,SpazioPriceCalculator,Desk_Booking_Solution,Desk_Utilization_Solution,Desk_Planning_Solution,Employee_One_Mobile_App,Rostering,Wayfinding,Feedback,Kiosk_License,Meeting_Room_License_Occupancy,Meeting_Room_License_People_Count,Meeting_Room_License_Booking,Restroom_License_People_Count,Restroom_License_Wet_floor_detection,Restroom_License_Odour ,Human_body_temperature_License
 def index(request):
     return render(request,'Admin1/index.html')
 def registeruser(request):
@@ -396,7 +397,24 @@ def hardwareddcinstall(request):
 
 def SpazioPriceCalculators(request):
     entries=SpazioPriceCalculator.objects.all()
-    context={'entries':entries}
+    InputConfigurations=InputConfiguration.objects.all()
+    Desk_Booking_Solutions=Desk_Booking_Solution.objects.all()
+    Desk_Utilization_Solutions=Desk_Utilization_Solution.objects.all()
+    Desk_Planning_Solutions=Desk_Planning_Solution.objects.all()
+    Employee_One_Mobile_Apps=Employee_One_Mobile_App.objects.all()
+    Rosterings=Rostering.objects.all()
+    Wayfindings=Wayfinding.objects.all()
+    Feedbacks=Feedback.objects.all()
+    Kiosk_Licenses=Kiosk_License.objects.all()
+    Meeting_Room_License_Occupancys=Meeting_Room_License_Occupancy.objects.all()
+    Meeting_Room_License_People_Counts=Meeting_Room_License_People_Count.objects.all()
+    Meeting_Room_License_Bookings=Meeting_Room_License_Booking.objects.all()
+    Restroom_License_People_Counts=Restroom_License_People_Count.objects.all()
+    Restroom_License_Wet_floor_detections=Restroom_License_Wet_floor_detection.objects.all()
+    Restroom_License_Odours =Restroom_License_Odour.objects.all()
+    Human_body_temperature_Licenses=Human_body_temperature_License.objects.all()
+    context={'entries':entries,'InputConfigurations':list(InputConfigurations.values()),'Desk_Booking_Solutions':list(Desk_Booking_Solutions.values()),'Desk_Utilization_Solutions':list(Desk_Utilization_Solutions.values()),'Desk_Planning_Solutions':list(Desk_Planning_Solutions.values()),'Employee_One_Mobile_Apps':list(Employee_One_Mobile_Apps.values()),'Rosterings':list(Rosterings.values()),'Wayfindings':list(Wayfindings.values()),'Feedbacks':list(Feedbacks.values()),'Kiosk_Licenses':list(Kiosk_Licenses.values()),'Meeting_Room_License_Occupancys':list(Meeting_Room_License_Occupancys.values()),'Meeting_Room_License_People_Counts':list(Meeting_Room_License_People_Counts.values()),'Meeting_Room_License_Bookings':list(Meeting_Room_License_Bookings.values()),'Restroom_License_People_Counts':list(Restroom_License_People_Counts.values()),'Restroom_License_Wet_floor_detections':list(Restroom_License_Wet_floor_detections.values()),'Restroom_License_Odours':list(Restroom_License_Odours.values()),'Human_body_temperature_Licenses':list(Human_body_temperature_Licenses.values())}
+    
     return render(request,'Admin1/SpazioPriceCalculator.html',context)
 
 def edithardwareddcinstall(request):

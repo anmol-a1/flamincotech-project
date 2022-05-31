@@ -240,7 +240,7 @@ Enter '2' for Permium Licesne" class="form-control col" rows="3"></input>
                         required</label>
                     <input type="number" class="form-control col" rows="3"></input>
                 </div> <button id="but2" type="submit" class="btn btn-primary mb-2 prev">Previous</button>
-                <button id="ijk2" onclick="saveautovalues()" type="submit"
+                <button id="ijk2" type="submit"
                     class="btn btn-primary mb-2 next">Next</button>
             </div>
         </form>
@@ -387,7 +387,7 @@ Enter '2' for Permium Licesne" class="form-control col" rows="3"></input>
                 <input id="h15" type="number" class="form-control col" rows="3"></input>
             </div>
             <button id="but3" type="submit" class="btn btn-primary mb-2 prev">Previous</button>
-            <button id="abc3" type="submit"
+            <button id="abc3" type="submit" onclick="saveautovalues()"
                     class="btn btn-primary mb-2 next">Next</button>
 
         </form>
@@ -546,11 +546,12 @@ Enter '2' for Permium Licesne" class="form-control col" rows="3"></input>
                 hardwaredetails[i].quant= document.getElementById('h' + (i + 1)).value;
             }
             for (let i = 0; i < 14; i++) {
-                requiredsoftwaredetails[i].quant= document.getElementById('r' + (i + 1)).value;
+              //  requiredsoftwaredetails[i].quant= document.getElementById('r' + (i + 1)).value;
             }
         localStorage.setItem('harddetails',JSON.stringify(hardwaredetails));
         localStorage.setItem('softdetails',JSON.stringify(softwaredetails));
-        localStorage.setItem('requiredsoftwaredetails',JSON.stringify(requiredsoftwaredetails));
+        window.location.href = 'http://127.0.0.1:8000/admins/SpazioPriceCalculator/';
+        //localStorage.setItem('requiredsoftwaredetails',JSON.stringify(requiredsoftwaredetails));
 
         }
         function wsnre() {
