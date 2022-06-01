@@ -33,7 +33,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <!-- <li class="nav-item active">
-                      <a class="nav-link" href="/user/createquotation">Create Quotation <span
+                      <a class="nav-link" href="/user/createquotation">Percentage Change Sheet<span
                               class="sr-only">(current)</span></a>
                   </li> -->
             <!-- <li class="nav-item active">
@@ -62,6 +62,13 @@
                 >Configuration Details<span class="sr-only">(current)</span></a
               >
             </li> -->
+            <li class="nav-item active">
+                <a class="nav-link text-primary" href="/admins/percentagechangesheet"
+                  >Percentage Change Sheet<span class="sr-only"
+                    >(current)</span
+                  ></a
+                >
+              </li>
             <li class="nav-item active">
               <a class="nav-link text-primary" href="/admins/vpss"
                 >Variable Project Specific Sheet<span class="sr-only"
@@ -126,6 +133,7 @@
                 Hardware Cost Installation Equipments
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  
                 <a class="dropdown-item" href="/admins/hardwaregeneralinstall"
                   >FlamencoTech Hardware</a
                 >
@@ -176,114 +184,6 @@
         </div>
       </nav>
     {%csrf_token%}
-    <div style="width: auto;background-color: rgb(241, 241, 241);" class="shadow p-3 mb-5 rounded">
-        <div style="text-align: left;" class="container my-5">
-            <h3><b>Percentage Change Sheet</b></h3>
-        </div>
-        <div style="text-align: center;" class="container my-5">
-            <h3><b>Supply</b></h3>
-        </div>
-        <table>
-            <form class="my-5">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col"> Sr No</th>
-                            <th scope="col">Description</th>
-                            <th scope="col">FT Hardware</th>
-                            <th scope="col">Active</th>
-                            <th scope="col">Passive</th>
-                            <th scope="col">DDC & Sensor</th>
-                            <th scope="col">Third Party</th>
-                            <th scope="col">Cabling Piping Tray</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for entry in entries %}
-                        <tr>
-                            <td>{{entry.sr_no}}</td>
-                            <td>{{entry.desc}}</td>
-                            <td><input class="{{entry.sr_no}}1" id="{{entry.sr_no}}1hardware" style="width: 55px;border:none" readonly="true" value="{{entry.ft_hardware}}"
-                                    type="number"></td>
-                            <td><input class="{{entry.sr_no}}1" id="{{entry.sr_no}}1active" style="width: 55px;border:none" readonly="true" value="{{entry.active}}"
-                                    type="number"></td>
-                            <td><input class="{{entry.sr_no}}1" id="{{entry.sr_no}}1passive" style="width: 55px;border:none" readonly="true" value="{{entry.passive}}"
-                                    type="number"></td>
-                            <td><input class="{{entry.sr_no}}1" id="{{entry.sr_no}}1ddcsensor" style="width: 55px;border:none" readonly="true" value="{{entry.ddcsensor}}"
-                                    type="number"></td>
-                            <td><input class="{{entry.sr_no}}1" id="{{entry.sr_no}}1thirdparty" style="width: 55px;border:none" readonly="true" value="{{entry.thirdparty}}"
-                                    type="number"></td>
-                            <td><input class="{{entry.sr_no}}1" id="{{entry.sr_no}}1cabpiptray" style="width: 55px;border:none" readonly="true" value="{{entry.cabpiptray}}"
-                                    type="number"></td>
-                            <td><button value="{{entry.sr_no}}1" type="submit" class="btn btn-primary edit">Edit</button></td>
-                            <td><button value="{{entry.sr_no}}1" id="{{entry.sr_no}}1" type="submit" disabled class="btn btn-primary save">Save</button></td>
-                        </tr>
-                        {% endfor %}
-
-                    </tbody>
-
-            </form>
-        </table>
-        <div style="text-align: center;" class="container my-5">
-            <h3><b>Installation</b></h3>
-        </div>
-        <table>
-            <form class="my-5">
-                <table class="table">
-                    <thead>
-
-                        <tr>
-                            <td>Sr No</td>
-                            <td>Entries</td>
-                            <th>FT Hardware</th>
-                            <th>Active</th>
-                            <th>Passive</th>
-                            <th>DDC & Sensor</th>
-                            <th>Third Party</th>
-                            <th>Cabling Piping Tray</th>
-                            <th>FT MAN DAY EFFORT</th>
-                            <th> MISC DOCUMENTATION</th>
-                            <th>FT1</th>
-                            <th>FT2</th>
-                            <th>FT3</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for entry in entries %}
-                        <tr>
-                              <td>{{entry.sr_no}}</td>
-                            <td>{{entry.desc}}</td>
-                            <td><input class="{{entry.sr_no}}2" id="{{entry.sr_no}}2hardware"  style="width: 55px;border:none" readonly="true" value="{{entry.ft_hardware1}}"
-                                    type="number"></td>
-                            <td><input class="{{entry.sr_no}}2" id="{{entry.sr_no}}2active" style="width: 55px;border:none" readonly="true" value="{{entry.active1}}"
-                                    type="number"></td>
-                            <td><input class="{{entry.sr_no}}2" id="{{entry.sr_no}}2passive" style="width: 55px;border:none" readonly="true" value="{{entry.passive1}}"
-                                    type="number"></td>
-                            <td><input class="{{entry.sr_no}}2" id="{{entry.sr_no}}2ddcsensor" style="width: 55px;border:none" readonly="true" value="{{entry.ddcsensor1}}"
-                                    type="number"></td>
-                            <td><input class="{{entry.sr_no}}2" id="{{entry.sr_no}}2thirdparty" style="width: 55px;border:none" readonly="true" value="{{entry.thirdparty1}}"
-                                    type="number"></td>
-                            <td><input class="{{entry.sr_no}}2" id="{{entry.sr_no}}2cabpiptray" style="width: 55px;border:none" readonly="true" value="{{entry.cabpiptray1}}"
-                                    type="number"></td>
-                            <td><input class="{{entry.sr_no}}2" id="{{entry.sr_no}}2ftmandayeffort" style="width: 55px;border:none" readonly="true" value="{{entry.ftmandayeffort}}"
-                                    type="number"></td>
-                            <td><input class="{{entry.sr_no}}2" id="{{entry.sr_no}}2othersmicffort" style="width: 55px;border:none" readonly="true" value="{{entry.othersmicffort}}"
-                                    type="number"></td>
-                            <td><input class="{{entry.sr_no}}2" id="{{entry.sr_no}}2ft2" style="width: 55px;border:none" readonly="true" value="{{entry.ft2}}"
-                                    type="number"></td>
-                            <td><input class="{{entry.sr_no}}2" id="{{entry.sr_no}}2ft3" style="width: 55px;border:none" readonly="true" value="{{entry.ft3}}"
-                                    type="number"></td>
-                            <td><input class="{{entry.sr_no}}2" id="{{entry.sr_no}}2ft4" style="width: 55px;border:none" readonly="true" value="{{entry.ft4}}"
-                                    type="number"></td>
-                            <td><button value="{{entry.sr_no}}2" type="submit" class="btn btn-primary edit">Edit</button></td>
-                            <td><button value="{{entry.sr_no}}2" id="{{entry.sr_no}}2" type="submit" disabled class="btn btn-primary save1">Save</button></td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-
-            </form>
-        </table>
-    </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>

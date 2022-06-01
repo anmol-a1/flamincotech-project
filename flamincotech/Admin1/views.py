@@ -4,6 +4,12 @@ from django.http import HttpResponseRedirect,HttpResponse,JsonResponse
 from .models import InputConfiguration,vpss,HardWareGeneral,HardWareIpVariant,HardWareActive,HardWarePassive,HardWareEthernet,HardWareDdc,HardWareBmsSensors,HardWareThirdParty,HardWareBmsScabling,HardWarePiping,HardWareTrays,HardWareGeneralInstall,HardWareIpVariantInstall,HardWareActiveInstall,HardWarePassiveInstall,HardWareEthernetInstall,HardWareDdcInstall,HardWareBmsSensorsInstall,HardWareThirdPartyInstall,HardWareBmsScablingInstall,HardWarePipingInstall,HardWareTraysInstall,SpazioPriceCalculator,Desk_Booking_Solution,Desk_Utilization_Solution,Desk_Planning_Solution,Employee_One_Mobile_App,Rostering,Wayfinding,Feedback,Kiosk_License,Meeting_Room_License_Occupancy,Meeting_Room_License_People_Count,Meeting_Room_License_Booking,Restroom_License_People_Count,Restroom_License_Wet_floor_detection,Restroom_License_Odour ,Human_body_temperature_License
 def index(request):
     return render(request,'Admin1/index.html')
+def percentagechangesheet(request):
+    entries=InputConfiguration.objects.all()
+    print(len(entries))
+    context={'entries':entries}
+    return render(request,'Admin1/percentagechangesheet.html',context)
+
 def registeruser(request):
     return render(request,'Admin1/registeruser.html')
 def history(request):
