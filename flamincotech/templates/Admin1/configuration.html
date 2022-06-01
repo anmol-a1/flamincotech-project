@@ -11,8 +11,175 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a
+          class="navbar-brand"
+          href="https://www.flamencotech.com/"
+          target="_blank"
+          >Flamencotech</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+  
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <!-- <li class="nav-item active">
+                      <a class="nav-link" href="/user/createquotation">Create Quotation <span
+                              class="sr-only">(current)</span></a>
+                  </li> -->
+            <!-- <li class="nav-item active">
+              <a class="nav-link text-primary" href="/signup"
+                >Register User <span class="sr-only">(current)</span></a
+              >
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link text-primary" href="/user/createquotation"
+                >Create Quotation <span class="sr-only">(current)</span></a
+              >
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link text-primary" href="/admins/history"
+                >Client History <span class="sr-only">(current)</span></a
+              >
+            </li> -->
+  
+            <!-- <li class="nav-item active">
+              <a class="nav-link text-primary" href="/admins/trackp"
+                >Track Proposal<span class="sr-only">(current)</span></a
+              >
+            </li> -->
+            <!-- <li class="nav-item active">
+              <a class="nav-link text-primary" href="/admins/configuration"
+                >Configuration Details<span class="sr-only">(current)</span></a
+              >
+            </li> -->
+            <li class="nav-item active">
+              <a class="nav-link text-primary" href="/admins/vpss"
+                >Variable Project Specific Sheet<span class="sr-only"
+                  >(current)</span
+                ></a
+              >
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle text-primary"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Hardware Cost Equipments
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/admins/hardwaregeneral"
+                  >Flamicotech Hardware</a
+                >
+                <a class="dropdown-item" href="/admins/hardwareipvariant"
+                  >IP Variant</a
+                >
+                <a class="dropdown-item" href="/admins/hardwareactive"
+                  >Active Components i.e. Server & Switches</a
+                >
+                <a class="dropdown-item" href="/admins/hardwarepassive"
+                  >Passive Components i.e. Cat6 & Fiber components
+                </a>
+                <a class="dropdown-item" href="/admins/hardwareethernet"
+                  >Ethernet Component</a
+                >
+                <a class="dropdown-item" href="/admins/hardwareddc"
+                  >DDC Controllers</a
+                >
+                <a class="dropdown-item" href="/admins/hardwarebmssensors"
+                  >BMS Sensors
+                </a>
+                <a class="dropdown-item" href="/admins/hardwarethirdparty"
+                  >Third Party Software
+                </a>
+                <a class="dropdown-item" href="/admins/hardwarebmscabling"
+                  >BMS Cabling</a
+                >
+                <a class="dropdown-item" href="/admins/hardwarepiping">Piping</a>
+                <a class="dropdown-item" href="/admins/hardwaretrays">Trays</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle text-primary"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Hardware Cost Installation Equipments
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/admins/hardwaregeneralinstall"
+                  >FlamencoTech Hardware</a
+                >
+                <a class="dropdown-item" href="/admins/hardwareipvariantinstall"
+                  >IP VARIANT</a
+                >
+                <a class="dropdown-item" href="/admins/hardwareactiveinstall"
+                  >Active Components i.e. Server & Switches</a
+                >
+                <a class="dropdown-item" href="/admins/hardwarepassiveinstall"
+                  >Passive Components i.e. Cat6 & Fiber components>
+                </a>
+                <a class="dropdown-item" href="/admins/hardwareethernetinstall"
+                  >Ethernet Component</a
+                >
+                <a class="dropdown-item" href="/admins/hardwareddcinstall"
+                  >DDC Controllers</a
+                >
+                <a class="dropdown-item" href="/admins/hardwarebmssensorsinstall"
+                  >BMS Sensors
+                </a>
+                <a class="dropdown-item" href="/admins/hardwarethirdpartyinstall"
+                  >Third Party Software
+                </a>
+                <a class="dropdown-item" href="/admins/hardwarebmscablinginstall"
+                  >BMS Cabling</a
+                >
+                <a
+                  class="dropdown-item"
+                  href="/admins/hardwarepipininstallginstall"
+                  >Piping</a
+                >
+                <a class="dropdown-item" href="/admins/hardwaretraysinstall"
+                  >Trays</a
+                >
+                <a class="dropdown-item" href="/admins/"
+                  >FlamencoTech Efforts in Man Days</a
+                >
+              </div>
+            </li>
+          </ul>
+          <!-- <form class="form-inline my-2 my-lg-0">
+            
+              <a href="/logout" class="btn btn-outline-danger my-2 my-sm-0" type="submit">
+                Logout
+              </a>
+          </form> -->
+        </div>
+      </nav>
     {%csrf_token%}
     <div style="width: auto;background-color: rgb(241, 241, 241);" class="shadow p-3 mb-5 rounded">
+        <div style="text-align: left;" class="container my-5">
+            <h3><b>Percentage Change Sheet</b></h3>
+        </div>
         <div style="text-align: center;" class="container my-5">
             <h3><b>Supply</b></h3>
         </div>
