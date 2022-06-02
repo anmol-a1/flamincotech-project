@@ -75,5 +75,6 @@ urlpatterns = [
     path('vpss/',views.vpss1,name='vpss'),
     path('SpazioPriceCalculator/',views.SpazioPriceCalculators,name='SpazioPriceCalculator'),
     path('editvpss',views.editvpss,name='editvpss'),
+    path('percentagechangesheet/',views.percentagechangesheet,name='percentagechangesheet'),
   
 ]

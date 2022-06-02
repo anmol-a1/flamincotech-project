@@ -17,14 +17,7 @@ from django.contrib.messages import constants
 from django.contrib.auth import authenticate, logout,login
 from django.contrib.auth.hashers import make_password
 import datetime
-def signin(request):
-	print("bro i am running")
-	if request.user.is_authenticated:
-		if request.user.is_superuser:
-			return redirect('/admins')
-		else:
-			return redirect('/user')
-	LoginForm=LoginMember()
+def signup(request):
 	AddMemberForm=AddMember()
 	if request.method == 'POST':
 		AddMemberForm=AddMember(request.POST)
@@ -35,6 +28,16 @@ def signin(request):
 			AddMembers.save()   
 			messages.success(request, "signup success")
 			return redirect('sign')
+	return render(request,'Admin1/adduser.html',{'AddMemberForm':AddMemberForm})
+def signin(request):
+	print("bro i am running")
+	if request.user.is_authenticated:
+		if request.user.is_superuser:
+			return redirect('/admins')
+		else:
+			return redirect('/user')
+	LoginForm=LoginMember()
+	if request.method == 'POST':
 		email = request.POST['email']
 		password = request.POST['password']
 		user = authenticate(request, email=email, password = password)
@@ -46,10 +49,10 @@ def signin(request):
 		else:
 			return redirect('sign')
 	else:
-		return render(request,'signinsignup.html',{'LoginForm':LoginForm,'AddMemberForm':AddMemberForm})
+		return render(request,'signinsignup.html',{'LoginForm':LoginForm})
 def logout_view(request):
-    logout(request)
-    return redirect('sign')
+	logout(request)
+	return redirect('sign')
 
 def password_reset_request(request):
 	if request.method == "POST":

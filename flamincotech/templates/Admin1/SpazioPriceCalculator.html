@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,12 +11,13 @@
 
 <body>
     {%csrf_token%}
-    <div style="width:3000px;background-color: rgb(241, 241, 241);" class="shadow p-3 mb-5 rounded">
+    <div style="width:2000px;background-color: rgb(241, 241, 241);" class="shadow p-3 mb-5 rounded">
 
         <form class="my-1">
             <table class="table">
                 <thead>
                     <tr>
+                        <th>Sr No</th>
                         <th>Components</th>
                         <th>Quantity</th>
                         <th>Rate</th>
@@ -29,77 +29,36 @@
                         <th>Year 2</th>
                         <th>Year 3</th>
                         <th>Total</th>
-                        {% comment %} <th>Interest or COM</th>
-                        <th>Unit Cost (₹)</th>
-                        <th>Inward Tax</th>
-                        <th>Unit Cost Inclusive of Risk</th>
-                        <th>Contigency Percentage</th>
-                        <th>Unit Cost Inclusive of Contigency</th>
-                        <th> Total Cost (₹)</th>
-                        <th>Margin</th>
-                        <th>Unit Margin</th>
-                        <th>Total Price (₹)</th>
-                        <th>Warranty Charges</th>
-                        <th>Unit Price (₹)</th>
-                        <th>Final Total Price (₹)</th>
-                        <th>Insurance Charges </th>
-                        <th>List Price without Round up </th>
-                        <th>List Price with Rounded up </th> {% endcomment %}
                     </tr>
                 </thead>
                 <tbody>
                     {% for entry in entries %}
                     <tr>
-                        <td>{{entry.sr_no}}</td>
-                        <td>{{entry.MakeBrand}}</td>
-                        <td>{{entry.Model}}</td>
-                        <td>{{entry.InstallationEquipments}}</td>
-                        <td>{{entry.UnitDescription}}</td>
-                        <th><input onchange="abcd(event)" class="{{entry.sr_no}}" id="{{entry.sr_no}}Qty" style="width: 55px;border:none" readonly="true" value="{{entry.Qty}}"
-                                    type="number"></th>
-                        <th><input onchange="efgh(event)" class="{{entry.sr_no}}" id="{{entry.sr_no}}InputPrice" style="width: 95px;border:none" readonly="true" value="{{entry.InputPrice}}"
-                                    type="number"></th>
-                        <th><input  id="{{entry.sr_no}}Discount" style="width: 55px;border:none" readonly="true" value="{{entry.Discount}}"
-                                    type="number"></th>
-                        <th><input  id="{{entry.sr_no}}DiscountedPrice" style="width: 95px;border:none" readonly="true" value="{{entry.DiscountedPrice}}"
-                                    type="number"></th>
-                        <th><input  id="{{entry.sr_no}}Freight" style="width: 55px;border:none" readonly="true" value="{{entry.Freight}}"
-                                    type="number"></th>
-                        <th><input  id="{{entry.sr_no}}InputCostInclusiveoffreight" style="width: 95px;border:none" readonly="true" value="{{entry.InputCostInclusiveoffreight}}"
-                                    type="number"></th>
-                        <th><input  id="{{entry.sr_no}}InterestCOM" style="width: 55px;border:none" readonly="true" value="{{entry.InterestCOM}}"
-                                    type="number"></th>
-                        <th><input  id="{{entry.sr_no}}UnitCost" style="width: 95px;border:none" readonly="true" value="{{entry.UnitCost}}"
-                                    type="number"></th>
-                        <th><input  id="{{entry.sr_no}}InwardTax" style="width: 55px;border:none" readonly="true" value="{{entry.InwardTax}}"
-                                    type="number"></th>
-                        <th><input  id="{{entry.sr_no}}UnitCostInclusiveofRisk" style="width: 95px;border:none" readonly="true" value="{{entry.UnitCostInclusiveofRisk}}"
-                                    type="number"></th>
-                        <th><input  id="{{entry.sr_no}}ContigencyPercentage" style="width: 55px;border:none" readonly="true" value="{{entry.ContigencyPercentage}}"
-                                    type="number"></th>
-                        <th><input  id="{{entry.sr_no}}UnitCostInclusiveofContigency" style="width: 95px;border:none" readonly="true" value="{{entry.UnitCostInclusiveofContigency}}"
-                                    type="number"></th>
-                        <th><input  id="{{entry.sr_no}}TotalCost" style="width: 95px;border:none" readonly="true" value="{{entry.TotalCost}}"
-                                    type="number"></th>
-                        <th><input  id="{{entry.sr_no}}Margin" style="width: 55px;border:none" readonly="true" value="{{entry.Margin}}"
-                                    type="number"></th>
-                        <th><input  id="{{entry.sr_no}}Unit_Price" style="width: 95px;border:none" readonly="true" value="{{entry.Unit_Price}}"
-                                    type="number"></th>
-                        <th><input  id="{{entry.sr_no}}TotalPrice" style="width: 95px;border:none" readonly="true" value="{{entry.TotalPrice}}"
-                                    type="number"></th>
-                        <th><input  id="{{entry.sr_no}}WarrantyCharges" style="width: 55px;border:none" readonly="true" value="{{entry.WarrantyCharges}}"
-                                    type="number"></th>
-                        <th><input  id="{{entry.sr_no}}UnitPrice" style="width: 95px;border:none" readonly="true" value="{{entry.UnitPrice}}"
-                                    type="number"></th>
-                        <th><input  id="{{entry.sr_no}}FinalTotalPrice" style="width: 95px;border:none" readonly="true" value="{{entry.FinalTotalPrice}}"
-                                    type="number"></th>
-                        <th><input  id="{{entry.sr_no}}InsuranceCharges" style="width: 55px;border:none" readonly="true" value="{{entry.InsuranceCharges}}"
-                                    type="number"></th>
-                        <th><input  id="{{entry.sr_no}}ListPricewithoutRoundup" style="width: 95px;border:none" readonly="true" value="{{entry.ListPricewithoutRoundup}}"
-                                    type="number"></th>
-                        <th><input  id="{{entry.sr_no}}ListPricewithRoundedup" style="width: 95px;border:none" readonly="true" value="{{entry.ListPricewithRoundedup}}"
-                                    type="number"></th>
-                        <td><button value="{{entry.sr_no}}" type="submit" class="btn btn-primary edit">Edit</button></td>
+                        
+                        <td><input style="width: 40px;border:none"  readonly="true" value="{{entry.sr_no}}"
+                                    type="number"></td>
+                        <td><input style="border:none" readonly="true" value="{{entry.Components}}"
+                                    type="text"></td>
+                        <td><input onchange="abcd(event)" class="{{entry.sr_no}}" id="{{entry.sr_no}}Quantity" style="width: 55px;border:none" value="{{entry.Quantity}}"
+                                    type="number"></td>
+                        <td><input  id="{{entry.sr_no}}Rate" style="width: 55px;border:none" readonly="true" value="{{entry.Rate}}"
+                                    type="number"></td>
+                        <td><input  id="{{entry.sr_no}}SubTotal" style="width: 95px;border:none" readonly="true" value="{{entry.SubTotal}}"
+                                    type="number"></td>
+                        <td><input  id="{{entry.sr_no}}Warranty" style="width: 55px;border:none" readonly="true" value="{{entry.Warranty}}"
+                                    type="number"></td>
+                        <td><input  id="{{entry.sr_no}}TotalwithWarranty" style="width: 95px;border:none" readonly="true" value="{{entry.TotalwithWarranty}}"
+                                    type="number"></td>
+                        <td><input  id="{{entry.sr_no}}COM" style="width: 55px;border:none" readonly="true" value="{{entry.COM}}"
+                                    type="number"></td>
+                        <td><input  id="{{entry.sr_no}}TotalAmountwithInsurance" style="width: 95px;border:none" readonly="true" value="{{entry.TotalAmountwithInsurance}}"
+                                    type="number"></td>
+                        <td><input  id="{{entry.sr_no}}Year2" style="width: 55px;border:none" readonly="true" value="{{entry.Year2}}"
+                                    type="number"></td>
+                        <td><input  id="{{entry.sr_no}}Year3" style="width: 95px;border:none" readonly="true" value="{{entry.Year3}}"
+                                    type="number"></td>
+                        <td><input  id="{{entry.sr_no}}Total" style="width: 55px;border:none" readonly="true" value="{{entry.Total}}"
+                                    type="number"></td>
                         <td><button value="{{entry.sr_no}}" id="{{entry.sr_no}}" type="submit" disabled class="btn btn-primary save">Save</button></td>
                     </tr>
                     {% endfor %}
@@ -110,6 +69,639 @@
         </form>
 
     </div>
+
+    <div style="width:2000px;background-color: rgb(241, 241, 241);" class="shadow p-3 mb-5 rounded">
+
+        <form class="my-1">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Packs/Slabs</th>
+                        <th>Max Slab </th>
+                        <th>Rate</th>
+                        <th>Total Quantity</th>
+                        <th>Volume</th>
+                        <th>Rate Per Slab </th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for entry in Desk_Booking_Solutions %}
+                    <tr>
+                        <td><input style="width: 40px;border:none"  readonly="true" value="{{entry.sr_no}}"
+                                    type="number"></td>
+                        <td><input style="width: 40px;border:none"  readonly="true" value="{{entry.Packs_Slabs}}"
+                                    type="number"></td>
+                        <td><input style="border:none" readonly="true" value="{{entry.Max_Slab}}"
+                                    type="text"></td>
+                        <td><input onchange="abcd(event)" class="{{entry.sr_no}}" id="{{entry.sr_no}}Quantity" style="width: 55px;border:none" value="{{entry.Rate}}"
+                                    type="number"></td>
+                        <td><input  id="{{entry.sr_no}}Rate" style="width: 55px;border:none" readonly="true" value="{{entry.Total_Quantity}}"
+                                    type="number"></td>
+                        <td><input  id="{{entry.sr_no}}SubTotal" style="width: 95px;border:none" readonly="true" value="{{entry.Volume}}"
+                                    type="number"></td>
+                        <td><input  id="{{entry.sr_no}}Warranty" style="width: 55px;border:none" readonly="true" value="{{entry.Total}}"
+                                    type="number"></td>
+                        <td><button value="{{entry.sr_no}}" id="{{entry.sr_no}}" type="submit" class="btn btn-primary save">Save</button></td>
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+
+        </form>
+
+    </div>
+    <div style="width:2000px;background-color: rgb(241, 241, 241);" class="shadow p-3 mb-5 rounded">
+
+        <form class="my-1">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Packs/Slabs</th>
+                        <th>Max Slab </th>
+                        <th>Rate</th>
+                        <th>Total Quantity</th>
+                        <th>Volume</th>
+                        <th>Rate Per Slab </th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for entry in Desk_Utilization_Solutions %}
+                    <tr>
+                        <td><input style="width: 40px;border:none"  readonly="true" value="{{entry.sr_no}}"
+                                    type="number"></td>
+                        <td><input style="width: 40px;border:none"  readonly="true" value="{{entry.Packs_Slabs}}"
+                                    type="number"></td>
+                        <td><input style="border:none" readonly="true" value="{{entry.Max_Slab}}"
+                                    type="text"></td>
+                        <td><input onchange="abcd(event)" class="{{entry.sr_no}}" id="{{entry.sr_no}}Quantity" style="width: 55px;border:none" value="{{entry.Rate}}"
+                                    type="number"></td>
+                        <td><input  id="{{entry.sr_no}}Rate" style="width: 55px;border:none" readonly="true" value="{{entry.Total_Quantity}}"
+                                    type="number"></td>
+                        <td><input  id="{{entry.sr_no}}SubTotal" style="width: 95px;border:none" readonly="true" value="{{entry.Volume}}"
+                                    type="number"></td>
+                        <td><input  id="{{entry.sr_no}}Warranty" style="width: 55px;border:none" readonly="true" value="{{entry.Total}}"
+                                    type="number"></td>
+                        <td><button value="{{entry.sr_no}}" id="{{entry.sr_no}}" type="submit" class="btn btn-primary save">Save</button></td>
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+
+        </form>
+
+    </div>
+    <div style="width:2000px;background-color: rgb(241, 241, 241);" class="shadow p-3 mb-5 rounded">
+
+        <form class="my-1">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Packs/Slabs</th>
+                        <th>Max Slab </th>
+                        <th>Rate</th>
+                        <th>Total Quantity</th>
+                        <th>Volume</th>
+                        <th>Rate Per Slab </th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for entry in Desk_Planning_Solutions %}
+                    <tr>
+                        <td><input style="width: 40px;border:none"  readonly="true" value="{{entry.sr_no}}"
+                                    type="number"></td>
+                        <td><input style="width: 40px;border:none"  readonly="true" value="{{entry.Packs_Slabs}}"
+                                    type="number"></td>
+                        <td><input style="border:none" readonly="true" value="{{entry.Max_Slab}}"
+                                    type="text"></td>
+                        <td><input onchange="abcd(event)" class="{{entry.sr_no}}" id="{{entry.sr_no}}Quantity" style="width: 55px;border:none" value="{{entry.Rate}}"
+                                    type="number"></td>
+                        <td><input  id="{{entry.sr_no}}Rate" style="width: 55px;border:none" readonly="true" value="{{entry.Total_Quantity}}"
+                                    type="number"></td>
+                        <td><input  id="{{entry.sr_no}}SubTotal" style="width: 95px;border:none" readonly="true" value="{{entry.Volume}}"
+                                    type="number"></td>
+                        <td><input  id="{{entry.sr_no}}Warranty" style="width: 55px;border:none" readonly="true" value="{{entry.Total}}"
+                                    type="number"></td>
+                        <td><button value="{{entry.sr_no}}" id="{{entry.sr_no}}" type="submit" class="btn btn-primary save">Save</button></td>
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+
+        </form>
+
+    </div>
+    <div style="width:2000px;background-color: rgb(241, 241, 241);" class="shadow p-3 mb-5 rounded">
+
+        <form class="my-1">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Packs/Slabs</th>
+                        <th>Max Slab </th>
+                        <th>Rate</th>
+                        <th>Total Quantity</th>
+                        <th>Volume</th>
+                        <th>Rate Per Slab </th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for entry in Employee_One_Mobile_Apps %}
+                    <tr>
+                        <td><input style="width: 40px;border:none"  readonly="true" value="{{entry.sr_no}}"
+                                    type="number"></td>
+                        <td><input style="width: 40px;border:none"  readonly="true" value="{{entry.Packs_Slabs}}"
+                                    type="number"></td>
+                        <td><input style="border:none" readonly="true" value="{{entry.Max_Slab}}"
+                                    type="text"></td>
+                        <td><input onchange="abcd(event)" class="{{entry.sr_no}}" id="{{entry.sr_no}}Quantity" style="width: 55px;border:none" value="{{entry.Rate}}"
+                                    type="number"></td>
+                        <td><input  id="{{entry.sr_no}}Rate" style="width: 55px;border:none" readonly="true" value="{{entry.Total_Quantity}}"
+                                    type="number"></td>
+                        <td><input  id="{{entry.sr_no}}SubTotal" style="width: 95px;border:none" readonly="true" value="{{entry.Volume}}"
+                                    type="number"></td>
+                        <td><input  id="{{entry.sr_no}}Warranty" style="width: 55px;border:none" readonly="true" value="{{entry.Total}}"
+                                    type="number"></td>
+                        <td><button value="{{entry.sr_no}}" id="{{entry.sr_no}}" type="submit" class="btn btn-primary save">Save</button></td>
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+
+        </form>
+
+    </div>
+    <div style="width:2000px;background-color: rgb(241, 241, 241);" class="shadow p-3 mb-5 rounded">
+
+        <form class="my-1">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Packs/Slabs</th>
+                        <th>Max Slab </th>
+                        <th>Rate</th>
+                        <th>Total Quantity</th>
+                        <th>Volume</th>
+                        <th>Rate Per Slab </th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for entry in Rosterings %}
+                    <tr>
+                        <td><input style="width: 40px;border:none"  readonly="true" value="{{entry.sr_no}}"
+                                    type="number"></td>
+                        <td><input style="width: 40px;border:none"  readonly="true" value="{{entry.Packs_Slabs}}"
+                                    type="number"></td>
+                        <td><input style="border:none" readonly="true" value="{{entry.Max_Slab}}"
+                                    type="text"></td>
+                        <td><input onchange="abcd(event)" class="{{entry.sr_no}}" id="{{entry.sr_no}}Quantity" style="width: 55px;border:none" value="{{entry.Rate}}"
+                                    type="number"></td>
+                        <td><input  id="{{entry.sr_no}}Rate" style="width: 55px;border:none" readonly="true" value="{{entry.Total_Quantity}}"
+                                    type="number"></td>
+                        <td><input  id="{{entry.sr_no}}SubTotal" style="width: 95px;border:none" readonly="true" value="{{entry.Volume}}"
+                                    type="number"></td>
+                        <td><input  id="{{entry.sr_no}}Warranty" style="width: 55px;border:none" readonly="true" value="{{entry.Total}}"
+                                    type="number"></td>
+                        <td><button value="{{entry.sr_no}}" id="{{entry.sr_no}}" type="submit" class="btn btn-primary save">Save</button></td>
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+
+        </form>
+
+    </div>
+
+    <div style="width:2000px;background-color: rgb(241, 241, 241);" class="shadow p-3 mb-5 rounded">
+
+        <form class="my-1">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Packs/Slabs</th>
+                        <th>Max Slab </th>
+                        <th>Rate</th>
+                        <th>Total Quantity</th>
+                        <th>Volume</th>
+                        <th>Rate Per Slab </th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for entry in Wayfindings %}
+                    <tr>
+                        <td><input style="width: 40px;border:none"  readonly="true" value="{{entry.sr_no}}"
+                                    type="number"></td>
+                        <td><input style="width: 40px;border:none"  readonly="true" value="{{entry.Packs_Slabs}}"
+                                    type="number"></td>
+                        <td><input style="border:none" readonly="true" value="{{entry.Max_Slab}}"
+                                    type="text"></td>
+                        <td><input onchange="abcd(event)" class="{{entry.sr_no}}" id="{{entry.sr_no}}Quantity" style="width: 55px;border:none" value="{{entry.Rate}}"
+                                    type="number"></td>
+                        <td><input  id="{{entry.sr_no}}Rate" style="width: 55px;border:none" readonly="true" value="{{entry.Total_Quantity}}"
+                                    type="number"></td>
+                        <td><input  id="{{entry.sr_no}}SubTotal" style="width: 95px;border:none" readonly="true" value="{{entry.Volume}}"
+                                    type="number"></td>
+                        <td><input  id="{{entry.sr_no}}Warranty" style="width: 55px;border:none" readonly="true" value="{{entry.Total}}"
+                                    type="number"></td>
+                        <td><button value="{{entry.sr_no}}" id="{{entry.sr_no}}" type="submit" class="btn btn-primary save">Save</button></td>
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+
+        </form>
+
+    </div>
+    <div style="width:2000px;background-color: rgb(241, 241, 241);" class="shadow p-3 mb-5 rounded">
+
+        <form class="my-1">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Packs/Slabs</th>
+                        <th>Max Slab </th>
+                        <th>Rate</th>
+                        <th>Total Quantity</th>
+                        <th>Volume</th>
+                        <th>Rate Per Slab </th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for entry in Feedbacks %}
+                    <tr>
+                        <td><input style="width: 40px;border:none"  readonly="true" value="{{entry.sr_no}}"
+                                    type="number"></td>
+                        <td><input style="width: 40px;border:none"  readonly="true" value="{{entry.Packs_Slabs}}"
+                                    type="number"></td>
+                        <td><input style="border:none" readonly="true" value="{{entry.Max_Slab}}"
+                                    type="text"></td>
+                        <td><input onchange="abcd(event)" class="{{entry.sr_no}}" id="{{entry.sr_no}}Quantity" style="width: 55px;border:none" value="{{entry.Rate}}"
+                                    type="number"></td>
+                        <td><input  id="{{entry.sr_no}}Rate" style="width: 55px;border:none" readonly="true" value="{{entry.Total_Quantity}}"
+                                    type="number"></td>
+                        <td><input  id="{{entry.sr_no}}SubTotal" style="width: 95px;border:none" readonly="true" value="{{entry.Volume}}"
+                                    type="number"></td>
+                        <td><input  id="{{entry.sr_no}}Warranty" style="width: 55px;border:none" readonly="true" value="{{entry.Total}}"
+                                    type="number"></td>
+                        <td><button value="{{entry.sr_no}}" id="{{entry.sr_no}}" type="submit" class="btn btn-primary save">Save</button></td>
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+
+        </form>
+
+    </div>
+    <div style="width:2000px;background-color: rgb(241, 241, 241);" class="shadow p-3 mb-5 rounded">
+
+        <form class="my-1">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Packs/Slabs</th>
+                        <th>Max Slab </th>
+                        <th>Rate</th>
+                        <th>Total Quantity</th>
+                        <th>Volume</th>
+                        <th>Rate Per Slab </th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for entry in Kiosk_Licenses %}
+                    <tr>
+                        <td><input style="width: 40px;border:none"  readonly="true" value="{{entry.sr_no}}"
+                                    type="number"></td>
+                        <td><input style="width: 40px;border:none"  readonly="true" value="{{entry.Packs_Slabs}}"
+                                    type="number"></td>
+                        <td><input style="border:none" readonly="true" value="{{entry.Max_Slab}}"
+                                    type="text"></td>
+                        <td><input onchange="abcd(event)" class="{{entry.sr_no}}" id="{{entry.sr_no}}Quantity" style="width: 55px;border:none" value="{{entry.Rate}}"
+                                    type="number"></td>
+                        <td><input  id="{{entry.sr_no}}Rate" style="width: 55px;border:none" readonly="true" value="{{entry.Total_Quantity}}"
+                                    type="number"></td>
+                        <td><input  id="{{entry.sr_no}}SubTotal" style="width: 95px;border:none" readonly="true" value="{{entry.Volume}}"
+                                    type="number"></td>
+                        <td><input  id="{{entry.sr_no}}Warranty" style="width: 55px;border:none" readonly="true" value="{{entry.Total}}"
+                                    type="number"></td>
+                        <td><button value="{{entry.sr_no}}" id="{{entry.sr_no}}" type="submit" class="btn btn-primary save">Save</button></td>
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+
+        </form>
+
+    </div>
+    <div style="width:2000px;background-color: rgb(241, 241, 241);" class="shadow p-3 mb-5 rounded">
+
+        <form class="my-1">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Packs/Slabs</th>
+                        <th>Max Slab </th>
+                        <th>Rate</th>
+                        <th>Total Quantity</th>
+                        <th>Volume</th>
+                        <th>Rate Per Slab </th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for entry in Meeting_Room_License_Occupancys %}
+                    <tr>
+                        <td><input style="width: 40px;border:none"  readonly="true" value="{{entry.sr_no}}"
+                                    type="number"></td>
+                        <td><input style="width: 40px;border:none"  readonly="true" value="{{entry.Packs_Slabs}}"
+                                    type="number"></td>
+                        <td><input style="border:none" readonly="true" value="{{entry.Max_Slab}}"
+                                    type="text"></td>
+                        <td><input onchange="abcd(event)" class="{{entry.sr_no}}" id="{{entry.sr_no}}Quantity" style="width: 55px;border:none" value="{{entry.Rate}}"
+                                    type="number"></td>
+                        <td><input  id="{{entry.sr_no}}Rate" style="width: 55px;border:none" readonly="true" value="{{entry.Total_Quantity}}"
+                                    type="number"></td>
+                        <td><input  id="{{entry.sr_no}}SubTotal" style="width: 95px;border:none" readonly="true" value="{{entry.Volume}}"
+                                    type="number"></td>
+                        <td><input  id="{{entry.sr_no}}Warranty" style="width: 55px;border:none" readonly="true" value="{{entry.Total}}"
+                                    type="number"></td>
+                        <td><button value="{{entry.sr_no}}" id="{{entry.sr_no}}" type="submit" class="btn btn-primary save">Save</button></td>
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+
+        </form>
+
+    </div>
+    <div style="width:2000px;background-color: rgb(241, 241, 241);" class="shadow p-3 mb-5 rounded">
+
+        <form class="my-1">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Packs/Slabs</th>
+                        <th>Max Slab </th>
+                        <th>Rate</th>
+                        <th>Total Quantity</th>
+                        <th>Volume</th>
+                        <th>Rate Per Slab </th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for entry in Meeting_Room_License_People_Counts %}
+                    <tr>
+                        <td><input style="width: 40px;border:none"  readonly="true" value="{{entry.sr_no}}"
+                                    type="number"></td>
+                        <td><input style="width: 40px;border:none"  readonly="true" value="{{entry.Packs_Slabs}}"
+                                    type="number"></td>
+                        <td><input style="border:none" readonly="true" value="{{entry.Max_Slab}}"
+                                    type="text"></td>
+                        <td><input onchange="abcd(event)" class="{{entry.sr_no}}" id="{{entry.sr_no}}Quantity" style="width: 55px;border:none" value="{{entry.Rate}}"
+                                    type="number"></td>
+                        <td><input  id="{{entry.sr_no}}Rate" style="width: 55px;border:none" readonly="true" value="{{entry.Total_Quantity}}"
+                                    type="number"></td>
+                        <td><input  id="{{entry.sr_no}}SubTotal" style="width: 95px;border:none" readonly="true" value="{{entry.Volume}}"
+                                    type="number"></td>
+                        <td><input  id="{{entry.sr_no}}Warranty" style="width: 55px;border:none" readonly="true" value="{{entry.Total}}"
+                                    type="number"></td>
+                        <td><button value="{{entry.sr_no}}" id="{{entry.sr_no}}" type="submit" class="btn btn-primary save">Save</button></td>
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+
+        </form>
+
+    </div>
+    <div style="width:2000px;background-color: rgb(241, 241, 241);" class="shadow p-3 mb-5 rounded">
+
+        <form class="my-1">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Packs/Slabs</th>
+                        <th>Max Slab </th>
+                        <th>Rate</th>
+                        <th>Total Quantity</th>
+                        <th>Volume</th>
+                        <th>Rate Per Slab </th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for entry in Meeting_Room_License_Bookings %}
+                    <tr>
+                        <td><input style="width: 40px;border:none"  readonly="true" value="{{entry.sr_no}}"
+                                    type="number"></td>
+                        <td><input style="width: 40px;border:none"  readonly="true" value="{{entry.Packs_Slabs}}"
+                                    type="number"></td>
+                        <td><input style="border:none" readonly="true" value="{{entry.Max_Slab}}"
+                                    type="text"></td>
+                        <td><input onchange="abcd(event)" class="{{entry.sr_no}}" id="{{entry.sr_no}}Quantity" style="width: 55px;border:none" value="{{entry.Rate}}"
+                                    type="number"></td>
+                        <td><input  id="{{entry.sr_no}}Rate" style="width: 55px;border:none" readonly="true" value="{{entry.Total_Quantity}}"
+                                    type="number"></td>
+                        <td><input  id="{{entry.sr_no}}SubTotal" style="width: 95px;border:none" readonly="true" value="{{entry.Volume}}"
+                                    type="number"></td>
+                        <td><input  id="{{entry.sr_no}}Warranty" style="width: 55px;border:none" readonly="true" value="{{entry.Total}}"
+                                    type="number"></td>
+                        <td><button value="{{entry.sr_no}}" id="{{entry.sr_no}}" type="submit" class="btn btn-primary save">Save</button></td>
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+
+        </form>
+
+    </div>
+    <div style="width:2000px;background-color: rgb(241, 241, 241);" class="shadow p-3 mb-5 rounded">
+
+        <form class="my-1">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Packs/Slabs</th>
+                        <th>Max Slab </th>
+                        <th>Rate</th>
+                        <th>Total Quantity</th>
+                        <th>Volume</th>
+                        <th>Rate Per Slab </th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for entry in Restroom_License_People_Counts %}
+                    <tr>
+                        <td><input style="width: 40px;border:none"  readonly="true" value="{{entry.sr_no}}"
+                                    type="number"></td>
+                        <td><input style="width: 40px;border:none"  readonly="true" value="{{entry.Packs_Slabs}}"
+                                    type="number"></td>
+                        <td><input style="border:none" readonly="true" value="{{entry.Max_Slab}}"
+                                    type="text"></td>
+                        <td><input onchange="abcd(event)" class="{{entry.sr_no}}" id="{{entry.sr_no}}Quantity" style="width: 55px;border:none" value="{{entry.Rate}}"
+                                    type="number"></td>
+                        <td><input  id="{{entry.sr_no}}Rate" style="width: 55px;border:none" readonly="true" value="{{entry.Total_Quantity}}"
+                                    type="number"></td>
+                        <td><input  id="{{entry.sr_no}}SubTotal" style="width: 95px;border:none" readonly="true" value="{{entry.Volume}}"
+                                    type="number"></td>
+                        <td><input  id="{{entry.sr_no}}Warranty" style="width: 55px;border:none" readonly="true" value="{{entry.Total}}"
+                                    type="number"></td>
+                        <td><button value="{{entry.sr_no}}" id="{{entry.sr_no}}" type="submit" class="btn btn-primary save">Save</button></td>
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+
+        </form>
+
+    </div>
+    <div style="width:2000px;background-color: rgb(241, 241, 241);" class="shadow p-3 mb-5 rounded">
+
+        <form class="my-1">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Packs/Slabs</th>
+                        <th>Max Slab </th>
+                        <th>Rate</th>
+                        <th>Total Quantity</th>
+                        <th>Volume</th>
+                        <th>Rate Per Slab </th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for entry in Restroom_License_Wet_floor_detections %}
+                    <tr>
+                        <td><input style="width: 40px;border:none"  readonly="true" value="{{entry.sr_no}}"
+                                    type="number"></td>
+                        <td><input style="width: 40px;border:none"  readonly="true" value="{{entry.Packs_Slabs}}"
+                                    type="number"></td>
+                        <td><input style="border:none" readonly="true" value="{{entry.Max_Slab}}"
+                                    type="text"></td>
+                        <td><input onchange="abcd(event)" class="{{entry.sr_no}}" id="{{entry.sr_no}}Quantity" style="width: 55px;border:none" value="{{entry.Rate}}"
+                                    type="number"></td>
+                        <td><input  id="{{entry.sr_no}}Rate" style="width: 55px;border:none" readonly="true" value="{{entry.Total_Quantity}}"
+                                    type="number"></td>
+                        <td><input  id="{{entry.sr_no}}SubTotal" style="width: 95px;border:none" readonly="true" value="{{entry.Volume}}"
+                                    type="number"></td>
+                        <td><input  id="{{entry.sr_no}}Warranty" style="width: 55px;border:none" readonly="true" value="{{entry.Total}}"
+                                    type="number"></td>
+                        <td><button value="{{entry.sr_no}}" id="{{entry.sr_no}}" type="submit" class="btn btn-primary save">Save</button></td>
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+
+        </form>
+
+    </div>
+    <div style="width:2000px;background-color: rgb(241, 241, 241);" class="shadow p-3 mb-5 rounded">
+
+        <form class="my-1">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Packs/Slabs</th>
+                        <th>Max Slab </th>
+                        <th>Rate</th>
+                        <th>Total Quantity</th>
+                        <th>Volume</th>
+                        <th>Rate Per Slab </th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for entry in Restroom_License_Odour  %}
+                    <tr>
+                        <td><input style="width: 40px;border:none"  readonly="true" value="{{entry.sr_no}}"
+                                    type="number"></td>
+                        <td><input style="width: 40px;border:none"  readonly="true" value="{{entry.Packs_Slabs}}"
+                                    type="number"></td>
+                        <td><input style="border:none" readonly="true" value="{{entry.Max_Slab}}"
+                                    type="text"></td>
+                        <td><input onchange="abcd(event)" class="{{entry.sr_no}}" id="{{entry.sr_no}}Quantity" style="width: 55px;border:none" value="{{entry.Rate}}"
+                                    type="number"></td>
+                        <td><input  id="{{entry.sr_no}}Rate" style="width: 55px;border:none" readonly="true" value="{{entry.Total_Quantity}}"
+                                    type="number"></td>
+                        <td><input  id="{{entry.sr_no}}SubTotal" style="width: 95px;border:none" readonly="true" value="{{entry.Volume}}"
+                                    type="number"></td>
+                        <td><input  id="{{entry.sr_no}}Warranty" style="width: 55px;border:none" readonly="true" value="{{entry.Total}}"
+                                    type="number"></td>
+                        <td><button value="{{entry.sr_no}}" id="{{entry.sr_no}}" type="submit" class="btn btn-primary save">Save</button></td>
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+
+        </form>
+
+    </div>
+    <div style="width:2000px;background-color: rgb(241, 241, 241);" class="shadow p-3 mb-5 rounded">
+
+        <form class="my-1">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Packs/Slabs</th>
+                        <th>Max Slab </th>
+                        <th>Rate</th>
+                        <th>Total Quantity</th>
+                        <th>Volume</th>
+                        <th>Rate Per Slab </th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for entry in Human_body_temperature_License %}
+                    <tr>
+                        <td><input style="width: 40px;border:none"  readonly="true" value="{{entry.sr_no}}"
+                                    type="number"></td>
+                        <td><input style="width: 40px;border:none"  readonly="true" value="{{entry.Packs_Slabs}}"
+                                    type="number"></td>
+                        <td><input style="border:none" readonly="true" value="{{entry.Max_Slab}}"
+                                    type="text"></td>
+                        <td><input onchange="abcd(event)" class="{{entry.sr_no}}" id="{{entry.sr_no}}Quantity" style="width: 55px;border:none" value="{{entry.Rate}}"
+                                    type="number"></td>
+                        <td><input  id="{{entry.sr_no}}Rate" style="width: 55px;border:none" readonly="true" value="{{entry.Total_Quantity}}"
+                                    type="number"></td>
+                        <td><input  id="{{entry.sr_no}}SubTotal" style="width: 95px;border:none" readonly="true" value="{{entry.Volume}}"
+                                    type="number"></td>
+                        <td><input  id="{{entry.sr_no}}Warranty" style="width: 55px;border:none" readonly="true" value="{{entry.Total}}"
+                                    type="number"></td>
+                        <td><button value="{{entry.sr_no}}" id="{{entry.sr_no}}" type="submit" class="btn btn-primary save">Save</button></td>
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+
+        </form>
+
+    </div>
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -121,92 +713,32 @@
         crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script>
+        var harddetails = JSON.parse(localStorage.getItem('harddetails'));
+        var softdetails = JSON.parse(localStorage.getItem('softdetails'));
+        console.log(harddetails);
+        console.log(softdetails);
+        
+        var data={{ entries1|safe }};
+        console.log(data);
+        for(let i=1;i<3;i++){
+        console.log((softdetails[i-1].quant).length);    
+        document.getElementById(i+"Quantity").value=(softdetails[i-1].quant).length>0 ? softdetails[i-1].quant : 0;
+        }
         function abcd(e){
             var sr_no=parseInt(e.target.className);
-            var Qty=document.getElementById(sr_no+"Qty");
-            var InputPrice=document.getElementById(sr_no+"InputPrice");
-            var Discount=document.getElementById(sr_no+"Discount");
-            var DiscountedPrice=document.getElementById(sr_no+"DiscountedPrice");
-            var Freight=document.getElementById(sr_no+"Freight");
-            var InputCostInclusiveoffreight=document.getElementById(sr_no+"InputCostInclusiveoffreight");
-            var InterestCOM=document.getElementById(sr_no+"InterestCOM");
-            var UnitCost=document.getElementById(sr_no+"UnitCost");
-            var InwardTax=document.getElementById(sr_no+"InwardTax");
-            var UnitCostInclusiveofRisk=document.getElementById(sr_no+"UnitCostInclusiveofRisk");
-            var ContigencyPercentage=document.getElementById(sr_no+"ContigencyPercentage");
-            var UnitCostInclusiveofContigency=document.getElementById(sr_no+"UnitCostInclusiveofContigency");
-            var TotalCost=document.getElementById(sr_no+"TotalCost");
-            var Margin=document.getElementById(sr_no+"Margin");
-            var Unit_Price=document.getElementById(sr_no+"Unit_Price");
-            var TotalPrice=document.getElementById(sr_no+"TotalPrice");
-            var WarrantyCharges=document.getElementById(sr_no+"WarrantyCharges");
-            var UnitPrice=document.getElementById(sr_no+"UnitPrice");
-            var FinalTotalPrice=document.getElementById(sr_no+"FinalTotalPrice");
-            var InsuranceCharges=document.getElementById(sr_no+"InsuranceCharges");
-            var ListPricewithoutRoundup=document.getElementById(sr_no+"ListPricewithoutRoundup");
-            var ListPricewithRoundedup=document.getElementById(sr_no+"ListPricewithRoundedup");
-            DiscountedPrice.value=(InputPrice.value)-(InputPrice.value * (Discount.value)/100); 
-            InputCostInclusiveoffreight.value=parseInt(DiscountedPrice.value)+(DiscountedPrice.value * (Freight.value)/100);
-            UnitCost.value=parseInt(InputCostInclusiveoffreight.value)+(InputCostInclusiveoffreight.value * (InterestCOM.value)/100);
-            UnitCostInclusiveofRisk.value=parseInt(UnitCost.value)+(UnitCost.value * (InwardTax.value)/100);
-            UnitCostInclusiveofContigency.value=parseInt(UnitCostInclusiveofRisk.value)+(UnitCostInclusiveofRisk.value * (ContigencyPercentage.value)/100);
-            TotalCost.value=Qty.value*UnitCostInclusiveofContigency.value;
-            Unit_Price.value=(100*UnitCostInclusiveofContigency.value)/(100-Margin.value)
-            TotalPrice.value=Unit_Price.value * Qty.value;
-            UnitPrice.value=parseInt(Unit_Price.value)+(Unit_Price.value * (WarrantyCharges.value)/100);
-            FinalTotalPrice.value=UnitPrice.value * Qty.value;
-            ListPricewithoutRoundup.value=parseInt(UnitPrice.value)+(UnitPrice.value*InsuranceCharges.value/100);
-            console.log(DiscountedPrice.value,InputCostInclusiveoffreight.value);
+            var Quantity=document.getElementById(sr_no+"Quantity").value;
+            var Rate=document.getElementById(sr_no+"Rate").value;
+            var SubTotal=document.getElementById(sr_no+"SubTotal").value;
+            var Warranty=document.getElementById(sr_no+"Warranty").value;
+            var TotalwithWarranty=document.getElementById(sr_no+"TotalwithWarranty").value;
+            var COM=document.getElementById(sr_no+"COM").value;
+            var TotalAmountwithInsurance=document.getElementById(sr_no+"TotalAmountwithInsurance").value;
+            var Year2=document.getElementById(sr_no+"Year2").value;
+            var Year3=document.getElementById(sr_no+"Year3").value;
+            var Total=document.getElementById(sr_no+"Total").value;
+            
         }
-        function efgh(e){
-            var sr_no=parseInt(e.target.className);
-            var Qty=document.getElementById(sr_no+"Qty");
-            var InputPrice=document.getElementById(sr_no+"InputPrice");
-            var Discount=document.getElementById(sr_no+"Discount");
-            var DiscountedPrice=document.getElementById(sr_no+"DiscountedPrice");
-            var Freight=document.getElementById(sr_no+"Freight");
-            var InputCostInclusiveoffreight=document.getElementById(sr_no+"InputCostInclusiveoffreight");
-            var InterestCOM=document.getElementById(sr_no+"InterestCOM");
-            var UnitCost=document.getElementById(sr_no+"UnitCost");
-            var InwardTax=document.getElementById(sr_no+"InwardTax");
-            var UnitCostInclusiveofRisk=document.getElementById(sr_no+"UnitCostInclusiveofRisk");
-            var ContigencyPercentage=document.getElementById(sr_no+"ContigencyPercentage");
-            var UnitCostInclusiveofContigency=document.getElementById(sr_no+"UnitCostInclusiveofContigency");
-            var TotalCost=document.getElementById(sr_no+"TotalCost");
-            var Margin=document.getElementById(sr_no+"Margin");
-            var Unit_Price=document.getElementById(sr_no+"Unit_Price");
-            var TotalPrice=document.getElementById(sr_no+"TotalPrice");
-            var WarrantyCharges=document.getElementById(sr_no+"WarrantyCharges");
-            var UnitPrice=document.getElementById(sr_no+"UnitPrice");
-            var FinalTotalPrice=document.getElementById(sr_no+"FinalTotalPrice");
-            var InsuranceCharges=document.getElementById(sr_no+"InsuranceCharges");
-            var ListPricewithoutRoundup=document.getElementById(sr_no+"ListPricewithoutRoundup");
-            var ListPricewithRoundedup=document.getElementById(sr_no+"ListPricewithRoundedup");
-            DiscountedPrice.value=(InputPrice.value)-(InputPrice.value * (Discount.value)/100); 
-            InputCostInclusiveoffreight.value=parseInt(DiscountedPrice.value)+(DiscountedPrice.value * (Freight.value)/100);
-            UnitCost.value=parseInt(InputCostInclusiveoffreight.value)+(InputCostInclusiveoffreight.value * (InterestCOM.value)/100);
-            UnitCostInclusiveofRisk.value=parseInt(UnitCost.value)+(UnitCost.value * (InwardTax.value)/100);
-            UnitCostInclusiveofContigency.value=parseInt(UnitCostInclusiveofRisk.value)+(UnitCostInclusiveofRisk.value * (ContigencyPercentage.value)/100);
-            TotalCost.value=Qty.value*UnitCostInclusiveofContigency.value;
-            Unit_Price.value=(100*UnitCostInclusiveofContigency.value)/(100-Margin.value)
-            TotalPrice.value=Unit_Price.value * Qty.value;
-            UnitPrice.value=parseInt(Unit_Price.value)+(Unit_Price.value * (WarrantyCharges.value)/100);
-            FinalTotalPrice.value=UnitPrice.value * Qty.value;
-            ListPricewithoutRoundup.value=parseInt(UnitPrice.value)+(UnitPrice.value*InsuranceCharges.value/100);
-            console.log(DiscountedPrice.value,InputCostInclusiveoffreight.value);
-        }
-        $(document).on('click', '.edit', function (e) {
-            e.preventDefault();
-            var sr_no = $(this).val();
-            console.log(sr_no);
-            sr_no = sr_no;
-            document.getElementById(sr_no).disabled = false;
-            const boxes = document.getElementsByClassName(sr_no);
-            for (const box of boxes) {
-                box.readOnly = false;
-                console.log(box);
-            }
-        })
+        
         $(document).on('click', '.save', function (e) {
             e.preventDefault();
             let sr_no=$(this).val();
