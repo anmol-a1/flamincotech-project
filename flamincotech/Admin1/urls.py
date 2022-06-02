@@ -22,7 +22,8 @@ from Admin1 import views
 from django.contrib.auth import views as auth_views
 urlpatterns = [
     path('',views.index,name='adminshome'),
-    path('registeruser/',views.registeruser,name='registeruser'),
+    path('deleteuser',views.deleteuser,name='deleteuser'),
+    path('userlist/',views.userlist,name='userlist'),
     path('history/',views.history,name='history'),
     path('trackp/',views.trackp,name='trackp'),
     path('hardwaregeneral/',views.hardwaregeneral,name='hardwaregeneral'),

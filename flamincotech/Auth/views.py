@@ -32,10 +32,10 @@ def signup(request):
 				messages.success(request, "signup success")
 				return redirect('signup')
 			else:
-				messages.success(request, "password not matched")
+				messages.warning(request, "password not matched")
 				return redirect('signup')
 		else:
-			messages.success(request, "signup failed")
+			messages.warning(request, "signup failed")
 			return redirect('signup')
 	return  render(request,'Admin1/adduser.html',{'AddMemberForm':AddMemberForm})
 def signin(request):

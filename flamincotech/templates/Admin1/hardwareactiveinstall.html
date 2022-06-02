@@ -141,6 +141,7 @@
             Unit_Price.value=(100*UnitCostInclusiveofContigency.value)/(100-Margin.value)
             UnitPrice.value=parseInt(Unit_Price.value)+(Unit_Price.value * (WarrantyCharges.value)/100);
             ListPricewithoutRoundup.value=parseInt(UnitPrice.value)+(UnitPrice.value*InsuranceCharges.value/100);
+            ListPricewithRoundedup.value=(Math.ceil(ListPricewithoutRoundup.value/50))*50;
             console.log(DiscountedPrice.value,InputCostInclusiveoffreight.value);
         }
         function efgh(e){
@@ -176,6 +177,7 @@
            
             ListPricewithoutRoundup.value=parseInt(UnitPrice.value)+(UnitPrice.value*InsuranceCharges.value/100);
             console.log(DiscountedPrice.value,InputCostInclusiveoffreight.value);
+            ListPricewithRoundedup.value=(Math.ceil(ListPricewithoutRoundup.value/50))*50;
         }
         $(document).on('click', '.edit', function (e) {
             e.preventDefault();
