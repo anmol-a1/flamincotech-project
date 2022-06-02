@@ -157,6 +157,7 @@
             FinalTotalPrice.value=UnitPrice.value * Qty.value;
             ListPricewithoutRoundup.value=parseInt(UnitPrice.value)+(UnitPrice.value*InsuranceCharges.value/100);
             console.log(DiscountedPrice.value,InputCostInclusiveoffreight.value);
+            ListPricewithRoundedup.value=(Math.ceil(ListPricewithoutRoundup.value/50))*50;
         }
         function efgh(e){
             var sr_no=parseInt(e.target.className);
@@ -194,6 +195,7 @@
             FinalTotalPrice.value=UnitPrice.value * Qty.value;
             ListPricewithoutRoundup.value=parseInt(UnitPrice.value)+(UnitPrice.value*InsuranceCharges.value/100);
             console.log(DiscountedPrice.value,InputCostInclusiveoffreight.value);
+            ListPricewithRoundedup.value=(Math.ceil(ListPricewithoutRoundup.value/50))*50;
         }
         $(document).on('click', '.edit', function (e) {
             e.preventDefault();
