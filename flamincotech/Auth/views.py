@@ -24,11 +24,20 @@ def signup(request):
 		print(AddMemberForm.is_valid())
 		if AddMemberForm.is_valid():
 			AddMembers=AddMemberForm.save(commit=False)
-			AddMembers.password=make_password(AddMemberForm.cleaned_data.get("password"))
-			AddMembers.save()   
-			messages.success(request, "signup success")
-			return redirect('sign')
-	return render(request,'Admin1/adduser.html',{'AddMemberForm':AddMemberForm})
+			print("pass is",AddMemberForm.cleaned_data.get("password"))
+			print("confm pass is",AddMemberForm.cleaned_data.get("confirm_password"))
+			if(AddMemberForm.cleaned_data.get("password")==AddMemberForm.cleaned_data.get("confirm_password")):
+				AddMembers.password=make_password(AddMemberForm.cleaned_data.get("password"))
+				AddMembers.save()   
+				messages.success(request, "signup success")
+				return redirect('signup')
+			else:
+				messages.success(request, "password not matched")
+				return redirect('signup')
+		else:
+			messages.success(request, "signup failed")
+			return redirect('signup')
+	return  render(request,'Admin1/adduser.html',{'AddMemberForm':AddMemberForm})
 def signin(request):
 	print("bro i am running")
 	if request.user.is_authenticated:
