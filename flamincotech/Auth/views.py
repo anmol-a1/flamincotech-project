@@ -17,27 +17,6 @@ from django.contrib.messages import constants
 from django.contrib.auth import authenticate, logout,login
 from django.contrib.auth.hashers import make_password
 import datetime
-def signup(request):
-	AddMemberForm=AddMember()
-	if request.method == 'POST':
-		AddMemberForm=AddMember(request.POST)
-		print(AddMemberForm.is_valid())
-		if AddMemberForm.is_valid():
-			AddMembers=AddMemberForm.save(commit=False)
-			print("pass is",AddMemberForm.cleaned_data.get("password"))
-			print("confm pass is",AddMemberForm.cleaned_data.get("confirm_password"))
-			if(AddMemberForm.cleaned_data.get("password")==AddMemberForm.cleaned_data.get("confirm_password")):
-				AddMembers.password=make_password(AddMemberForm.cleaned_data.get("password"))
-				AddMembers.save()   
-				messages.success(request, "signup success")
-				return redirect('signup')
-			else:
-				messages.warning(request, "password not matched")
-				return redirect('signup')
-		else:
-			messages.warning(request, "signup failed")
-			return redirect('signup')
-	return  render(request,'Admin1/adduser.html',{'AddMemberForm':AddMemberForm})
 def signin(request):
 	print("bro i am running")
 	if request.user.is_authenticated:
@@ -46,7 +25,16 @@ def signin(request):
 		else:
 			return redirect('/user')
 	LoginForm=LoginMember()
+	AddMemberForm=AddMember()
 	if request.method == 'POST':
+		AddMemberForm=AddMember(request.POST)
+		print(AddMemberForm.is_valid())
+		if AddMemberForm.is_valid():
+			AddMembers=AddMemberForm.save(commit=False)
+			AddMembers.password=make_password(AddMemberForm.cleaned_data.get("password"))
+			AddMembers.save()   
+			messages.success(request, "signup success")
+			return redirect('sign')
 		email = request.POST['email']
 		password = request.POST['password']
 		user = authenticate(request, email=email, password = password)
@@ -58,9 +46,10 @@ def signin(request):
 		else:
 			return redirect('sign')
 	else:
-		return render(request,'signinsignup.html',{'LoginForm':LoginForm})
+		return render(request,'signinsignup.html',{'LoginForm':LoginForm,'AddMemberForm':AddMemberForm})
+
 def logout_view(request):
-	logout(request)
+	logout(request) 
 	return redirect('sign')
 
 def password_reset_request(request):

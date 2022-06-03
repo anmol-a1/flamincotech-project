@@ -24,4 +24,5 @@ urlpatterns = [
     path('',views.index,name='userhome'),
     path('createquotation/',views.createquotation,name='createquotation'),
     path('history/',views.history,name='history'),
+  
 ]
