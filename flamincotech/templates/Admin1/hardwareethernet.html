@@ -11,6 +11,13 @@
 </head>
 
 <body>
+<a class="btnss" href="{% url 'export_hardwareethernet' %}">
+          <span class="links_name">Export Hardware ACtive Data</span>
+        </a>
+    <form action="/admins/hardwareethernetimport/"  method="post" enctype="multipart/form-data">{% csrf_token %}
+            <div><input style="margin-left: 20px;" type="file" accept=".xls" required name="bookfile" id=""></div>
+            <button style="margin-left: 20px;margin-top: 10px;" type="submit">Submit</button>
+    </form>
     {%csrf_token%}
     <div style="width:3000px;background-color: rgb(241, 241, 241);" class="shadow p-3 mb-5 rounded">
 
@@ -52,47 +59,48 @@
                         <td>{{entry.Model}}</td>
                         <td>{{entry.InstallationEquipments}}</td>
                         <td>{{entry.UnitDescription}}</td>
-                        <th><input onchange="abcd(event)" class="{{entry.sr_no}}" id="{{entry.sr_no}}Qty" style="width: 55px;border:none" readonly="true" value="{{entry.Qty}}"
+                        <th><input onchange="abcd(event)" class="{{entry.sr_no}}" id="{{entry.sr_no}}Qty" style="width: 55px;border:none" value="{{entry.Qty}}"
                                     type="number"></th>
-                        <th><input onchange="efgh(event)" class="{{entry.sr_no}}" id="{{entry.sr_no}}InputPrice" style="width: 95px;border:none" readonly="true" value="{{entry.InputPrice}}"
+                        <th><input onchange="efgh(event)" class="{{entry.sr_no}}" id="{{entry.sr_no}}InputPrice" style="width: 95px;border:none"  value="{{entry.InputPrice}}"
                                     type="number"></th>
-                        <th><input  id="{{entry.sr_no}}Discount" style="width: 55px;border:none" readonly="true" value="{{entry.Discount}}"
+                        <th><input  id="{{entry.sr_no}}Discount" style="width: 55px;border:none" readonly="true" value="{{InputConfigurations1.passive}}"
                                     type="number"></th>
                         <th><input  id="{{entry.sr_no}}DiscountedPrice" style="width: 95px;border:none" readonly="true" value="{{entry.DiscountedPrice}}"
                                     type="number"></th>
-                        <th><input  id="{{entry.sr_no}}Freight" style="width: 55px;border:none" readonly="true" value="{{entry.Freight}}"
+                        <th><input  id="{{entry.sr_no}}Freight" style="width: 55px;border:none" readonly="true" value="{{InputConfigurations2.passive}}"
                                     type="number"></th>
                         <th><input  id="{{entry.sr_no}}InputCostInclusiveoffreight" style="width: 95px;border:none" readonly="true" value="{{entry.InputCostInclusiveoffreight}}"
                                     type="number"></th>
-                        <th><input  id="{{entry.sr_no}}InterestCOM" style="width: 55px;border:none" readonly="true" value="{{entry.InterestCOM}}"
+                        <th><input  id="{{entry.sr_no}}InterestCOM" style="width: 55px;border:none" readonly="true" value="{{InputConfigurations3.passive}}"
                                     type="number"></th>
                         <th><input  id="{{entry.sr_no}}UnitCost" style="width: 95px;border:none" readonly="true" value="{{entry.UnitCost}}"
                                     type="number"></th>
-                        <th><input  id="{{entry.sr_no}}InwardTax" style="width: 55px;border:none" readonly="true" value="{{entry.InwardTax}}"
+                        <th><input  id="{{entry.sr_no}}InwardTax" style="width: 55px;border:none" readonly="true" value="{{InputConfigurations4.passive}}"
                                     type="number"></th>
                         <th><input  id="{{entry.sr_no}}UnitCostInclusiveofRisk" style="width: 95px;border:none" readonly="true" value="{{entry.UnitCostInclusiveofRisk}}"
                                     type="number"></th>
-                        <th><input  id="{{entry.sr_no}}ContigencyPercentage" style="width: 55px;border:none" readonly="true" value="{{entry.ContigencyPercentage}}"
+                        <th><input  id="{{entry.sr_no}}ContigencyPercentage" style="width: 55px;border:none" readonly="true" value="{{InputConfigurations5.passive}}"
                                     type="number"></th>
                         <th><input  id="{{entry.sr_no}}UnitCostInclusiveofContigency" style="width: 95px;border:none" readonly="true" value="{{entry.UnitCostInclusiveofContigency}}"
                                     type="number"></th>
-                        <th><input  id="{{entry.sr_no}}Margin" style="width: 55px;border:none" readonly="true" value="{{entry.Margin}}"
+                        <th><input  id="{{entry.sr_no}}Margin" style="width: 55px;border:none" readonly="true" value="{{InputConfigurations6.passive}}"
                                     type="number"></th>
                         <th><input  id="{{entry.sr_no}}Unit_Price" style="width: 95px;border:none" readonly="true" value="{{entry.Unit_Price}}"
                                     type="number"></th>
-                        <th><input  id="{{entry.sr_no}}WarrantyCharges" style="width: 55px;border:none" readonly="true" value="{{entry.WarrantyCharges}}"
+                        <th><input  id="{{entry.sr_no}}WarrantyCharges" style="width: 55px;border:none" readonly="true" value="{{InputConfigurations7.passive}}"
                                     type="number"></th>
                         <th><input  id="{{entry.sr_no}}UnitPrice" style="width: 95px;border:none" readonly="true" value="{{entry.UnitPrice}}"
                                     type="number"></th>
-                        <th><input  id="{{entry.sr_no}}InsuranceCharges" style="width: 55px;border:none" readonly="true" value="{{entry.InsuranceCharges}}"
+                        <th><input  id="{{entry.sr_no}}InsuranceCharges" style="width: 55px;border:none" readonly="true" value="{{InputConfigurations8.passive}}"
                                     type="number"></th>
                         <th><input  id="{{entry.sr_no}}ListPricewithoutRoundup" style="width: 95px;border:none" readonly="true" value="{{entry.ListPricewithoutRoundup}}"
                                     type="number"></th>
                         <th><input  id="{{entry.sr_no}}ListPricewithRoundedup" style="width: 95px;border:none" readonly="true" value="{{entry.ListPricewithRoundedup}}"
                                     type="number"></th>
-                        <td><button value="{{entry.sr_no}}" type="submit" class="btn btn-primary edit">Edit</button></td>
-                        <td><button value="{{entry.sr_no}}" id="{{entry.sr_no}}" type="submit" disabled class="btn btn-primary save">Save</button></td>
+                        <td><button value="{{entry.sr_no}}" id="{{entry.sr_no}}" type="submit"  class="btn btn-primary save">Save</button></td>
                     </tr>
+
+
                     {% endfor %}
 
                 </tbody>
@@ -112,6 +120,7 @@
         crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script>
+
         function abcd(e){
             var sr_no=parseInt(e.target.className);
             var Qty=document.getElementById(sr_no+"Qty");
@@ -133,16 +142,19 @@
             var InsuranceCharges=document.getElementById(sr_no+"InsuranceCharges");
             var ListPricewithoutRoundup=document.getElementById(sr_no+"ListPricewithoutRoundup");
             var ListPricewithRoundedup=document.getElementById(sr_no+"ListPricewithRoundedup");
-            DiscountedPrice.value=(InputPrice.value)-(InputPrice.value * (Discount.value)/100); 
-            InputCostInclusiveoffreight.value=parseInt(DiscountedPrice.value)+(DiscountedPrice.value * (Freight.value)/100);
-            UnitCost.value=parseInt(InputCostInclusiveoffreight.value)+(InputCostInclusiveoffreight.value * (InterestCOM.value)/100);
-            UnitCostInclusiveofRisk.value=parseInt(UnitCost.value)+(UnitCost.value * (InwardTax.value)/100);
-            UnitCostInclusiveofContigency.value=parseInt(UnitCostInclusiveofRisk.value)+(UnitCostInclusiveofRisk.value * (ContigencyPercentage.value)/100);
-            Unit_Price.value=(100*UnitCostInclusiveofContigency.value)/(100-Margin.value)
-            UnitPrice.value=parseInt(Unit_Price.value)+(Unit_Price.value * (WarrantyCharges.value)/100);
-            ListPricewithoutRoundup.value=parseInt(UnitPrice.value)+(UnitPrice.value*InsuranceCharges.value/100);
+            DiscountedPrice.value=Math.ceil((InputPrice.value)-(InputPrice.value * (Discount.value)/100)); 
+            InputCostInclusiveoffreight.value=Math.ceil(1*(DiscountedPrice.value)+1*(DiscountedPrice.value * (Freight.value)/100));
+            UnitCost.value=Math.ceil(1*(InputCostInclusiveoffreight.value)+1*(InputCostInclusiveoffreight.value * (InterestCOM.value)/100));
+            UnitCostInclusiveofRisk.value=Math.ceil(1*(UnitCost.value)+1*(UnitCost.value * (InwardTax.value)/100));
+            UnitCostInclusiveofContigency.value=Math.ceil(1*(UnitCostInclusiveofRisk.value)+1*(UnitCostInclusiveofRisk.value * (ContigencyPercentage.value)/100));
+            
+            Unit_Price.value=Math.ceil((100*UnitCostInclusiveofContigency.value)/(100-Margin.value));
+            
+            UnitPrice.value=Math.ceil(1*(Unit_Price.value)+1*(Unit_Price.value * (WarrantyCharges.value)/100));
+           
+            ListPricewithoutRoundup.value=Math.ceil(1*(UnitPrice.value)+1*(UnitPrice.value*InsuranceCharges.value/100));
+            
             ListPricewithRoundedup.value=(Math.ceil(ListPricewithoutRoundup.value/50))*50;
-            console.log(DiscountedPrice.value,InputCostInclusiveoffreight.value);
         }
         function efgh(e){
             var sr_no=parseInt(e.target.className);
@@ -165,32 +177,23 @@
             var InsuranceCharges=document.getElementById(sr_no+"InsuranceCharges");
             var ListPricewithoutRoundup=document.getElementById(sr_no+"ListPricewithoutRoundup");
             var ListPricewithRoundedup=document.getElementById(sr_no+"ListPricewithRoundedup");
-            DiscountedPrice.value=(InputPrice.value)-(InputPrice.value * (Discount.value)/100); 
-            InputCostInclusiveoffreight.value=parseInt(DiscountedPrice.value)+(DiscountedPrice.value * (Freight.value)/100);
-            UnitCost.value=parseInt(InputCostInclusiveoffreight.value)+(InputCostInclusiveoffreight.value * (InterestCOM.value)/100);
-            UnitCostInclusiveofRisk.value=parseInt(UnitCost.value)+(UnitCost.value * (InwardTax.value)/100);
-            UnitCostInclusiveofContigency.value=parseInt(UnitCostInclusiveofRisk.value)+(UnitCostInclusiveofRisk.value * (ContigencyPercentage.value)/100);
+            DiscountedPrice.value=Math.ceil((InputPrice.value)-(InputPrice.value * (Discount.value)/100)); 
+            InputCostInclusiveoffreight.value=Math.ceil(1*1*(DiscountedPrice.value)+1*(DiscountedPrice.value * (Freight.value)/100));
+            UnitCost.value=Math.ceil(1*(InputCostInclusiveoffreight.value)+1*(InputCostInclusiveoffreight.value * (InterestCOM.value)/100));
+            UnitCostInclusiveofRisk.value=Math.ceil(1*(UnitCost.value)+1*(UnitCost.value * (InwardTax.value)/100));
+            UnitCostInclusiveofContigency.value=Math.ceil(1*(UnitCostInclusiveofRisk.value)+1*(UnitCostInclusiveofRisk.value * (ContigencyPercentage.value)/100));
             
-            Unit_Price.value=(100*UnitCostInclusiveofContigency.value)/(100-Margin.value)
+            Unit_Price.value=Math.ceil((100*UnitCostInclusiveofContigency.value)/(100-Margin.value));
             
-            UnitPrice.value=parseInt(Unit_Price.value)+(Unit_Price.value * (WarrantyCharges.value)/100);
+            UnitPrice.value=Math.ceil(1*(Unit_Price.value)+1*(Unit_Price.value * (WarrantyCharges.value)/100));
            
-            ListPricewithoutRoundup.value=parseInt(UnitPrice.value)+(UnitPrice.value*InsuranceCharges.value/100);
+            ListPricewithoutRoundup.value=Math.ceil(1*(UnitPrice.value)+1*(UnitPrice.value*InsuranceCharges.value/100));
+            
             ListPricewithRoundedup.value=(Math.ceil(ListPricewithoutRoundup.value/50))*50;
+            
             console.log(DiscountedPrice.value,InputCostInclusiveoffreight.value);
         }
-        $(document).on('click', '.edit', function (e) {
-            e.preventDefault();
-            var sr_no = $(this).val();
-            console.log(sr_no);
-            sr_no = sr_no;
-            document.getElementById(sr_no).disabled = false;
-            const boxes = document.getElementsByClassName(sr_no);
-            for (const box of boxes) {
-                box.readOnly = false;
-                console.log(box);
-            }
-        })
+       
         $(document).on('click', '.save', function (e) {
             e.preventDefault();
             let sr_no=$(this).val();
@@ -218,11 +221,8 @@
                 },
                 success: function (json) {
                    console.log(json.adg);
-                   document.getElementById(json.sr_no).disabled=true;
-                   const boxes = document.getElementsByClassName(json.sr_no);
-                   for (const box of boxes) {
-                   box.readOnly=true;
-            }
+                   
+                
                 },
                 error: function (xhr, errmsg, err) {
             

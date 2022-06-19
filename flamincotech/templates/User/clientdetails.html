@@ -8,9 +8,39 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <title>Document</title>
+    <style>
+        .req::after {
+            content: '*';
+            font-size: 24px;
+            line-height: 0;
+            vertical-align: middle;
+            margin-left: 10px;
+            color: red;
+            margin-top: 5px;
+        }
+
+        .btns {
+            border: none;
+            height: 60px;
+            cursor: pointer;
+        }
+
+        .btns:hover {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        .activebtn {
+
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            border: none;
+        }
+    </style>
 </head>
 
 <body>
+    <div hidden id="alertdiv" class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong id="alertmsg"></strong>
+    </div>
     <div id="div1" style="width: 700px;background-color: rgb(241, 241, 241);"
         class="container my-5 maindiv shadow p-3 mb-5 rounded">
         <div style="text-align: center;" class="container my-5">
@@ -19,37 +49,44 @@
         <div class="container my-5">
             <form class="my-5">
                 <div class="form-group row">
-                    <label class="col-sm-4 col-form-label">Company Name</label>
+                    <label required class="col-sm-4 col-form-label req">Company Name</label>
                     <div class="col-sm-8">
-                        <input id="c1" type="text" class="form-control" placeholder="Company Name">
+                        <input id="c6" type="text" required class="form-control" placeholder="Company Name">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-sm-4 col-form-label">Location</label>
+                    <label required class="col-sm-4 col-form-label req">Company Number</label>
+                    <div class="col-sm-8">
+                        <input id="c1" type="number" value=0 required class="form-control" placeholder="Company Number">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label req">Location</label>
                     <div class="col-sm-8">
                         <input id="c2" type="text" class="form-control" placeholder="City Name">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-sm-4 col-form-label">Contact Number</label>
+                    <label class="col-sm-4 col-form-label req">Contact Person</label>
                     <div class="col-sm-8">
-                        <input id="c3"  type="text" class="form-control" placeholder="Contact Number">
+                        <input id="c3" type="text" class="form-control" placeholder="Contact Person">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-sm-4 col-form-label">E-mail</label>
+                    <label class="col-sm-4 col-form-label req">E-mail</label>
                     <div class="col-sm-8">
-                        <input id="c4"  type="email" class="form-control" placeholder="E-mail">
+                        <input id="c4" type="email" class="form-control" placeholder="E-mail">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-4 col-form-label">Subject</label>
                     <div class="col-sm-8">
-                        <input id="c5"  type="text" class="form-control" placeholder="Subject">
+                        <input id="c5" type="text" class="form-control" placeholder="Subject">
                     </div>
                 </div>
                 <div class="my-5">
-                    <button id="but1" type="submit" onclick="saveautovalues1()" class="btn btn-primary mb-2 next">Save & Next</button>
+                    <button id="but1" type="submit" onclick="saveautovalues1()" class="btn btn-primary mb-2 next">Save &
+                        Next</button>
                 </div>
             </form>
         </div>
@@ -57,200 +94,255 @@
 
     <div id="inputsheet" class="contanier">
 
-        <form id="div2" hidden class="maindiv shadow p-3 mb-5 rounded"
-            style="width: 800px;margin: 20px auto;padding: 50px;padding-right: 50px;background-color: rgb(241, 241, 241);">
-            <div style="margin-left: 20px;">
-                <h4>
-                    <p>General Details</p>
-                </h4>
-            </div>
-            <div style="margin: 20px;">
-                <div class="form-group row">
-                    <label class="col" for="exampleFormControlTextarea1">Number of Site(s) / Building(s) </label>
-                    <input type="number" class="form-control col" rows="3"></input>
-                </div>
-                <div class="form-group row">
-                    <label class="col" for="exampleFormControlTextarea1">Total number of floors across building</label>
-                    <input type="number" class="form-control col" rows="3"></input>
-                </div>
-                <div class="form-group row">
-                    <label class="col">Total Sq.ft. area of the workspace</label>
-                    <input onchange="wsnre()" id="d5" placeholder="in Sq ft" type="number" class="form-control col"
-                        rows="3"></input>
-                </div>
-                <div class="form-group row">
-                    <label class="col" for="exampleFormControlTextarea1">Enter the Number of Mobile Users</label>
-                    <input onchange="myFunction(event)" id="2" placeholder="Enter 0 if not required" type="number"
-                        class="form-control col" rows="3"></input>
-                </div>
-                <div class="form-group row">
-                    <label class="col" for="exampleFormControlTextarea1">Enter the Number of Kiosk(s) Required</label>
-                    <input id="1" onchange="myFunction(event)" type="number" class="form-control col" rows="3"></input>
-                </div>
-                <div class="form-group row">
-                    <label class="col" for="exampleFormControlTextarea1">Type of Sensor Hardware (IP or ZigBee)</label>
-                    <select id="d8" onchange="wsnre()" class="form-control col">
-                        <option value="0" selected>Select</option>
-                        <option value="0" selected>not required</option>
-                        <option value="1">IP Variant</option>
-                        <option value="2">ZigBee Variant</option>
-                    </select>
-                </div>
-                <hr>
+        <form id="div2" hidden class="maindiv">
 
-                <h4>
-                    <p>Spazio Solutions Details</p>
-                </h4>
-                <div class="form-group row">
-                    <label class="col" for="exampleFormControlTextarea1">Enter Total Number of Desks</label>
-                    <input onchange="DOS4()" id="d10" type="number" placeholder="Enter 0 if not required"
-                        class="form-control col" rows="3"></input>
+            <div style="display:flex;align-items:center">
+                <div class="hometags" style="width:14.285%">
+                    <button class="btns activebtn" value="1" style="width:100%">General Details</button>
                 </div>
-                <div class="form-group row">
-                    <label class="col" for="exampleFormControlTextarea1">Enter the Number of Desks for Desk Booking
-                        Requirement</label>
-                    <input type="number" placeholder="Enter the desk count" class="form-control col" id="5"
-                        onchange="myFunction(event)" rows="3"></input>
+                <div class="hometags" style="width:14.285%">
+                    <button class="btns" value="2" style="width:100%">Spazio Solutions Details</button>
                 </div>
-                <div class="form-group row">
-                    <label class="col" for="exampleFormControlTextarea1">Enter the Number of Desks for Space Planning
-                        Requirement - (Fixed Seating)</label>
-                    <input id="3" onchange="myFunction(event)" type="number" placeholder="Enter the desk count"
-                        class="form-control col" rows="3"></input>
+                <div class="hometags" style="width:14.285%">
+                    <button class="btns" value="3" style="width:100%">Rest Room Solutions Details</button>
                 </div>
-                <div class="form-group row">
-                    <label class="col" for="exampleFormControlTextarea1">Enter the Number of Desks for Space Utilization
-                        Requirement</label>
-                    <input type="number" placeholder="Enter the desk count" class="form-control col" id="4"
-                        onchange="myFunction(event)" rows="3"></input>
+                <div class="hometags" style="width:14.285%">
+                    <button class="btns" value="4" style="width:100%">IAQ Solutions Details</button>
                 </div>
-                <div class="form-group row">
-                    <label class="col" for="exampleFormControlTextarea1">Which sensor needs to considered for Space
-                        Utilization tracking</label>
-                    <select onchange="wsnre()" id="d14" class="form-control col">
-                        <option selected value="0">Select</option>
-                        <option value="0">Not required</option>
-                        <option value="1">Desk Sensor</option>
-                        <option value="2">Pixel Sensor</option>
-                    </select>
+                <div class="hometags" style="width:14.285%">
+                    <button class="btns" value="5" style="width:100%">Wayfinding</button>
                 </div>
-                <div class="form-group row">
-                    <label class="col" for="exampleFormControlTextarea1">For Desk Occupancy sensors, do you prefer 2 Yrs
-                        or
-                        4 Yrs Battery Life </label>
-                    <select id="d15" onchange="DOS4()" class="form-control col">
-                        <option selected value="0">Select</option>
-                        <option value="0">Not required</option>
-                        <option value="1">2 Years Battery</option>
-                        <option value="2">4 Years Battery</option>
-                    </select>
+                <div class="hometags" style="width:14.285%">
+                    <button class="btns" value="6" style="width:100%">Feedback Management</button>
                 </div>
-                <div class="form-group row">
-                    <label class="col" for="exampleFormControlTextarea1">Enter Number of Meeting Rooms</label>
-                    <input id="d16" onchange="occupancylicense()" type="number" placeholder="Enter 0 if not required"
-                        class="form-control col" rows="3"></input>
+                <div class="hometags" style="width:14.285%">
+                    <button class="btns" value="7" style="width:100%">Automate</button>
                 </div>
-                <div class="form-group row">
-                    <label class="col" for="exampleFormControlTextarea1">Is Meeting Room Booking Required</label>
-                    <select id="d17" onchange="mirbl()" class="form-control col">
-                        <option selected value="0">Select</option>
-                        <option value="0">Room booking not required</option>
-                        <option value="1">Room booking </option>
-                    </select>
-                </div>
-                <div class="form-group row">
-                    <label class="col" for="exampleFormControlTextarea1">Meeting Room Solution Options</label>
-                    <select id="d18" onchange="occupancylicense()" class="form-control col">
-                        <option selected value="0">Select</option>
-                        <option value="0">Not required</option>
-                        <option value="1">Occupancy Status (MROS)</option>
-                        <option value="2">People Count</option>
-                        <option value="3">Occupancy Status + People Count (Pixel)</option>
-                    </select>
-                </div>
-                <div class="form-group row">
-                    <label class="col" for="exampleFormControlTextarea1">Number of employees to be registered for Access
-                        card based check-in</label>
-                    <input type="number" placeholder="Enter '0' if not Applicable" class="form-control col"
-                        rows="3"></input>
-                </div><hr>
-                <h4>
-                    <p>Rest Room Solutions Details</p>
-                </h4>
-                <div class="form-group row">
-                    <label class="col" for="exampleFormControlTextarea1">Enter Number of Restrooms</label>
-                    <input onchange="rilpc()" type="number" placeholder="Enter '0' if not required"
-                        class="form-control col" id="d21" rows="3"></input>
-                </div>
-                <div class="form-group row">
-                    <label class="col" for="exampleFormControlTextarea1">Restroom Solution Options</label>
-                    <select id="d22" onchange="rilpc()" class="form-control col">
-                        <option selected value="0">Select</option>
-                        <option value="0">Not required</option>
-                        <option value="1">Only People count</option>
-                        <option value="2">Only Wet floor detection sensor</option>
-                        <option value="3">People Count + Wet floor detection sensor - Not Available
-                        </option>
-                        <option value="4">Odour + Wet floor detection sensor</option>
-                        <option value="5">People count + Odour + Wet floor detection sensor</option>
-                    </select>
-                </div><hr>
-                <h4>
-                    <p>IAQ Solutions Details</p>
-                </h4>
-                <div class="form-group row">
-                    <label class="col" for="exampleFormControlTextarea1">IAQ Solution Option</label>
-                    <select onchange="wsnre()" id="d24" class="form-control col">
-                        <option selected value="0">Select</option>
-                        <option value="0">Not required</option>
-                        <option value="1">Sensors in Advanced Sensor with T+RH, Co2, tVOC,PM-2.5 & PM-10
-                        </option>
-                        <option value="2">Partial Sensor with T+RH, Co2, tVOC</option>
-                        <option value="3">IAQ A & P</option>
-                    </select>
-                </div><hr>
-                <h4>
-                    <p>Wayfinding</p>
-                </h4>
-                <div class="form-group row">
-                    <label class="col" for="exampleFormControlTextarea1">Enter the Required Point of Interest or '0' if
-                        not
-                        required</label>
-                    <input type="number" id="d26" class="form-control col" onchange="wipi()" rows="3"></input>
-                </div><hr>
-                <h4>
-                    <p>Feedback Management</p>
-                </h4>
-                <div class="form-group row">
-                    <label class="col" for="exampleFormControlTextarea1">Enter the Required Point of Interest or '0' if
-                        not
-                        required</label>
-                    <input id="d28" onchange="fipi()" type="number" class="form-control col" rows="3"></input>
-                </div><hr>
-                <h4>
-                    <p>Automate</p>
-                </h4>
-                <div class="form-group row">
-                    <label class="col" for="exampleFormControlTextarea1">Enter the License Type Required</label>
-                    <input type="number" placeholder="Enter '1' for Basic License 
-Enter '2' for Permium Licesne" class="form-control col" rows="3"></input>
-                </div>
-                <div class="form-group row">
-                    <label class="col" for="exampleFormControlTextarea1">Enter the Number of Point or KPI
-                        required</label>
-                    <input type="number" class="form-control col" rows="3"></input>
-                </div> <button id="but2" type="submit" class="btn btn-primary mb-2 prev">Previous</button>
-                <button id="ijk2" type="submit"
-                    class="btn btn-primary mb-2 next">Next</button>
+
             </div>
+
+            <div class="shadow p-3 mb-5 rounded" style="width: 800px;margin: 20px auto;padding: 50px;padding-right: 50px;background-color: rgb(241, 241, 241);">
+                <div id="maindivbar1" class="maindivbar">
+                    <h4>
+                        <p>General Details</p>
+                    </h4>
+                    <div class="form-group row">
+                        <label class="col req" for="exampleFormControlTextarea1">Number of Site(s) / Building(s)
+                        </label>
+                        <input id="d3" value=0 type="number" class="form-control col" rows="3"></input>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col req" for="exampleFormControlTextarea1">Total number of floors across
+                            building</label>
+                        <input id="d4" value=0 type="number" class="form-control col" rows="3"></input>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col req">Total Sq.ft. area of the workspace</label>
+                        <input onchange="wsnre()" value=0 id="d5" placeholder="in Sq ft" type="number" class="form-control col"
+                            rows="3"></input>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col" for="exampleFormControlTextarea1">Enter the Number of Mobile Users</label>
+                        <input onchange="myFunction(event)" id="2" placeholder="0" type="number"
+                            class="form-control col" rows="3"></input>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col" for="exampleFormControlTextarea1">Enter the Number of Kiosk(s)
+                            Required</label>
+                        <input id="1" onchange="myFunction(event)" type="number" value=0 class="form-control col"
+                            rows="3"></input>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col" for="exampleFormControlTextarea1">Type of Sensor Hardware (IP or
+                            ZigBee)</label>
+                        <select id="d8" onchange="wsnre()" class="form-control col">
+                            <option value="0" selected>Select</option>
+                            <option value="0" selected>not required</option>
+                            <option value="1">IP Variant</option>
+                            <option value="2">ZigBee Variant</option>
+                        </select>
+                    </div>
+
+                </div>
+                <div id="maindivbar2" class="maindivbar" hidden>
+
+                    <h4>
+                        <p>Spazio Solutions Details</p>
+                    </h4>
+                    <div class="form-group row">
+                        <label class="col" for="exampleFormControlTextarea1">Enter Total Number of Desks</label>
+                        <input onchange="DOS4()" id="d10" type="number" placeholder="0" class="form-control col"
+                            rows="3"></input>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col" for="exampleFormControlTextarea1">Enter the Number of Desks for Desk Booking
+                            Requirement</label>
+                        <input id="d11" type="number" placeholder="Enter the desk count" class="form-control col" id="5"
+                            onchange="myFunction(event)" rows="3"></input>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col" for="exampleFormControlTextarea1">Enter the Number of Desks for Space
+                            Planning
+                            Requirement - (Fixed Seating)</label>
+                        <input id="3" onchange="myFunction(event)" type="number" placeholder="Enter the desk count"
+                            class="form-control col" rows="3"></input>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col" for="exampleFormControlTextarea1">Enter the Number of Desks for Space
+                            Utilization
+                            Requirement</label>
+                        <input type="number" placeholder="Enter the desk count" class="form-control col" id="4"
+                            onchange="myFunction(event)" rows="3"></input>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col" for="exampleFormControlTextarea1">Which sensor needs to considered for Space
+                            Utilization tracking</label>
+                        <select onchange="wsnre()" id="d14" class="form-control col">
+                            <option selected value="0">Select</option>
+                            <option value="0">Not required</option>
+                            <option value="1">Desk Sensor</option>
+                            <option value="2">Pixel Sensor</option>
+                        </select>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col" for="exampleFormControlTextarea1">For Desk Occupancy sensors, do you prefer 2
+                            Yrs
+                            or
+                            4 Yrs Battery Life </label>
+                        <select id="d15" onchange="DOS4()" class="form-control col">
+                            <option selected value="0">Select</option>
+                            <option value="0">Not required</option>
+                            <option value="1">2 Years Battery</option>
+                            <option value="2">4 Years Battery</option>
+                        </select>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col" for="exampleFormControlTextarea1">Enter Number of Meeting Rooms</label>
+                        <input id="d16" onchange="occupancylicense()" type="number" placeholder="0"
+                            class="form-control col" rows="3"></input>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col" for="exampleFormControlTextarea1">Is Meeting Room Booking Required</label>
+                        <select id="d17" onchange="mirbl()" class="form-control col">
+                            <option selected value="0">Select</option>
+                            <option value="0">Room booking not required</option>
+                            <option value="1">Room booking </option>
+                        </select>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col" for="exampleFormControlTextarea1">Meeting Room Solution Options</label>
+                        <select id="d18" onchange="occupancylicense()" class="form-control col">
+                            <option selected value="0">Select</option>
+                            <option value="0">Not required</option>
+                            <option value="1">Occupancy Status (MROS)</option>
+                            <option value="2">People Count</option>
+                            <option value="3">Occupancy Status + People Count (Pixel)</option>
+                        </select>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col" for="exampleFormControlTextarea1">Number of employees to be registered for
+                            Access
+                            card based check-in</label>
+                        <input type="number" placeholder="0" class="form-control col" rows="3"></input>
+                    </div>
+                </div>
+                <div id="maindivbar3" class="maindivbar" hidden>
+                    <h4>
+                        <p>Rest Room Solutions Details</p>
+                    </h4>
+                    <div class="form-group row">
+                        <label class="col" for="exampleFormControlTextarea1">Enter Number of Restrooms</label>
+                        <input onchange="rilpc()" type="number" placeholder="0" class="form-control col" id="d21"
+                            rows="3"></input>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col" for="exampleFormControlTextarea1">Restroom Solution Options</label>
+                        <select id="d22" onchange="rilpc()" class="form-control col">
+                            <option selected value="0">Select</option>
+                            <option value="0">Not required</option>
+                            <option value="1">Only People count</option>
+                            <option value="2">Only Wet floor detection sensor</option>
+                            <option value="3">People Count + Wet floor detection sensor - Not Available
+                            </option>
+                            <option value="4">Odour + Wet floor detection sensor</option>
+                            <option value="5">People count + Odour + Wet floor detection sensor</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="maindivbar4" class="maindivbar" hidden>
+                    <h4>
+                        <p>IAQ Solutions Details</p>
+                    </h4>
+                    <div class="form-group row">
+                        <label class="col" for="exampleFormControlTextarea1">IAQ Solution Option</label>
+                        <select onchange="wsnre()" id="d24" class="form-control col">
+                            <option selected value="0">Select</option>
+                            <option value="0">Not required</option>
+                            <option value="1">Sensors in Advanced Sensor with T+RH, Co2, tVOC,PM-2.5 & PM-10
+                            </option>
+                            <option value="2">Partial Sensor with T+RH, Co2, tVOC</option>
+                            <option value="3">IAQ A & P</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="maindivbar5" class="maindivbar" hidden>
+                    <h4>
+                        <p>Wayfinding</p>
+                    </h4>
+                    <div class="form-group row">
+                        <label class="col" for="exampleFormControlTextarea1">Enter the Required Point of Interest or '0'
+                            if
+                            not
+                            required</label>
+                        <input type="number" id="d26" class="form-control col" onchange="wipi()" rows="3"></input>
+                    </div>
+                </div>
+                <div id="maindivbar6" class="maindivbar" hidden>
+                    <h4>
+                        <p>Feedback Management</p>
+                    </h4>
+                    <div class="form-group row">
+                        <label class="col" for="exampleFormControlTextarea1">Enter the Required Point of Interest or '0'
+                            if
+                            not
+                            required</label>
+                        <input id="d28" onchange="fipi()" type="number" class="form-control col" rows="3"></input>
+                    </div>
+                </div>
+                <div id="maindivbar7" class="maindivbar" hidden>
+                    <h4>
+                        <p>Automate</p>
+                    </h4>
+                    <div class="form-group row">
+                        <label class="col" for="exampleFormControlTextarea1">Enter the License Type Required</label>
+                        <input id="auto1" type="number" placeholder="Basic License 
+Permium Licesne" class="form-control col" rows="3"></input>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col" for="exampleFormControlTextarea1">Enter the Number of Point or KPI
+                            required</label>
+                        <input id="auto2" type="number" class="form-control col" rows="3"></input>
+
+                    </div>
+                </div>
+
+                
+            </div> 
+                <div style="display:flex;justify-content: center">
+                
+                <button id="but2" type="submit" class="btn btn-primary mx-3 mb-2 prev">Previous</button>
+                <button id="ijk2" type="submit" onclick="saveautovalues(event)"
+                    class="btn btn-primary mx-3 mb-2">Next</button></div>
         </form>
 
-        <form hidden class="maindiv shadow p-3 mb-5 rounded" id="div3"
-            style="width: 800px;margin: 20px auto;padding: 30px;background-color: rgb(241, 241, 241);" action="" method="post">
-            
-                <h4>
-                    <p>Software Details</p>
-                </h4><hr>
+        <form hidden class="shadow p-3 mb-5 rounded"
+            style="width: 800px;margin: 20px auto;padding: 30px;background-color: rgb(241, 241, 241);" action=""
+            method="post">
+
+            <h4>
+                <p>Software Details</p>
+            </h4>
+            <hr>
             <div class="form-group row">
                 <label class="col" for="exampleFormControlTextarea1">Total Number of Kiosk Licenses</label>
                 <input id="s1" type="number" class="form-control col" rows="3"></input>
@@ -314,7 +406,8 @@ Enter '2' for Permium Licesne" class="form-control col" rows="3"></input>
             </div>
             <h4>
                 <p>Hardware Details</p>
-            </h4><hr>
+            </h4>
+            <hr>
             <div class="form-group row">
                 <label class="col" for="exampleFormControlTextarea1">DB -Spazio Desk Occupancy Sensor with 4 Year
                     battery life</label>
@@ -359,22 +452,22 @@ Enter '2' for Permium Licesne" class="form-control col" rows="3"></input>
             <div class="form-group row">
                 <label class="col" for="exampleFormControlTextarea1">EnviSenZ -IAQ Indoor Air Quality Sensor ZB variant
                     (T+Rh, Co2, TVOC, PM 2.5, PM 10) </label>
-                <input id="h10" type="number" class="form-control col" rows="3"></input>
+                <input id="h10" value="0" type="number" class="form-control col" rows="3"></input>
             </div>
             <div class="form-group row">
                 <label class="col" for="exampleFormControlTextarea1">EnviSenZ -IAQ Indoor Air Quality Sensor IP variant
                     (T+Rh, Co2, TVOC, PM 2.5, PM 10)</label>
-                <input id="h11" type="number" class="form-control col" rows="3"></input>
+                <input id="h11" value="0" type="number" class="form-control col" rows="3"></input>
             </div>
             <div class="form-group row">
                 <label class="col" for="exampleFormControlTextarea1">EnviSenZ -IAQ Indoor Air Quality Sensor ZB variant
                     (T+Rh, Co2, TVOC)</label>
-                <input id="h12" type="number" class="form-control col" rows="3"></input>
+                <input id="h12" value="0" type="number" class="form-control col" rows="3"></input>
             </div>
             <div class="form-group row">
                 <label class="col" for="exampleFormControlTextarea1">EnviSenZ -IAQ Indoor Air Quality Sensor IP variant
                     (T+Rh, Co2, TVOC)</label>
-                <input id="h13" type="number" class="form-control col" rows="3"></input>
+                <input id="h13" value="0" type="number" class="form-control col" rows="3"></input>
             </div>
             <div class="form-group row">
                 <label class="col" for="exampleFormControlTextarea1">EnviSenZ Rest Room Sensor ZB variant T+Rh, TVOC,
@@ -386,9 +479,7 @@ Enter '2' for Permium Licesne" class="form-control col" rows="3"></input>
                     Odour, Wetfloor detection sensor</label>
                 <input id="h15" type="number" class="form-control col" rows="3"></input>
             </div>
-            <button id="but3" type="submit" class="btn btn-primary mb-2 prev">Previous</button>
-            <button id="abc3" type="submit" onclick="saveautovalues()"
-                    class="btn btn-primary mb-2 next">Next</button>
+
 
         </form>
     </div>
@@ -403,7 +494,7 @@ Enter '2' for Permium Licesne" class="form-control col" rows="3"></input>
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
     <script>
-        var clientdetails   = [{ "id": 1, "details": "Company Name", "quant": 0 }, { "id": 2, "details": "Location", "quant": 0 }, {
+        var clientdetails = [{ "id": 1, "details": "Company Name", "quant": 0 }, { "id": 2, "details": "Location", "quant": 0 }, {
             "id": 3, "details": "Contact Number", "quant": 0
         }, { "id": 4, "details": "E-mail", "quant": 0 }, { "id": 5, "details": "Subject", "quant": 0 }];
         var hardwaredetails = [{ "id": 1, "details": "DB -Spazio Desk Occupancy Sensor with 4 Yearbattery life", "quant": 0 }, { "id": 2, "details": "DB -Spazio Desk Occupancy Sensor with 2 Yearbattery life", "quant": 0 }, {
@@ -415,6 +506,8 @@ Enter '2' for Permium Licesne" class="form-control col" rows="3"></input>
         var softwaredetails = [{ "id": 1, "details": "Total Number of Kiosk Licenses", "quant": 0 }, { "id": 2, "details": "Total  Number of Mobile Users", "quant": 0 }, {
             "id": 3, "details": "Total Number of Desk for Space Planning Licenses", "quant": 0
         }, { "id": 4, "details": "Total Number of Space Utilization Licenses", "quant": 0 }, { "id": 5, "details": "Total Number of Desk Booking Licenses", "quant": 0 }, { "id": 6, "details": "Total Number of Meeting Room for Occupancy Licenses", "quant": 0 }, { "id": 7, "details": "Total Number of Meeting Room for People count Licenses", "quant": 0 }, { "id": 8, "details": "Total Number of Meeting Room Booking Licenses", "quant": 0 }, { "id": 9, "details": "> Wayfinding Point of Interest", "quant": 0 }, { "id": 10, "details": "Feedback Point of Interest", "quant": 0 }, { "id": 11, "details": "Restroom License(People Count)", "quant": 0 }, { "id": 12, "details": "", "Restroom License(Wet Floor Detection)quant": 0 }, { "id": 13, "details": "Restroom License(Odour)", "quant": 0 }, { "id": 14, "details": "Total IAQ Points", "quant": 0 }];
+
+        // D3,D4,7=1,10,16,17,18,24,26,28,21,31="auto2",33=d7,47=s14
         function myFunction(e) {
             var id = "s" + e.target.id;
             document.getElementById(id).value = e.target.value;
@@ -431,6 +524,20 @@ Enter '2' for Permium Licesne" class="form-control col" rows="3"></input>
             }
 
         }
+        function alert(msg) {
+            document.getElementById("alertdiv").hidden = false;
+            document.getElementById("alertmsg").innerText = msg;
+            setTimeout(() => {
+                document.getElementById("alertdiv").hidden = true;;
+            }, 2000)
+        }
+        function validateEmail(email) {
+            return String(email)
+                .toLowerCase()
+                .match(
+                    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+                );
+        };
         function DOS4() {
             if (document.getElementById('d15').value === '0') {
                 document.getElementById('h1').value = 0;
@@ -484,9 +591,15 @@ Enter '2' for Permium Licesne" class="form-control col" rows="3"></input>
                 document.getElementById('s13').value = 0;
 
             }
-            else {
+            else if (document.getElementById('d22').value === '4') {
                 document.getElementById('s12').value = document.getElementById('d21').value;
                 document.getElementById('s11').value = 0;
+                document.getElementById('s13').value = document.getElementById('d21').value;
+
+            }
+            else {
+                document.getElementById('s12').value = document.getElementById('d21').value;
+                document.getElementById('s11').value = document.getElementById('d21').value;
                 document.getElementById('s13').value = document.getElementById('d21').value;
 
             }
@@ -534,25 +647,94 @@ Enter '2' for Permium Licesne" class="form-control col" rows="3"></input>
             for (let i = 0; i < 5; i++) {
                 clientdetails[i].quant = document.getElementById('c' + (i + 1)).value;
             }
-        localStorage.setItem('clientdetails',JSON.stringify(clientdetails));
-        localStorage.setItem('requiredsoftwaredetails',JSON.stringify(requiredsoftwaredetails));
+            localStorage.setItem('clientdetails', JSON.stringify(clientdetails));
 
         }
-        function saveautovalues() {
-            for (let i = 0; i < 14; i++) {
-                softwaredetails[i].quant = document.getElementById('s' + (i + 1)).value;
+        console.log("edrfedfdsddd");
+        console.log((document.getElementById("d3").value).length);
+        function saveautovalues(e) {
+            e.preventDefault();
+            if (parseInt(document.getElementById("d3").value) < 1) {
+                e.preventDefault();
+                alert("Please Enter a  Number of Sites/Buildings");
             }
-            for (let i = 0; i < 15; i++) {
-                hardwaredetails[i].quant= document.getElementById('h' + (i + 1)).value;
+            else if (parseInt(document.getElementById("d4").value) < 1) {
+                e.preventDefault();
+                alert("Please Enter a Number of Floors");
             }
-            for (let i = 0; i < 14; i++) {
-              //  requiredsoftwaredetails[i].quant= document.getElementById('r' + (i + 1)).value;
+            else if (parseInt(document.getElementById("d5").value) < 1) {
+                e.preventDefault();
+                alert("Please Enter a Square Feet Area");
             }
-        localStorage.setItem('harddetails',JSON.stringify(hardwaredetails));
-        localStorage.setItem('softdetails',JSON.stringify(softwaredetails));
-        window.location.href = 'http://127.0.0.1:8000/admins/SpazioPriceCalculator/';
-        //localStorage.setItem('requiredsoftwaredetails',JSON.stringify(requiredsoftwaredetails));
+            else {
+                e.preventDefault();
+                var automate = [];
+                automate[0] = parseInt(document.getElementById("auto1").value);
+                automate[1] = parseInt(document.getElementById("auto2").value);
+                var darray = [];
+                for (var i = 0; i < 48; i++) {
+                    darray[i] = 0;
+                }
+                for (let i = 0; i < 14; i++) {
+                    softwaredetails[i].quant = (document.getElementById('s' + (i + 1)).value).length > 0 ? document.getElementById('s' + (i + 1)).value : 0;
+                }
+                for (let i = 0; i < 15; i++) {
+                    hardwaredetails[i].quant = (document.getElementById('h' + (i + 1)).value).length > 0 ? document.getElementById('h' + (i + 1)).value : 0;
+                }
+                for (let i = 0; i < 14; i++) {
+                    //  requiredsoftwaredetails[i].quant= document.getElementById('r' + (i + 1)).value;
+                }
+                //D3,D4,7=1,10,16,17,18,24,26,28,21,31="auto2",33=d7,47=s14
 
+                darray[3] = (document.getElementById("d3").value).length > 0 ? parseInt(document.getElementById("d3").value) : 0
+
+                darray[8] = (document.getElementById("d8").value).length > 0 ? parseInt(document.getElementById("d8").value) : 0
+
+                darray[4] = (document.getElementById("d4").value).length > 0 ? parseInt(document.getElementById("d4").value) : 0
+
+                darray[7] = (document.getElementById("1").value).length > 0 ? parseInt(document.getElementById("1").value) : 0
+
+                darray[10] = (document.getElementById("d10").value).length > 0 ? parseInt(document.getElementById("d10").value) : 0
+
+                darray[11] = (document.getElementById("d11").value).length > 0 ? parseInt(document.getElementById("d11").value) : 0
+
+
+                darray[16] = (document.getElementById("d16").value).length > 0 ? parseInt(document.getElementById("d16").value) : 0
+
+
+                darray[17] = (document.getElementById("d17").value).length > 0 ? parseInt(document.getElementById("d17").value) : 0
+
+
+                darray[18] = (document.getElementById("d18").value).length > 0 ? parseInt(document.getElementById("d18").value) : 0
+
+
+                darray[24] = (document.getElementById("d24").value).length > 0 ? parseInt(document.getElementById("d24").value) : 0
+
+                darray[26] = (document.getElementById("d26").value).length > 0 ? parseInt(document.getElementById("d26").value) : 0
+
+
+                darray[28] = (document.getElementById("d28").value).length > 0 ? parseInt(document.getElementById("d28").value) : 0
+
+                darray[21] = (document.getElementById("d21").value).length > 0 ? parseInt(document.getElementById("d21").value) : 0
+
+
+                darray[31] = (document.getElementById("auto2").value).length > 0 ? parseInt(document.getElementById("auto2").value) : 0
+
+
+                darray[33] = (document.getElementById("1").value).length > 0 ? parseInt(document.getElementById("1").value) : 0
+                darray[36] = (document.getElementById("4").value).length > 0 ? parseInt(document.getElementById("4").value) : 0
+
+
+                darray[47] = (document.getElementById("s14").value).length > 0 ? parseInt(document.getElementById("s14").value) : 0
+
+                localStorage.setItem('darray', JSON.stringify(darray));
+                localStorage.setItem('automatedetails', JSON.stringify(automate));
+                localStorage.setItem('harddetails', JSON.stringify(hardwaredetails));
+                localStorage.setItem('softdetails', JSON.stringify(softwaredetails));
+
+                window.location.href = 'http://127.0.0.1:8000/admins/SpazioPriceCalculator/';
+                //localStorage.setItem('requiredsoftwaredetails',JSON.stringify(requiredsoftwaredetails));
+            }
         }
         function wsnre() {
             if (document.getElementById('d8').value === '2') {
@@ -567,6 +749,7 @@ Enter '2' for Permium Licesne" class="form-control col" rows="3"></input>
                 var d22 = parseInt(document.getElementById('d22').value);
                 var d24 = parseInt(document.getElementById('d24').value);
                 var d21 = parseInt(document.getElementById('d21').value);
+                var d8 = parseInt(document.getElementById('d8').value);
                 var d5 = parseInt(document.getElementById('d5').value);
                 var d61 = parseInt(document.getElementById('h1').value);
                 var d62 = parseInt(document.getElementById('h2').value);
@@ -726,6 +909,9 @@ Enter '2' for Permium Licesne" class="form-control col" rows="3"></input>
                 document.getElementById("h10").value = 0;
 
             }
+            document.getElementById("s13").value = ((parseInt(document.getElementById("h10").value) + parseInt(document.getElementById("h11").value)) * 7) + ((parseInt(document.getElementById("h12").value) + parseInt(document.getElementById("h13").value)) * 5);
+            document.getElementById("s14").value = 250;
+
         }
         document.querySelectorAll('.prev').forEach(item => {
             item.addEventListener('click', event => {
@@ -747,6 +933,34 @@ Enter '2' for Permium Licesne" class="form-control col" rows="3"></input>
 
             })
         })
+        document.querySelectorAll('.btns').forEach(item => {
+            item.addEventListener('click', event => {
+                event.preventDefault();
+                var abc = event.target.value;
+                var ids = "maindivbar" + abc;
+                document.querySelectorAll('.maindivbar').forEach(item2 => {
+                    if (item2.id === ids) {
+                        item2.hidden = false;
+
+                    }
+                    else {
+                        item2.hidden = true;
+                    }
+                })
+
+                const boxes = document.querySelectorAll('.btns');
+
+                boxes.forEach(box => {
+                    box.classList.remove('activebtn');
+                });
+                event.target.classList.add('activebtn');
+
+
+            })
+
+
+        })
+
         document.querySelectorAll('.next').forEach(item => {
             item.addEventListener('click', event => {
                 event.preventDefault();
@@ -756,16 +970,51 @@ Enter '2' for Permium Licesne" class="form-control col" rows="3"></input>
                 console.log(abc);
                 let eleme = 'div' + abc;
                 console.log(eleme);
-                document.querySelectorAll('.maindiv').forEach(item2 => {
-                    console.log(item2.id);
-                    if (item2.id === eleme) {
-                        item2.hidden = false;
-
+                if (item.id == "but1") {
+                    console.log(document.getElementById("c1").value)
+                    if ((document.getElementById("c6").value).length < 3 ) {
+                        alert("Please Enter a Proper Company Name");
+                    }
+                    else if ((parseInt(document.getElementById("c1").value) < 1000000000) || (parseInt(document.getElementById("c1").value) > 9999999999)) {
+                        alert("Please Enter a Proper Number");
+                    }
+                    else if ((document.getElementById("c2").value).length < 3) {
+                        alert("Please Enter a Proper Location");
+                    }
+                    else if ((document.getElementById("c3").value).length < 3) {
+                        alert("Please Enter a Proper Name");
+                    }
+                    else if (!validateEmail(document.getElementById("c4").value)) {
+                        alert("Please Enter a Valid Email");
                     }
                     else {
-                        item2.hidden = true;
+                        document.querySelectorAll('.maindiv').forEach(item2 => {
+                            console.log(item2.id);
+                            if (item2.id === eleme) {
+                                item2.hidden = false;
+
+                            }
+                            else {
+                                item2.hidden = true;
+                            }
+                        })
+
                     }
-                })
+
+                }
+                else {
+                    document.querySelectorAll('.maindiv').forEach(item2 => {
+                        console.log(item2.id);
+                        if (item2.id === eleme) {
+                            item2.hidden = false;
+
+                        }
+                        else {
+                            item2.hidden = true;
+                        }
+                    })
+
+                }
 
             })
         })

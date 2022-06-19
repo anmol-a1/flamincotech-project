@@ -46,7 +46,7 @@ class NewUser(AbstractBaseUser, PermissionsMixin):
     def __int__(self):
         return self.id
 class InputConfiguration(models.Model):
-    sr_no=models.IntegerField()
+    sr_no=models.AutoField(primary_key=True)
     desc=models.CharField(max_length=500)
     ft_hardware=models.IntegerField()
     active=models.IntegerField()
@@ -68,7 +68,7 @@ class InputConfiguration(models.Model):
 
 
 class vpss(models.Model):
-    sr_no=models.IntegerField()
+    sr_no=models.AutoField(primary_key=True)
     MakeBrand=models.CharField(max_length=500)
     Model=models.CharField(max_length=500)
     InstallationEquipments=models.CharField(max_length=500)
@@ -97,21 +97,21 @@ class vpss(models.Model):
     ListPricewithRoundedup =models.IntegerField()
     
 class SpazioPriceCalculator(models.Model):
-    sr_no=models.IntegerField()
+    sr_no=models.AutoField(primary_key=True)
     Components=models.CharField(max_length=150)
     Quantity=models.IntegerField()
-    Rate=models.IntegerField()
-    SubTotal=models.IntegerField()
-    Warranty=models.IntegerField()
-    TotalwithWarranty=models.IntegerField()
-    COM=models.IntegerField()
-    TotalAmountwithInsurance=models.IntegerField()
-    Year2=models.IntegerField()
-    Year3=models.IntegerField()
-    Total=models.IntegerField()
+    Rate=models.IntegerField(default=0)
+    SubTotal=models.IntegerField(default=0)
+    Warranty=models.IntegerField(default=0)
+    TotalwithWarranty=models.IntegerField(default=0)
+    COM=models.IntegerField(default=0)
+    TotalAmountwithInsurance=models.IntegerField(default=0)
+    Year2=models.IntegerField(default=0)
+    Year3=models.IntegerField(default=0)
+    Total=models.IntegerField(default=0)
     
 class HardWareGeneral(models.Model):
-    sr_no=models.IntegerField()
+    sr_no=models.AutoField(primary_key=True)
     MakeBrand=models.CharField(max_length=500)
     Model=models.CharField(max_length=500)
     InstallationEquipments=models.CharField(max_length=500)
@@ -139,7 +139,7 @@ class HardWareGeneral(models.Model):
     ListPricewithoutRoundup =models.IntegerField()
     ListPricewithRoundedup =models.IntegerField()
 class HardWareIpVariant(models.Model):
-    sr_no=models.IntegerField()
+    sr_no=models.AutoField(primary_key=True)
     MakeBrand=models.CharField(max_length=500)
     Model=models.CharField(max_length=500)
     InstallationEquipments=models.CharField(max_length=500)
@@ -156,18 +156,15 @@ class HardWareIpVariant(models.Model):
     UnitCostInclusiveofRisk=models.IntegerField()
     ContigencyPercentage=models.IntegerField()
     UnitCostInclusiveofContigency=models.IntegerField()
-    
     Margin=models.IntegerField()
-    Unit_Price=models.IntegerField()
-    
+    Unit_Price=models.IntegerField()    
     WarrantyCharges=models.IntegerField()
-    UnitPrice=models.IntegerField()
-    
+    UnitPrice=models.IntegerField()    
     InsuranceCharges =models.IntegerField()
     ListPricewithoutRoundup =models.IntegerField()
     ListPricewithRoundedup =models.IntegerField()
 class HardWareActive(models.Model):
-    sr_no=models.IntegerField()
+    sr_no=models.AutoField(primary_key=True)
     MakeBrand=models.CharField(max_length=500)
     Model=models.CharField(max_length=500)
     InstallationEquipments=models.CharField(max_length=500)
@@ -195,7 +192,7 @@ class HardWareActive(models.Model):
     ListPricewithoutRoundup =models.IntegerField()
     ListPricewithRoundedup =models.IntegerField()
 class HardWarePassive(models.Model):
-    sr_no=models.IntegerField()
+    sr_no=models.AutoField(primary_key=True)
     MakeBrand=models.CharField(max_length=500)
     Model=models.CharField(max_length=500)
     InstallationEquipments=models.CharField(max_length=500)
@@ -223,7 +220,7 @@ class HardWarePassive(models.Model):
     ListPricewithoutRoundup =models.IntegerField()
     ListPricewithRoundedup =models.IntegerField()
 class HardWareEthernet(models.Model):
-    sr_no=models.IntegerField()
+    sr_no=models.AutoField(primary_key=True)
     MakeBrand=models.CharField(max_length=500)
     Model=models.CharField(max_length=500)
     InstallationEquipments=models.CharField(max_length=500)
@@ -251,7 +248,7 @@ class HardWareEthernet(models.Model):
     ListPricewithoutRoundup =models.IntegerField()
     ListPricewithRoundedup =models.IntegerField()
 class HardWareDdc(models.Model):
-    sr_no=models.IntegerField()
+    sr_no=models.AutoField(primary_key=True)
     MakeBrand=models.CharField(max_length=500)
     Model=models.CharField(max_length=500)
     InstallationEquipments=models.CharField(max_length=500)
@@ -279,7 +276,7 @@ class HardWareDdc(models.Model):
     ListPricewithoutRoundup =models.IntegerField()
     ListPricewithRoundedup =models.IntegerField()
 class HardWareBmsSensors(models.Model):
-    sr_no=models.IntegerField()
+    sr_no=models.AutoField(primary_key=True)
     MakeBrand=models.CharField(max_length=500)
     Model=models.CharField(max_length=500)
     InstallationEquipments=models.CharField(max_length=500)
@@ -307,7 +304,7 @@ class HardWareBmsSensors(models.Model):
     ListPricewithoutRoundup =models.IntegerField()
     ListPricewithRoundedup =models.IntegerField()
 class HardWareThirdParty(models.Model):
-    sr_no=models.IntegerField()
+    sr_no=models.AutoField(primary_key=True)
     MakeBrand=models.CharField(max_length=500)
     Model=models.CharField(max_length=500)
     InstallationEquipments=models.CharField(max_length=500)
@@ -335,7 +332,7 @@ class HardWareThirdParty(models.Model):
     ListPricewithoutRoundup =models.IntegerField()
     ListPricewithRoundedup =models.IntegerField()
 class HardWareBmsScabling(models.Model):
-    sr_no=models.IntegerField()
+    sr_no=models.AutoField(primary_key=True)
     MakeBrand=models.CharField(max_length=500)
     Model=models.CharField(max_length=500)
     InstallationEquipments=models.CharField(max_length=500)
@@ -363,7 +360,7 @@ class HardWareBmsScabling(models.Model):
     ListPricewithoutRoundup =models.IntegerField()
     ListPricewithRoundedup =models.IntegerField()
 class HardWarePiping(models.Model):
-    sr_no=models.IntegerField()
+    sr_no=models.AutoField(primary_key=True)
     MakeBrand=models.CharField(max_length=500)
     Model=models.CharField(max_length=500)
     InstallationEquipments=models.CharField(max_length=500)
@@ -391,7 +388,7 @@ class HardWarePiping(models.Model):
     ListPricewithoutRoundup =models.IntegerField()
     ListPricewithRoundedup =models.IntegerField()
 class HardWareTrays(models.Model):
-    sr_no=models.IntegerField()
+    sr_no=models.AutoField(primary_key=True)
     MakeBrand=models.CharField(max_length=500)
     Model=models.CharField(max_length=500)
     InstallationEquipments=models.CharField(max_length=500)
@@ -419,7 +416,7 @@ class HardWareTrays(models.Model):
     ListPricewithoutRoundup =models.IntegerField()
     ListPricewithRoundedup =models.IntegerField()
 class HardWareGeneralInstall(models.Model):
-    sr_no=models.IntegerField()
+    sr_no=models.AutoField(primary_key=True)
     MakeBrand=models.CharField(max_length=500)
     Model=models.CharField(max_length=500)
     InstallationEquipments=models.CharField(max_length=500)
@@ -447,7 +444,7 @@ class HardWareGeneralInstall(models.Model):
     ListPricewithoutRoundup =models.IntegerField()
     ListPricewithRoundedup =models.IntegerField()
 class HardWareIpVariantInstall(models.Model):
-    sr_no=models.IntegerField()
+    sr_no=models.AutoField(primary_key=True)
     MakeBrand=models.CharField(max_length=500)
     Model=models.CharField(max_length=500)
     InstallationEquipments=models.CharField(max_length=500)
@@ -475,7 +472,7 @@ class HardWareIpVariantInstall(models.Model):
     ListPricewithoutRoundup =models.IntegerField()
     ListPricewithRoundedup =models.IntegerField()
 class HardWareActiveInstall(models.Model):
-    sr_no=models.IntegerField()
+    sr_no=models.AutoField(primary_key=True)
     MakeBrand=models.CharField(max_length=500)
     Model=models.CharField(max_length=500)
     InstallationEquipments=models.CharField(max_length=500)
@@ -503,7 +500,7 @@ class HardWareActiveInstall(models.Model):
     ListPricewithoutRoundup =models.IntegerField()
     ListPricewithRoundedup =models.IntegerField()
 class HardWarePassiveInstall(models.Model):
-    sr_no=models.IntegerField()
+    sr_no=models.AutoField(primary_key=True)
     MakeBrand=models.CharField(max_length=500)
     Model=models.CharField(max_length=500)
     InstallationEquipments=models.CharField(max_length=500)
@@ -531,7 +528,7 @@ class HardWarePassiveInstall(models.Model):
     ListPricewithoutRoundup =models.IntegerField()
     ListPricewithRoundedup =models.IntegerField()
 class HardWareEthernetInstall(models.Model):
-    sr_no=models.IntegerField()
+    sr_no=models.AutoField(primary_key=True)
     MakeBrand=models.CharField(max_length=500)
     Model=models.CharField(max_length=500)
     InstallationEquipments=models.CharField(max_length=500)
@@ -559,7 +556,7 @@ class HardWareEthernetInstall(models.Model):
     ListPricewithoutRoundup =models.IntegerField()
     ListPricewithRoundedup =models.IntegerField()
 class HardWareDdcInstall(models.Model):
-    sr_no=models.IntegerField()
+    sr_no=models.AutoField(primary_key=True)
     MakeBrand=models.CharField(max_length=500)
     Model=models.CharField(max_length=500)
     InstallationEquipments=models.CharField(max_length=500)
@@ -587,7 +584,7 @@ class HardWareDdcInstall(models.Model):
     ListPricewithoutRoundup =models.IntegerField()
     ListPricewithRoundedup =models.IntegerField()
 class HardWareBmsSensorsInstall(models.Model):
-    sr_no=models.IntegerField()
+    sr_no=models.AutoField(primary_key=True)
     MakeBrand=models.CharField(max_length=500)
     Model=models.CharField(max_length=500)
     InstallationEquipments=models.CharField(max_length=500)
@@ -615,7 +612,7 @@ class HardWareBmsSensorsInstall(models.Model):
     ListPricewithoutRoundup =models.IntegerField()
     ListPricewithRoundedup =models.IntegerField()
 class HardWareThirdPartyInstall(models.Model):
-    sr_no=models.IntegerField()
+    sr_no=models.AutoField(primary_key=True)
     MakeBrand=models.CharField(max_length=500)
     Model=models.CharField(max_length=500)
     InstallationEquipments=models.CharField(max_length=500)
@@ -643,7 +640,7 @@ class HardWareThirdPartyInstall(models.Model):
     ListPricewithoutRoundup =models.IntegerField()
     ListPricewithRoundedup =models.IntegerField()
 class HardWareBmsScablingInstall(models.Model):
-    sr_no=models.IntegerField()
+    sr_no=models.AutoField(primary_key=True)
     MakeBrand=models.CharField(max_length=500)
     Model=models.CharField(max_length=500)
     InstallationEquipments=models.CharField(max_length=500)
@@ -671,7 +668,7 @@ class HardWareBmsScablingInstall(models.Model):
     ListPricewithoutRoundup =models.IntegerField()
     ListPricewithRoundedup =models.IntegerField()
 class HardWarePipingInstall(models.Model):
-    sr_no=models.IntegerField()
+    sr_no=models.AutoField(primary_key=True)
     MakeBrand=models.CharField(max_length=500)
     Model=models.CharField(max_length=500)
     InstallationEquipments=models.CharField(max_length=500)
@@ -699,7 +696,7 @@ class HardWarePipingInstall(models.Model):
     ListPricewithoutRoundup =models.IntegerField()
     ListPricewithRoundedup =models.IntegerField()
 class HardWareTraysInstall(models.Model):
-    sr_no=models.IntegerField()
+    sr_no=models.AutoField(primary_key=True)
     MakeBrand=models.CharField(max_length=500)
     Model=models.CharField(max_length=500)
     InstallationEquipments=models.CharField(max_length=500)
@@ -861,3 +858,79 @@ class Human_body_temperature_License(models.Model):
     Volume=models.IntegerField()
     Rate_Per_Slab =models.IntegerField()
     Total=models.IntegerField()
+class Automate_Pricing(models.Model):
+    sr_no=models.AutoField(primary_key=True)
+    Model_No=models.CharField(max_length=50)
+    Max_Slab=models.IntegerField()
+    Pack_Desc=models.CharField(max_length=50)
+    Inr_Basic=models.IntegerField()
+    Inr_Basic_Per_Kpi=models.IntegerField()
+    Inr_Premium=models.IntegerField()
+    Inr_Premium_Per_Kpi=models.IntegerField()
+    Usd_Basic=models.IntegerField()
+    Usd_Premium=models.IntegerField()
+class Software_Revised_Extra(models.Model):
+    sr_no=models.AutoField(primary_key=True)
+    Key=models.CharField(max_length=100)
+    Value=models.FloatField()
+    Info=models.CharField(max_length=100,blank=True)
+    
+class IandC(models.Model):
+    sr_no=models.AutoField(primary_key=True)
+    Deployment_Activity=models.CharField(max_length=300)
+    Resource_Level=models.CharField(max_length=100)
+    Common=models.IntegerField(default=0)
+    Spazio_Software=models.IntegerField(default=0)
+    Meeting_Room_Booking=models.IntegerField(default=0)
+    Meeting_Room_People_count_occupancy=models.IntegerField(default=0)
+    Restroom_Hygiene=models.IntegerField(default=0)
+    IAQ_Automate=models.IntegerField(default=0)
+    Wayfinding=models.IntegerField(default=0)
+    Feedback=models.IntegerField(default=0)
+    
+class Summary(models.Model):
+    sr_no=models.AutoField(primary_key=True)
+    Level_of_Engineer=models.IntegerField(default=0)
+    Common=models.IntegerField(default=0)
+    Spazio_Software=models.IntegerField(default=0)
+    Meeting_Room_Booking=models.IntegerField(default=0)
+    Meeting_Room_People_count= models.IntegerField(default=0)
+    Meeting_Room_People_count2=models.IntegerField(default=0)
+    IAQ_Automate=models.IntegerField(default=0)
+    Wayfinding=models.IntegerField(default=0)
+    Feedback=models.IntegerField(default=0)
+    Total_Man_Days=models.IntegerField(default=0)
+    
+class Efforts_Charges_for_Deployment(models.Model):
+    sr_no=models.AutoField(primary_key=True)
+    Level_of_Engineer=models.IntegerField(default=0)
+    Per_Day_Rate=models.IntegerField(default=0)
+    Per_Hour=models.IntegerField(default=0)
+    Rounded_Per_Hour_Rates=models.IntegerField(default=0)
+    Total_Man_Days=models.IntegerField(default=0)
+    Total_Man_Hours=models.IntegerField(default=0)
+    
+class Project_Management_Charges(models.Model):
+    sr_no=models.AutoField(primary_key=True)
+    Installation_Min=models.IntegerField(default=0)
+    Installation_Max=models.IntegerField(default=0)
+    PM_Percentage=models.IntegerField(default=0)
+    
+class PM_Mapping_table_After_Margin_column(models.Model):
+    sr_no=models.AutoField(primary_key=True)
+    Installation_Min=models.IntegerField(default=0)
+    Installation_Max=models.IntegerField(default=0)
+    PM_Percentage=models.IntegerField(default=0)
+    
+class PM_Mapping_table_After_Cost_column(models.Model):
+    sr_no=models.AutoField(primary_key=True)
+    Installation_Min=models.IntegerField(default=0)
+    Installation_Max=models.IntegerField(default=0)
+    PM_Percentage=models.IntegerField(default=0)
+    
+
+
+    
+    
+    
+    

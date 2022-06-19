@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <title>i and c</title>
+  </head>
+
+  <body>
+    {%csrf_token%}
+    <a class="btnss" href="{% url 'export_iandc' %}">
+      <span class="links_name">Export Hardware ACtive Data</span>
+    </a>
+    <form
+      action="/admins/iandcimport/"
+      method="post"
+      enctype="multipart/form-data"
+    >
+      {% csrf_token %}
+      <div>
+        <input
+          style="margin-left: 20px"
+          type="file"
+          accept=".xls"
+          required
+          name="bookfile"
+          id=""
+        />
+      </div>
+      <button style="margin-left: 20px; margin-top: 10px" type="submit">
+        Submit
+      </button>
+    </form>
+    <div
+      style="width: auto; background-color: rgb(241, 241, 241)"
+      class="shadow p-3 mb-5 rounded"
+    >
+      <form class="my-1">
+        <table class="table" border="1">
+          <thead style="text-align: center">
+            <tr style="text-align: center">
+              <th>SR. NO</th>
+              <th>Deployment Activity</th>
+              <th>Resource Level</th>
+              <th>Common</th>
+              <th>Spazio Software</th>
+              <th>Meeting Room Booking</th>
+              <th>Meeting Room People count / occupancy</th>
+              <th>Restroom Hygiene</th>
+              <th>IAQ + Automate</th>
+              <th>Wayfinding</th>
+              <th>Feedback</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for entry in entries %}
+            <tr>
+              <td>{{entry.sr_no}}</td>
+              <td>{{entry.Deployment_Activity}}></td>
+              <td>{{entry.Resource_Level}}</td>
+              <td>
+                <input
+                  id="{{entry.sr_no}}Common"
+                  style="width: 60px; border: none"
+                  value="0"
+                  readonly="true"
+                  type="text"
+                />
+              </td>
+              <td>
+                <input
+                  id="{{entry.sr_no}}Spazio_Software"
+                  style="width: 60px; border: none"
+                  value="0"
+                  readonly="true"
+                  type="number"
+                />
+              </td>
+              <td>
+                <input
+                  id="{{entry.sr_no}}Meeting_Room_Booking"
+                  style="width: 60px; border: none"
+                  value="0"
+                  readonly="true"
+                  type="number"
+                />
+              </td>
+              <td>
+                <input
+                  id="{{entry.sr_no}}Meeting_Room_People_count_occupancy"
+                  style="width: 60px; border: none"
+                  value="0"
+                  readonly="true"
+                  type="number"
+                />
+              </td>
+              <td>
+                <input
+                  id="{{entry.sr_no}}Restroom_Hygiene"
+                  style="width: 60px; border: none"
+                  value="0"
+                  readonly="true"
+                  type="number"
+                />
+              </td>
+              <td>
+                <input
+                  id="{{entry.sr_no}}IAQ_Automate"
+                  style="width: 60px; border: none"
+                  value="0"
+                  readonly="true"
+                  type="number"
+                />
+              </td>
+              <td>
+                <input
+                  id="{{entry.sr_no}}Wayfinding"
+                  style="width: 60px; border: none"
+                  value="0"
+                  readonly="true"
+                  type="number"
+                />
+              </td>
+              <td>
+                <input
+                  id="{{entry.sr_no}}Feedback"
+                  style="width: 60px; border: none"
+                  value="0"
+                  readonly="true"
+                  type="number"
+                />
+              </td>
+            </tr>
+            {% endfor %}
+            <tr>
+              <td>20</td>
+              <td>Software Upgrade - 3 days in a quarter for patch upgrade</td>
+              <td>L1</td>
+              <td>
+                <input
+                  id="20Common" onchange="abcds()"
+                  style="width: 60px; border: none"
+                  value="0"
+                  type="number"
+                />
+              </td>
+              <td>
+              </td>
+              <td>
+              </td>
+              <td>
+              </td>
+              <td>
+              </td>
+              <td>
+              </td>
+              <td>
+              </td>
+              <td>
+              </td>
+            </tr>
+            <tr>
+              <td>21</td>
+              <td>Total</td>
+              <td></td>
+              <td>
+                <input
+                  id="21Common"
+                  style="width: 60px; border: none"
+                  value="0"
+                  readonly="true"
+                 
+                />
+              </td>
+              <td>
+                <input
+                  id="21Spazio_Software"
+                  style="width: 60px; border: none"
+                  value="0"
+                  readonly="true"
+                  type="number"
+                />
+              </td>
+              <td>
+                <input
+                  id="21Meeting_Room_Booking"
+                  style="width: 60px; border: none"
+                  value="0"
+                  readonly="true"
+                  type="number"
+                />
+              </td>
+              <td>
+                <input
+                  id="21Meeting_Room_People_count_occupancy"
+                  style="width: 60px; border: none"
+                  value="0"
+                  readonly="true"
+                  type="number"
+                />
+              </td>
+              <td>
+                <input
+                  id="21Restroom_Hygiene"
+                  style="width: 60px; border: none"
+                  value="0"
+                  readonly="true"
+                  type="number"
+                />
+              </td>
+              <td>
+                <input
+                  id="21IAQ_Automate"
+                  style="width: 60px; border: none"
+                  value="0"
+                  readonly="true"
+                  type="number"
+                />
+              </td>
+              <td>
+                <input
+                  id="21Wayfinding"
+                  style="width: 60px; border: none"
+                  value="0"
+                  readonly="true"
+                  type="number"
+                />
+              </td>
+              <td>
+                <input
+                  id="21Feedback"
+                  style="width: 60px; border: none"
+                  value="0"
+                  readonly="true"
+                  type="number"
+                />
+              </td>
+
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script>
+              const arrs = []
+              var darray = JSON.parse(localStorage.getItem('darray'));
+              document.getElementById("1Common").value = darray[3];
+              if (darray[36] == 0) {
+                  document.getElementById("2Common").value = 0;
+              }
+              else {
+                  document.getElementById("2Common").value = darray[3];
+              }
+              if (darray[4] == 0) {
+                  document.getElementById("5Common").value = 0;
+                  document.getElementById("3Common").value = 0;
+                  document.getElementById("4Common").value = 0;
+              }
+              else {
+
+                  document.getElementById("5Common").value = 1;
+                  document.getElementById("3Common").value = 1;
+                  document.getElementById("4Common").value = 1;
+              }
+              if (darray[10] == 0 && darray[17] == 0 && darray[18] == 0) {
+
+                  document.getElementById("6Spazio_Software").value = 0;
+                  document.getElementById("7Spazio_Software").value = 0;
+              }
+              else {
+
+                  document.getElementById("6Spazio_Software").value = darray[3] * 3;
+                  document.getElementById("7Spazio_Software").value = darray[3] * 3;
+                  document.getElementById("16Spazio_Software").value = darray[4] * 1.5;
+
+              }
+
+              //d8Common
+
+              document.getElementById("13Common").value = darray[3] * 2;
+              if (darray[11] == 0) {
+                  document.getElementById("14Common").value = darray[3] * 1;
+                 
+                  document.getElementById("15Common").value = 0;
+              }
+              else {
+                  document.getElementById("14Common").value = 0;
+                   document.getElementById("15Common").value = darray[3] * 3;
+
+              }
+              document.getElementById("6Restroom_Hygiene").value = Math.ceil((darray[21] / 20));
+              document.getElementById("11Restroom_Hygiene").value = Math.ceil((darray[21] / 20));
+              document.getElementById("12Restroom_Hygiene").value = Math.ceil((darray[21] / 20));
+              document.getElementById("7Restroom_Hygiene").value = Math.ceil((darray[21] / 20));
+              document.getElementById("6IAQ_Automate").value = Math.ceil((darray[47] + darray[31]) / 1000);
+              document.getElementById("11IAQ_Automate").value = Math.ceil((darray[47] + darray[31]) / 750);
+              document.getElementById("12IAQ_Automate").value = Math.ceil((darray[47] + darray[31]) / 750);
+              document.getElementById("7IAQ_Automate").value = Math.ceil((darray[47] + darray[31]) / 1000);
+              if (darray[26] == 0) {
+
+                  document.getElementById("7Wayfinding").value = 0;
+                  document.getElementById("12Wayfinding").value = 0;
+              }
+              else {
+                  document.getElementById("7Wayfinding").value = Math.round(darray[26] * 5 / 60 / 8);
+                  document.getElementById("12Wayfinding").value = Math.round(darray[26] * 10 / 60 / 8);
+
+              }
+
+              if (darray[28] == 0) {
+
+                  document.getElementById("7Feedback").value = 0;
+                  document.getElementById("12Feedback").value = 0;
+              }
+              else {
+                  document.getElementById("7Feedback").value = Math.round(10 * 15 / 60 / 8);
+                  document.getElementById("12Feedback").value = Math.round(10 * 15 / 60 / 8);
+
+              }
+              document.getElementById("6Feedback").value = Math.round(darray[28] / 400);
+              document.getElementById("11Feedback").value = Math.round(darray[28] / 400);
+
+              if (darray[17] == 0) {
+                  document.getElementById("7Meeting_Room_Booking").value = 0;
+                  document.getElementById("16Meeting_Room_Booking").value = 0;
+              }
+              else if (darray[17] == 1) {
+                  document.getElementById("7Meeting_Room_Booking").value = Math.round(darray[16] / 50);
+              }
+              else {
+                  console.log("df");
+              }
+              if (darray[17] == 0) {
+                  document.getElementById("7Meeting_Room_People_count_occupancy").value = 0;
+              }
+
+              else {
+                  document.getElementById("7Meeting_Room_People_count_occupancy").value = Math.round(darray[16] / 50);
+
+              }
+              var d64 = darray[18] == 1 ? darray[16] : 0;
+              if (darray[8] == 0 || darray[8] == 1) {
+                  document.getElementById("9Common").value = 0;
+                  document.getElementById("10Common").value = 0;
+              }
+              else {
+
+                  if (d64 == 0) {
+
+                      document.getElementById("9Common").value = 0;
+                      document.getElementById("10Common").value = 0;
+                  }
+                  else {
+                      document.getElementById("9Common").value = Math.round(d64 * 6 / 8);
+                      document.getElementById("10Common").value = Math.round(d64 * 1.2 / 8);
+                  }
+              }
+
+              if (darray[10] == 0) {
+                  document.getElementById("11Spazio_Software").value = 0;
+                  document.getElementById("12Spazio_Software").value = 0;
+              }
+              else {
+                  document.getElementById("11Spazio_Software").value = 2 * darray[3];
+                  document.getElementById("12Spazio_Software").value = 2 * darray[3];
+              }
+              if (darray[17] == 0) {
+                  document.getElementById("11Meeting_Room_Booking").value = 0;
+                  document.getElementById("12Meeting_Room_Booking").value = 0;
+              }
+
+              if (darray[17] == 1) {
+                  document.getElementById("11Meeting_Room_Booking").value = Math.round(darray[4] * 10 / 60 / 8);
+                  document.getElementById("12Meeting_Room_Booking").value = Math.round(darray[4] * 10 / 60 / 8);
+              }
+
+              if (darray[18] == 0) {
+                  document.getElementById("11Meeting_Room_People_count_occupancy").value = 0;
+                  document.getElementById("12Meeting_Room_People_count_occupancy").value = 0;
+              }
+
+              else {
+                  document.getElementById("11Meeting_Room_People_count_occupancy").value = Math.round(darray[16] * 5 / 60 / 8);
+                  document.getElementById("12Meeting_Room_People_count_occupancy").value = Math.round(darray[16] * 5 / 60 / 8);
+              }
+              if (darray[3] == 0) {
+                  document.getElementById("11Meeting_Room_People_count_occupancy").value = 0;
+                  document.getElementById("12Meeting_Room_People_count_occupancy").value = 0;
+              }
+
+              else {
+                  document.getElementById("11Meeting_Room_People_count_occupancy").value = Math.round(darray[16] * 5 / 60 / 8);
+                  document.getElementById("12Meeting_Room_People_count_occupancy").value = Math.round(darray[16] * 5 / 60 / 8);
+              }
+              if (darray[17] >= 1) {
+                  if (document.getElementById("16Spazio_Software").value > 0) {
+                      document.getElementById("16Meeting_Room_Booking").value = 0;
+                  }
+                  else {
+                      document.getElementById("16Meeting_Room_Booking").value = darray[4] * 1.5;
+
+                  }
+              }
+              if (darray[18] >= 1) {
+                  if (document.getElementById("16Spazio_Software").value > 0) {
+                      document.getElementById("16Meeting_Room_People_count_occupancy").value = 0;
+                  }
+                  else {
+                      document.getElementById("16Meeting_Room_People_count_occupancy").value = darray[4] * 1.5;
+
+                  }
+              }
+
+              if (darray[26] == 0) {
+                  document.getElementById("16Wayfinding").value = 0;
+              }
+              else {
+                  if (document.getElementById("16Spazio_Software").value > 0) { document.getElementById("16Wayfinding").value = darray[4] * 2; } else {
+                      document.getElementById("16Wayfinding").value = darray[4] * 3;
+                  }
+              }
+              if (darray[10] == 0) {
+                  document.getElementById("17Spazio_Software").value = 0;
+              }
+              else {
+                  //document.getElementById("17Spazio_Software").value = 0;
+                  if (darray[7] == 0) {
+                      document.getElementById("17Spazio_Software").value = 0;
+                  }
+                  else {
+                      document.getElementById("17Spazio_Software").value = darray[33] * 1.5;
+                  }
+
+              }
+              if (darray[17] == 0) {
+                  document.getElementById("17Meeting_Room_Booking").value = 0;
+              }
+              else {
+                  //document.getElementById("17Meeting Room Booking").value = 0;
+                  if (darray[7] == 0) {
+                      document.getElementById("17Meeting_Room_Booking").value = 0;
+                  }
+                  else if(darray[7] >= 1 && document.getElementById("17Spazio_Software").value>0){                                  //e20???
+                      document.getElementById("17Meeting_Room_Booking").value = 0;
+                  }
+                  else {
+                      document.getElementById("17Meeting_Room_Booking").value = darray[33] * 1.5;
+                  }
+
+              }
+              if (darray[18] == 0) {
+                  document.getElementById("17Meeting_Room_People_count_occupancy").value = 0;
+              }
+              else {
+
+                  if (darray[7] == 0) {
+                      document.getElementById("17Meeting_Room_People_count_occupancy").value = 0;
+                  }
+                  else if(darray[7] >= 1 && document.getElementById("17Spazio_Software").value>0){                                  //e20???
+                      document.getElementById("17Meeting_Room_People_count_occupancy").value = 0;
+                  }
+                  else {
+                      document.getElementById("17Meeting_Room_People_count_occupancy").value = darray[7] * 1.5;
+                  }
+
+              }
+              if (darray[26] == 0) {
+                  document.getElementById("17Wayfinding").value = 0;
+              }
+              else {
+
+                  if (darray[7] == 0) {
+                      document.getElementById("17Wayfinding").value = 0;
+                  }
+                  else if(darray[7] >= 1 && document.getElementById("17Spazio_Software").value>0){                                  //e20???
+                      document.getElementById("17Wayfinding").value = darray[33] * 2;
+                  }
+                  else {
+                      document.getElementById("17Wayfinding").value = darray[7] * 3;
+                  }
+
+              }
+
+//18 line
+                if (darray[10] == 0) {
+                    document.getElementById("18Spazio_Software").value = 0;
+                }
+                else {
+                    document.getElementById("18Spazio_Software").value = Math.round(darray[33]/4);
+                }
+                //
+                if (darray[18] == 0) {
+                    document.getElementById("18Meeting_Room_Booking").value = 0;
+                }
+                else {
+                    if(document.getElementById("18Spazio_Software").value>0){
+                        document.getElementById("18Meeting_Room_Booking").value = 0;
+                    }
+                    else{
+                        document.getElementById("18Meeting_Room_Booking").value = Math.round(darray[33]/4);
+                    }
+                }
+                //
+                if (darray[18] == 0) {
+                    document.getElementById("18Meeting_Room_People_count_occupancy").value = 0;
+                }
+                else {
+                    if(document.getElementById("18Spazio_Software").value>0){
+                        document.getElementById("18Meeting_Room_People_count_occupancy").value = 0;
+                    }
+                    else{
+                        document.getElementById("18Meeting_Room_People_count_occupancy").value = Math.round(darray[33]/4);
+                    }
+                }
+                //      
+                if (darray[24] == 0) {
+                    document.getElementById("18IAQ_Automate").value = 0;
+                }
+                else {
+                    if(document.getElementById("18Spazio_Software").value>0){
+                        document.getElementById("18IAQ_Automate").value = 0;
+                    }
+                    else{
+                        document.getElementById("18IAQ_Automate").value = Math.round(darray[33]/4);
+                    }
+                }
+                //
+                if (darray[26] == 0) {
+                    document.getElementById("18Wayfinding").value = 0;
+                }
+                else {
+                    if(document.getElementById("18Spazio_Software").value>0){
+                        document.getElementById("18Wayfinding").value = 0;
+                    }
+                    else{
+                        document.getElementById("18Wayfinding").value = Math.round(darray[33]/4);
+                    }
+                }
+
+//19 line
+                var tot_common=0;
+                for(var i=1;i<=18;i++){
+                    tot_common=1*tot_common+parseInt(document.getElementById(i+"Common").value);
+                    console.log(tot_common);
+                }
+                document.getElementById("19Common").value = Math.ceil(tot_common*2/7);
+                document.getElementById("21Common").value = Math.ceil(tot_common*2/7)+parseInt(document.getElementById("20Common").value);
+                function abcds(){
+                      var tot_common=0;
+                for(var i=1;i<=18;i++){
+                     tot_common=tot_common+parseInt(document.getElementById(i+"Common").value);
+                }
+                document.getElementById("21Common").value = Math.ceil(tot_common*2/7)+parseInt(document.getElementById("20Common").value);
+
+               }
+                var tot_common=0;
+                for(var i=1;i<=18;i++){
+                     tot_common=tot_common+parseInt(document.getElementById(i+"Spazio_Software").value);
+                }
+                document.getElementById("19Spazio_Software").value = Math.ceil(tot_common*2/7);
+                document.getElementById("21Spazio_Software").value = Math.ceil(tot_common*2/7);
+                var tot_common=0;
+                for(var i=1;i<=18;i++){
+                     tot_common=tot_common+parseInt(document.getElementById(i+"Meeting_Room_Booking").value);
+                }
+                document.getElementById("19Meeting_Room_Booking").value = Math.ceil(tot_common*2/7);
+                document.getElementById("21Meeting_Room_Booking").value = Math.ceil(tot_common*2/7);
+                var tot_common=0;
+                for(var i=1;i<=18;i++){
+                     tot_common=tot_common+parseInt(document.getElementById(i+"Meeting_Room_People_count_occupancy").value);
+                }
+                document.getElementById("19Meeting_Room_People_count_occupancy").value = Math.ceil(tot_common*2/7);
+                document.getElementById("21Meeting_Room_People_count_occupancy").value = Math.ceil(tot_common*2/7);
+                var tot_common=0;
+                for(var i=1;i<=18;i++){
+                     tot_common=tot_common+parseInt(document.getElementById(i+"Restroom_Hygiene").value);
+                }
+                document.getElementById("19Restroom_Hygiene").value = Math.ceil(tot_common*2/7);
+                document.getElementById("21Restroom_Hygiene").value = Math.ceil(tot_common*2/7);
+                var tot_common=0;
+                for(var i=1;i<=18;i++){
+                     tot_common=tot_common+parseInt(document.getElementById(i+"IAQ_Automate").value);
+                }
+                document.getElementById("19IAQ_Automate").value = Math.ceil(tot_common*2/7);
+                document.getElementById("21IAQ_Automate").value = Math.ceil(tot_common*2/7);
+                var tot_common=0;
+                for(var i=1;i<=18;i++){
+                     tot_common=tot_common+parseInt(document.getElementById(i+"Wayfinding").value);
+                }
+                document.getElementById("19Wayfinding").value = Math.ceil(tot_common*2/7);
+                document.getElementById("21Wayfinding").value = Math.ceil(tot_common*2/7);
+                var tot_common=0;
+                for(var i=1;i<=18;i++){
+                     tot_common=tot_common+parseInt(document.getElementById(i+"Feedback").value);
+                }
+                document.getElementById("19Feedback").value = Math.ceil(tot_common*2/7);
+                document.getElementById("21Feedback").value = Math.ceil(tot_common*2/7);
+
+//line 30
+document.getElementById("30Common").value = 6;
+               //window.location.href = 'http://127.0.0.1:8000/admins/detail_boq/'; 
+              
+    </script>
+  </body>
+</html>
