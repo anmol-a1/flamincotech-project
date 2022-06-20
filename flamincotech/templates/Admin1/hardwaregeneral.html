@@ -151,7 +151,43 @@ input[type=file]::file-selector-button:hover {
         crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script>
+        var lmno={{ entries|length }};
+        for(var i=1;i<=lmno;i++){
+            var Qty=document.getElementById(i+"Qty");
+            var InputPrice=document.getElementById(i+"InputPrice");
+            var Discount=document.getElementById(i+"Discount");
+            var DiscountedPrice=document.getElementById(i+"DiscountedPrice");
+            var Freight=document.getElementById(i+"Freight");
+            var InputCostInclusiveoffreight=document.getElementById(i+"InputCostInclusiveoffreight");
+            var InterestCOM=document.getElementById(i+"InterestCOM");
+            var UnitCost=document.getElementById(i+"UnitCost");
+            var InwardTax=document.getElementById(i+"InwardTax");
+            var UnitCostInclusiveofRisk=document.getElementById(i+"UnitCostInclusiveofRisk");
+            var ContigencyPercentage=document.getElementById(i+"ContigencyPercentage");
+            var UnitCostInclusiveofContigency=document.getElementById(i+"UnitCostInclusiveofContigency");
+            var Margin=document.getElementById(i+"Margin");
+            var Unit_Price=document.getElementById(i+"Unit_Price");
+            var WarrantyCharges=document.getElementById(i+"WarrantyCharges");
+            var UnitPrice=document.getElementById(i+"UnitPrice");
+            var InsuranceCharges=document.getElementById(i+"InsuranceCharges");
+            var ListPricewithoutRoundup=document.getElementById(i+"ListPricewithoutRoundup");
+            var ListPricewithRoundedup=document.getElementById(i+"ListPricewithRoundedup");
+            DiscountedPrice.value=Math.ceil((InputPrice.value)-(InputPrice.value * (Discount.value)/100)); 
+            InputCostInclusiveoffreight.value=Math.ceil(1*(DiscountedPrice.value)+1*(DiscountedPrice.value * (Freight.value)/100));
+            UnitCost.value=Math.ceil(1*(InputCostInclusiveoffreight.value)+1*(InputCostInclusiveoffreight.value * (InterestCOM.value)/100));
+            UnitCostInclusiveofRisk.value=Math.ceil(1*(UnitCost.value)+1*(UnitCost.value * (InwardTax.value)/100));
+            UnitCostInclusiveofContigency.value=Math.ceil(1*(UnitCostInclusiveofRisk.value)+1*(UnitCostInclusiveofRisk.value * (ContigencyPercentage.value)/100));
+            
+            Unit_Price.value=Math.ceil((100*UnitCostInclusiveofContigency.value)/(100-Margin.value));
+            
+            UnitPrice.value=Math.ceil(1*(Unit_Price.value)+1*(Unit_Price.value * (WarrantyCharges.value)/100));
+           
+            ListPricewithoutRoundup.value=Math.ceil(1*(UnitPrice.value)+1*(UnitPrice.value*InsuranceCharges.value/100));
+            
+            ListPricewithRoundedup.value=(Math.ceil(ListPricewithoutRoundup.value/50))*50;
 
+ 
+}
         function abcd(e){
             var sr_no=parseInt(e.target.className);
             var Qty=document.getElementById(sr_no+"Qty");

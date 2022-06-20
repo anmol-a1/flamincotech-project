@@ -177,7 +177,7 @@
                     <div class="form-group row">
                         <label class="col" for="exampleFormControlTextarea1">Enter the Number of Desks for Desk Booking
                             Requirement</label>
-                        <input id="d11" type="number" placeholder="Enter the desk count" class="form-control col" id="5"
+                        <input  type="number" placeholder="Enter the desk count" class="form-control col" id="5"
                             onchange="myFunction(event)" rows="3"></input>
                     </div>
                     <div class="form-group row">
@@ -510,6 +510,7 @@ Permium Licesne" class="form-control col" rows="3"></input>
         // D3,D4,7=1,10,16,17,18,24,26,28,21,31="auto2",33=d7,47=s14
         function myFunction(e) {
             var id = "s" + e.target.id;
+            console.log(id);
             document.getElementById(id).value = e.target.value;
             DOS4();
             wsnre();
@@ -696,7 +697,7 @@ Permium Licesne" class="form-control col" rows="3"></input>
 
                 darray[10] = (document.getElementById("d10").value).length > 0 ? parseInt(document.getElementById("d10").value) : 0
 
-                darray[11] = (document.getElementById("d11").value).length > 0 ? parseInt(document.getElementById("d11").value) : 0
+                darray[11] = (document.getElementById("5").value).length > 0 ? parseInt(document.getElementById("5").value) : 0
 
 
                 darray[16] = (document.getElementById("d16").value).length > 0 ? parseInt(document.getElementById("d16").value) : 0

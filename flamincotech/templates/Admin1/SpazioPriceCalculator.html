@@ -1026,19 +1026,19 @@
             var extraval = inputQuantity - 200;
             var vals = document.getElementById("6RateKL").value;
             totkiok = extraval * vals;
-            totkiok = totkiok + document.getElementById("5Total_QuantityKL").value;
+            totkiok = totkiok + 1*document.getElementById("5Total_QuantityKL").value;
         }
         else if (inputQuantity > 100) {
             var extraval = inputQuantity - 100;
             var vals = document.getElementById("5RateKL").value;
             totkiok = extraval * vals;
-            totkiok = totkiok + document.getElementById("4Total_QuantityKL").value;
+            totkiok = totkiok + 1*document.getElementById("4Total_QuantityKL").value;
         }
         else if (inputQuantity > 50) {
             var extraval = inputQuantity - 50;
             var vals = document.getElementById("4RateKL").value;
             totkiok = extraval * vals;
-            totkiok = totkiok + document.getElementById("3Total_QuantityKL").value;
+            totkiok = totkiok + 1*document.getElementById("3Total_QuantityKL").value;
         }
         else if (inputQuantity > 25) {
             var extraval = inputQuantity - 25;
@@ -1055,7 +1055,7 @@
             var extraval = inputQuantity - 25;
             var vals = document.getElementById("2RateKL").value;
             totkiok = extraval * vals;
-            totkiok = totkiok + document.getElementById("1Total_QuantityKL").value;
+            totkiok = totkiok + 1*document.getElementById("1Total_QuantityKL").value;
         }
         else {
             totkiok = inputQuantity * document.getElementById("1RateKL").value;
@@ -1071,26 +1071,26 @@
         ivalues[0]=parseInt(totkiok);
         document.getElementById("1TotalKL").value = totkiok;
 //subtotol
-        subtotals[0]=parseInt(ivalues[0])*(1-parseFloat(configuration3.ft2)/100);
+        subtotals[0]=Math.ceil(parseInt(ivalues[0])*(1-parseFloat(configuration3.ft2)/100));
         document.getElementById("1SubTotal").value=subtotals[0];
 //warranty cell
-        document.getElementById("1Warranty").value = subtotals[0]* parseInt(configuration9.ft2)/100;
+        document.getElementById("1Warranty").value = Math.ceil(subtotals[0]* parseInt(configuration9.ft2)/100);
 //totalwarranty
         totalwarranty[0]=subtotals[0]+parseInt(document.getElementById("1Warranty").value); 
 
         document.getElementById("1TotalWarranty").value = totalwarranty[0];
 //com
-        document.getElementById("1COM").value = totalwarranty[0]* parseInt(configuration10.ft2)/100;
+        document.getElementById("1COM").value = Math.ceil(totalwarranty[0]* parseInt(configuration10.ft2)/100);
 //totalamountinsurance
-        totalamntinsurance[0]= parseInt(document.getElementById("1COM").value)+totalwarranty[0];
+        totalamntinsurance[0]= Math.ceil(parseInt(document.getElementById("1COM").value)+totalwarranty[0]);
         document.getElementById("1TotalAmountInsurance").value = totalamntinsurance[0];
 //rate
-        document.getElementById("1Rate").value = parseInt(totalamntinsurance[0]/parseInt(inputQuantity));
+        document.getElementById("1Rate").value = Math.ceil(totalamntinsurance[0]/parseInt(inputQuantity));
 //year2
-        year2[0]=totalamntinsurance[0]*20/100;
+        year2[0]=Math.ceil(totalamntinsurance[0]*20/100);
         document.getElementById("1Year2").value = year2[0];
 //year3
-        year3[0]=year2[0]*1.1;
+        year3[0]=Math.ceil(year2[0]*1.1);
         document.getElementById("1Year3").value = year3[0];
 //total
         total[0]=totalamntinsurance[0]+year2[0]+year3[0];
@@ -1106,26 +1106,26 @@
         if (inputQuantitymu > 10000) {
             var extraval = inputQuantitymu - 5000;
             var vals = document.getElementById("7RateEOMA").value;
-            totmu = totmu + document.getElementById("6Total_QuantityEOMA").value;
             totmu = extraval * vals;
+            totmu = totmu + 1*document.getElementById("6Total_QuantityEOMA").value;
         }
         else if (inputQuantitymu > 5000) {
             var extraval = inputQuantitymu - 2500;
             var vals = document.getElementById("6RateEOMA").value;
             totmu = extraval * vals;
-            totmu = totmu + document.getElementById("5Total_QuantityEOMA").value;
+            totmu = totmu + 1*document.getElementById("5Total_QuantityEOMA").value;
         }
         else if (inputQuantitymu > 2500) {
             var extraval = inputQuantitymu - 2500;
             var vals = document.getElementById("5RateEOMA").value;
             totmu = extraval * vals;
-            totmu = totmu + document.getElementById("4Total_QuantityEOMA").value;
+            totmu = totmu + 1*document.getElementById("4Total_QuantityEOMA").value;
         }
         else if (inputQuantitymu > 1000) {
             var extraval = inputQuantitymu - 1000;
             var vals = document.getElementById("4RateEOMA").value;
             totmu = extraval * vals;
-            totmu = totmu + document.getElementById("3Total_QuantityEOMA").value;
+            totmu = totmu + 1*document.getElementById("3Total_QuantityEOMA").value;
         }
         else if (inputQuantitymu > 500) {
             var extraval = inputQuantitymu - 500;
@@ -1137,7 +1137,7 @@
             var extraval = inputQuantitymu - 250;
             var vals = document.getElementById("2RateEOMA").value;
             totmu = extraval * vals;
-            totmu = totmu + document.getElementById("1Total_QuantityEOMA").value;
+            totmu = totmu + 1*document.getElementById("1Total_QuantityEOMA").value;
         }
         else {
             totmu = inputQuantitymu * document.getElementById("1RateEOMA").value;
@@ -1147,26 +1147,26 @@
 //i value
         ivalues[1]=parseInt(totmu);
 //subtotol
-        subtotals[1]=parseInt(ivalues[1])*(1-parseFloat(configuration3.ft2)/100);
+        subtotals[1]=Math.ceil(parseInt(ivalues[1])*(1-parseFloat(configuration3.ft2)/100));
         document.getElementById("2SubTotal").value=subtotals[1];
 //warranty cell
-        document.getElementById("2Warranty").value = subtotals[1]* parseInt(configuration9.ft2)/100;
+        document.getElementById("2Warranty").value = Math.ceil(subtotals[1]* parseInt(configuration9.ft2)/100);
 //totalwarranty
         totalwarranty[1]=subtotals[1]+parseInt(document.getElementById("2Warranty").value); 
 
         document.getElementById("2TotalWarranty").value = totalwarranty[1];
 //com
-        document.getElementById("2COM").value = totalwarranty[1]* parseInt(configuration10.ft2)/100;
+        document.getElementById("2COM").value = Math.ceil(totalwarranty[1]* parseInt(configuration10.ft2)/100);
 //totalamountinsurance
         totalamntinsurance[1]= parseInt(document.getElementById("1COM").value)+totalwarranty[1];
         document.getElementById("2TotalAmountInsurance").value = totalamntinsurance[1];
 //rate
-        document.getElementById("2Rate").value = parseInt(totalamntinsurance[1]/parseInt(inputQuantitymu));
+        document.getElementById("2Rate").value = Math.ceil(totalamntinsurance[1]/parseInt(inputQuantitymu));
 //year2
-        year2[1]=totalamntinsurance[1]*20/100;
+        year2[1]=Math.ceil(totalamntinsurance[1]*20/100);
         document.getElementById("2Year2").value = year2[1];
 //year3
-        year3[1]=year2[1]*1.1;
+        year3[1]=Math.ceil(year2[1]*1.1);
         document.getElementById("2Year3").value = year3[1];
 //total
         total[1]=totalamntinsurance[1]+year2[1]+year3[1];
@@ -1177,38 +1177,38 @@
         if (inputQuantityRost > 10000) {
             var extraval = inputQuantityRost - 5000;
             var vals = document.getElementById("7RateRost").value;
-            totrost = totrost + document.getElementById("6Total_QuantityRost").value;
             totrost = extraval * vals;
+            totrost = totrost + 1*document.getElementById("6Total_QuantityRost").value;
         }
         else if (inputQuantityRost > 5000) {
             var extraval = inputQuantityRost - 2500;
             var vals = document.getElementById("6RateRost").value;
             totrost = extraval * vals;
-            totrost = totrost + document.getElementById("5Total_QuantityRost").value;
+            totrost = totrost + 1*document.getElementById("5Total_QuantityRost").value;
         }
         else if (inputQuantityRost > 2500) {
             var extraval = inputQuantityRost - 2500;
             var vals = document.getElementById("5RateRost").value;
             totrost = extraval * vals;
-            totrost = totrost + document.getElementById("4Total_QuantityRost").value;
+            totrost = totrost + 1*document.getElementById("4Total_QuantityRost").value;
         }
         else if (inputQuantityRost > 1000) {
             var extraval = inputQuantityRost - 1000;
             var vals = document.getElementById("4RateRost").value;
             totrost = extraval * vals;
-            totrost = totrost + document.getElementById("3Total_QuantityRost").value;
+            totrost = totrost + 1*document.getElementById("3Total_QuantityRost").value;
         }
         else if (inputQuantityRost > 500) {
             var extraval = inputQuantityRost - 500;
             var vals = document.getElementById("3RateRost").value;
             totrost = extraval * vals;
-            totrost = totrost + document.getElementById("2Total_QuantityRost").value;
+            totrost = totrost + 1*document.getElementById("2Total_QuantityRost").value;
         }
         else if (inputQuantityRost > 250) {
             var extraval = inputQuantityRost - 250;
             var vals = document.getElementById("2RateRost").value;
             totrost = extraval * vals;
-            totrost = totrost + document.getElementById("1Total_QuantityRost").value;
+            totrost = totrost +1* document.getElementById("1Total_QuantityRost").value;
         }
         else {
             totrost = inputQuantityRost * document.getElementById("1RateRost").value;
@@ -1221,23 +1221,23 @@
         subtotals[2]=parseInt(ivalues[2]);
         document.getElementById("3SubTotal").value=subtotals[2];
 //warranty cell
-        document.getElementById("3Warranty").value = subtotals[2]* parseInt(configuration9.ft2)/100;
+        document.getElementById("3Warranty").value = Math.ceil(subtotals[2]* parseInt(configuration9.ft2)/100);
 //totalwarranty
         totalwarranty[2]=subtotals[2]+parseInt(document.getElementById("3Warranty").value); 
 
         document.getElementById("3TotalWarranty").value = totalwarranty[2];
 //com
-        document.getElementById("3COM").value = totalwarranty[2]* parseInt(configuration10.ft2)/100;
+        document.getElementById("3COM").value = Math.ceil(totalwarranty[2]* parseInt(configuration10.ft2)/100)
 //totalamountinsurance
         totalamntinsurance[2]= parseInt(document.getElementById("3COM").value)+totalwarranty[2];
         document.getElementById("3TotalAmountInsurance").value = totalamntinsurance[2];
 //rate
-        document.getElementById("3Rate").value = parseInt(totalamntinsurance[2]/parseInt(inputQuantityRost));
+        document.getElementById("3Rate").value = Math.ceil(totalamntinsurance[2]/parseInt(inputQuantityRost));
 //year2
-        year2[2]=totalamntinsurance[2]*20/100;
+        year2[2]=Math.ceil(totalamntinsurance[2]*20/100);
         document.getElementById("3Year2").value = year2[2];
 //year3
-        year3[2]=year2[2]*1.1;
+        year3[2]=Math.ceil(year2[2]*1.1);
         document.getElementById("3Year3").value = year3[2];
 //total
         total[2]=totalamntinsurance[2]+year2[2]+year3[2];
@@ -1251,38 +1251,38 @@
         if (inputQuantityDPS > 10000) {
             var extraval = inputQuantityDPS - 5000;
             var vals = document.getElementById("8RateDPS").value;
-            totDPS = totDPS + document.getElementById("7Total_QuantityDPS").value;
             totDPS = extraval * vals;
+            totDPS = totDPS + 1*document.getElementById("7Total_QuantityDPS").value;
         }
         else if (inputQuantityDPS > 5000) {
             var extraval = inputQuantityDPS - 2500;
             var vals = document.getElementById("7RateDPS").value;
             totDPS = extraval * vals;
-            totDPS = totDPS + document.getElementById("6Total_QuantityDPS").value;
+            totDPS = totDPS + 1*document.getElementById("6Total_QuantityDPS").value;
         }
         else if (inputQuantityDPS > 2500) {
             var extraval = inputQuantityDPS- 2500;
             var vals = document.getElementById("6RateDPS").value;
             totDPS = extraval * vals;
-            totDPS = totDPS + document.getElementById("5Total_QuantityDPS").value;
+            totDPS = totDPS + 1*document.getElementById("5Total_QuantityDPS").value;
         }
         else if (inputQuantityDPS > 1000) {
             var extraval = inputQuantityDPS - 1000;
             var vals = document.getElementById("5RateDPS").value;
             totDPS = extraval * vals;
-            totDPS = totDPS + document.getElementById("4Total_QuantityDPS").value;
+            totDPS = totDPS + 1*document.getElementById("4Total_QuantityDPS").value;
         }
         else if (inputQuantityDPS > 500) {
             var extraval = inputQuantityDPS - 500;
             var vals = document.getElementById("4RateDPS").value;
             totDPS = extraval * vals;
-            totDPS = totDPS + document.getElementById("3Total_QuantityDPS").value;
+            totDPS = totDPS + 1*document.getElementById("3Total_QuantityDPS").value;
         }
         else if (inputQuantityDPS > 250) {
             var extraval = inputQuantityDPS - 250;
             var vals = document.getElementById("3RateDPS").value;
             totDPS = extraval * vals;
-            totDPS = totDPS + document.getElementById("2Total_QuantityDPS").value;
+            totDPS = totDPS + 1*document.getElementById("2Total_QuantityDPS").value;
         }
         else if (inputQuantityDPS > 100) {
             var extraval = inputQuantityDPS - 100;
@@ -1304,16 +1304,16 @@ console.log(totDPS);
 //parseInt(ivalues[3])
         var temprary=0;
         if(inputQuantityDPS>0 && inputQuantityDUS>0 && inputQuantityDBS>0){
-           temprary =ivalues[3]*(1-configuration3.ft4/100);
+           temprary =Math.ceil(ivalues[3]*(1-configuration3.ft4/100));
         }
         else if(inputQuantityDPS>0 && inputQuantityDUS>0 && inputQuantityDBS==0){
-           temprary =ivalues[3]*(1-configuration3.ft3/100);
+           temprary =Math.ceil(ivalues[3]*(1-configuration3.ft3/100));
         }
         else if(inputQuantityDPS>0 && inputQuantityDUS==0 && inputQuantityDBS>0){
-           temprary =ivalues[3]*(1-configuration3.ft3/100);
+           temprary =Math.ceil(ivalues[3]*(1-configuration3.ft3/100));
         }
         else if(inputQuantityDPS>0 && inputQuantityDUS==0 && inputQuantityDBS==0){
-           temprary =ivalues[3]*(1-configuration3.ft2/100);
+           temprary =Math.ceil(ivalues[3]*(1-configuration3.ft2/100));
         }
         else{
            temprary =0;
@@ -1323,23 +1323,23 @@ console.log(totDPS);
         console.log("nikhil is mc",subtotals[3]);
         document.getElementById("4SubTotal").value=subtotals[3];
 //warranty cell
-        document.getElementById("4Warranty").value = subtotals[3]* parseInt(configuration9.ft2)/100;
+        document.getElementById("4Warranty").value = Math.ceil(subtotals[3]* parseInt(configuration9.ft2)/100);
 //totalwarranty
         totalwarranty[3]=subtotals[3]+parseInt(document.getElementById("4Warranty").value); 
 
         document.getElementById("4TotalWarranty").value = totalwarranty[3];
 //com
-        document.getElementById("4COM").value = totalwarranty[3]* parseInt(configuration10.ft2)/100;
+        document.getElementById("4COM").value = Math.ceil(totalwarranty[3]* parseInt(configuration10.ft2)/100);
 //totalamountinsurance
         totalamntinsurance[3]= parseInt(document.getElementById("4COM").value)+totalwarranty[3];
         document.getElementById("4TotalAmountInsurance").value = totalamntinsurance[3];
 //rate
-        document.getElementById("4Rate").value = parseInt(totalamntinsurance[3]/parseInt(inputQuantityDPS));
+        document.getElementById("4Rate").value = Math.ceil(totalamntinsurance[3]/parseInt(inputQuantityDPS));
 //year2
-        year2[3]=totalamntinsurance[3]*20/100;
+        year2[3]=Math.ceil(totalamntinsurance[3]*20/100);
         document.getElementById("4Year2").value = year2[3];
 //year3
-        year3[3]=year2[3]*1.1;
+        year3[3]=Math.ceil(year2[3]*1.1);
         document.getElementById("4Year3").value = year3[3];
 //total
         total[3]=totalamntinsurance[3]+year2[3]+year3[3];
@@ -1352,8 +1352,8 @@ console.log(totDPS);
         if (inputQuantityDUS > 10000) {
             var extraval = inputQuantityDUS - 5000;
             var vals = document.getElementById("8RateDUS").value;
-            totDUS = totDUS + 1*document.getElementById("7Total_QuantityDUS").value;
             totDUS = extraval * vals;
+            totDUS = totDUS + 1*document.getElementById("7Total_QuantityDUS").value;
         }
         else if (inputQuantityDUS > 5000) {
             var extraval = inputQuantityDUS - 2500;
@@ -1405,16 +1405,16 @@ console.log(totDPS);
 //IF(AND(C8=0,C9>0,C10>0),I66*(1-Configuration!R3),IF(AND(C8=0,C9>0,C10=0),I66*(1-Configuration!Q3),IF(C9=0,0)))))
         var temprary=0;
         if(inputQuantityDPS>0 && inputQuantityDUS>0 && inputQuantityDBS>0){
-           temprary =ivalues[4]*(1-configuration3.ft4/100);
+           temprary =Math.ceil(ivalues[4]*(1-configuration3.ft4/100));
         }
         else if(inputQuantityDPS>0 && inputQuantityDUS>0 && inputQuantityDBS==0){
-           temprary =ivalues[4]*(1-configuration3.ft3/100);
+           temprary =Math.ceil(ivalues[4]*(1-configuration3.ft3/100));
         }
         else if(inputQuantityDPS==0 && inputQuantityDUS>0 && inputQuantityDBS>0){
-           temprary =ivalues[4]*(1-configuration3.ft3/100);
+           temprary =Math.ceil(ivalues[4]*(1-configuration3.ft3/100));
         }
         else if(inputQuantityDPS==0 && inputQuantityDUS>0 && inputQuantityDBS==0){
-           temprary =ivalues[4]*(1-configuration3.ft2/100);
+           temprary =Math.ceil(ivalues[4]*(1-configuration3.ft2/100));
         }
         else{
            temprary =0;
@@ -1424,23 +1424,23 @@ console.log(totDPS);
         console.log("nikhil is mc2",subtotals[4]);
         document.getElementById("5SubTotal").value=subtotals[4];
 //warranty cell
-        document.getElementById("5Warranty").value = subtotals[4]* parseInt(configuration9.ft2)/100;
+        document.getElementById("5Warranty").value = Math.ceil(subtotals[4]* parseInt(configuration9.ft2)/100);
 //totalwarranty
         totalwarranty[4]=subtotals[4]+parseInt(document.getElementById("5Warranty").value); 
 
         document.getElementById("5TotalWarranty").value = totalwarranty[4];
 //com
-        document.getElementById("5COM").value = totalwarranty[4]* parseInt(configuration10.ft2)/100;
+        document.getElementById("5COM").value = Math.ceil(totalwarranty[4]* parseInt(configuration10.ft2)/100);
 //totalamountinsurance
         totalamntinsurance[4]= parseInt(document.getElementById("5COM").value)+totalwarranty[4];
         document.getElementById("5TotalAmountInsurance").value = totalamntinsurance[4];
 //rate
-        document.getElementById("5Rate").value = parseInt(totalamntinsurance[4]/parseInt(inputQuantityDUS));
+        document.getElementById("5Rate").value = Math.ceil(totalamntinsurance[4]/parseInt(inputQuantityDUS));
 //year2
-        year2[4]=totalamntinsurance[4]*20/100;
+        year2[4]=Math.ceil(totalamntinsurance[4]*20/100);
         document.getElementById("5Year2").value = year2[4];
 //year3
-        year3[4]=year2[4]*1.1;
+        year3[4]=Math.ceil(year2[4]*1.1);
         document.getElementById("5Year3").value = year3[4];
 //total
         total[4]=totalamntinsurance[4]+year2[4]+year3[4];
@@ -1451,44 +1451,44 @@ console.log(totDPS);
         if (inputQuantityDBS > 10000) {
             var extraval = inputQuantityDBS - 5000;
             var vals = document.getElementById("8RateDBS").value;
-            totDBS = totDBS + document.getElementById("7Total_QuantityDBS").value;
             totDBS = extraval * vals;
+            totDBS = totDBS + 1*document.getElementById("7Total_QuantityDBS").value;
         }
         else if (inputQuantityDBS > 5000) {
             var extraval = inputQuantityDBS - 2500;
             var vals = document.getElementById("7RateDBS").value;
             totDBS = extraval * vals;
-            totDBS = totDBS + document.getElementById("6Total_QuantityDBS").value;
+            totDBS = totDBS + 1*document.getElementById("6Total_QuantityDBS").value;
         }
         else if (inputQuantityDBS > 2500) {
             var extraval = inputQuantityDBS- 2500;
             var vals = document.getElementById("6RateDBS").value;
             totDBS = extraval * vals;
-            totDBS = totDBS + document.getElementById("5Total_QuantityDBS").value;
+            totDBS = totDBS + 1*document.getElementById("5Total_QuantityDBS").value;
         }
         else if (inputQuantityDBS > 1000) {
             var extraval = inputQuantityDBS - 1000;
             var vals = document.getElementById("5RateDBS").value;
             totDBS = extraval * vals;
-            totDBS = totDBS + document.getElementById("4Total_QuantityDBS").value;
+            totDBS = totDBS + 1*document.getElementById("4Total_QuantityDBS").value;
         }
         else if (inputQuantityDBS > 500) {
             var extraval = inputQuantityDBS - 500;
             var vals = document.getElementById("4RateDBS").value;
             totDBS = extraval * vals;
-            totDBS = totDBS + document.getElementById("3Total_QuantityDBS").value;
+            totDBS = totDBS + 1*document.getElementById("3Total_QuantityDBS").value;
         }
         else if (inputQuantityDBS > 250) {
             var extraval = inputQuantityDBS - 250;
             var vals = document.getElementById("3RateDBS").value;
             totDBS = extraval * vals;
-            totDBS = totfDBS + document.getElementById("2Total_QuantityDBS").value;
+            totDBS = totfDBS + 1*document.getElementById("2Total_QuantityDBS").value;
         }
         else if (inputQuantityDBS > 100) {
             var extraval = inputQuantityDBS - 100;
             var vals = document.getElementById("2RateDBS").value;
             totDBS = extraval * vals;
-            totDBS = totfDBS + document.getElementById("1Total_QuantityDBS").value;
+            totDBS = totfDBS + 1*document.getElementById("1Total_QuantityDBS").value;
         }
         else {
             totDBS = inputQuantityDBS * document.getElementById("1RateDBS").value;
@@ -1503,16 +1503,16 @@ console.log(totDPS);
 //I54*(1-Configuration!R3),IF(AND(C8=0,C9=0,C10>0),I54*(1-Configuration!Q3),IF(C10=0,0)))))
         var temprary=0;
         if(inputQuantityDPS>0 && inputQuantityDUS>0 && inputQuantityDBS>0){
-           temprary =ivalues[5]*(1-configuration3.ft4/100);
+           temprary =Math.ceil(ivalues[5]*(1-configuration3.ft4/100));
         }
         else if(inputQuantityDPS>0 && inputQuantityDUS==0 && inputQuantityDBS>0){
-           temprary =ivalues[5]*(1-configuration3.ft3/100);
+           temprary =Math.ceil(ivalues[5]*(1-configuration3.ft3/100));
         }
         else if(inputQuantityDPS==0 && inputQuantityDUS>0 && inputQuantityDBS>0){
-           temprary =ivalues[5]*(1-configuration3.ft3/100);
+           temprary =Math.ceil(ivalues[5]*(1-configuration3.ft3/100));
         }
         else if(inputQuantityDPS==0 && inputQuantityDUS==0 && inputQuantityDBS>0){
-           temprary =ivalues[5]*(1-configuration3.ft2/100);
+           temprary =Math.ceil(ivalues[5]*(1-configuration3.ft2/100));
         }
         else{
            temprary =0;
@@ -1522,23 +1522,23 @@ console.log(totDPS);
         console.log("nikhil is mc3",subtotals[5]);
         document.getElementById("6SubTotal").value=subtotals[5];
 //warranty cell
-        document.getElementById("6Warranty").value = subtotals[5]* parseInt(configuration9.ft2)/100;
+        document.getElementById("6Warranty").value = Math.ceil(subtotals[5]* parseInt(configuration9.ft2)/100);
 //totalwarranty
         totalwarranty[5]=subtotals[5]+parseInt(document.getElementById("6Warranty").value); 
 
         document.getElementById("6TotalWarranty").value = totalwarranty[5];
 //com
-        document.getElementById("6COM").value = totalwarranty[5]* parseInt(configuration10.ft2)/100;
+        document.getElementById("6COM").value = Math.ceil(totalwarranty[5]* parseInt(configuration10.ft2)/100);
 //totalamountinsurance
         totalamntinsurance[5]= parseInt(document.getElementById("6COM").value)+totalwarranty[5];
         document.getElementById("6TotalAmountInsurance").value = totalamntinsurance[5];
 //rate
-        document.getElementById("6Rate").value = parseInt(totalamntinsurance[5]/parseInt(inputQuantityDBS));
+        document.getElementById("6Rate").value = Math.ceil(totalamntinsurance[5]/parseInt(inputQuantityDBS));
 //year2
-        year2[5]=totalamntinsurance[5]*20/100;
+        year2[5]=Math.ceil(totalamntinsurance[5]*20/100);
         document.getElementById("6Year2").value = year2[5];
 //year3
-        year3[5]=year2[5]*1.1;
+        year3[5]=Math.ceil(year2[5]*1.1);
         document.getElementById("6Year3").value = year3[5];
 //total
         total[5]=totalamntinsurance[5]+year2[5]+year3[5];
@@ -1553,32 +1553,32 @@ console.log(totDPS);
         if (inputQuantityMRLO > 500) {
             var extraval = inputQuantityMRLO - 500;
             var vals = document.getElementById("6RateMRLO").value;
-            totMRLO = totMRLO + document.getElementById("5Total_QuantityMRLO").value;
+            totMRLO = totMRLO + 1*document.getElementById("5Total_QuantityMRLO").value;
             totMRLO = 1*totMRLO+extraval * vals;
         }
         else if (inputQuantityMRLO > 200) {
             var extraval = inputQuantityMRLO - 200;
             var vals = document.getElementById("5RateMRLO").value;
             totMRLO = extraval * vals;
-            totMRLO = totMRLO + document.getElementById("4Total_QuantityMRLO").value;
+            totMRLO = totMRLO + 1*document.getElementById("4Total_QuantityMRLO").value;
         }
         else if (inputQuantityMRLO > 100) {
             var extraval = inputQuantityMRLO - 100;
             var vals = document.getElementById("4RateMRLO").value;
             totMRLO = extraval * vals;
-            totMRLO = totMRLO + document.getElementById("3Total_QuantityMRLO").value;
+            totMRLO = totMRLO + 1*document.getElementById("3Total_QuantityMRLO").value;
         }
         else if (inputQuantityMRLO > 50) {
             var extraval = inputQuantityMRLO - 50;
             var vals = document.getElementById("3RateMRLO").value;
             totMRLO = extraval * vals;
-            totMRLO = totMRLO + document.getElementById("2Total_QuantityMRLO").value;
+            totMRLO = totMRLO + 1*document.getElementById("2Total_QuantityMRLO").value;
         }
         else if (inputQuantityMRLO > 25) {
             var extraval = inputQuantityMRLO - 25;
             var vals = document.getElementById("2RateMRLO").value;
             totMRLO = extraval * vals;
-            totMRLO = totMRLO + document.getElementById("1Total_QuantityMRLO").value;
+            totMRLO = totMRLO + 1*document.getElementById("1Total_QuantityMRLO").value;
         }
         
         else {
@@ -1594,16 +1594,16 @@ console.log(totDPS);
 //IF(AND(C11>0,C12=0,C13>0),I156*(1-Configuration!R3),IF(AND(C11>0,C12=0,C13=0),I156*(1-Configuration!Q3),IF(C11=0,0)))))
         var temprary=0;
         if(inputQuantityMRLO>0 && inputQuantityMRLPC>0 && inputQuantityMRLB>0){
-           temprary =ivalues[6]*(1-configuration3.ft4/100);
+           temprary =Math.ceil(ivalues[6]*(1-configuration3.ft4/100));
         }
         else if(inputQuantityMRLO>0 && inputQuantityMRLPC>0 && inputQuantityMRLB==0){
-           temprary =ivalues[6]*(1-configuration3.ft3/100);
+           temprary =Math.ceil(ivalues[6]*(1-configuration3.ft3/100));
         }
         else if(inputQuantityMRLO>0 && inputQuantityMRLPC==0 && inputQuantityMRLB>0){
-           temprary =ivalues[6]*(1-configuration3.ft3/100);
+           temprary =Math.ceil(ivalues[6]*(1-configuration3.ft3/100));
         }
         else if(inputQuantityMRLO>0 && inputQuantityMRLPC==0 && inputQuantityMRLB==0){
-           temprary =ivalues[6]*(1-configuration3.ft2/100);
+           temprary =Math.ceil(ivalues[6]*(1-configuration3.ft2/100));
         }
         else{
            temprary =0;
@@ -1613,23 +1613,23 @@ console.log(totDPS);
         console.log("holw is mc3",subtotals[6]);
         document.getElementById("7SubTotal").value=subtotals[6];
 //warranty cell
-        document.getElementById("7Warranty").value = subtotals[6]* parseInt(configuration9.ft2)/100;
+        document.getElementById("7Warranty").value = Math.ceil(subtotals[6]* parseInt(configuration9.ft2)/100);
 //totalwarranty
         totalwarranty[6]=subtotals[6]+parseInt(document.getElementById("7Warranty").value); 
 
         document.getElementById("7TotalWarranty").value = totalwarranty[6];
 //com
-        document.getElementById("7COM").value = totalwarranty[6]* parseInt(configuration10.ft2)/100;
+        document.getElementById("7COM").value = Math.ceil(totalwarranty[6]* parseInt(configuration10.ft2)/100);
 //totalamountinsurance
         totalamntinsurance[6]= parseInt(document.getElementById("7COM").value)+totalwarranty[6];
         document.getElementById("7TotalAmountInsurance").value = totalamntinsurance[6];
 //rate
-        document.getElementById("7Rate").value = parseInt(totalamntinsurance[6]/parseInt(inputQuantityMRLO));
+        document.getElementById("7Rate").value = Math.ceil(totalamntinsurance[6]/parseInt(inputQuantityMRLO));
 //year2
-        year2[6]=totalamntinsurance[6]*20/100;
+        year2[6]=Math.ceil(totalamntinsurance[6]*20/100);
         document.getElementById("7Year2").value = year2[6];
 //year3
-        year3[6]=year2[6]*1.1;
+        year3[6]=Math.ceil(year2[6]*1.1);
         document.getElementById("7Year3").value = year3[6];
 //total
         total[6]=totalamntinsurance[6]+year2[6]+year3[6];
@@ -1650,19 +1650,19 @@ console.log(totDPS);
             var extraval = inputQuantityMRLPC - 200;
             var vals = document.getElementById("5RateMRLPC").value;
             totMRLPC = extraval * vals;
-            totMRLPC = totMRLPC + document.getElementById("4Total_QuantityMRLPC").value;
+            totMRLPC = totMRLPC + 1*document.getElementById("4Total_QuantityMRLPC").value;
         }
         else if (inputQuantityMRLPC > 100) {
             var extraval = inputQuantityMRLPC - 100;
             var vals = document.getElementById("4RateMRLPC").value;
             totMRLPC = extraval * vals;
-            totMRLPC = totMRLPC + document.getElementById("3Total_QuantityMRLPC").value;
+            totMRLPC = totMRLPC + 1*document.getElementById("3Total_QuantityMRLPC").value;
         }
         else if (inputQuantityMRLPC > 50) {
             var extraval = inputQuantityMRLPC - 50;
             var vals = document.getElementById("3RateMRLPC").value;
             totMRLPC = extraval * vals;
-            totMRLPC = totMRLPC + document.getElementById("2Total_QuantityMRLPC").value;
+            totMRLPC = totMRLPC + 1*document.getElementById("2Total_QuantityMRLPC").value;
         }
         else if (inputQuantityMRLPC > 25) {
             var extraval = inputQuantityMRLPC - 25;
@@ -1687,16 +1687,16 @@ console.log("tot mrlpcs is ",totMRLPC);
 //IF(AND(C11=0,C12>0,C13>0),I166*(1-Configuration!R3),IF(AND(C11=0,C12>0,C13=0),I166*(1-Configuration!Q3),IF(C12=0,0)))))
         var temprary=0;
         if(inputQuantityMRLO>0 && inputQuantityMRLPC>0 && inputQuantityMRLB>0){
-           temprary =ivalues[7]*(1-configuration3.ft4/100);
+           temprary =Math.ceil(ivalues[7]*(1-configuration3.ft4/100));
         }
         else if(inputQuantityMRLO>0 && inputQuantityMRLPC>0 && inputQuantityMRLB==0){
-           temprary =ivalues[7]*(1-configuration3.ft3/100);
+           temprary =Math.ceil(ivalues[7]*(1-configuration3.ft3/100));
         }
         else if(inputQuantityMRLO==0 && inputQuantityMRLPC>0 && inputQuantityMRLB>0){
-           temprary =ivalues[7]*(1-configuration3.ft3/100);
+           temprary =Math.ceil(ivalues[7]*(1-configuration3.ft3/100));
         }
         else if(inputQuantityMRLO==0 && inputQuantityMRLPC>0 && inputQuantityMRLB==0){
-           temprary =ivalues[7]*(1-configuration3.ft2/100);
+           temprary =Math.ceil(ivalues[7]*(1-configuration3.ft2/100));
         }
         else{
            temprary =0;
@@ -1706,23 +1706,23 @@ console.log("tot mrlpcs is ",totMRLPC);
         console.log("holw is pratik",subtotals[7]);
         document.getElementById("8SubTotal").value=subtotals[7];
 //warranty cell
-        document.getElementById("8Warranty").value = subtotals[7]* parseInt(configuration9.ft2)/100;
+        document.getElementById("8Warranty").value = Math.ceil(subtotals[7]* parseInt(configuration9.ft2)/100);
 //totalwarranty
         totalwarranty[7]=subtotals[7]+parseInt(document.getElementById("8Warranty").value); 
 
         document.getElementById("8TotalWarranty").value = totalwarranty[7];
 //com
-        document.getElementById("8COM").value = totalwarranty[7]* parseInt(configuration10.ft2)/100;
+        document.getElementById("8COM").value = Math.ceil(totalwarranty[7]* parseInt(configuration10.ft2)/100);
 //totalamountinsurance
         totalamntinsurance[7]= parseInt(document.getElementById("8COM").value)+totalwarranty[7];
         document.getElementById("8TotalAmountInsurance").value = totalamntinsurance[7];
 //rate
-        document.getElementById("8Rate").value = parseInt(totalamntinsurance[7]/parseInt(inputQuantityMRLPC));
+        document.getElementById("8Rate").value = Math.ceil(totalamntinsurance[7]/parseInt(inputQuantityMRLPC));
 //year2
-        year2[7]=totalamntinsurance[7]*20/100;
+        year2[7]=Math.ceil(totalamntinsurance[7]*20/100);
         document.getElementById("8Year2").value = year2[7];
 //year3
-        year3[7]=year2[7]*1.1;
+        year3[7]=Math.ceil(year2[7]*1.1);
         document.getElementById("8Year3").value = year3[7];
 //total
         total[7]=totalamntinsurance[7]+year2[7]+year3[7];
@@ -1739,19 +1739,19 @@ console.log("tot mrlpcs is ",totMRLPC);
             var extraval = inputQuantityMRLB - 200;
             var vals = document.getElementById("5RateMRLB").value;
             totMRLB = extraval * vals;
-            totMRLB = totMRLB + document.getElementById("4Total_QuantityMRLB").value;
+            totMRLB = totMRLB + 1*document.getElementById("4Total_QuantityMRLB").value;
         }
         else if (inputQuantityMRLB > 100) {
             var extraval = inputQuantityMRLB - 100;
             var vals = document.getElementById("4RateMRLB").value;
             totMRLB = extraval * vals;
-            totMRLB = totMRLB + document.getElementById("3Total_QuantityMRLB").value;
+            totMRLB = totMRLB + 1*document.getElementById("3Total_QuantityMRLB").value;
         }
         else if (inputQuantityMRLB > 50) {
             var extraval = inputQuantityMRLB - 50;
             var vals = document.getElementById("3RateMRLB").value;
             totMRLB = extraval * vals;
-            totMRLB = totMRLB + document.getElementById("2Total_QuantityMRLB").value;
+            totMRLB = totMRLB + 1*document.getElementById("2Total_QuantityMRLB").value;
         }
         else if (inputQuantityMRLB > 25) {
             var extraval = inputQuantityMRLB - 25;
@@ -1775,16 +1775,16 @@ console.log("tot mrlb is ",totMRLB);
 //IF(AND(C11=0,C12>0,C13>0),I177*(1-Configuration!R3),IF(AND(C11=0,C12=0,C13>0),I177*(1-Configuration!Q3),IF(C13=0,0)))))
         var temprary=0;
         if(inputQuantityMRLO>0 && inputQuantityMRLPC>0 && inputQuantityMRLB>0){
-           temprary =ivalues[8]*(1-configuration3.ft4/100);
+           temprary =Math.ceil(ivalues[8]*(1-configuration3.ft4/100));
         }
         else if(inputQuantityMRLO>0 && inputQuantityMRLPC==0 && inputQuantityMRLB>0){
-           temprary =ivalues[8]*(1-configuration3.ft3/100);
+           temprary =Math.ceil(ivalues[8]*(1-configuration3.ft3/100));
         }
         else if(inputQuantityMRLO==0 && inputQuantityMRLPC>0 && inputQuantityMRLB>0){
-           temprary =ivalues[8]*(1-configuration3.ft3/100);
+           temprary =Math.ceil(ivalues[8]*(1-configuration3.ft3/100));
         }
         else if(inputQuantityMRLO==0 && inputQuantityMRLPC==0 && inputQuantityMRLB>0){
-           temprary =ivalues[8]*(1-configuration3.ft2/100);
+           temprary =Math.ceil(ivalues[8]*(1-configuration3.ft2/100));
         }
         else{
            temprary =0;
@@ -1794,23 +1794,23 @@ console.log("tot mrlb is ",totMRLB);
         console.log("holw is mc mc mc",subtotals[8]);
         document.getElementById("9SubTotal").value=subtotals[8];
 //warranty cell
-        document.getElementById("9Warranty").value = subtotals[8]* parseInt(configuration9.ft2)/100;
+        document.getElementById("9Warranty").value = Math.ceil(subtotals[8]* parseInt(configuration9.ft2)/100);
 //totalwarranty
         totalwarranty[8]=subtotals[8]+parseInt(document.getElementById("9Warranty").value); 
 
         document.getElementById("9TotalWarranty").value = totalwarranty[8];
 //com
-        document.getElementById("9COM").value = totalwarranty[8]* parseInt(configuration10.ft2)/100;
+        document.getElementById("9COM").value = Math.ceil(totalwarranty[8]* parseInt(configuration10.ft2)/100);
 //totalamountinsurance
         totalamntinsurance[8]= parseInt(document.getElementById("9COM").value)+totalwarranty[8];
         document.getElementById("9TotalAmountInsurance").value = totalamntinsurance[8];
 //rate
-        document.getElementById("9Rate").value = parseInt(totalamntinsurance[8]/parseInt(inputQuantityMRLB));
+        document.getElementById("9Rate").value = Math.ceil(totalamntinsurance[8]/parseInt(inputQuantityMRLB));
 //year2
-        year2[8]=totalamntinsurance[8]*20/100;
+        year2[8]=Math.ceil(totalamntinsurance[8]*20/100);
         document.getElementById("9Year2").value = year2[8];
 //year3
-        year3[8]=year2[8]*1.1;
+        year3[8]=Math.ceil(year2[8]*1.1);
         document.getElementById("9Year3").value = year3[8];
 //total
         total[8]=totalamntinsurance[8]+year2[8]+year3[8];
@@ -1868,23 +1868,23 @@ console.log("tot mrlb is ",totMRLB);
         subtotals[9]=parseInt(ivalues[9]);
         document.getElementById("10SubTotal").value=subtotals[9];
 //warranty cell
-        document.getElementById("10Warranty").value = subtotals[9]* parseInt(configuration9.ft2)/100;
+        document.getElementById("10Warranty").value = Math.ceil(subtotals[9]* parseInt(configuration9.ft2)/100);
 //totalwarranty
         totalwarranty[9]=subtotals[9]+parseInt(document.getElementById("10Warranty").value); 
 
         document.getElementById("10TotalWarranty").value = totalwarranty[9];
 //com
-        document.getElementById("10COM").value = totalwarranty[9]* parseInt(configuration10.ft2)/100;
+        document.getElementById("10COM").value = Math.ceil(totalwarranty[9]* parseInt(configuration10.ft2)/100);
 //totalamountinsurance
         totalamntinsurance[9]= parseInt(document.getElementById("10COM").value)+totalwarranty[9];
         document.getElementById("10TotalAmountInsurance").value = totalamntinsurance[9];
 //rate
-        document.getElementById("10Rate").value = parseInt(totalamntinsurance[9]/parseInt(inputQuantityWF));
+        document.getElementById("10Rate").value = Math.ceil(totalamntinsurance[9]/parseInt(inputQuantityWF));
 //year2
-        year2[9]=totalamntinsurance[9]*20/100;
+        year2[9]=Math.ceil(totalamntinsurance[9]*20/100);
         document.getElementById("10Year2").value = year2[9];
 //year3
-        year3[9]=year2[9]*1.1;
+        year3[9]=Math.ceil(year2[9]*1.1);
         document.getElementById("10Year3").value = year3[9];
 //total
         total[9]=totalamntinsurance[9]+year2[9]+year3[9];
@@ -1940,23 +1940,23 @@ console.log("tot mrlb is ",totMRLB);
         subtotals[10]=parseInt(ivalues[10]);
         document.getElementById("11SubTotal").value=subtotals[10];
 //warranty cell
-        document.getElementById("11Warranty").value = subtotals[10]* parseInt(configuration9.ft2)/100;
+        document.getElementById("11Warranty").value = Math.ceil(subtotals[10]* parseInt(configuration9.ft2)/100);
 //totalwarranty
         totalwarranty[10]=subtotals[10]+parseInt(document.getElementById("11Warranty").value); 
 
         document.getElementById("11TotalWarranty").value = totalwarranty[10];
 //com
-        document.getElementById("11COM").value = totalwarranty[10]* parseInt(configuration10.ft2)/100;
+        document.getElementById("11COM").value = Math.ceil(totalwarranty[10]* parseInt(configuration10.ft2)/100);
 //totalamountinsurance
         totalamntinsurance[10]= parseInt(document.getElementById("11COM").value)+totalwarranty[10];
         document.getElementById("11TotalAmountInsurance").value = totalamntinsurance[10];
 //rate
-        document.getElementById("11Rate").value = parseInt(totalamntinsurance[10]/parseInt(inputQuantityFB));
+        document.getElementById("11Rate").value = Math.ceil(totalamntinsurance[10]/parseInt(inputQuantityFB));
 //year2
-        year2[10]=totalamntinsurance[10]*20/100;
+        year2[10]=Math.ceil(totalamntinsurance[10]*20/100);
         document.getElementById("11Year2").value = year2[10];
 //year3
-        year3[10]=year2[10]*1.1;
+        year3[10]=Math.ceil(year2[10]*1.1);
         document.getElementById("11Year3").value = year3[10];
 //total
         total[10]=totalamntinsurance[10]+year2[10]+year3[10];
@@ -2012,16 +2012,16 @@ console.log("tot mrlb is ",totMRLB);
 //IF(AND(C16>0,C17=0,C18>0),I188*(1-Configuration!R3),IF(AND(C16>0,C17=0,C18=0),I188*(1-Configuration!Q3),IF(C16=0,0)))))
         var temprary=0;
         if(inputQuantityRLPC>0 && inputQuantityRLWFT>0 && inputQuantityRLO>0){
-           temprary =ivalues[11]*(1-configuration3.ft4/100);
+           temprary =Math.ceil(ivalues[11]*(1-configuration3.ft4/100));
         }
         else if(inputQuantityRLPC>0 && inputQuantityRLWFT>0 && inputQuantityRLO==0){
-           temprary =ivalues[11]*(1-configuration3.ft3/100);
+           temprary =Math.ceil(ivalues[11]*(1-configuration3.ft3/100));
         }
         else if(inputQuantityRLPC>0 && inputQuantityRLWFT==0 && inputQuantityRLO>0){
-           temprary =ivalues[11]*(1-configuration3.ft3/100);
+           temprary =Math.ceil(ivalues[11]*(1-configuration3.ft3/100));
         }
         else if(inputQuantityRLPC>0 && inputQuantityRLWFT==0 && inputQuantityRLO==0){
-           temprary =ivalues[11]*(1-configuration3.ft2/100);
+           temprary =Math.ceil(ivalues[11]*(1-configuration3.ft2/100));
         }
         else{
            temprary =0;
@@ -2031,23 +2031,23 @@ console.log("tot mrlb is ",totMRLB);
         console.log("holw is mc mc mc",subtotals[11]);
         document.getElementById("12SubTotal").value=subtotals[11];
 //warranty cell
-        document.getElementById("12Warranty").value = subtotals[11]* parseInt(configuration9.ft2)/100;
+        document.getElementById("12Warranty").value = Math.ceil(subtotals[11]* parseInt(configuration9.ft2)/100);
 //totalwarranty
         totalwarranty[11]=subtotals[11]+parseInt(document.getElementById("12Warranty").value); 
 
         document.getElementById("12TotalWarranty").value = totalwarranty[11];
 //com
-        document.getElementById("12COM").value = totalwarranty[11]* parseInt(configuration10.ft2)/100;
+        document.getElementById("12COM").value = Math.ceil(totalwarranty[11]* parseInt(configuration10.ft2)/100);
 //totalamountinsurance
         totalamntinsurance[11]= parseInt(document.getElementById("12COM").value)+totalwarranty[11];
         document.getElementById("12TotalAmountInsurance").value = totalamntinsurance[11];
 //rate
-        document.getElementById("12Rate").value = parseInt(totalamntinsurance[11]/parseInt(inputQuantityRLPC));
+        document.getElementById("12Rate").value = Math.ceil(totalamntinsurance[11]/parseInt(inputQuantityRLPC));
 //year2
-        year2[11]=totalamntinsurance[11]*20/100;
+        year2[11]=Math.ceil(totalamntinsurance[11]*20/100);
         document.getElementById("12Year2").value = year2[11];
 //year3
-        year3[11]=year2[11]*1.1;
+        year3[11]=Math.ceil(year2[11]*1.1);
         document.getElementById("12Year3").value = year3[11];
 //total
         total[11]=totalamntinsurance[11]+year2[11]+year3[11];
@@ -2103,16 +2103,16 @@ console.log("tot mrlb is ",totMRLB);
 //IF(AND(C16=0,C17>0,C18>0),I198*(1-Configuration!R3),IF(AND(C16=0,C17>0,C18=0),I198*(1-Configuration!Q3),IF(C17=0,0)))))
         var temprary=0;
         if(inputQuantityRLPC>0 && inputQuantityRLWFT>0 && inputQuantityRLO>0){
-           temprary =ivalues[12]*(1-configuration3.ft4/100);
+           temprary =Math.ceil(ivalues[12]*(1-configuration3.ft4/100));
         }
         else if(inputQuantityRLPC>0 && inputQuantityRLWFT>0 && inputQuantityRLO==0){
-           temprary =ivalues[12]*(1-configuration3.ft3/100);
+           temprary =Math.ceil(ivalues[12]*(1-configuration3.ft3/100));
         }
         else if(inputQuantityRLPC==0 && inputQuantityRLWFT>0 && inputQuantityRLO>0){
-           temprary =ivalues[12]*(1-configuration3.ft3/100);
+           temprary =Math.ceil(ivalues[12]*(1-configuration3.ft3/100));
         }
         else if(inputQuantityRLPC==0 && inputQuantityRLWFT>0 && inputQuantityRLO==0){
-           temprary =ivalues[12]*(1-configuration3.ft2/100);
+           temprary =Math.ceil(ivalues[12]*(1-configuration3.ft2/100));
         }
         else{
            temprary =0;
@@ -2122,23 +2122,23 @@ console.log("tot mrlb is ",totMRLB);
         console.log("holw is mc mc mc",subtotals[12]);
         document.getElementById("13SubTotal").value=subtotals[12];
 //warranty cell
-        document.getElementById("13Warranty").value = subtotals[12]* parseInt(configuration9.ft2)/100;
+        document.getElementById("13Warranty").value = Math.ceil(subtotals[12]* parseInt(configuration9.ft2)/100);
 //totalwarranty
         totalwarranty[12]=subtotals[12]+parseInt(document.getElementById("13Warranty").value); 
 
         document.getElementById("13TotalWarranty").value = totalwarranty[12];
 //com
-        document.getElementById("13COM").value = totalwarranty[12]* parseInt(configuration10.ft2)/100;
+        document.getElementById("13COM").value = Math.ceil(totalwarranty[12]* parseInt(configuration10.ft2)/100);
 //totalamountinsurance
         totalamntinsurance[12]= parseInt(document.getElementById("13COM").value)+totalwarranty[12];
         document.getElementById("13TotalAmountInsurance").value = totalamntinsurance[12];
 //rate
-        document.getElementById("13Rate").value = parseInt(totalamntinsurance[12]/parseInt(inputQuantityRLWFT));
+        document.getElementById("13Rate").value = Math.ceil(totalamntinsurance[12]/parseInt(inputQuantityRLWFT));
 //year2
-        year2[12]=totalamntinsurance[12]*20/100;
+        year2[12]=Math.ceil(totalamntinsurance[12]*20/100);
         document.getElementById("13Year2").value = year2[12];
 //year3
-        year3[12]=year2[12]*1.1;
+        year3[12]=Math.ceil(year2[12]*1.1);
         document.getElementById("13Year3").value = year3[12];
 //total
         total[12]=totalamntinsurance[12]+year2[12]+year3[12];
@@ -2191,16 +2191,16 @@ console.log("tot mrlb is ",totMRLB);
 
         var temprary=0;
         if(inputQuantityRLPC>0 && inputQuantityRLWFT>0 && inputQuantityRLO>0){
-           temprary =ivalues[13]*(1-configuration3.ft4/100);
+           temprary =Math.ceil(ivalues[13]*(1-configuration3.ft4/100));
         }
         else if(inputQuantityRLPC>0 && inputQuantityRLWFT==0 && inputQuantityRLO>0){
-           temprary =ivalues[13]*(1-configuration3.ft3/100);
+           temprary =Math.ceil(ivalues[13]*(1-configuration3.ft3/100));
         }
         else if(inputQuantityRLPC==0 && inputQuantityRLWFT>0 && inputQuantityRLO>0){
-           temprary =ivalues[13]*(1-configuration3.ft3/100);
+           temprary =Math.ceil(ivalues[13]*(1-configuration3.ft3/100));
         }
         else if(inputQuantityRLPC==0 && inputQuantityRLWFT==0 && inputQuantityRLO>0){
-           temprary =ivalues[13]*(1-configuration3.ft2/100);
+           temprary =Math.ceil(ivalues[13]*(1-configuration3.ft2/100));
         }
         else{
            temprary =0;
@@ -2210,23 +2210,23 @@ console.log("tot mrlb is ",totMRLB);
         console.log("holw is mc mc mc",subtotals[13]);
         document.getElementById("14SubTotal").value=subtotals[13];
 //warranty cell
-        document.getElementById("14Warranty").value = subtotals[13]* parseInt(configuration9.ft2)/100;
+        document.getElementById("14Warranty").value = Math.ceil(subtotals[13]* parseInt(configuration9.ft2)/100);
 //totalwarranty
         totalwarranty[13]=subtotals[13]+parseInt(document.getElementById("14Warranty").value); 
 
         document.getElementById("14TotalWarranty").value = totalwarranty[13];
 //com
-        document.getElementById("14COM").value = totalwarranty[13]* parseInt(configuration10.ft2)/100;
+        document.getElementById("14COM").value = Math.ceil(totalwarranty[13]* parseInt(configuration10.ft2)/100);
 //totalamountinsurance
         totalamntinsurance[13]= parseInt(document.getElementById("14COM").value)+totalwarranty[13];
         document.getElementById("14TotalAmountInsurance").value = totalamntinsurance[13];
 //rate
-        document.getElementById("14Rate").value = parseInt(totalamntinsurance[13]/parseInt(inputQuantityRLO));
+        document.getElementById("14Rate").value = Math.ceil(totalamntinsurance[13]/parseInt(inputQuantityRLO));
 //year2
-        year2[13]=totalamntinsurance[13]*20/100;
+        year2[13]=Math.ceil(totalamntinsurance[13]*20/100);
         document.getElementById("14Year2").value = year2[13];
 //year3
-        year3[13]=year2[13]*1.1;
+        year3[13]=Math.ceil(year2[13]*1.1);
         document.getElementById("14Year3").value = year3[13];
 //total
         total[13]=totalamntinsurance[13]+year2[13]+year3[13];
@@ -2247,7 +2247,7 @@ console.log("tot mrlb is ",totMRLB);
 //=IF(C19=0,0,IF(AND(C19>0,C19<=AE30),AF30,IF(AND(C19>=AD31,C19<=AE31),AF31,IF(AND(C19>=AD32,C19<=AE32),AF32,
 //IF(AND(C19>=AD33,C19<=AE33),AF33,IF(AND(C19>=AD34,C19<=AE34),AF34,IF(AND(C19>=AD35,C19<=AE35),AF35,
 //IF(AND(C19>=AD36,C19<=AE36),AF36,IF(AND(C19>=AD37,C19<=AE37),AF37,IF(AND(C19>=AD38,C19<=AE38),AF38,IF(C19>=AD39,AF39)))))))))))
-         var data1 = {{ Automate_Pricings| safe }};
+        var data1 = {{ Automate_Pricings| safe }};
         console.log("automate is ",data1)
         var temprary=0;
         if(cond==0){
@@ -2270,22 +2270,22 @@ console.log("tot mrlb is ",totMRLB);
 console.log("holw is mc mc mc",subtotals[14]);
         document.getElementById("15SubTotal").value=subtotals[14];
 //warranty cell
-        document.getElementById("15Warranty").value = subtotals[14]* parseInt(configuration9.ft2)/100;
+        document.getElementById("15Warranty").value = Math.ceil(subtotals[14]* parseInt(configuration9.ft2)/100);
 //totalwarranty
         totalwarranty[14]=subtotals[14]+parseInt(document.getElementById("15Warranty").value); 
 
         document.getElementById("15TotalWarranty").value = totalwarranty[14];
 //com
-        document.getElementById("15COM").value = totalwarranty[14]* parseInt(configuration10.ft2)/100;
+        document.getElementById("15COM").value = Math.ceil(totalwarranty[14]* parseInt(configuration10.ft2)/100);
 //totalamountinsurance
         totalamntinsurance[14]= parseInt(document.getElementById("15COM").value)+totalwarranty[14];
         document.getElementById("15TotalAmountInsurance").value = totalamntinsurance[14];
 
 //year2
-        year2[14]=totalamntinsurance[14]*20/100;
+        year2[14]=Math.ceil(totalamntinsurance[14]*20/100);
         document.getElementById("15Year2").value = year2[14];
 //year3
-        year3[14]=year2[14]*1.1;
+        year3[14]=Math.ceil(year2[14]*1.1);
         document.getElementById("15Year3").value = year3[14];
 //total
         total[14]=totalamntinsurance[14]+year2[14]+year3[14];
@@ -2339,22 +2339,22 @@ console.log("holw is mc mc mc",subtotals[14]);
 //rate
         document.getElementById("16Rate").value = temprary;
 //warranty cell
-        document.getElementById("16Warranty").value = subtotals[15]* parseInt(configuration9.ft2)/100;
+        document.getElementById("16Warranty").value = Math.ceil(subtotals[15]* parseInt(configuration9.ft2)/100);
 //totalwarranty
         totalwarranty[15]=subtotals[15]+parseInt(document.getElementById("16Warranty").value); 
 
         document.getElementById("16TotalWarranty").value = totalwarranty[15];
 //com
-        document.getElementById("16COM").value = totalwarranty[15]* parseInt(configuration10.ft2)/100;
+        document.getElementById("16COM").value = Math.ceil(totalwarranty[15]* parseInt(configuration10.ft2)/100);
 //totalamountinsurance
         totalamntinsurance[15]= parseInt(document.getElementById("16COM").value)+totalwarranty[15];
         document.getElementById("16TotalAmountInsurance").value = totalamntinsurance[15];
 
 //year2
-        year2[15]=totalamntinsurance[15]*20/100;
+        year2[15]=Math.ceil(totalamntinsurance[15]*20/100);
         document.getElementById("16Year2").value = year2[15];
 //year3
-        year3[15]=parseInt(year2[15]*1.1);
+        year3[15]=Math.ceil(year2[15]*1.1);
         document.getElementById("16Year3").value = year3[15];
 //total
         total[15]=totalamntinsurance[15]+year2[15]+year3[15];
@@ -2412,22 +2412,22 @@ console.log("holw is mc mc mc",subtotals[14]);
 //rate
         document.getElementById("17Rate").value = temprary;
 //warranty cell
-        document.getElementById("17Warranty").value = subtotals[16]* parseInt(configuration9.ft2)/100;
+        document.getElementById("17Warranty").value = Math.ceil(subtotals[16]* parseInt(configuration9.ft2)/100);
 //totalwarranty
         totalwarranty[16]=subtotals[16]+parseInt(document.getElementById("17Warranty").value); 
 
         document.getElementById("17TotalWarranty").value = totalwarranty[16];
 //com
-        document.getElementById("17COM").value = totalwarranty[16]* parseInt(configuration10.ft2)/100;
+        document.getElementById("17COM").value = Math.ceil(totalwarranty[16]* parseInt(configuration10.ft2)/100);
 //totalamountinsurance
         totalamntinsurance[16]= parseInt(document.getElementById("17COM").value)+totalwarranty[16];
         document.getElementById("17TotalAmountInsurance").value = totalamntinsurance[16];
 
 //year2
-        year2[16]=totalamntinsurance[16]*20/100;
+        year2[16]=Math.ceil(totalamntinsurance[16]*20/100);
         document.getElementById("17Year2").value = year2[16];
 //year3
-        year3[16]=parseInt(year2[16]*1.1);
+        year3[16]=Math.ceil(year2[16]*1.1);
         document.getElementById("17Year3").value = year3[16];
 //total
         total[16]=totalamntinsurance[16]+year2[16]+year3[16];
@@ -2473,26 +2473,26 @@ console.log("holw is mc mc mc",subtotals[14]);
         document.getElementById("1TotalHBTL").value = totHBTL;
         ivalues[17]=parseInt(totHBTL);
 //subtotol
-        subtotals[17]=parseInt(ivalues[17])*(1-parseFloat(configuration3.passive)/100);
+        subtotals[17]=Math.ceil(parseInt(ivalues[17])*(1-parseFloat(configuration3.passive)/100));
         document.getElementById("18SubTotal").value=subtotals[17];
 //warranty cell
-        document.getElementById("18Warranty").value = subtotals[17]* parseInt(configuration9.ft2)/100;
+        document.getElementById("18Warranty").value = Math.ceil(subtotals[17]* parseInt(configuration9.ft2)/100);
 //totalwarranty
         totalwarranty[17]=subtotals[17]+parseInt(document.getElementById("18Warranty").value); 
 
         document.getElementById("18TotalWarranty").value = totalwarranty[17];
 //com
-        document.getElementById("18COM").value = totalwarranty[17]* parseInt(configuration10.ft2)/100;
+        document.getElementById("18COM").value = Math.ceil(totalwarranty[17]* parseInt(configuration10.ft2)/100);
 //totalamountinsurance
         totalamntinsurance[17]= parseInt(document.getElementById("18COM").value)+totalwarranty[17];
         document.getElementById("18TotalAmountInsurance").value = totalamntinsurance[17];
 //rate
         document.getElementById("18Rate").value = parseInt(totalamntinsurance[17]/parseInt(inputQuantityHBTL));
 //year2
-        year2[17]=totalamntinsurance[17]*20/100;
+        year2[17]=Math.ceil(totalamntinsurance[17]*20/100);
         document.getElementById("18Year2").value = year2[17];
 //year3
-        year3[17]=year2[17]*1.1;
+        year3[17]=Math.ceil(year2[17]*1.1);
         document.getElementById("18Year3").value = year3[17];
 //total
         total[17]=totalamntinsurance[17]+year2[17]+year3[17];
@@ -2531,22 +2531,22 @@ console.log("holw is mc mc mc",subtotals[14]);
         subtotals[18]=rates*inputQuantityHBTL;
         document.getElementById("19SubTotal").value=subtotals[18];
 //warranty cell
-        document.getElementById("19Warranty").value = subtotals[18]* parseInt(configuration9.ft2)/100;
+        document.getElementById("19Warranty").value = Math.ceil(subtotals[18]* parseInt(configuration9.ft2)/100);
 //totalwarranty
         totalwarranty[18]=subtotals[18]+parseInt(document.getElementById("19Warranty").value); 
 
         document.getElementById("19TotalWarranty").value = totalwarranty[18];
 //com
-        document.getElementById("19COM").value = totalwarranty[18]* parseInt(configuration10.ft2)/100;
+        document.getElementById("19COM").value = Math.ceil(totalwarranty[18]* parseInt(configuration10.ft2)/100);
 //totalamountinsurance
         totalamntinsurance[18]= parseInt(document.getElementById("19COM").value)+totalwarranty[18];
         document.getElementById("19TotalAmountInsurance").value = totalamntinsurance[18];
 
 //year2
-        year2[18]=totalamntinsurance[18]*20/100;
+        year2[18]=Math.ceil(totalamntinsurance[18]*20/100);
         document.getElementById("19Year2").value = year2[18];
 //year3
-        year3[18]=year2[18]*1.1;
+        year3[18]=Math.ceil(year2[18]*1.1);
         document.getElementById("19Year3").value = year3[18];
 //total
         total[18]=totalamntinsurance[18]+year2[18]+year3[18];
@@ -2646,7 +2646,7 @@ console.log("holw is mc mc mc",subtotals[14]);
         })
         function discount_change(){
                var discounts=parseInt(document.getElementById("21Quantity").value);
-               document.getElementById("21SubTotal").value=(discounts/100)*(document.getElementById("20SubTotal").value);
+               document.getElementById("21SubTotal").value=Math.ceil((discounts/100)*(document.getElementById("20SubTotal").value));
              
 
         }
