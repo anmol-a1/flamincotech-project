@@ -45,8 +45,9 @@ urlpatterns = [
     path('hardwarebmssensorsinstall/',views.hardwarebmssensorsinstall,name='hardwarebmssensorsinstall'),
     path('hardwarethirdpartyinstall/',views.hardwarethirdpartyinstall,name='hardwarethirdpartyinstall'),
     path('hardwarebmscablinginstall/',views.hardwarebmscablinginstall,name='hardwarebmscablinginstall'),
-    path('hardwarepipinginstall/',views.hardwarepiping,name='hardwarepiping'),
-    path('hardwaretraysinstall/',views.hardwaretrays,name='hardwaretrays'),
+    path('hardwarepipinginstall/',views.hardwarepipinginstall,name='hardwarepipinginstall'),
+    path('hardwaretraysinstall/',views.hardwaretraysinstall,name='hardwaretraysinstall'),
+    path('hardwaremaneffortsinstall/',views.hardwaremaneffortsinstall,name='hardwaremaneffortsinstall'),
     path('edithardwaregeneral/',views.edithardwaregeneral,name='edithardwaregeneral'),
     path('edithardwareipvariant/',views.edithardwareipvariant,name='edithardwareipvariant'),
     path('edithardwareactive/',views.edithardwareactive,name='edithardwareactive'),
@@ -68,7 +69,8 @@ urlpatterns = [
     path('edithardwarethirdpartyinstall/',views.edithardwarethirdpartyinstall,name='edithardwarethirdpartyinstall'),
     path('edithardwarebmscablinginstall/',views.edithardwarebmscablinginstall,name='edithardwarebmscablinginstall'),
     path('edithardwarepipinginstall/',views.edithardwarepiping,name='edithardwarepiping'),
-    path('edithardwaretraysinstall/',views.edithardwaretrays,name='edithardwaretrays'),
+    path('edithardwaretraysinstall/',views.edithardwaretraysinstall,name='edithardwaretraysinstall'),
+    path('editmaneffortsinstall/',views.editmaneffortsinstall,name='editmaneffortsinstall'),
     path('configuration/',views.configuration,name='configuration'),
     path('editconfiguration',views.editconfiguration,name='editconfiguration'),
     path('editconfiguration1',views.editconfiguration1,name='editconfiguration1'),
@@ -79,6 +81,13 @@ urlpatterns = [
     path('export_iandc/',views.export_iandc,name='export_iandc'),
     path('export_percentagechangesheet/',views.export_percentagechangesheet,name='export_percentagechangesheet'),
     path('vpssimport/',views.vpss1import,name='vpssimport'),
+    
+    
+    path('import/',views.imports,name='import'),
+    
+    
+    
+    
     path('iandcimport/',views.iandcimport,name='iandcimport'),
     path('percentagechangesheetimport/',views.percentagechangesheetimport,name='percentagechangesheetimport'),
     path('SpazioPriceCalculator/',views.SpazioPriceCalculators,name='SpazioPriceCalculator'),
@@ -132,7 +141,8 @@ urlpatterns = [
     path('hardwarethirdpartyinstallimport/',views.hardwarethirdpartyinstallimport,name='hardwarethirdpartyinstallimport'),
     path('hardwarebmscablinginstallimport/',views.hardwarebmscablinginstallimport,name='hardwarebmscablinginstallimport'),
     path('hardwarepipinginstallimport/',views.hardwarepipingimport,name='hardwarepiping'),
-    path('hardwaretraysinstallimport/',views.hardwaretraysimport,name='hardwaretraysimport'),
+    path('hardwaretraysinstallimport/',views.hardwaretraysinstallimport,name='hardwaretraysinstallimport'),
+    path('maneffortsinstallimport/',views.maneffortsinstallimport,name='maneffortsinstallimport'),
     
     
     
@@ -156,6 +166,14 @@ urlpatterns = [
     path('export_hardwarebmssensorsinstall/',views.export_hardwarebmssensorsinstall,name='export_hardwarebmssensorsinstall'),
     path('export_hardwarethirdpartyinstall/',views.export_hardwarethirdpartyinstall,name='export_hardwarethirdpartyinstall'),
     path('export_hardwarebmscablinginstall/',views.export_hardwarebmscablinginstall,name='export_hardwarebmscablinginstall'),
-    path('export_hardwarepipinginstall/',views.export_hardwarepiping,name='export_hardwarepiping'),
-    path('export_hardwaretraysinstall/',views.export_hardwaretrays,name='export_hardwaretrays'),
+    path('export_hardwarepipinginstall/',views.export_hardwarepipinginstall,name='export_hardwarepipinginstall'),
+    path('export_hardwaretraysinstall/',views.export_hardwaretraysinstall,name='export_hardwaretraysinstall'),
+    path('export_maneffortsinstall/',views.export_maneffortsinstall,name='export_maneffortsinstall'),
+    
+    
+    path('db_general/',views.db_general,name='db_general'),
+    path('detailed_boq/',views.detailed_boq,name='detailed_boq'),
+    
+    
+    
 ]

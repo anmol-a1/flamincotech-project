@@ -1,12 +1,51 @@
 from django.shortcuts import render,redirect
 import json
 from django.http import HttpResponseRedirect,HttpResponse,JsonResponse
-from .models import IandC,NewUser,Software_Revised_Extra,Automate_Pricing,InputConfiguration,vpss,HardWareGeneral,HardWareIpVariant,HardWareActive,HardWarePassive,HardWareEthernet,HardWareDdc,HardWareBmsSensors,HardWareThirdParty,HardWareBmsScabling,HardWarePiping,HardWareTrays,HardWareGeneralInstall,HardWareIpVariantInstall,HardWareActiveInstall,HardWarePassiveInstall,HardWareEthernetInstall,HardWareDdcInstall,HardWareBmsSensorsInstall,HardWareThirdPartyInstall,HardWareBmsScablingInstall,HardWarePipingInstall,HardWareTraysInstall,SpazioPriceCalculator,Desk_Booking_Solution,Desk_Utilization_Solution,Desk_Planning_Solution,Employee_One_Mobile_App,Rostering,Wayfinding,Feedback,Kiosk_License,Meeting_Room_License_Occupancy,Meeting_Room_License_People_Count,Meeting_Room_License_Booking,Restroom_License_People_Count,Restroom_License_Wet_floor_detection,Restroom_License_Odour ,Human_body_temperature_License
-from User.models import Soft_Items,Bms_Trays,Bms_Piping,Bms_Cabling,Bms_Sensors,Ddc,Ethernet,Fiber,Active,General
+from .models import ManEffortsInstall,IandC,NewUser,Software_Revised_Extra,Automate_Pricing,InputConfiguration,vpss,HardWareGeneral,HardWareIpVariant,HardWareActive,HardWarePassive,HardWareEthernet,HardWareDdc,HardWareBmsSensors,HardWareThirdParty,HardWareBmsScabling,HardWarePiping,HardWareTrays,HardWareGeneralInstall,HardWareIpVariantInstall,HardWareActiveInstall,HardWarePassiveInstall,HardWareEthernetInstall,HardWareDdcInstall,HardWareBmsSensorsInstall,HardWareThirdPartyInstall,HardWareBmsScablingInstall,HardWarePipingInstall,HardWareTraysInstall,SpazioPriceCalculator,Desk_Booking_Solution,Desk_Utilization_Solution,Desk_Planning_Solution,Employee_One_Mobile_App,Rostering,Wayfinding,Feedback,Kiosk_License,Meeting_Room_License_Occupancy,Meeting_Room_License_People_Count,Meeting_Room_License_Booking,Restroom_License_People_Count,Restroom_License_Wet_floor_detection,Restroom_License_Odour ,Human_body_temperature_License
+from User.models import Soft_Items,Bms_Trays,Bms_Piping,Bms_Cabling,Bms_Sensors,Ddc,Ethernet,Fiber,Active,General,Others,Third_Party
 import datetime
 from import_export import resources
+from django.shortcuts import get_object_or_404
 import tablib
 from tablib import Dataset
+#Bms_Trays,Bms_Piping,Bms_Cabling,Bms_Sensors,Ddc,Ethernet,Fiber,Active,General,Others,Third_Party
+def detailed_boq(request):
+	Ddc1=Ddc.objects.all()
+	Bms_Trays1=Bms_Trays.objects.all()
+	Bms_Piping1=Bms_Piping.objects.all()
+	Bms_Cabling1=Bms_Cabling.objects.all()
+	Bms_Sensor1=Bms_Sensors.objects.all()
+	Ethernet1=Ethernet.objects.all()
+	Fiber1=Fiber.objects.all()
+	Active1=Active.objects.all()
+	General1=General.objects.all()
+	Others1=Others.objects.all()
+	Third_Party1=Third_Party.objects.all()
+	HardWareGenerals=HardWareGeneral.objects.all()
+	HardWareIpVariants=HardWareIpVariant.objects.all()
+	HardWareGeneralInstalls=HardWareGeneralInstall.objects.all()
+	HardWareActives=HardWareActive.objects.all()
+	HardWareActivesInstall=HardWareActiveInstall.objects.all()
+	HardWarePassives=HardWarePassive.objects.all()
+	HardWarePassivesInstall=HardWarePassiveInstall.objects.all()
+	HardWareEthernets=HardWareEthernet.objects.all()
+	HardWareEthernetsInstall=HardWareEthernetInstall.objects.all()
+	HardWareDdcs=HardWareDdc.objects.all()
+	HardWareDdcsInstall=HardWareDdcInstall.objects.all()
+	HardWarePipings=HardWarePiping.objects.all()
+	HardWarePipingsInstall=HardWarePipingInstall.objects.all()
+	HardWareBmsSensorss=HardWareBmsSensors.objects.all()
+	HardWareBmsSensorssInstall=HardWareBmsSensorsInstall.objects.all()
+	HardWareBmsScablings=HardWareBmsScabling.objects.all()
+	HardWareBmsScablingsInstall=HardWareBmsScablingInstall.objects.all()
+	HardWareThirdPartys=HardWareThirdParty.objects.all()
+	HardWareThirdPartysInstall=HardWareThirdPartyInstall.objects.all()
+	HardWareTrayss=HardWareTrays.objects.all()
+	HardWareTrayssInstall=HardWareTraysInstall.objects.all()
+#  HardWareTrays,HardWareTraysInstall
+	context={'TraysDatas':list(HardWareTrayss.values()),'TraysDatasInstall': list(HardWareTrayssInstall.values()),'PipingDatas':list(HardWarePipings.values()),'PipingDatasInstall': list(HardWarePipingsInstall.values()),'BmsScablingDatas':list(HardWareBmsScablings.values()),'BmsScablingDatasInstall': list(HardWareBmsScablingsInstall.values()),'ThirdPartyDatas':list(HardWareThirdPartys.values()),'ThirdPartyDatasInstall': list(HardWareThirdPartysInstall.values()),'BmsSensorsDatas':list(HardWareBmsSensorss.values()),'BmsSensorsDatasInstall': list(HardWareBmsSensorssInstall.values()),'DdcDatas':list(HardWareDdcs.values()),'DdcDatasInstall': list(HardWareDdcsInstall.values()),'EthernetDatas':list(HardWareEthernets.values()),'EthernetDatasInstall': list(HardWareEthernetsInstall.values()),'PassiveDatas':list(HardWarePassives.values()),'PassiveDatasInstall': list(HardWarePassivesInstall.values()),'HardWareActives':list(HardWareActives.values()),'HardWareActivesInstall':list(HardWareActivesInstall.values()),'HardWareGeneralInstalls':list(HardWareGeneralInstalls.values()),'HardGeneral':list(HardWareGenerals.values()),'HardIP':list(HardWareIpVariants.values()),'Ddc':Ddc1,'Bms_Trays':Bms_Trays1,'Bms_Piping':Bms_Piping1,'Bms_Cabling':Bms_Cabling1,'Bms_Sensor':Bms_Sensor1,'Ethernet':Ethernet1,'Fiber':Fiber1,'Active':Active1,'General':General1,'Others':Others1,'Third_Party':Third_Party1}
+	
+	return render(request,'User/detailed_boq/main.html',context)
 def fetchdata():
 	context={}
 	InputConfigurations=InputConfiguration.objects.all()
@@ -15,7 +54,11 @@ def fetchdata():
 	return context
 def iandc(request):
 	entries=IandC.objects.all()
-	context={'entries':entries}
+	hardeffortman1 = ManEffortsInstall.objects.get(sr_no=1)
+	hardeffortman2 = ManEffortsInstall.objects.get(sr_no=3)
+	hardeffortman3 = ManEffortsInstall.objects.get(sr_no=4)
+	hardeffortman4 = ManEffortsInstall.objects.get(sr_no=5)
+	context={'entries':entries,'hardeffortman1':hardeffortman1,'hardeffortman2':hardeffortman2,'hardeffortman3':hardeffortman3,'hardeffortman4':hardeffortman4}
 	return render(request,'Admin1/iandc.html',context)
 class IandCResource(resources.ModelResource):
 	class Meta:
@@ -174,6 +217,70 @@ def vpss1import(request):
 			pass    
 		return redirect('vpss1')
 
+
+
+#########
+
+
+
+
+def db_general(request):
+	entries=General.objects.all()
+	context={'entries':entries}
+	return render(request,'User/detailed_boq/hardware_items.html',context)
+
+##########
+
+def imports(request):
+	if request.method == 'POST':
+		dataset = Dataset()
+		new_persons = request.FILES['bookfile']
+		try:
+			imported_data = dataset.load(new_persons.read(),format='xls')
+			Bms_Cabling.objects.all().delete()
+		except:
+			return redirect('db_general')
+		try:
+			for data in imported_data:
+				print(data)	
+				Bms_Cabling.objects.create(sr_no=int(data[0]),Make=data[1],Model=data[2],Hardware_Items=data[3],Qty=int(data[4]),Uom=data[5],Cost_Supply_Rate=int(data[6]),Cost_Supply_Total=int(data[7]),Cost_Installation_Rate=int(data[8]),Cost_Installation_Total=int(data[9]),MRS_Rate=int(data[10]),MRS_Total=int(data[11]),MRI_Rate=int(data[12]),MRI_Total=int(data[13]),Supply_Rate=int(data[14]),Supply_Total=int(data[15]),Installation_Rate=int(data[16]),Installation_Total=int(data[17]))
+		except:
+			print("errored")
+			pass    
+		return redirect('db_general')
+#Soft_Items
+
+#     Installation_Rate
+#     Installation_Total
+#     Remarks=models.CharFi
+#     Minimum_Qty
+#     Minimum_Installation
+
+
+#     Make
+#     Model
+#     Hardware_Items
+#     Qty
+#     Uom
+#     Cost_Supply_Rate
+#     Cost_Supply_Total
+#     Cost_Installation_Rate
+#     Cost_Installation_Total
+#     MRS_Rate
+#     MRS_Total
+#     MRI_Rate
+#     MRI_Total
+#     Supply_Rate
+#     Supply_Total
+
+
+
+
+
+
+
+#################
+
 def percentagechangesheet(request):
 	entries=InputConfiguration.objects.all()
 	print(len(entries))
@@ -202,7 +309,7 @@ def percentagechangesheetimport(request):
 			for data in imported_data:
 				#print(data[1],data[2],data[3],data[4],data[5],data[6],data[7],data[8],data[9],data[10],data[11],data[12],data[13],data[14],data[15],data[16],data[17],data[18],data[19],data[20],data[21],data[22],data[23],data[24])
 				#BookDetails.objects.create(relid=data[0],book_name=data[1])	
-				InputConfiguration.objects.create(sr_no=int(data[0]),desc=data[1],ft_hardware=int(data[2]),active=int(data[3]),passive=int(data[4]),ddcsensor=int(data[5]),thirdparty=int(data[6]),cabpiptray=int(data[7]),ft_hardware1=int(data[8]),active1=int(data[9]),passive1=int(data[10]),ddcsensor1=int(data[11]),thirdparty1=int(data[12]),cabpiptray1=int(data[13]),ftmandayeffort=int(data[14]),othersmicffort=int(data[15]),ft2=int(data[16]),ft3=int(data[17]),ft4=int(data[18]))
+				InputConfiguration.objects.create(sr_no=int(data[0]),desc=data[1],ft_hardware=float(data[2]),active=float(data[3]),passive=float(data[4]),ddcsensor=float(data[5]),thirdparty=float(data[6]),cabpiptray=float(data[7]),ft_hardware1=float(data[8]),active1=float(data[9]),passive1=float(data[10]),ddcsensor1=float(data[11]),thirdparty1=float(data[12]),cabpiptray1=float(data[13]),ftmandayeffort=float(data[14]),othersmicffort=float(data[15]),ft2=float(data[16]),ft3=float(data[17]),ft4=float(data[18]))
 		except:
 			print("errored")
 			pass    
@@ -1335,6 +1442,11 @@ def hardwaretraysinstall(request):
 	context=fetchdata()
 	context['entries']=entries
 	return render(request,'Admin1/hardwaretraysinstall.html',context)
+def hardwaremaneffortsinstall(request):
+	entries=ManEffortsInstall.objects.all()
+	context=fetchdata()
+	context['entries']=entries
+	return render(request,'Admin1/manefforts.html',context)
 class HardWareTraysInstallResource(resources.ModelResource):
 	class Meta:
 		model = HardWareTraysInstall
@@ -1363,9 +1475,53 @@ def hardwaretraysinstallimport(request):
 			print("errored")
 			pass    
 		return redirect('hardwaretraysinstall')
+class HardWareManEfforts(resources.ModelResource):
+	class Meta:
+		model = ManEffortsInstall
+def export_maneffortsinstall(request):
+	member_resource =HardWareManEfforts()
+	dataset = member_resource.export()
+	fname=f"member-data {datetime.datetime.now().date()}"
+	response = HttpResponse(dataset.xls, content_type='application/vnd.ms-excel')
+	response['Content-Disposition'] = f'attachment; filename={fname}.xls'
+	return response
+def maneffortsinstallimport(request):
+	if request.method == 'POST':
+		dataset = Dataset()
+		new_persons = request.FILES['bookfile']
+		try:
+			imported_data = dataset.load(new_persons.read(),format='xls')
+			ManEffortsInstall.objects.all().delete()
+		except:
+			return redirect('hardwaremaneffortsinstall')
+		try:
+			for data in imported_data:
+				print(data[1],data[2],data[3],data[4],data[5],data[6],data[7],data[8],data[9],data[10],data[11],data[12],data[13],data[14],data[15],data[16],data[17],data[18],data[19],data[20],data[21],data[22],data[23],data[24])
+				#BookDetails.objects.create(relid=data[0],book_name=data[1])	
+				ManEffortsInstall.objects.create(sr_no=int(data[0]),MakeBrand=data[1],Model=data[2],InstallationEquipments=data[3],UnitDescription=data[4],Qty=int(data[5]),InputPrice=int(data[6]),Discount=int(data[7]),DiscountedPrice=int(data[8]),Freight=int(data[9]),InputCostInclusiveoffreight=int(data[10]),InterestCOM=int(data[11]),UnitCost=int(data[12]),InwardTax=int(data[13]),UnitCostInclusiveofRisk=int(data[14]),ContigencyPercentage=int(data[15]),UnitCostInclusiveofContigency=int(data[16]),Margin=int(data[17]),Unit_Price=int(data[18]),WarrantyCharges=int(data[19]),UnitPrice=int(data[20]),InsuranceCharges=int(data[21]),ListPricewithoutRoundup=int(data[22]),ListPricewithRoundedup=int(data[23]))
+		except:
+			print("errored")
+			pass    
+		return redirect('hardwaremaneffortsinstall')
 def edithardwaretraysinstall(request):
 	sr_no=request.POST.get('sr_no')
 	t=HardWareTraysInstall.objects.get(sr_no=sr_no)
+	t.Qty=request.POST.get('Qty')
+	t.InputPrice=request.POST.get('InputPrice')
+	t.DiscountedPrice=request.POST.get('DiscountedPrice')
+	t.InputCostInclusiveoffreight=request.POST.get('InputCostInclusiveoffreight')
+	t.UnitCost=request.POST.get('UnitCost')
+	t.UnitCostInclusiveofRisk=request.POST.get('UnitCostInclusiveofRisk')
+	t.UnitCostInclusiveofContigency=request.POST.get('UnitCostInclusiveofContigency')
+	t.Unit_Price=request.POST.get('Unit_Price')
+	t.UnitPrice=request.POST.get('UnitPrice')
+	t.ListPricewithoutRoundup=request.POST.get('ListPricewithoutRoundup')
+	t.ListPricewithRoundedup=request.POST.get('ListPricewithRoundedup')
+	t.save()
+	return JsonResponse({'adg':'jyyj','sr_no':sr_no})
+def editmaneffortsinstall(request):
+	sr_no=request.POST.get('sr_no')
+	t=ManEffortsInstall.objects.get(sr_no=sr_no)
 	t.Qty=request.POST.get('Qty')
 	t.InputPrice=request.POST.get('InputPrice')
 	t.DiscountedPrice=request.POST.get('DiscountedPrice')
@@ -1624,6 +1780,14 @@ def export_hardwareactive(request):
 	response = HttpResponse(dataset.xls, content_type='application/vnd.ms-excel')
 	response['Content-Disposition'] = f'attachment; filename={fname}.xls'
 	return response
+			 
+	
+	
+	
+	
+######################
+
+
 			  
 					
 					

@@ -48,23 +48,24 @@ class NewUser(AbstractBaseUser, PermissionsMixin):
 class InputConfiguration(models.Model):
     sr_no=models.AutoField(primary_key=True)
     desc=models.CharField(max_length=500)
-    ft_hardware=models.IntegerField()
-    active=models.IntegerField()
-    passive=models.IntegerField()
-    ddcsensor=models.IntegerField()
-    thirdparty=models.IntegerField()
-    cabpiptray=models.IntegerField()
-    ft_hardware1=models.IntegerField()
-    active1=models.IntegerField()
-    passive1=models.IntegerField()
-    ddcsensor1=models.IntegerField()
-    thirdparty1=models.IntegerField()
-    cabpiptray1=models.IntegerField()
-    ftmandayeffort=models.IntegerField()
-    othersmicffort=models.IntegerField()
-    ft2=models.IntegerField()
-    ft3=models.IntegerField()
-    ft4=models.IntegerField()
+    ft_hardware=models.FloatField()
+    active=models.FloatField()
+    passive=models.FloatField()
+    ddcsensor=models.FloatField()
+    thirdparty=models.FloatField()
+    cabpiptray=models.FloatField()
+    ft_hardware1=models.FloatField()
+    active1=models.FloatField()
+    passive1=models.FloatField()
+    ddcsensor1=models.FloatField()
+    thirdparty1=models.FloatField()
+    cabpiptray1=models.FloatField()
+    ftmandayeffort=models.FloatField()
+    othersmicffort=models.FloatField()
+    ft2=models.FloatField()
+    ft3=models.FloatField()
+    ft4=models.FloatField()
+
 
 
 class vpss(models.Model):
@@ -723,6 +724,34 @@ class HardWareTraysInstall(models.Model):
     InsuranceCharges =models.IntegerField()
     ListPricewithoutRoundup =models.IntegerField()
     ListPricewithRoundedup =models.IntegerField()
+class ManEffortsInstall(models.Model):
+    sr_no=models.AutoField(primary_key=True)
+    MakeBrand=models.CharField(max_length=500)
+    Model=models.CharField(max_length=500)
+    InstallationEquipments=models.CharField(max_length=500)
+    UnitDescription=models.CharField(max_length=500)
+    Qty=models.IntegerField()
+    InputPrice =models.IntegerField()
+    Discount=models.IntegerField()
+    DiscountedPrice=models.IntegerField()
+    Freight=models.IntegerField()
+    InputCostInclusiveoffreight=models.IntegerField()
+    InterestCOM=models.IntegerField()
+    UnitCost=models.IntegerField()
+    InwardTax=models.IntegerField()
+    UnitCostInclusiveofRisk=models.IntegerField()
+    ContigencyPercentage=models.IntegerField()
+    UnitCostInclusiveofContigency=models.IntegerField()
+    
+    Margin=models.IntegerField()
+    Unit_Price=models.IntegerField()
+    
+    WarrantyCharges=models.IntegerField()
+    UnitPrice=models.IntegerField()
+    
+    InsuranceCharges =models.IntegerField()
+    ListPricewithoutRoundup =models.IntegerField()
+    ListPricewithRoundedup =models.IntegerField()
 class Desk_Booking_Solution(models.Model):
     sr_no=models.AutoField(primary_key=True)
     Packs_Slabs=models.CharField(max_length=15)
@@ -890,7 +919,7 @@ class IandC(models.Model):
     
 class Summary(models.Model):
     sr_no=models.AutoField(primary_key=True)
-    Level_of_Engineer=models.IntegerField(default=0)
+    Level_of_Engineer=models.CharField(max_length=100)
     Common=models.IntegerField(default=0)
     Spazio_Software=models.IntegerField(default=0)
     Meeting_Room_Booking=models.IntegerField(default=0)
@@ -903,9 +932,9 @@ class Summary(models.Model):
     
 class Efforts_Charges_for_Deployment(models.Model):
     sr_no=models.AutoField(primary_key=True)
-    Level_of_Engineer=models.IntegerField(default=0)
+    Level_of_Engineer=models.CharField(max_length=100)
     Per_Day_Rate=models.IntegerField(default=0)
-    Per_Hour=models.IntegerField(default=0)
+    Per_Hour=models.FloatField(default=0)
     Rounded_Per_Hour_Rates=models.IntegerField(default=0)
     Total_Man_Days=models.IntegerField(default=0)
     Total_Man_Hours=models.IntegerField(default=0)
@@ -928,6 +957,26 @@ class PM_Mapping_table_After_Cost_column(models.Model):
     Installation_Max=models.IntegerField(default=0)
     PM_Percentage=models.IntegerField(default=0)
     
+# class detailed_boq_general(models.Model):
+#     sr_no=models.AutoField(primary_key=True)
+#     Make=models.CharField(max_length=100)
+#     Model=models.CharField(max_length=100)
+#     Hardware_Items=models.CharField(max_length=100)
+#     Qty=models.IntegerField(default=0)
+#     Uom=models.CharField(max_length=100)
+#     Cost_Supply_Rate=models.IntegerField(default=0)
+#     Cost_Supply_Total=models.IntegerField(default=0)
+#     Cost_Installation_Rate=models.IntegerField(default=0)
+#     Cost_Installation_Total=models.IntegerField(default=0)
+#     MRS_Rate=models.IntegerField(default=0)
+#     MRS_Total=models.IntegerField(default=0)
+#     MRI_Rate=models.IntegerField(default=0)
+#     MRI_Total=models.IntegerField(default=0)
+#     Supply_Rate=models.IntegerField(default=0)
+#     Supply_Total=models.IntegerField(default=0)
+#     Installation_Rate=models.IntegerField(default=0)
+#     Installation_Total=models.IntegerField(default=0)
+
 
 
     

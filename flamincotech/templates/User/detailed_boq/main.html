@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
+                integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+                crossorigin="anonymous">
+        <title>ACTIVE</title>
+        <style>
+                .btns {
+                        border: none;
+                        height: 60px;
+                        cursor: pointer;
+                }
+
+                .btns:hover {
+                        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                }
+
+                .activebtn {
+
+                        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                        border: none;
+                }
+        </style>
+</head>
+<!-- Soft_Items,Bms_Trays,Bms_Piping,Bms_Cabling,Bms_Sensors,Ddc,Ethernet,Fiber,Active,General --> 
+
+<body>
+        {%csrf_token%}
+        <p>HARDWARE ITEMS<p>
+        <div style="width:100%;background-color: rgb(241, 241, 241);" id="" class="shadow mb-5 rounded maindivbar">
+                <form class="my-1">
+                        <table class="table" style="text-align: center;" border="1">
+                                <tbody>
+                                        {% for entry in General %}
+                                        <tr>
+                                                <td>{{entry.sr_no}}</td>
+                                                <td>{{entry.Make}}</td>
+                                                <td>{{entry.Model}}</td>
+                                                <td>{{entry.Hardware_Items}}</td>
+                                                <th><input  id="{{entry.sr_no}}Qty_General"
+                                                                style="width: 55px;border:none" value="{{entry.Qty}}"
+                                                                type="number"></th>
+                                                <th>{{entry.Uom}}</th>
+                                                <th><input id="{{entry.sr_no}}Cost_Supply_Rate_General"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Supply_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Cost_Supply_Total_General"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Supply_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Cost_Installation_Rate_General"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Installation_Rate}}" type="number">
+                                                </th>
+                                                <th><input id="{{entry.sr_no}}Cost_Installation_Total_General"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Installation_Total}}" type="number">
+                                                </th>
+                                                <th><input id="{{entry.sr_no}}MRS_Rate_General"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRS_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRS_Total_General"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRS_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRI_Rate_General"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRI_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRI_Total_General"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRI_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Supply_Rate_General"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Supply_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Supply_Total_General"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Supply_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Installation_Rate_General"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Installation_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Installation_Total_General"
+                                                                style="width: 55px;border:none"
+                                                           value="{{entry.Installation_Total}}" type="number"></th>
+                                
+                                                </th>
+                                        </tr>
+                                        {% endfor %}
+
+
+
+                                </tbody>
+                        </table>
+
+                </form>
+
+        </div>
+        <p>Active Components i.e. Server & Switches<p>
+        <div style="width:100%;background-color: rgb(241, 241, 241);" id="" class="shadow mb-5 rounded maindivbar">
+                <form class="my-1">
+                        <table class="table" style="text-align: center;" border="1">
+                                <tbody>
+                                        {% for entry in Active %}
+                                        <tr>
+                                                <td>{{entry.sr_no}}</td>
+                                                <td>{{entry.Make}}</td>
+                                                <td>{{entry.Model}}</td>
+                                                <td>{{entry.Hardware_Items}}</td>
+                                                <th><input onchange="abcd(event)" id="{{entry.sr_no}}Qty_Active"
+                                                                style="width: 55px;border:none" value="{{entry.Qty}}"
+                                                                type="number"></th>
+                                                <th>{{entry.Uom}}</th>
+                                                <th><input id="{{entry.sr_no}}Cost_Supply_Rate_Active"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Supply_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Cost_Supply_Total_Active"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Supply_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Cost_Installation_Rate_Active"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Installation_Rate}}" type="number">
+                                                </th>
+                                                <th><input id="{{entry.sr_no}}Cost_Installation_Total_Active"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Installation_Total}}" type="number">
+                                                </th>
+                                                <th><input id="{{entry.sr_no}}MRS_Rate_Active"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRS_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRS_Total_Active"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRS_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRI_Rate_Active"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRI_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRI_Total_Active"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRI_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Supply_Rate_Active"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Supply_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Supply_Total_Active"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Supply_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Installation_Rate_Active"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Installation_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Installation_Total_Active"
+                                                                style="width: 55px;border:none"
+                                                           value="{{entry.Installation_Total}}" type="number"></th>
+                                
+                                                </th>
+                                        </tr>
+                                        {% endfor %}
+
+
+
+                                </tbody>
+                        </table>
+
+                </form>
+
+        </div>
+        <p>Fiber Component<p>
+        <div style="width:100%;background-color: rgb(241, 241, 241);" id="" class="shadow mb-5 rounded maindivbar">
+                <form class="my-1">
+                        <table class="table" style="text-align: center;" border="1">
+                                <tbody>
+                                        {% for entry in Fiber %}
+                                        <tr>
+                                                <td>{{entry.sr_no}}</td>
+                                                <td>{{entry.Make}}</td>
+                                                <td>{{entry.Model}}</td>
+                                                <td>{{entry.Hardware_Items}}</td>
+                                                <th><input onchange="abcd(event)" id="{{entry.sr_no}}Qty_Fiber"
+                                                                style="width: 55px;border:none" value="{{entry.Qty}}"
+                                                                type="number"></th>
+                                                <th>{{entry.Uom}}</th>
+                                                <th><input id="{{entry.sr_no}}Cost_Supply_Rate_Fiber"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Supply_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Cost_Supply_Total_Fiber"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Supply_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Cost_Installation_Rate_Fiber"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Installation_Rate}}" type="number">
+                                                </th>
+                                                <th><input id="{{entry.sr_no}}Cost_Installation_Total_Fiber"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Installation_Total}}" type="number">
+                                                </th>
+                                                <th><input id="{{entry.sr_no}}MRS_Rate_Fiber"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRS_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRS_Total_Fiber"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRS_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRI_Rate_Fiber"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRI_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRI_Total_Fiber"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRI_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Supply_Rate_Fiber"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Supply_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Supply_Total_Fiber"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Supply_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Installation_Rate_Fiber"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Installation_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Installation_Total_Fiber"
+                                                                style="width: 55px;border:none"
+                                                           value="{{entry.Installation_Total}}" type="number"></th>
+                                
+                                                </th>
+                                        </tr>
+                                        {% endfor %}
+
+
+
+                                </tbody>
+                        </table>
+
+                </form>
+
+        </div>
+        <p>Ethernet Component<p>
+        <div style="width:100%;background-color: rgb(241, 241, 241);" id="" class="shadow mb-5 rounded maindivbar">
+                <form class="my-1">
+                        <table class="table" style="text-align: center;" border="1">
+                                <tbody>
+                                        {% for entry in Ethernet %}
+                                        <tr>
+                                                <td>{{entry.sr_no}}</td>
+                                                <td>{{entry.Make}}</td>
+                                                <td>{{entry.Model}}</td>
+                                                <td>{{entry.Hardware_Items}}</td>
+                                                <th><input onchange="abcd(event)" id="{{entry.sr_no}}Qty_Ethernet"
+                                                                style="width: 55px;border:none" value="{{entry.Qty}}"
+                                                                type="number"></th>
+                                                <th>{{entry.Uom}}</th>
+                                                <th><input id="{{entry.sr_no}}Cost_Supply_Rate_Ethernet"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Supply_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Cost_Supply_Total_Ethernet"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Supply_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Cost_Installation_Rate_Ethernet"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Installation_Rate}}" type="number">
+                                                </th>
+                                                <th><input id="{{entry.sr_no}}Cost_Installation_Total_Ethernet"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Installation_Total}}" type="number">
+                                                </th>
+                                                <th><input id="{{entry.sr_no}}MRS_Rate_Ethernet"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRS_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRS_Total_Ethernet"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRS_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRI_Rate_Ethernet"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRI_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRI_Total_Ethernet"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRI_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Supply_Rate_Ethernet"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Supply_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Supply_Total_Ethernet"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Supply_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Installation_Rate_Ethernet"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Installation_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Installation_Total_Ethernet"
+                                                                style="width: 55px;border:none"
+                                                           value="{{entry.Installation_Total}}" type="number"></th>
+                                
+                                                </th>
+                                        </tr>
+                                        {% endfor %}
+
+
+
+                                </tbody>
+                        </table>
+
+                </form>
+
+        </div>
+        <p>DDC Controllers<p>
+        <div style="width:100%;background-color: rgb(241, 241, 241);" id="" class="shadow mb-5 rounded maindivbar">
+                <form class="my-1">
+                        <table class="table" style="text-align: center;" border="1">
+                                <tbody>
+                                        {% for entry in Ddc %}
+                                        <tr>
+                                                <td>{{entry.sr_no}}</td>
+                                                <td>{{entry.Make}}</td>
+                                                <td>{{entry.Model}}</td>
+                                                <td>{{entry.Hardware_Items}}</td>
+                                                <th><input onchange="abcd(event)" id="{{entry.sr_no}}Qty_Ddc"
+                                                                style="width: 55px;border:none" value="{{entry.Qty}}"
+                                                                type="number"></th>
+                                                <th>{{entry.Uom}}</th>
+                                                <th><input id="{{entry.sr_no}}Cost_Supply_Rate_Ddc"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Supply_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Cost_Supply_Total_Ddc"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Supply_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Cost_Installation_Rate_Ddc"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Installation_Rate}}" type="number">
+                                                </th>
+                                                <th><input id="{{entry.sr_no}}Cost_Installation_Total_Ddc"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Installation_Total}}" type="number">
+                                                </th>
+                                                <th><input id="{{entry.sr_no}}MRS_Rate_Ddc"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRS_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRS_Total_Ddc"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRS_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRI_Rate_Ddc"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRI_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRI_Total_Ddc"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRI_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Supply_Rate_Ddc"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Supply_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Supply_Total_Ddc"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Supply_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Installation_Rate_Ddc"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Installation_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Installation_Total_Ddc"
+                                                                style="width: 55px;border:none"
+                                                           value="{{entry.Installation_Total}}" type="number"></th>
+                                
+                                                </th>
+                                        </tr>
+                                        {% endfor %}
+
+
+
+                                </tbody>
+                        </table>
+
+                </form>
+
+        </div>
+        <p>BMS Sensors <p>
+        <div style="width:100%;background-color: rgb(241, 241, 241);" id="" class="shadow mb-5 rounded maindivbar">
+                <form class="my-1">
+                        <table class="table" style="text-align: center;" border="1">
+                                <tbody>
+                                        {% for entry in Bms_Sensor %}
+                                        <tr>
+                                                <td>{{entry.sr_no}}</td>
+                                                <td>{{entry.Make}}</td>
+                                                <td>{{entry.Model}}</td>
+                                                <td>{{entry.Hardware_Items}}</td>
+                                                <th><input onchange="abcd(event)" id="{{entry.sr_no}}Qty_Bms_Sensor"
+                                                                style="width: 55px;border:none" value="{{entry.Qty}}"
+                                                                type="number"></th>
+                                                <th>{{entry.Uom}}</th>
+                                                <th><input id="{{entry.sr_no}}Cost_Supply_Rate_Bms_Sensor"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Supply_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Cost_Supply_Total_Bms_Sensor"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Supply_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Cost_Installation_Rate_Bms_Sensor"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Installation_Rate}}" type="number">
+                                                </th>
+                                                <th><input id="{{entry.sr_no}}Cost_Installation_Total_Bms_Sensor"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Installation_Total}}" type="number">
+                                                </th>
+                                                <th><input id="{{entry.sr_no}}MRS_Rate_Bms_Sensor"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRS_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRS_Total_Bms_Sensor"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRS_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRI_Rate_Bms_Sensor"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRI_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRI_Total_Bms_Sensor"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRI_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Supply_Rate_Bms_Sensor"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Supply_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Supply_Total_Bms_Sensor"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Supply_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Installation_Rate_Bms_Sensor"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Installation_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Installation_Total_Bms_Sensor"
+                                                                style="width: 55px;border:none"
+                                                           value="{{entry.Installation_Total}}" type="number"></th>
+                                
+                                                </th>
+                                        </tr>
+                                        {% endfor %}
+
+
+
+                                </tbody>
+                        </table>
+
+                </form>
+
+        </div>
+        <p>BMS Cabling<p>
+        <div style="width:100%;background-color: rgb(241, 241, 241);" id="" class="shadow mb-5 rounded maindivbar">
+                <form class="my-1">
+                        <table class="table" style="text-align: center;" border="1">
+                                <tbody>
+                                        {% for entry in Bms_Cabling %}
+                                        <tr>
+                                                <td>{{entry.sr_no}}</td>
+                                                <td>{{entry.Make}}</td>
+                                                <td>{{entry.Model}}</td>
+                                                <td>{{entry.Hardware_Items}}</td>
+                                                <th><input onchange="abcd(event)" id="{{entry.sr_no}}Qty_Bms_Cabling"
+                                                                style="width: 55px;border:none" value="{{entry.Qty}}"
+                                                                type="number"></th>
+                                                <th>{{entry.Uom}}</th>
+                                                <th><input id="{{entry.sr_no}}Cost_Supply_Rate_Bms_Cabling"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Supply_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Cost_Supply_Total_Bms_Cabling"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Supply_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Cost_Installation_Rate_Bms_Cabling"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Installation_Rate}}" type="number">
+                                                </th>
+                                                <th><input id="{{entry.sr_no}}Cost_Installation_Total_Bms_Cabling"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Installation_Total}}" type="number">
+                                                </th>
+                                                <th><input id="{{entry.sr_no}}MRS_Rate_Bms_Cabling"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRS_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRS_Total_Bms_Cabling"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRS_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRI_Rate_Bms_Cabling"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRI_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRI_Total_Bms_Cabling"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRI_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Supply_Rate_Bms_Cabling"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Supply_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Supply_Total_Bms_Cabling"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Supply_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Installation_Rate_Bms_Cabling"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Installation_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Installation_Total_Bms_Cabling"
+                                                                style="width: 55px;border:none"
+                                                           value="{{entry.Installation_Total}}" type="number"></th>
+                                
+                                                </th>
+                                        </tr>
+                                        {% endfor %}
+
+
+
+                                </tbody>
+                        </table>
+
+                </form>
+
+        </div>
+        <p>Piping<p>
+        <div style="width:100%;background-color: rgb(241, 241, 241);" id="" class="shadow mb-5 rounded maindivbar">
+                <form class="my-1">
+                        <table class="table" style="text-align: center;" border="1">
+                                <tbody>
+                                        {% for entry in Bms_Piping %}
+                                        <tr>
+                                                <td>{{entry.sr_no}}</td>
+                                                <td>{{entry.Make}}</td>
+                                                <td>{{entry.Model}}</td>
+                                                <td>{{entry.Hardware_Items}}</td>
+                                                <th><input onchange="abcd(event)" id="{{entry.sr_no}}Qty_Piping"
+                                                                style="width: 55px;border:none" value="{{entry.Qty}}"
+                                                                type="number"></th>
+                                                <th>{{entry.Uom}}</th>
+                                                <th><input id="{{entry.sr_no}}Cost_Supply_Rate_Piping"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Supply_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Cost_Supply_Total_Piping"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Supply_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Cost_Installation_Rate_Piping"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Installation_Rate}}" type="number">
+                                                </th>
+                                                <th><input id="{{entry.sr_no}}Cost_Installation_Total_Piping"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Installation_Total}}" type="number">
+                                                </th>
+                                                <th><input id="{{entry.sr_no}}MRS_Rate_Piping"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRS_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRS_Total_Piping"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRS_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRI_Rate_Piping"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRI_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRI_Total_Piping"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRI_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Supply_Rate_Piping"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Supply_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Supply_Total_Piping"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Supply_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Installation_Rate_Piping"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Installation_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Installation_Total_Piping"
+                                                                style="width: 55px;border:none"
+                                                           value="{{entry.Installation_Total}}" type="number"></th>
+                                
+                                                </th>
+                                        </tr>
+                                        {% endfor %}
+
+
+
+                                </tbody>
+                        </table>
+
+                </form>
+
+        </div>
+        <p>Trays<p>
+        <div style="width:100%;background-color: rgb(241, 241, 241);" id="" class="shadow mb-5 rounded maindivbar">
+                <form class="my-1">
+                        <table class="table" style="text-align: center;" border="1">
+                                <tbody>
+                                        {% for entry in Bms_Trays %}
+                                        <tr>
+                                                <td>{{entry.sr_no}}</td>
+                                                <td>{{entry.Make}}</td>
+                                                <td>{{entry.Model}}</td>
+                                                <td>{{entry.Hardware_Items}}</td>
+                                                <th><input onchange="abcd(event)" id="{{entry.sr_no}}Qty_Bms_Trays"
+                                                                style="width: 55px;border:none" value="{{entry.Qty}}"
+                                                                type="number"></th>
+                                                <th>{{entry.Uom}}</th>
+                                                <th><input id="{{entry.sr_no}}Cost_Supply_Rate_Bms_Trays"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Supply_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Cost_Supply_Total_Bms_Trays"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Supply_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Cost_Installation_Rate_Bms_Trays"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Installation_Rate}}" type="number">
+                                                </th>
+                                                <th><input id="{{entry.sr_no}}Cost_Installation_Total_Bms_Trays"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Installation_Total}}" type="number">
+                                                </th>
+                                                <th><input id="{{entry.sr_no}}MRS_Rate_Bms_Trays"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRS_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRS_Total_Bms_Trays"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRS_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRI_Rate_Bms_Trays"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRI_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRI_Total_Bms_Trays"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRI_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Supply_Rate_Bms_Trays"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Supply_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Supply_Total_Bms_Trays"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Supply_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Installation_Rate_Bms_Trays"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Installation_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Installation_Total_Bms_Trays"
+                                                                style="width: 55px;border:none"
+                                                           value="{{entry.Installation_Total}}" type="number"></th>
+                                
+                                                </th>
+                                        </tr>
+                                        {% endfor %}
+
+
+
+                                </tbody>
+                        </table>
+
+                </form>
+
+        </div>
+        <p>HARDWARE ITEMS<p>
+        <div style="width:100%;background-color: rgb(241, 241, 241);" id="" class="shadow mb-5 rounded maindivbar">
+                <form class="my-1">
+                        <table class="table" style="text-align: center;" border="1">
+                                <tbody>
+                                        {% for entry in Third_Party %}
+                                        <tr>
+                                                <td>{{entry.sr_no}}</td>
+                                                <td>{{entry.Make}}</td>
+                                                <td>{{entry.Model}}</td>
+                                                <td>{{entry.Hardware_Items}}</td>
+                                                <th><input onchange="abcd(event)" id="{{entry.sr_no}}Qty_Active"
+                                                                style="width: 55px;border:none" value="{{entry.Qty}}"
+                                                                type="number"></th>
+                                                <th>{{entry.Uom}}</th>
+                                                <th><input id="{{entry.sr_no}}Cost_Supply_Rate_Active"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Supply_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Cost_Supply_Total_Active"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Supply_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Cost_Installation_Rate_Active"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Installation_Rate}}" type="number">
+                                                </th>
+                                                <th><input id="{{entry.sr_no}}Cost_Installation_Total_Active"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Installation_Total}}" type="number">
+                                                </th>
+                                                <th><input id="{{entry.sr_no}}MRS_Rate_Active"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRS_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRS_Total_Active"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRS_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRI_Rate_Active"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRI_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRI_Total_Active"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRI_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Supply_Rate_Active"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Supply_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Supply_Total_Active"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Supply_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Installation_Rate_Active"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Installation_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Installation_Total_Active"
+                                                                style="width: 55px;border:none"
+                                                           value="{{entry.Installation_Total}}" type="number"></th>
+                                
+                                                </th>
+                                        </tr>
+                                        {% endfor %}
+
+
+
+                                </tbody>
+                        </table>
+
+                </form>
+
+        </div>
+        <p>HARDWARE ITEMS<p>
+        <div style="width:100%;background-color: rgb(241, 241, 241);" id="" class="shadow mb-5 rounded maindivbar">
+                <form class="my-1">
+                        <table class="table" style="text-align: center;" border="1">
+                                <tbody>
+                                        {% for entry in Others %}
+                                        <tr>
+                                                <td>{{entry.sr_no}}</td>
+                                                <td>{{entry.Make}}</td>
+                                                <td>{{entry.Model}}</td>
+                                                <td>{{entry.Hardware_Items}}</td>
+                                                <th><input onchange="abcd(event)" id="{{entry.sr_no}}Qty_Active"
+                                                                style="width: 55px;border:none" value="{{entry.Qty}}"
+                                                                type="number"></th>
+                                                <th>{{entry.Uom}}</th>
+                                                <th><input id="{{entry.sr_no}}Cost_Supply_Rate_Active"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Supply_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Cost_Supply_Total_Active"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Supply_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Cost_Installation_Rate_Active"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Installation_Rate}}" type="number">
+                                                </th>
+                                                <th><input id="{{entry.sr_no}}Cost_Installation_Total_Active"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Installation_Total}}" type="number">
+                                                </th>
+                                                <th><input id="{{entry.sr_no}}MRS_Rate_Active"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRS_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRS_Total_Active"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRS_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRI_Rate_Active"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRI_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRI_Total_Active"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRI_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Supply_Rate_Active"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Supply_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Supply_Total_Active"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Supply_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Installation_Rate_Active"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Installation_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Installation_Total_Active"
+                                                                style="width: 55px;border:none"
+                                                           value="{{entry.Installation_Total}}" type="number"></th>
+                                                </th>
+                                        </tr>
+                                        {% endfor %}
+                                </tbody>
+                        </table>
+                </form>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+                integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
+                integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
+                integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+                crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script>
+        var harddetails = JSON.parse(localStorage.getItem('harddetails'));
+        for(var i=2;i<=16;i++){
+                document.getElementById(i+"Qty_General").value=parseInt(harddetails[i-2].quant);
+        }
+        let person = {quant:0};
+        var General_Data = {{ HardGeneral| safe }};
+        General_Data.unshift(person,person);
+        General_Data.push(person,person);
+        var IP_Data = {{ HardIP| safe }};
+        General_Data=General_Data.concat(IP_Data);
+        var HardGenData={{HardWareGeneralInstalls | safe}};
+        var ActiveData={{HardWareActives | safe}};
+        console.log(HardGenData);
+        console.log(General_Data);
+        document.getElementById("1Cost_Supply_Rate_General").value=document.getElementById("1Qty_General").value==("0" || 0) ? 0 : General_Data[2].UnitCostInclusiveofContigency;
+        document.getElementById("2Cost_Supply_Rate_General").value=document.getElementById("2Qty_General").value==("0" || 0) ? 0 : General_Data[3].UnitCostInclusiveofContigency;
+        document.getElementById("3Cost_Supply_Rate_General").value=document.getElementById("3Qty_General").value==("0" || 0) ? 0 : General_Data[4].UnitCostInclusiveofContigency;
+        document.getElementById("1MRS_Rate_General").value=document.getElementById("1Qty_General").value==("0" || 0) ? 0 : General_Data[2].Unit_Price;
+        document.getElementById("2MRS_Rate_General").value=document.getElementById("2Qty_General").value==("0" || 0) ? 0 : General_Data[3].Unit_Price;
+        document.getElementById("3MRS_Rate_General").value=document.getElementById("3Qty_General").value==("0" || 0) ? 0 : General_Data[4].Unit_Price;
+        document.getElementById("1Supply_Rate_General").value=document.getElementById("1Qty_General").value==("0" || 0) ? 0 : General_Data[2].ListPricewithoutRoundup;
+        document.getElementById("2Supply_Rate_General").value=document.getElementById("2Qty_General").value==("0" || 0) ? 0 : General_Data[3].ListPricewithoutRoundup;
+        document.getElementById("3Supply_Rate_General").value=document.getElementById("3Qty_General").value==("0" || 0) ? 0 : General_Data[4].ListPricewithoutRoundup;
+        var valss=parseInt(document.getElementById("4Qty_General").value);
+        if(valss== (0 || "0")){
+           document.getElementById("4Cost_Supply_Rate_General").value=0;
+           document.getElementById("4MRS_Rate_General").value=0;
+           document.getElementById("4Supply_Rate_General").value=0;
+
+        }
+        else if(valss<=100){
+           document.getElementById("4Cost_Supply_Rate_General").value=General_Data[5].UnitCostInclusiveofContigency;
+           document.getElementById("4MRS_Rate_General").value=General_Data[5].Unit_Price;
+           document.getElementById("4Supply_Rate_General").value=General_Data[5].ListPricewithoutRoundup;
+           
+        }
+        else if(valss<=500){
+           document.getElementById("4Cost_Supply_Rate_General").value=General_Data[6].UnitCostInclusiveofContigency;
+           document.getElementById("4MRS_Rate_General").value=General_Data[6].Unit_Price;
+           document.getElementById("4Supply_Rate_General").value=General_Data[6].ListPricewithoutRoundup;
+           
+        }
+      
+        else{
+           document.getElementById("4Cost_Supply_Rate_General").value=General_Data[7].UnitCostInclusiveofContigency;
+           document.getElementById("4MRS_Rate_General").value=General_Data[7].Unit_Price;
+           document.getElementById("4Supply_Rate_General").value=General_Data[7].ListPricewithoutRoundup;
+           
+        }
+        valss=parseInt(document.getElementById("5Qty_General").value);
+        if(valss== (0 || "0")){
+           document.getElementById("5Cost_Supply_Rate_General").value=0;
+           document.getElementById("5MRS_Rate_General").value=0;
+           document.getElementById("5Supply_Rate_General").value=0;
+
+        }
+        else if(valss<=100){
+           document.getElementById("5Cost_Supply_Rate_General").value=General_Data[8].UnitCostInclusiveofContigency;
+           document.getElementById("5MRS_Rate_General").value=General_Data[8].Unit_Price;
+           document.getElementById("5Supply_Rate_General").value=General_Data[8].ListPricewithoutRoundup;
+           
+        }
+        else if(valss<=500){
+           document.getElementById("5Cost_Supply_Rate_General").value=General_Data[9].UnitCostInclusiveofContigency;
+           document.getElementById("5MRS_Rate_General").value=General_Data[9].Unit_Price;
+           document.getElementById("5Supply_Rate_General").value=General_Data[9].ListPricewithoutRoundup;
+           
+        }
+      
+        else{
+           document.getElementById("5Cost_Supply_Rate_General").value=General_Data[10].UnitCostInclusiveofContigency;
+           document.getElementById("5MRS_Rate_General").value=General_Data[10].Unit_Price;
+           document.getElementById("5Supply_Rate_General").value=General_Data[10].ListPricewithoutRoundup;
+           
+        }
+        valss=parseInt(document.getElementById("6Qty_General").value);
+        if(valss== (0 || "0")){
+           document.getElementById("6Cost_Supply_Rate_General").value=0;
+           document.getElementById("6MRS_Rate_General").value=0;
+           document.getElementById("6Supply_Rate_General").value=0;
+
+        }
+        else if(valss<=100){
+           document.getElementById("6Cost_Supply_Rate_General").value=General_Data[11].UnitCostInclusiveofContigency;
+           document.getElementById("6MRS_Rate_General").value=General_Data[11].Unit_Price;
+           document.getElementById("6Supply_Rate_General").value=General_Data[11].ListPricewithoutRoundup;
+           
+        }
+        else if(valss<=500){
+           document.getElementById("6Cost_Supply_Rate_General").value=General_Data[12].UnitCostInclusiveofContigency;
+           document.getElementById("6MRS_Rate_General").value=General_Data[12].Unit_Price;
+           document.getElementById("6Supply_Rate_General").value=General_Data[12].ListPricewithoutRoundup;
+           
+        }
+      
+        else{
+           document.getElementById("6Cost_Supply_Rate_General").value=General_Data[13].UnitCostInclusiveofContigency;
+           document.getElementById("6MRS_Rate_General").value=General_Data[13].Unit_Price;
+           document.getElementById("6Supply_Rate_General").value=General_Data[13].ListPricewithoutRoundup;
+           
+        }
+        valss=parseInt(document.getElementById("7Qty_General").value);
+        if(valss== (0 || "0")){
+           document.getElementById("7Cost_Supply_Rate_General").value=0;
+           document.getElementById("7MRS_Rate_General").value=0;
+           document.getElementById("7Supply_Rate_General").value=0;
+
+        }
+        else if(valss<=100){
+           document.getElementById("7Cost_Supply_Rate_General").value=General_Data[14].UnitCostInclusiveofContigency;
+           document.getElementById("7MRS_Rate_General").value=General_Data[14].Unit_Price;
+           document.getElementById("7Supply_Rate_General").value=General_Data[14].ListPricewithoutRoundup;
+           
+        }
+        else if(valss<=500){
+           document.getElementById("7Cost_Supply_Rate_General").value=General_Data[15].UnitCostInclusiveofContigency;
+           document.getElementById("7MRS_Rate_General").value=General_Data[15].Unit_Price;
+           document.getElementById("7Supply_Rate_General").value=General_Data[15].ListPricewithoutRoundup;
+           
+        }
+      
+        else{
+           document.getElementById("7Cost_Supply_Rate_General").value=General_Data[16].UnitCostInclusiveofContigency;
+           document.getElementById("7MRS_Rate_General").value=General_Data[16].Unit_Price;
+           document.getElementById("7Supply_Rate_General").value=General_Data[16].ListPricewithoutRoundup;
+           
+        }
+        valss=parseInt(document.getElementById("8Qty_General").value);
+        if(valss== (0 || "0")){
+           document.getElementById("8Cost_Supply_Rate_General").value=0;
+           document.getElementById("8MRS_Rate_General").value=0;
+           document.getElementById("8Supply_Rate_General").value=0;
+
+        }
+        else if(valss<=100){
+           document.getElementById("8Cost_Supply_Rate_General").value=General_Data[31].UnitCostInclusiveofContigency;
+           document.getElementById("8MRS_Rate_General").value=General_Data[31].Unit_Price;
+           document.getElementById("8Supply_Rate_General").value=General_Data[31].ListPricewithoutRoundup;
+           
+        }
+        else if(valss<=500){
+           document.getElementById("8Cost_Supply_Rate_General").value=General_Data[32].UnitCostInclusiveofContigency;
+           document.getElementById("8MRS_Rate_General").value=General_Data[32].Unit_Price;
+           document.getElementById("8Supply_Rate_General").value=General_Data[32].ListPricewithoutRoundup;
+           
+        }
+      
+      
+        else{
+           document.getElementById("8Cost_Supply_Rate_General").value=General_Data[33].UnitCostInclusiveofContigency;
+           document.getElementById("8MRS_Rate_General").value=General_Data[33].Unit_Price;
+           document.getElementById("8Supply_Rate_General").value=General_Data[33].ListPricewithoutRoundup;
+           
+        }
+        valss=parseInt(document.getElementById("9Qty_General").value);
+        if(valss== (0 || "0")){
+           document.getElementById("9Cost_Supply_Rate_General").value=0;
+           document.getElementById("9MRS_Rate_General").value=0;
+           document.getElementById("9Supply_Rate_General").value=0;
+
+        }
+        else if(valss<=100){
+           document.getElementById("9Cost_Supply_Rate_General").value=General_Data[17].UnitCostInclusiveofContigency;
+           document.getElementById("9MRS_Rate_General").value=General_Data[17].Unit_Price;
+           document.getElementById("9Supply_Rate_General").value=General_Data[17].ListPricewithoutRoundup;
+           
+        }
+        else if(valss<=500){
+           document.getElementById("9Cost_Supply_Rate_General").value=General_Data[18].UnitCostInclusiveofContigency;
+           document.getElementById("9MRS_Rate_General").value=General_Data[18].Unit_Price;
+           document.getElementById("9Supply_Rate_General").value=General_Data[18].ListPricewithoutRoundup;
+           
+        }
+      
+        else{
+           document.getElementById("9Cost_Supply_Rate_General").value=General_Data[19].UnitCostInclusiveofContigency;
+           document.getElementById("9MRS_Rate_General").value=General_Data[19].Unit_Price;
+           document.getElementById("9Supply_Rate_General").value=General_Data[19].ListPricewithoutRoundup;
+           
+        }
+        valss=parseInt(document.getElementById("10Qty_General").value);
+        if(valss== (0 || "0")){
+           document.getElementById("10Cost_Supply_Rate_General").value=0;
+           document.getElementById("10MRS_Rate_General").value=0;
+           document.getElementById("10Supply_Rate_General").value=0;
+
+        }
+        else if(valss<=100){
+           document.getElementById("10Cost_Supply_Rate_General").value=General_Data[34].UnitCostInclusiveofContigency;
+           document.getElementById("10MRS_Rate_General").value=General_Data[34].Unit_Price;
+           document.getElementById("10Supply_Rate_General").value=General_Data[34].ListPricewithoutRoundup;
+           
+        }
+        else if(valss<=500){
+           document.getElementById("10Cost_Supply_Rate_General").value=General_Data[35].UnitCostInclusiveofContigency;
+           document.getElementById("10MRS_Rate_General").value=General_Data[35].Unit_Price;
+           document.getElementById("10Supply_Rate_General").value=General_Data[35].ListPricewithoutRoundup;
+           
+        }
+      
+        else{
+           document.getElementById("10Cost_Supply_Rate_General").value=General_Data[36].UnitCostInclusiveofContigency;
+           document.getElementById("10MRS_Rate_General").value=General_Data[36].Unit_Price;
+           document.getElementById("10Supply_Rate_General").value=General_Data[36].ListPricewithoutRoundup;
+           
+        }
+        valss=parseInt(document.getElementById("11Qty_General").value);
+        if(valss== (0 || "0")){
+           document.getElementById("11Cost_Supply_Rate_General").value=0;
+           document.getElementById("11MRS_Rate_General").value=0;
+           document.getElementById("11Supply_Rate_General").value=0;
+
+        }
+        else if(valss<=100){
+           document.getElementById("11Cost_Supply_Rate_General").value=General_Data[20].UnitCostInclusiveofContigency;
+           document.getElementById("11MRS_Rate_General").value=General_Data[20].Unit_Price;
+           document.getElementById("11Supply_Rate_General").value=General_Data[20].ListPricewithoutRoundup;
+           
+        }
+        else if(valss<=500){
+           document.getElementById("11Cost_Supply_Rate_General").value=General_Data[21].UnitCostInclusiveofContigency;
+           document.getElementById("11MRS_Rate_General").value=General_Data[21].Unit_Price;
+           document.getElementById("11Supply_Rate_General").value=General_Data[21].ListPricewithoutRoundup;
+           
+        }
+      
+        else{
+           document.getElementById("11Cost_Supply_Rate_General").value=General_Data[22].UnitCostInclusiveofContigency;
+           document.getElementById("11MRS_Rate_General").value=General_Data[22].Unit_Price;
+           document.getElementById("11Supply_Rate_General").value=General_Data[22].ListPricewithoutRoundup;
+           
+        }
+        valss=parseInt(document.getElementById("12Qty_General").value);
+        if(valss== (0 || "0")){
+           document.getElementById("12Cost_Supply_Rate_General").value=0;
+           document.getElementById("12MRS_Rate_General").value=0;
+           document.getElementById("12Supply_Rate_General").value=0;
+
+        }
+        else if(valss<=100){
+           document.getElementById("12Cost_Supply_Rate_General").value=General_Data[37].UnitCostInclusiveofContigency;
+           document.getElementById("12MRS_Rate_General").value=General_Data[37].Unit_Price;
+           document.getElementById("12Supply_Rate_General").value=General_Data[37].ListPricewithoutRoundup;
+           
+        }
+        else if(valss<=500){
+           document.getElementById("12Cost_Supply_Rate_General").value=General_Data[38].UnitCostInclusiveofContigency;
+           document.getElementById("12MRS_Rate_General").value=General_Data[38].Unit_Price;
+           document.getElementById("12Supply_Rate_General").value=General_Data[38].ListPricewithoutRoundup;
+           
+        }
+      
+        else{
+           document.getElementById("12Cost_Supply_Rate_General").value=General_Data[39].UnitCostInclusiveofContigency;
+           document.getElementById("12MRS_Rate_General").value=General_Data[39].Unit_Price;
+           document.getElementById("12Supply_Rate_General").value=General_Data[39].ListPricewithoutRoundup;
+           
+        }
+        valss=parseInt(document.getElementById("13Qty_General").value);
+        if(valss== (0 || "0")){
+           document.getElementById("13Cost_Supply_Rate_General").value=0;
+           document.getElementById("13MRS_Rate_General").value=0;
+           document.getElementById("13Supply_Rate_General").value=0;
+
+        }
+        else if(valss<=100){
+           document.getElementById("13Cost_Supply_Rate_General").value=General_Data[23].UnitCostInclusiveofContigency;
+           document.getElementById("13MRS_Rate_General").value=General_Data[23].Unit_Price;
+           document.getElementById("13Supply_Rate_General").value=General_Data[23].ListPricewithoutRoundup;
+           
+        }
+        else if(valss<=500){
+           document.getElementById("13Cost_Supply_Rate_General").value=General_Data[24].UnitCostInclusiveofContigency;
+           document.getElementById("13MRS_Rate_General").value=General_Data[24].Unit_Price;
+           document.getElementById("13Supply_Rate_General").value=General_Data[24].ListPricewithoutRoundup;
+           
+        }
+      
+        else{
+           document.getElementById("13Cost_Supply_Rate_General").value=General_Data[25].UnitCostInclusiveofContigency;
+           document.getElementById("13MRS_Rate_General").value=General_Data[25].Unit_Price;
+           document.getElementById("13Supply_Rate_General").value=General_Data[25].ListPricewithoutRoundup;
+           
+        }
+      
+        valss=parseInt(document.getElementById("14Qty_General").value);
+        if(valss== (0 || "0")){
+           document.getElementById("14Cost_Supply_Rate_General").value=0;
+           document.getElementById("14MRS_Rate_General").value=0;
+           document.getElementById("14Supply_Rate_General").value=0;
+
+        }
+        else if(valss<=100){
+           document.getElementById("14Cost_Supply_Rate_General").value=General_Data[40].UnitCostInclusiveofContigency;
+           document.getElementById("14MRS_Rate_General").value=General_Data[40].Unit_Price;
+           document.getElementById("14Supply_Rate_General").value=General_Data[40].ListPricewithoutRoundup;
+           
+        }
+        else if(valss<=500){
+           document.getElementById("14Cost_Supply_Rate_General").value=General_Data[41].UnitCostInclusiveofContigency;
+           document.getElementById("14MRS_Rate_General").value=General_Data[41].Unit_Price;
+           document.getElementById("14Supply_Rate_General").value=General_Data[41].ListPricewithoutRoundup;
+           
+        }
+      
+        else{
+           document.getElementById("14Cost_Supply_Rate_General").value=General_Data[42].UnitCostInclusiveofContigency;
+           document.getElementById("14MRS_Rate_General").value=General_Data[42].Unit_Price;
+           document.getElementById("14Supply_Rate_General").value=General_Data[42].ListPricewithoutRoundup;
+           
+        }
+        valss=parseInt(document.getElementById("15Qty_General").value);
+        if(valss== (0 || "0")){
+           document.getElementById("15Cost_Supply_Rate_General").value=0;
+           document.getElementById("15MRS_Rate_General").value=0;
+           document.getElementById("15Supply_Rate_General").value=0;
+
+        }
+        else if(valss<=100){
+           document.getElementById("15Cost_Supply_Rate_General").value=General_Data[26].UnitCostInclusiveofContigency;
+           document.getElementById("15MRS_Rate_General").value=General_Data[26].Unit_Price;
+           document.getElementById("15Supply_Rate_General").value=General_Data[26].ListPricewithoutRoundup;
+           
+        }
+        else if(valss<=500){
+           document.getElementById("15Cost_Supply_Rate_General").value=General_Data[27].UnitCostInclusiveofContigency;
+           document.getElementById("15MRS_Rate_General").value=General_Data[27].Unit_Price;
+           document.getElementById("15Supply_Rate_General").value=General_Data[27].ListPricewithoutRoundup;
+           
+        }
+      
+        else{
+           document.getElementById("15Cost_Supply_Rate_General").value=General_Data[28].UnitCostInclusiveofContigency;
+           document.getElementById("15MRS_Rate_General").value=General_Data[28].Unit_Price;
+           document.getElementById("15Supply_Rate_General").value=General_Data[28].ListPricewithoutRoundup;
+           
+        }
+        valss=parseInt(document.getElementById("16Qty_General").value);
+        if(valss== (0 || "0")){
+           document.getElementById("16Cost_Supply_Rate_General").value=0;
+           document.getElementById("16MRS_Rate_General").value=0;
+           document.getElementById("16Supply_Rate_General").value=0;
+
+        }
+        else if(valss<=100){
+           document.getElementById("16Cost_Supply_Rate_General").value=General_Data[43].UnitCostInclusiveofContigency;
+           document.getElementById("16MRS_Rate_General").value=General_Data[43].Unit_Price;
+           document.getElementById("16Supply_Rate_General").value=General_Data[43].ListPricewithoutRoundup;
+           
+        }
+        else if(valss<=500){
+           document.getElementById("16Cost_Supply_Rate_General").value=General_Data[44].UnitCostInclusiveofContigency;
+           document.getElementById("16MRS_Rate_General").value=General_Data[44].Unit_Price;
+           document.getElementById("16Supply_Rate_General").value=General_Data[44].ListPricewithoutRoundup;
+           
+        }
+      
+        else{
+           document.getElementById("16Cost_Supply_Rate_General").value=General_Data[45].UnitCostInclusiveofContigency;
+           document.getElementById("16MRS_Rate_General").value=General_Data[45].Unit_Price;
+           document.getElementById("16Supply_Rate_General").value=General_Data[45].ListPricewithoutRoundup;
+           
+        }
+        for(var i=1;i<=16;i++){
+           
+           document.getElementById(i+"Cost_Supply_Total_General").value=document.getElementById(i+"Qty_General").value*1*document.getElementById(i+"Cost_Supply_Rate_General").value;
+           document.getElementById(i+"Cost_Installation_Rate_General").value=document.getElementById(i+"Qty_General").value==("0" || 0) ? 0 : HardGenData[i-1].UnitCostInclusiveofContigency;
+           document.getElementById(i+"Cost_Installation_Total_General").value=document.getElementById(i+"Qty_General").value*1*document.getElementById(i+"Cost_Installation_Rate_General").value;
+           document.getElementById(i+"MRS_Total_General").value=document.getElementById(i+"Qty_General").value*1*document.getElementById(i+"MRS_Rate_General").value;
+           document.getElementById(i+"MRI_Rate_General").value=document.getElementById(i+"Qty_General").value==("0" || 0) ? 0 : HardGenData[i-1].Unit_Price;
+           document.getElementById(i+"MRI_Total_General").value=document.getElementById(i+"Qty_General").value*1*document.getElementById(i+"MRI_Rate_General").value;
+           document.getElementById(i+"Installation_Rate_General").value=document.getElementById(i+"Qty_General").value==("0" || 0) ? 0 : HardGenData[i-1].ListPricewithoutRoundup;
+           document.getElementById(i+"Installation_Total_General").value=document.getElementById(i+"Qty_General").value*1*document.getElementById(i+"Installation_Rate_General").value;
+           document.getElementById(i+"Supply_Total_General").value=document.getElementById(i+"Qty_General").value*1*document.getElementById(i+"Supply_Rate_General").value;
+
+        }
+/////
+        var ActiveData={{HardWareActives | safe}};
+        var ActiveInstall={{HardWareActivesInstall | safe}};
+///////////
+        for(var i=1;i<=18;i++){
+           document.getElementById(i+"Cost_Supply_Rate_Active").value=document.getElementById(i+"Qty_Active").value==("0" || 0) ? 0 : ActiveData[i-1].UnitCostInclusiveofContigency;
+           document.getElementById(i+"Cost_Supply_Total_Active").value=document.getElementById(i+"Qty_Active").value*1*document.getElementById(i+"Cost_Supply_Rate_Active").value;
+console.log("fhh");           
+document.getElementById(i+"Cost_Installation_Rate_Active").value=document.getElementById(i+"Qty_Active").value==("0" || 0) ? 0 : ActiveInstall[i-1].UnitCostInclusiveofContigency;
+           document.getElementById(i+"Cost_Installation_Total_Active").value=document.getElementById(i+"Qty_Active").value*1*document.getElementById(i+"Cost_Installation_Rate_Active").value;
+           document.getElementById(i+"MRS_Rate_Active").value=document.getElementById(i+"Qty_Active").value==("0" || 0) ? 0 : ActiveData[i-1].Unit_Price;
+           document.getElementById(i+"MRS_Total_Active").value=document.getElementById(i+"Qty_Active").value*1*document.getElementById(i+"MRS_Rate_Active").value;
+           document.getElementById(i+"MRI_Rate_Active").value=document.getElementById(i+"Qty_Active").value==("0" || 0) ? 0 : ActiveInstall[i-1].Unit_Price;
+           document.getElementById(i+"MRI_Total_Active").value=document.getElementById(i+"Qty_Active").value*1*document.getElementById(i+"MRI_Rate_Active").value;
+           document.getElementById(i+"Supply_Rate_Active").value=document.getElementById(i+"Qty_Active").value==("0" || 0) ? 0 : ActiveData[i-1].ListPricewithoutRoundup;
+           document.getElementById(i+"Supply_Total_Active").value=document.getElementById(i+"Qty_Active").value*1*document.getElementById(i+"Supply_Rate_Active").value;
+           document.getElementById(i+"Installation_Rate_Active").value=document.getElementById(i+"Qty_Active").value==("0" || 0) ? 0 : ActiveInstall[i-1].ListPricewithoutRoundup;
+           document.getElementById(i+"Installation_Total_Active").value=document.getElementById(i+"Qty_Active").value*1*document.getElementById(i+"Installation_Rate_Active").value;
+
+        }
+///////////
+/////
+        var FiberData={{ PassiveDatas| safe}};
+        var FiberDataInstall={{PassiveDatasInstall | safe}};
+///////////
+        for(var i=1;i<=12;i++){
+           document.getElementById(i+"Cost_Supply_Rate_Fiber").value=document.getElementById(i+"Qty_Fiber").value==("0" || 0) ? 0 : FiberData[i-1].UnitCostInclusiveofContigency;
+           document.getElementById(i+"Cost_Supply_Total_Fiber").value=document.getElementById(i+"Qty_Fiber").value*1*document.getElementById(i+"Cost_Supply_Rate_Fiber").value;
+           document.getElementById(i+"Cost_Installation_Rate_Fiber").value=document.getElementById(i+"Qty_Fiber").value==("0" || 0) ? 0 : FiberDataInstall[i-1].UnitCostInclusiveofContigency;
+           document.getElementById(i+"Cost_Installation_Total_Fiber").value=document.getElementById(i+"Qty_Fiber").value*1*document.getElementById(i+"Cost_Installation_Rate_Fiber").value;
+           document.getElementById(i+"MRS_Rate_Fiber").value=document.getElementById(i+"Qty_Fiber").value==("0" || 0) ? 0 : FiberData[i-1].Unit_Price;
+           document.getElementById(i+"MRS_Total_Fiber").value=document.getElementById(i+"Qty_Fiber").value*1*document.getElementById(i+"MRS_Rate_Fiber").value;
+           document.getElementById(i+"MRI_Rate_Fiber").value=document.getElementById(i+"Qty_Fiber").value==("0" || 0) ? 0 : FiberDataInstall[i-1].Unit_Price;
+           document.getElementById(i+"MRI_Total_Fiber").value=document.getElementById(i+"Qty_Fiber").value*1*document.getElementById(i+"MRI_Rate_Fiber").value;
+           document.getElementById(i+"Supply_Rate_Fiber").value=document.getElementById(i+"Qty_Fiber").value==("0" || 0) ? 0 : FiberData[i-1].ListPricewithoutRoundup;
+           document.getElementById(i+"Supply_Total_Fiber").value=document.getElementById(i+"Qty_Fiber").value*1*document.getElementById(i+"Supply_Rate_Fiber").value;
+           document.getElementById(i+"Installation_Rate_Fiber").value=document.getElementById(i+"Qty_Fiber").value==("0" || 0) ? 0 : FiberDataInstall[i-1].ListPricewithoutRoundup;
+           document.getElementById(i+"Installation_Total_Fiber").value=document.getElementById(i+"Qty_Fiber").value*1*document.getElementById(i+"Installation_Rate_Fiber").value;
+
+        }
+///////////
+///////////
+/////
+        var EthernetData={{EthernetDatas | safe}};
+        var EthernetDataInstall={{EthernetDatasInstall | safe}};
+///////////
+        for(var i=1;i<=24;i++){
+           console.log("ff");
+           document.getElementById(i+"Cost_Supply_Rate_Ethernet").value=document.getElementById(i+"Qty_Ethernet").value==("0" || 0) ? 0 : EthernetData[i-1].UnitCostInclusiveofContigency;
+           document.getElementById(i+"Cost_Supply_Total_Ethernet").value=document.getElementById(i+"Qty_Ethernet").value*1*document.getElementById(i+"Cost_Supply_Rate_Ethernet").value;
+           document.getElementById(i+"Cost_Installation_Rate_Ethernet").value=document.getElementById(i+"Qty_Ethernet").value==("0" || 0) ? 0 : EthernetDataInstall[i-1].UnitCostInclusiveofContigency;
+           document.getElementById(i+"Cost_Installation_Total_Ethernet").value=document.getElementById(i+"Qty_Ethernet").value*1*document.getElementById(i+"Cost_Installation_Rate_Ethernet").value;
+           document.getElementById(i+"MRS_Rate_Ethernet").value=document.getElementById(i+"Qty_Ethernet").value==("0" || 0) ? 0 : EthernetData[i-1].Unit_Price;
+           document.getElementById(i+"MRS_Total_Ethernet").value=document.getElementById(i+"Qty_Ethernet").value*1*document.getElementById(i+"MRS_Rate_Ethernet").value;
+           document.getElementById(i+"MRI_Rate_Ethernet").value=document.getElementById(i+"Qty_Ethernet").value==("0" || 0) ? 0 : EthernetDataInstall[i-1].Unit_Price;
+           document.getElementById(i+"MRI_Total_Ethernet").value=document.getElementById(i+"Qty_Ethernet").value*1*document.getElementById(i+"MRI_Rate_Ethernet").value;
+           document.getElementById(i+"Supply_Rate_Ethernet").value=document.getElementById(i+"Qty_Ethernet").value==("0" || 0) ? 0 : EthernetData[i-1].ListPricewithoutRoundup;
+           document.getElementById(i+"Supply_Total_Ethernet").value=document.getElementById(i+"Qty_Ethernet").value*1*document.getElementById(i+"Supply_Rate_Ethernet").value;
+           document.getElementById(i+"Installation_Rate_Ethernet").value=document.getElementById(i+"Qty_Ethernet").value==("0" || 0) ? 0 : EthernetDataInstall[i-1].ListPricewithoutRoundup;
+           document.getElementById(i+"Installation_Total_Ethernet").value=document.getElementById(i+"Qty_Ethernet").value*1*document.getElementById(i+"Installation_Rate_Ethernet").value;
+
+        }
+///////////
+///////////
+/////
+        var DdcData={{DdcDatas | safe}};
+        var DdcDataInstall={{DdcDatasInstall | safe}};
+///////////
+        for(var i=1;i<=19;i++){
+           console.log("ff");
+           document.getElementById(i+"Cost_Supply_Rate_Ddc").value=document.getElementById(i+"Qty_Ddc").value==("0" || 0) ? 0 : DdcData[i-1].UnitCostInclusiveofContigency;
+           document.getElementById(i+"Cost_Supply_Total_Ddc").value=document.getElementById(i+"Qty_Ddc").value*1*document.getElementById(i+"Cost_Supply_Rate_Ddc").value;
+           document.getElementById(i+"Cost_Installation_Rate_Ddc").value=document.getElementById(i+"Qty_Ddc").value==("0" || 0) ? 0 : DdcDataInstall[i-1].UnitCostInclusiveofContigency;
+           document.getElementById(i+"Cost_Installation_Total_Ddc").value=document.getElementById(i+"Qty_Ddc").value*1*document.getElementById(i+"Cost_Installation_Rate_Ddc").value;
+           document.getElementById(i+"MRS_Rate_Ddc").value=document.getElementById(i+"Qty_Ddc").value==("0" || 0) ? 0 : DdcData[i-1].Unit_Price;
+           document.getElementById(i+"MRS_Total_Ddc").value=document.getElementById(i+"Qty_Ddc").value*1*document.getElementById(i+"MRS_Rate_Ddc").value;
+           document.getElementById(i+"MRI_Rate_Ddc").value=document.getElementById(i+"Qty_Ddc").value==("0" || 0) ? 0 : DdcDataInstall[i-1].Unit_Price;
+           document.getElementById(i+"MRI_Total_Ddc").value=document.getElementById(i+"Qty_Ddc").value*1*document.getElementById(i+"MRI_Rate_Ddc").value;
+           document.getElementById(i+"Supply_Rate_Ddc").value=document.getElementById(i+"Qty_Ddc").value==("0" || 0) ? 0 : DdcData[i-1].ListPricewithoutRoundup;
+           document.getElementById(i+"Supply_Total_Ddc").value=document.getElementById(i+"Qty_Ddc").value*1*document.getElementById(i+"Supply_Rate_Ddc").value;
+           document.getElementById(i+"Installation_Rate_Ddc").value=document.getElementById(i+"Qty_Ddc").value==("0" || 0) ? 0 : DdcDataInstall[i-1].ListPricewithoutRoundup;
+           document.getElementById(i+"Installation_Total_Ddc").value=document.getElementById(i+"Qty_Ddc").value*1*document.getElementById(i+"Installation_Rate_Ddc").value;
+
+        }
+///////////
+///////////
+/////
+        var Bms_SensorData={{BmsSensorsDatas | safe}};
+        var Bms_SensorDataInstall={{BmsSensorsDatasInstall | safe}};
+///////////
+        for(var i=1;i<=13;i++){
+           console.log("ff");
+           document.getElementById(i+"Cost_Supply_Rate_Bms_Sensor").value=document.getElementById(i+"Qty_Bms_Sensor").value==("0" || 0) ? 0 : Bms_SensorData[i-1].UnitCostInclusiveofContigency;
+           document.getElementById(i+"Cost_Supply_Total_Bms_Sensor").value=document.getElementById(i+"Qty_Bms_Sensor").value*1*document.getElementById(i+"Cost_Supply_Rate_Bms_Sensor").value;
+           document.getElementById(i+"Cost_Installation_Rate_Bms_Sensor").value=document.getElementById(i+"Qty_Bms_Sensor").value==("0" || 0) ? 0 : Bms_SensorDataInstall[i-1].UnitCostInclusiveofContigency;
+           document.getElementById(i+"Cost_Installation_Total_Bms_Sensor").value=document.getElementById(i+"Qty_Bms_Sensor").value*1*document.getElementById(i+"Cost_Installation_Rate_Bms_Sensor").value;
+           document.getElementById(i+"MRS_Rate_Bms_Sensor").value=document.getElementById(i+"Qty_Bms_Sensor").value==("0" || 0) ? 0 : Bms_SensorData[i-1].Unit_Price;
+           document.getElementById(i+"MRS_Total_Bms_Sensor").value=document.getElementById(i+"Qty_Bms_Sensor").value*1*document.getElementById(i+"MRS_Rate_Bms_Sensor").value;
+           document.getElementById(i+"MRI_Rate_Bms_Sensor").value=document.getElementById(i+"Qty_Bms_Sensor").value==("0" || 0) ? 0 : Bms_SensorDataInstall[i-1].Unit_Price;
+           document.getElementById(i+"MRI_Total_Bms_Sensor").value=document.getElementById(i+"Qty_Bms_Sensor").value*1*document.getElementById(i+"MRI_Rate_Bms_Sensor").value;
+           document.getElementById(i+"Supply_Rate_Bms_Sensor").value=document.getElementById(i+"Qty_Bms_Sensor").value==("0" || 0) ? 0 : Bms_SensorData[i-1].ListPricewithoutRoundup;
+           document.getElementById(i+"Supply_Total_Bms_Sensor").value=document.getElementById(i+"Qty_Bms_Sensor").value*1*document.getElementById(i+"Supply_Rate_Bms_Sensor").value;
+           document.getElementById(i+"Installation_Rate_Bms_Sensor").value=document.getElementById(i+"Qty_Bms_Sensor").value==("0" || 0) ? 0 : Bms_SensorDataInstall[i-1].ListPricewithoutRoundup;
+           document.getElementById(i+"Installation_Total_Bms_Sensor").value=document.getElementById(i+"Qty_Bms_Sensor").value*1*document.getElementById(i+"Installation_Rate_Bms_Sensor").value;
+
+        }
+///////////
+///////////
+/////
+        var Bms_CablingData={{BmsScablingDatas | safe}};
+        var Bms_CablingDataInstall={{BmsScablingDatasInstall | safe}};
+///////////
+        for(var i=1;i<=14;i++){
+           console.log("ff");
+           document.getElementById(i+"Cost_Supply_Rate_Bms_Cabling").value=document.getElementById(i+"Qty_Bms_Cabling").value==("0" || 0) ? 0 : Bms_CablingData[i-1].UnitCostInclusiveofContigency;
+           document.getElementById(i+"Cost_Supply_Total_Bms_Cabling").value=document.getElementById(i+"Qty_Bms_Cabling").value*1*document.getElementById(i+"Cost_Supply_Rate_Bms_Cabling").value;
+           document.getElementById(i+"Cost_Installation_Rate_Bms_Cabling").value=document.getElementById(i+"Qty_Bms_Cabling").value==("0" || 0) ? 0 : Bms_CablingDataInstall[i-1].UnitCostInclusiveofContigency;
+           document.getElementById(i+"Cost_Installation_Total_Bms_Cabling").value=document.getElementById(i+"Qty_Bms_Cabling").value*1*document.getElementById(i+"Cost_Installation_Rate_Bms_Cabling").value;
+           document.getElementById(i+"MRS_Rate_Bms_Cabling").value=document.getElementById(i+"Qty_Bms_Cabling").value==("0" || 0) ? 0 : Bms_CablingData[i-1].Unit_Price;
+           document.getElementById(i+"MRS_Total_Bms_Cabling").value=document.getElementById(i+"Qty_Bms_Cabling").value*1*document.getElementById(i+"MRS_Rate_Bms_Cabling").value;
+           document.getElementById(i+"MRI_Rate_Bms_Cabling").value=document.getElementById(i+"Qty_Bms_Cabling").value==("0" || 0) ? 0 : Bms_CablingDataInstall[i-1].Unit_Price;
+           document.getElementById(i+"MRI_Total_Bms_Cabling").value=document.getElementById(i+"Qty_Bms_Cabling").value*1*document.getElementById(i+"MRI_Rate_Bms_Cabling").value;
+           document.getElementById(i+"Supply_Rate_Bms_Cabling").value=document.getElementById(i+"Qty_Bms_Cabling").value==("0" || 0) ? 0 : Bms_CablingData[i-1].ListPricewithoutRoundup;
+           document.getElementById(i+"Supply_Total_Bms_Cabling").value=document.getElementById(i+"Qty_Bms_Cabling").value*1*document.getElementById(i+"Supply_Rate_Bms_Cabling").value;
+           document.getElementById(i+"Installation_Rate_Bms_Cabling").value=document.getElementById(i+"Qty_Bms_Cabling").value==("0" || 0) ? 0 : Bms_CablingDataInstall[i-1].ListPricewithoutRoundup;
+           document.getElementById(i+"Installation_Total_Bms_Cabling").value=document.getElementById(i+"Qty_Bms_Cabling").value*1*document.getElementById(i+"Installation_Rate_Bms_Cabling").value;
+
+        }
+///////////
+/////
+        var PipingData={{PipingDatas | safe}};
+        var PipingDataInstall={{PipingDatasInstall | safe}};
+///////////
+        for(var i=1;i<=9;i++){
+           console.log("ff");
+           document.getElementById(i+"Cost_Supply_Rate_Piping").value=document.getElementById(i+"Qty_Piping").value==("0" || 0) ? 0 : PipingData[i-1].UnitCostInclusiveofContigency;
+           document.getElementById(i+"Cost_Supply_Total_Piping").value=document.getElementById(i+"Qty_Piping").value*1*document.getElementById(i+"Cost_Supply_Rate_Piping").value;
+           document.getElementById(i+"Cost_Installation_Rate_Piping").value=document.getElementById(i+"Qty_Piping").value==("0" || 0) ? 0 : PipingDataInstall[i-1].UnitCostInclusiveofContigency;
+           document.getElementById(i+"Cost_Installation_Total_Piping").value=document.getElementById(i+"Qty_Piping").value*1*document.getElementById(i+"Cost_Installation_Rate_Piping").value;
+           document.getElementById(i+"MRS_Rate_Piping").value=document.getElementById(i+"Qty_Piping").value==("0" || 0) ? 0 : PipingData[i-1].Unit_Price;
+           document.getElementById(i+"MRS_Total_Piping").value=document.getElementById(i+"Qty_Piping").value*1*document.getElementById(i+"MRS_Rate_Piping").value;
+           document.getElementById(i+"MRI_Rate_Piping").value=document.getElementById(i+"Qty_Piping").value==("0" || 0) ? 0 : PipingDataInstall[i-1].Unit_Price;
+           document.getElementById(i+"MRI_Total_Piping").value=document.getElementById(i+"Qty_Piping").value*1*document.getElementById(i+"MRI_Rate_Piping").value;
+           document.getElementById(i+"Supply_Rate_Piping").value=document.getElementById(i+"Qty_Piping").value==("0" || 0) ? 0 : PipingData[i-1].ListPricewithoutRoundup;
+           document.getElementById(i+"Supply_Total_Piping").value=document.getElementById(i+"Qty_Piping").value*1*document.getElementById(i+"Supply_Rate_Piping").value;
+           document.getElementById(i+"Installation_Rate_Piping").value=document.getElementById(i+"Qty_Piping").value==("0" || 0) ? 0 : PipingDataInstall[i-1].ListPricewithoutRoundup;
+           document.getElementById(i+"Installation_Total_Piping").value=document.getElementById(i+"Qty_Piping").value*1*document.getElementById(i+"Installation_Rate_Piping").value;
+
+        }
+///////////
+/////
+        var Bms_TraysData={{TraysDatas | safe}};
+        var Bms_TraysDataInstall={{TraysDatasInstall | safe}};
+///////////
+        for(var i=1;i<=4;i++){
+           console.log("ff");
+           document.getElementById(i+"Cost_Supply_Rate_Bms_Trays").value=document.getElementById(i+"Qty_Bms_Trays").value==("0" || 0) ? 0 : Bms_TraysData[i-1].UnitCostInclusiveofContigency;
+           document.getElementById(i+"Cost_Supply_Total_Bms_Trays").value=document.getElementById(i+"Qty_Bms_Trays").value*1*document.getElementById(i+"Cost_Supply_Rate_Bms_Trays").value;
+           document.getElementById(i+"Cost_Installation_Rate_Bms_Trays").value=document.getElementById(i+"Qty_Bms_Trays").value==("0" || 0) ? 0 : Bms_TraysDataInstall[i-1].UnitCostInclusiveofContigency;
+           document.getElementById(i+"Cost_Installation_Total_Bms_Trays").value=document.getElementById(i+"Qty_Bms_Trays").value*1*document.getElementById(i+"Cost_Installation_Rate_Bms_Trays").value;
+           document.getElementById(i+"MRS_Rate_Bms_Trays").value=document.getElementById(i+"Qty_Bms_Trays").value==("0" || 0) ? 0 : Bms_TraysData[i-1].Unit_Price;
+           document.getElementById(i+"MRS_Total_Bms_Trays").value=document.getElementById(i+"Qty_Bms_Trays").value*1*document.getElementById(i+"MRS_Rate_Bms_Trays").value;
+           document.getElementById(i+"MRI_Rate_Bms_Trays").value=document.getElementById(i+"Qty_Bms_Trays").value==("0" || 0) ? 0 : Bms_TraysDataInstall[i-1].Unit_Price;
+           document.getElementById(i+"MRI_Total_Bms_Trays").value=document.getElementById(i+"Qty_Bms_Trays").value*1*document.getElementById(i+"MRI_Rate_Bms_Trays").value;
+           document.getElementById(i+"Supply_Rate_Bms_Trays").value=document.getElementById(i+"Qty_Bms_Trays").value==("0" || 0) ? 0 : Bms_TraysData[i-1].ListPricewithoutRoundup;
+           document.getElementById(i+"Supply_Total_Bms_Trays").value=document.getElementById(i+"Qty_Bms_Trays").value*1*document.getElementById(i+"Supply_Rate_Bms_Trays").value;
+           document.getElementById(i+"Installation_Rate_Bms_Trays").value=document.getElementById(i+"Qty_Bms_Trays").value==("0" || 0) ? 0 : Bms_TraysDataInstall[i-1].ListPricewithoutRoundup;
+           document.getElementById(i+"Installation_Total_Bms_Trays").value=document.getElementById(i+"Qty_Bms_Trays").value*1*document.getElementById(i+"Installation_Rate_Bms_Trays").value;
+
+        }
+///////////
+
+
+
+
+
+
+
+
+
+
+        </script>
+</body>
+
+</html>

@@ -9,6 +9,14 @@
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <title>Document</title>
     <style>
+        input[type="number"]::-webkit-outer-spin-button, 
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
+}
         .req::after {
             content: '*';
             font-size: 24px;
@@ -55,17 +63,18 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label required class="col-sm-4 col-form-label req">Company Number</label>
-                    <div class="col-sm-8">
-                        <input id="c1" type="number" value=0 required class="form-control" placeholder="Company Number">
-                    </div>
-                </div>
-                <div class="form-group row">
                     <label class="col-sm-4 col-form-label req">Location</label>
                     <div class="col-sm-8">
                         <input id="c2" type="text" class="form-control" placeholder="City Name">
                     </div>
                 </div>
+                <div class="form-group row">
+                    <label required class="col-sm-4 col-form-label req">Company Number</label>
+                    <div class="col-sm-8">
+                        <input id="c1" type="number" onwheel="this.blur()" value=0 required class="form-control" placeholder="Company Number">
+                    </div>
+                </div>
+                
                 <div class="form-group row">
                     <label class="col-sm-4 col-form-label req">Contact Person</label>
                     <div class="col-sm-8">
@@ -79,9 +88,9 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-sm-4 col-form-label">Subject</label>
+                    <label class="col-sm-4 col-form-label">Description</label>
                     <div class="col-sm-8">
-                        <input id="c5" type="text" class="form-control" placeholder="Subject">
+                        <input id="c5" type="text" class="form-control" placeholder="Description">
                     </div>
                 </div>
                 <div class="my-5">
@@ -98,30 +107,35 @@
 
             <div style="display:flex;align-items:center">
                 <div class="hometags" style="width:14.285%">
-                    <button class="btns activebtn" value="1" style="width:100%">General Details</button>
+                    <button class="btns activebtn" id="activebtn1" value="1" style="width:100%">General Details</button>
                 </div>
                 <div class="hometags" style="width:14.285%">
-                    <button class="btns" value="2" style="width:100%">Spazio Solutions Details</button>
+                    <button class="btns " id="activebtn2" value="2" style="width:100%">Spazio Solutions Details</button>
                 </div>
                 <div class="hometags" style="width:14.285%">
-                    <button class="btns" value="3" style="width:100%">Rest Room Solutions Details</button>
+                    <button class="btns " id="activebtn3" value="3" style="width:100%">Rest Room Solutions Details</button>
                 </div>
                 <div class="hometags" style="width:14.285%">
-                    <button class="btns" value="4" style="width:100%">IAQ Solutions Details</button>
+                    <button class="btns " id="activebtn4" value="4" style="width:100%">IAQ Solutions Details</button>
                 </div>
                 <div class="hometags" style="width:14.285%">
-                    <button class="btns" value="5" style="width:100%">Wayfinding</button>
+                    <button class="btns " id="activebtn5" value="5" style="width:100%">Wayfinding</button>
                 </div>
                 <div class="hometags" style="width:14.285%">
-                    <button class="btns" value="6" style="width:100%">Feedback Management</button>
+                    <button class="btns " id="activebtn6" value="6" style="width:100%">Feedback Management</button>
                 </div>
                 <div class="hometags" style="width:14.285%">
-                    <button class="btns" value="7" style="width:100%">Automate</button>
+                    <button class="btns " id="activebtn7" value="7" style="width:100%">Automate</button>
                 </div>
 
             </div>
 
             <div class="shadow p-3 mb-5 rounded" style="width: 800px;margin: 20px auto;padding: 50px;padding-right: 50px;background-color: rgb(241, 241, 241);">
+                
+                <div style="position:fixed;top:150px;right:100px">
+                    <button type="submit" onclick="saveautovalues(event)" class="btn btn-primary">Create Quotation</button>
+                </div>
+
                 <div id="maindivbar1" class="maindivbar">
                     <h4>
                         <p>General Details</p>
@@ -315,8 +329,12 @@
                     </h4>
                     <div class="form-group row">
                         <label class="col" for="exampleFormControlTextarea1">Enter the License Type Required</label>
-                        <input id="auto1" type="number" placeholder="Basic License 
-Permium Licesne" class="form-control col" rows="3"></input>
+                        <select id="auto1" onchange="rilpc()" class="form-control col">
+                            <option selected value="0">Select</option>
+                            <option value="1">Basic License</option>
+                            <option value="2">Permium Licesne</option>
+                        </select>
+                        
                     </div>
                     <div class="form-group row">
                         <label class="col" for="exampleFormControlTextarea1">Enter the Number of Point or KPI
@@ -330,9 +348,8 @@ Permium Licesne" class="form-control col" rows="3"></input>
             </div> 
                 <div style="display:flex;justify-content: center">
                 
-                <button id="but2" type="submit" class="btn btn-primary mx-3 mb-2 prev">Previous</button>
-                <button id="ijk2" type="submit" onclick="saveautovalues(event)"
-                    class="btn btn-primary mx-3 mb-2">Next</button></div>
+                <button id="but2" type="submit" disabled="true" class="btn btn-primary mx-3 mb-2 prev">Previous</button>
+                <button id="ijk2" type="submit" class="btn btn-primary mx-3 mb-2 after">Next</button></div>
         </form>
 
         <form hidden class="shadow p-3 mb-5 rounded"
@@ -495,7 +512,7 @@ Permium Licesne" class="form-control col" rows="3"></input>
         crossorigin="anonymous"></script>
     <script>
         var clientdetails = [{ "id": 1, "details": "Company Name", "quant": 0 }, { "id": 2, "details": "Location", "quant": 0 }, {
-            "id": 3, "details": "Contact Number", "quant": 0
+            "id": 3, "details": "Company Number", "quant": 0
         }, { "id": 4, "details": "E-mail", "quant": 0 }, { "id": 5, "details": "Subject", "quant": 0 }];
         var hardwaredetails = [{ "id": 1, "details": "DB -Spazio Desk Occupancy Sensor with 4 Yearbattery life", "quant": 0 }, { "id": 2, "details": "DB -Spazio Desk Occupancy Sensor with 2 Yearbattery life", "quant": 0 }, {
             "id": 3, "details": "Wireless Sensor Network Range extender", "quant": 0
@@ -506,7 +523,7 @@ Permium Licesne" class="form-control col" rows="3"></input>
         var softwaredetails = [{ "id": 1, "details": "Total Number of Kiosk Licenses", "quant": 0 }, { "id": 2, "details": "Total  Number of Mobile Users", "quant": 0 }, {
             "id": 3, "details": "Total Number of Desk for Space Planning Licenses", "quant": 0
         }, { "id": 4, "details": "Total Number of Space Utilization Licenses", "quant": 0 }, { "id": 5, "details": "Total Number of Desk Booking Licenses", "quant": 0 }, { "id": 6, "details": "Total Number of Meeting Room for Occupancy Licenses", "quant": 0 }, { "id": 7, "details": "Total Number of Meeting Room for People count Licenses", "quant": 0 }, { "id": 8, "details": "Total Number of Meeting Room Booking Licenses", "quant": 0 }, { "id": 9, "details": "> Wayfinding Point of Interest", "quant": 0 }, { "id": 10, "details": "Feedback Point of Interest", "quant": 0 }, { "id": 11, "details": "Restroom License(People Count)", "quant": 0 }, { "id": 12, "details": "", "Restroom License(Wet Floor Detection)quant": 0 }, { "id": 13, "details": "Restroom License(Odour)", "quant": 0 }, { "id": 14, "details": "Total IAQ Points", "quant": 0 }];
-
+        var divchange=1;
         // D3,D4,7=1,10,16,17,18,24,26,28,21,31="auto2",33=d7,47=s14
         function myFunction(e) {
             var id = "s" + e.target.id;
@@ -917,19 +934,45 @@ Permium Licesne" class="form-control col" rows="3"></input>
         document.querySelectorAll('.prev').forEach(item => {
             item.addEventListener('click', event => {
                 event.preventDefault();
-                console.log(typeof (item.id));
-                let abc = (item.id).substr(3, 1);
-                abc = abc - 1;
-                let eleme = 'div' + abc;
-                document.querySelectorAll('.maindiv').forEach(item2 => {
-                    if (item2.id === eleme) {
-                        item2.hidden = false;
+                divchange=divchange-1;
+                document.getElementById("maindivbar"+divchange).hidden=false;
+                document.getElementById("maindivbar"+(divchange+1)).hidden=true;
+                if(divchange==1){
+                    document.getElementById("but2").disabled=true;
+                }
+                else{
+                   document.getElementById("but2").disabled=false;
+                }
+                document.getElementById("ijk2").disabled=false;
+                const boxes = document.querySelectorAll('.btns');
 
-                    }
-                    else {
-                        item2.hidden = true;
-                    }
-                })
+                boxes.forEach(box => {
+                    box.classList.remove('activebtn');
+                });
+                document.getElementById("activebtn"+divchange).classList.add('activebtn');
+                
+
+
+            })
+        })
+        document.querySelectorAll('.after').forEach(item => {
+            item.addEventListener('click', event => {
+                event.preventDefault();
+                divchange=divchange+1;
+                document.getElementById("maindivbar"+divchange).hidden=false;
+                document.getElementById("maindivbar"+(divchange-1)).hidden=true;
+                document.getElementById("but2").disabled=false;
+                if(divchange==7){
+                    document.getElementById("ijk2").disabled=true;
+                }
+                const boxes = document.querySelectorAll('.btns');
+
+                boxes.forEach(box => {
+                    box.classList.remove('activebtn');
+                });
+                document.getElementById("activebtn"+divchange).classList.add('activebtn');
+               
+                
 
 
             })
@@ -938,6 +981,19 @@ Permium Licesne" class="form-control col" rows="3"></input>
             item.addEventListener('click', event => {
                 event.preventDefault();
                 var abc = event.target.value;
+                divchange=parseInt(abc);
+                if(abc==1){
+                    document.getElementById("but2").disabled=true;  
+                }
+                else{
+                  document.getElementById("but2").disabled=false;  
+               }
+                if(abc==7){
+                   document.getElementById("ijk2").disabled=true;
+}
+else{
+document.getElementById("ijk2").disabled=false;
+}
                 var ids = "maindivbar" + abc;
                 document.querySelectorAll('.maindivbar').forEach(item2 => {
                     if (item2.id === ids) {
@@ -955,6 +1011,7 @@ Permium Licesne" class="form-control col" rows="3"></input>
                     box.classList.remove('activebtn');
                 });
                 event.target.classList.add('activebtn');
+               
 
 
             })
@@ -976,18 +1033,18 @@ Permium Licesne" class="form-control col" rows="3"></input>
                     if ((document.getElementById("c6").value).length < 3 ) {
                         alert("Please Enter a Proper Company Name");
                     }
-                    else if ((parseInt(document.getElementById("c1").value) < 1000000000) || (parseInt(document.getElementById("c1").value) > 9999999999)) {
-                        alert("Please Enter a Proper Number");
-                    }
-                    else if ((document.getElementById("c2").value).length < 3) {
-                        alert("Please Enter a Proper Location");
-                    }
-                    else if ((document.getElementById("c3").value).length < 3) {
-                        alert("Please Enter a Proper Name");
-                    }
-                    else if (!validateEmail(document.getElementById("c4").value)) {
-                        alert("Please Enter a Valid Email");
-                    }
+             //       else if ((parseInt(document.getElementById("c1").value) < 1000000000) || (parseInt(document.getElementById("c1").value) > 9999999999)) {
+             //           alert("Please Enter a Proper Number");
+             //       }
+              //      else if ((document.getElementById("c2").value).length < 3) {
+              //          alert("Please Enter a Proper Location");
+              //      }
+              //      else if ((document.getElementById("c3").value).length < 3) {
+             //           alert("Please Enter a Proper Name");
+             //       }
+             //       else if (!validateEmail(document.getElementById("c4").value)) {
+              //          alert("Please Enter a Valid Email");
+            //        }
                     else {
                         document.querySelectorAll('.maindiv').forEach(item2 => {
                             console.log(item2.id);
@@ -1019,6 +1076,7 @@ Permium Licesne" class="form-control col" rows="3"></input>
 
             })
         })
+        
     </script>
 
 </body>

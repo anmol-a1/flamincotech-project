@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
+                integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+                crossorigin="anonymous">
+        <title>Bms_Piping</title>
+        <style>
+                .btns {
+                        border: none;
+                        height: 60px;
+                        cursor: pointer;
+                }
+
+                .btns:hover {
+                        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                }
+
+                .activebtn {
+
+                        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                        border: none;
+                }
+        </style>
+</head>
+<!-- Soft_Items,Bms_Trays,Bms_Piping,Bms_Cabling,Bms_Sensors,Ddc,Ethernet,Fiber,Active,General --> 
+
+<body>
+        {%csrf_token%}
+        <div style="width:100%;background-color: rgb(241, 241, 241);" id="maindivbar2" hidden class="shadow mb-5 rounded maindivbar">
+                <form class="my-1">
+                        <table class="table" style="text-align: center;" border="1">
+                                <tbody>
+                                        {% for entry in Bms_Piping %}
+                                        <tr>
+                                                <td>{{entry.sr_no}}</td>
+                                                <td>{{entry.Make}}</td>
+                                                <td>{{entry.Model}}</td>
+                                                <td>{{entry.Hardware_Items}}</td>
+                                                <th><input onchange="abcd(event)" id="{{entry.sr_no}}Qty_Active"
+                                                                style="width: 55px;border:none" value="{{entry.Qty}}"
+                                                                type="number"></th>
+                                                <th>{{entry.Uom}}</th>
+                                                <th><input id="{{entry.sr_no}}Cost_Supply_Rate_Active"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Supply_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}Cost_Supply_Total_Active"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Supply_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Cost_Installation_Rate_Active"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Installation_Rate}}" type="number">
+                                                </th>
+                                                <th><input id="{{entry.sr_no}}Cost_Installation_Total_Active"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Installation_Total}}" type="number">
+                                                </th>
+                                                <th><input id="{{entry.sr_no}}MRS_Rate_Active"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRS_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRS_Total_Active"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRS_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRI_Rate_Active"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRI_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRI_Total_Active"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRI_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Supply_Rate_Active"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Supply_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Supply_Total_Active"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Supply_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Installation_Rate_Active"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Installation_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Installation_Total_Active"
+                                                                style="width: 55px;border:none"
+                                                           value="{{entry.Installation_Total}}" type="number"></th>
+                                
+                                                </th>
+                                        </tr>
+                                        {% endfor %}
+
+
+
+                                </tbody>
+                        </table>
+
+                </form>
+
+        </div>
+
+
+
+
+
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+                integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
+                integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
+                integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+                crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script>
+
+
+        document.querySelectorAll('.btns').forEach(item => {
+            item.addEventListener('click', event => {
+                event.preventDefault();
+                var abc=event.target.value;
+                var ids="maindivbar"+abc;
+                document.querySelectorAll('.maindivbar').forEach(item2 => {
+                    if (item2.id === ids) {
+                        item2.hidden = false;
+
+                    }
+                    else {
+                        item2.hidden = true;
+                    }
+                })
+
+                const boxes = document.querySelectorAll('.btns');
+
+                boxes.forEach(box => {
+                    box.classList.remove('activebtn');
+                });
+                event.target.classList.add('activebtn');
+
+
+            })
+
+
+        })
+        </script>
+        <script>
+           var data = {{ HardwareGeneral| safe }};
+           console.log(data);
+           var harddetails = JSON.parse(localStorage.getItem('harddetails'));
+           for(var i=2;i<17;i++){
+                if(i==15){
+                    continue;
+                }
+                document.getElementById(i+"Qty_General").value=harddetails[i-2].quant;
+                document.getElementById(i+"Qty_General").readOnly = true;
+
+           }
+        
+        </script>
+
+</body>
+
+</html>
