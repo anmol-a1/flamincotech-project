@@ -11,7 +11,7 @@
     <title>VPSS</title>
     <style>
 .btn {
-  background-color: #107C41;
+  background-color:#20558B;
   border: none;
   color: white;
   padding: 3px 5px;
@@ -25,18 +25,18 @@
 }
 input[type=file]::file-selector-button {
   margin-top: 2px;
-  border: 2px solid #107C41;
+  border: 2px solid #20558B;
   padding: .2em .4em;
   color: white;
   border-radius: .2em;
-  background-color: #107C41;
+  background-color:#20558B;
   transition: 1s;
 }
 
-input[type=file]::file-selector-button:hover {
+/* input[type=file]::file-selector-button:hover {
   background-color: rgb(0, 64, 255);
   border: 2px solid rgb(0, 64, 255);
-}
+} */
 </style>
 </head>
 
@@ -50,6 +50,8 @@ input[type=file]::file-selector-button:hover {
           <button class="btn mx-3"><i class="fa fa-download"></i> Download</button>
         </a>
     </div>
+
+    <h4 style="text-align: center;">IP Variant Sheet</h4> 
 {% comment %} <a class="btnss" href="{% url 'export_hardwareipvariant' %}">
           <span class="links_name">Export Hardware ACtive Data</span>
         </a>
@@ -63,7 +65,7 @@ input[type=file]::file-selector-button:hover {
         <form class="my-1">
             <table class="table" border='1'>
                 <thead>
-                    <tr style="background-color: #107C41;color:white">
+                    <tr style="background-color:#20558B;color:white">
                         <th>Sr No</th>
                         <th>Make/Brand</th>
                         <th>Model</th>
@@ -93,7 +95,7 @@ input[type=file]::file-selector-button:hover {
                 </thead>
                 <tbody>
                     {% for entry in entries %}
-                    <tr style="background-color:#DCDCDC">
+                    <tr style="background-color:white">
                         <td>{{entry.sr_no}}</td>
                         <td>{{entry.MakeBrand}}</td>
                         <td>{{entry.Model}}</td>

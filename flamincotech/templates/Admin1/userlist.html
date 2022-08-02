@@ -19,7 +19,7 @@
         <style>
 
 .btns {
-  background-color: #107C41;
+  background-color: #22508b;
   border: none;
   color: white;
   padding: 3px 5px;
@@ -33,11 +33,11 @@
 }
 input[type=file]::file-selector-button {
   margin-top: 2px;
-  border: 2px solid #107C41;
+  border: 2px solid #22508b;
   padding: .2em .4em;
   color: white;
   border-radius: .2em;
-  background-color: #107C41;
+  background-color: #22508b;
   transition: 1s;
 }
 
@@ -125,7 +125,7 @@ input[type=file]::file-selector-button:hover {
         border='2'
       >
         <thead>
-          <tr style="background-color: #107C41;color:white" >
+          <tr style="background-color: #22508b;color:white" >
             <th scope="col">Name</th>
             <th scope="col">Employee Id</th>
             <th scope="col">Email</th>
@@ -134,7 +134,7 @@ input[type=file]::file-selector-button:hover {
         </thead>
         <tbody id="tbody" border='2'>
           {% for user in users %}
-          <tr id="{{user.user_name}}" style="background-color:#DCDCDC;color:black">
+          <tr id="{{user.user_name}}" style="background-color:white;color:black">
             <td>{{user.first_name}}</td>
             <td>{{user.user_name}}</td>
             <td>{{user.email}}</td>

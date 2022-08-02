@@ -28,7 +28,7 @@
         </style>
             <style>
                 .btn {
-                  background-color: #107C41;
+                  background-color: #20558B;
                   border: none;
                   color: white;
                   padding: 3px 5px;
@@ -42,18 +42,18 @@
                 } */
                 input[type=file]::file-selector-button {
                   margin-top: 2px;
-                  border: 2px solid #107C41;
+                  border: 2px solid #20558B;
                   padding: .2em .4em;
                   color: white;
                   border-radius: .2em;
-                  background-color: #107C41;
+                  background-color: #20558B;
                   transition: 1s;
                 }
                 
-                input[type=file]::file-selector-button:hover {
+                /* input[type=file]::file-selector-button:hover {
                   background-color: rgb(0, 64, 255);
                   border: 2px solid rgb(0, 64, 255);
-                }
+                } */
                 </style>
 </head>
 <!-- Soft_Items,Bms_Trays,Bms_Piping,Bms_Cabling,Bms_Sensors,Ddc,Ethernet,Fiber,Active,General --> 
@@ -98,7 +98,7 @@
         </div>
         <div style="width:100%;background-color: rgb(241, 241, 241);" id="maindivbar1"  class="shadow mb-5 rounded maindivbar">
                 <form class="my-1">
-                        <table class="table" style="text-align: center;" border="1">
+                        <table class="table" border="1" style="border:2px solid rgb(0, 0, 0)">
                                 <!-- <thead>
                     <tr>
                      sr_no
@@ -125,7 +125,7 @@
                     </tr>
                 </thead> -->
                                 <thead>
-                                        <tr>
+                                        <tr style="background-color: #20558B;;color:white">
                                                 <th rowspan="2">
                                                         <!-- <p style="padding-bottom: 10px;">sr_no</p> -->
                                                 Sr_No.
@@ -135,7 +135,7 @@
                                                 <th rowspan="2">Hardware_Items </th>
                                                 <th rowspan="2"> Qty</th>
                                                 <th rowspan="2">Uom</th>
-                                                <th colspan="2"> Cost_Supply</th>
+                                                <th colspan="2"> Cost_Supply</th>                                                                                                                                                                                               
                                                 <th colspan="2"> Cost_Installation</th>
                                                 <th colspan="2"> MRS</th>
                                                 <th colspan="2"> MRI</th>
@@ -146,7 +146,7 @@
                                 </thead>
                                 <tbody>
                                         {% for entry in General %}
-                                        <tr>
+                                        <tr style="background-color:white">
                                                 <td>{{entry.sr_no}}</td>
                                                 <td>{{entry.Make}}</td>
                                                 <td>{{entry.Model}}</td>
