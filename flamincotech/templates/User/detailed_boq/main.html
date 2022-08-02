@@ -35,13 +35,13 @@
                     <button class="btns activebtn" id="activebtn1" value="1" style="width:100%">HARDWARE ITEMS</button>
                 </div>
                 <div class="hometags" style="width:14.285%">
-                    <button class="btns " id="activebtn2" value="2" style="width:100%">Active Components i.e. Server & Switches</button>
+                    <button class="btns " id="activebtn2" value="2" style="width:100%">Active Components</button>
                 </div>
                 <div class="hometags" style="width:14.285%">
-                    <button class="btns " id="activebtn3" value="3" style="width:100%">Fiber Component</button>
+                    <button class="btns " id="activebtn3" value="3" style="width:100%">Fiber Components</button>
                 </div>
                 <div class="hometags" style="width:14.285%">
-                    <button class="btns " id="activebtn4" value="4" style="width:100%">Ethernet Component</button>
+                    <button class="btns " id="activebtn4" value="4" style="width:100%">Ethernet Components</button>
                 </div>
                 <div class="hometags" style="width:14.285%">
                     <button class="btns " id="activebtn5" value="5" style="width:100%">DDC Controllers</button>
@@ -68,13 +68,37 @@
             </div>
         {%csrf_token%}
        <div id="maindivbar1" class="maindivbar">
-        <p>HARDWARE ITEMS<p>
-        <div style="width:100%;background-color: rgb(241, 241, 241);" id="" class="shadow mb-5 rounded">
+        
+        <!-- <p>HARDWARE ITEMS<p> -->
+        <div style="width: 3000px;background-color: rgb(241, 241, 241);" id="" class="shadow mb-5 rounded">
                 <form class="my-1">
                         <table class="table" style="text-align: center;" border="1">
+
                                 <tbody>
+                                        <tr style="background-color: #20558B;;color:white">
+                                                <th rowspan="1">Sr_No.</th>
+                                                <th rowspan="1">Make </th>
+                                                <th rowspan="1"> Model</th>
+                                                <th rowspan="1">Hardware_Items </th>
+                                                <th rowspan="1"> Qty</th>
+                                                <th rowspan="1">Uom</th>
+                                                <th rowspan="1"> Cost_Supply_Rate</th>
+                                                <th rowspan="1"> Cost_Supply_Total</th>
+                                                <th rowspan="1"> Cost_Installation_Rate</th>
+                                                <th rowspan="1"> Cost_Installation_Total</th>
+                                                <th rowspan="1"> MRS_Rate</th>
+                                                <th rowspan="1"> MRS_Total</th>
+                                                <th rowspan="1"> MRI_Rate</th>
+                                                <th rowspan="1"> MRI_Total</th>
+                                                <th rowspan="1"> Supply_Rate</th>
+                                                <th rowspan="1"> Supply_Total</th>
+                                                <th rowspan="1"> Installation_Rate</th>
+                                                <th rowspan="1"> Installation_Total</th>
+                                
+                                        </tr>
+                                        
                                         {% for entry in General %}
-                                        <tr>
+                                        <tr style="background-color:white">
                                                 <td>{{entry.sr_no}}</td>
                                                 <td>{{entry.Make}}</td>
                                                 <td>{{entry.Model}}</td>
@@ -136,13 +160,34 @@
         </div>
         </div>
         <div id="maindivbar2"  class="maindivbar" hidden>
-        <p>Active Components i.e. Server & Switches<p>
+        <!-- <p>Active Components i.e. Server & Switches<p> -->
         <div style="width:100%;background-color: rgb(241, 241, 241);" id="" class="shadow mb-5 rounded">
                 <form class="my-1">
                         <table class="table" style="text-align: center;" border="1">
                                 <tbody>
+                                        <tr style="background-color: #20558B;;color:white">
+                                                <th rowspan="1">Sr_No.</th>
+                                                <th rowspan="1">Make </th>
+                                                <th rowspan="1"> Model</th>
+                                                <th rowspan="1">Hardware_Items </th>
+                                                <th rowspan="1"> Qty</th>
+                                                <th rowspan="1">Uom</th>
+                                                <th rowspan="1"> Cost_Supply_Rate</th>
+                                                <th rowspan="1"> Cost_Supply_Total</th>
+                                                <th rowspan="1"> Cost_Installation_Rate</th>
+                                                <th rowspan="1"> Cost_Installation_Total</th>
+                                                <th rowspan="1"> MRS_Rate</th>
+                                                <th rowspan="1"> MRS_Total</th>
+                                                <th rowspan="1"> MRI_Rate</th>
+                                                <th rowspan="1"> MRI_Total</th>
+                                                <th rowspan="1"> Supply_Rate</th>
+                                                <th rowspan="1"> Supply_Total</th>
+                                                <th rowspan="1"> Installation_Rate</th>
+                                                <th rowspan="1"> Installation_Total</th>
+                                
+                                        </tr>
                                         {% for entry in Active %}
-                                        <tr>
+                                        <tr style="background-color:white">
                                                 <td>{{entry.sr_no}}</td>
                                                 <td>{{entry.Make}}</td>
                                                 <td>{{entry.Model}}</td>
@@ -204,13 +249,34 @@
         </div>
         </div>
         <div id="maindivbar3" hidden class="maindivbar">
-        <p>Fiber Component<p>
+        <!-- <p>Fiber Component<p> -->
         <div style="width:100%;background-color: rgb(241, 241, 241);" id="" class="shadow mb-5 rounded">
                 <form class="my-1">
                         <table class="table" style="text-align: center;" border="1">
                                 <tbody>
+                                        <tr style="background-color: #20558B;;color:white">
+                                                <th rowspan="1">Sr_No.</th>
+                                                <th rowspan="1">Make </th>
+                                                <th rowspan="1"> Model</th>
+                                                <th rowspan="1">Hardware_Items </th>
+                                                <th rowspan="1"> Qty</th>
+                                                <th rowspan="1">Uom</th>
+                                                <th rowspan="1"> Cost_Supply_Rate</th>
+                                                <th rowspan="1"> Cost_Supply_Total</th>
+                                                <th rowspan="1"> Cost_Installation_Rate</th>
+                                                <th rowspan="1"> Cost_Installation_Total</th>
+                                                <th rowspan="1"> MRS_Rate</th>
+                                                <th rowspan="1"> MRS_Total</th>
+                                                <th rowspan="1"> MRI_Rate</th>
+                                                <th rowspan="1"> MRI_Total</th>
+                                                <th rowspan="1"> Supply_Rate</th>
+                                                <th rowspan="1"> Supply_Total</th>
+                                                <th rowspan="1"> Installation_Rate</th>
+                                                <th rowspan="1"> Installation_Total</th>
+                                
+                                        </tr>
                                         {% for entry in Fiber %}
-                                        <tr>
+                                        <tr style="background-color:white">
                                                 <td>{{entry.sr_no}}</td>
                                                 <td>{{entry.Make}}</td>
                                                 <td>{{entry.Model}}</td>
@@ -272,13 +338,34 @@
         </div>
         </div>
         <div id="maindivbar4" hidden class="maindivbar">
-        <p>Ethernet Component<p>
+        <!-- <p>Ethernet Component<p> -->
         <div style="width:100%;background-color: rgb(241, 241, 241);" id="" class="shadow mb-5 rounded">
                 <form class="my-1">
                         <table class="table" style="text-align: center;" border="1">
                                 <tbody>
+                                        <tr style="background-color: #20558B;;color:white">
+                                                <th rowspan="1">Sr_No.</th>
+                                                <th rowspan="1">Make </th>
+                                                <th rowspan="1"> Model</th>
+                                                <th rowspan="1">Hardware_Items </th>
+                                                <th rowspan="1"> Qty</th>
+                                                <th rowspan="1">Uom</th>
+                                                <th rowspan="1"> Cost_Supply_Rate</th>
+                                                <th rowspan="1"> Cost_Supply_Total</th>
+                                                <th rowspan="1"> Cost_Installation_Rate</th>
+                                                <th rowspan="1"> Cost_Installation_Total</th>
+                                                <th rowspan="1"> MRS_Rate</th>
+                                                <th rowspan="1"> MRS_Total</th>
+                                                <th rowspan="1"> MRI_Rate</th>
+                                                <th rowspan="1"> MRI_Total</th>
+                                                <th rowspan="1"> Supply_Rate</th>
+                                                <th rowspan="1"> Supply_Total</th>
+                                                <th rowspan="1"> Installation_Rate</th>
+                                                <th rowspan="1"> Installation_Total</th>
+                                
+                                        </tr>
                                         {% for entry in Ethernet %}
-                                        <tr>
+                                        <tr style="background-color:white">
                                                 <td>{{entry.sr_no}}</td>
                                                 <td>{{entry.Make}}</td>
                                                 <td>{{entry.Model}}</td>
@@ -340,13 +427,34 @@
         </div>
         </div>
         <div id="maindivbar5" hidden class="maindivbar">
-        <p>DDC Controllers<p>
+        <!-- <p>DDC Controllers<p> -->
         <div style="width:100%;background-color: rgb(241, 241, 241);" id="" class="shadow mb-5 rounded">
                 <form class="my-1">
                         <table class="table" style="text-align: center;" border="1">
                                 <tbody>
+                                        <tr style="background-color: #20558B;;color:white">
+                                                <th rowspan="1">Sr_No.</th>
+                                                <th rowspan="1">Make </th>
+                                                <th rowspan="1"> Model</th>
+                                                <th rowspan="1">Hardware_Items </th>
+                                                <th rowspan="1"> Qty</th>
+                                                <th rowspan="1">Uom</th>
+                                                <th rowspan="1"> Cost_Supply_Rate</th>
+                                                <th rowspan="1"> Cost_Supply_Total</th>
+                                                <th rowspan="1"> Cost_Installation_Rate</th>
+                                                <th rowspan="1"> Cost_Installation_Total</th>
+                                                <th rowspan="1"> MRS_Rate</th>
+                                                <th rowspan="1"> MRS_Total</th>
+                                                <th rowspan="1"> MRI_Rate</th>
+                                                <th rowspan="1"> MRI_Total</th>
+                                                <th rowspan="1"> Supply_Rate</th>
+                                                <th rowspan="1"> Supply_Total</th>
+                                                <th rowspan="1"> Installation_Rate</th>
+                                                <th rowspan="1"> Installation_Total</th>
+                                
+                                        </tr>
                                         {% for entry in Ddc %}
-                                        <tr>
+                                        <tr style="background-color:white">
                                                 <td>{{entry.sr_no}}</td>
                                                 <td>{{entry.Make}}</td>
                                                 <td>{{entry.Model}}</td>
@@ -408,13 +516,34 @@
         </div>
         </div>
         <div id="maindivbar6" hidden class="maindivbar">
-        <p>BMS Sensors <p>
+        <!-- <p>BMS Sensors <p> -->
         <div style="width:100%;background-color: rgb(241, 241, 241);" id="" class="shadow mb-5 rounded">
                 <form class="my-1">
                         <table class="table" style="text-align: center;" border="1">
                                 <tbody>
+                                        <tr style="background-color: #20558B;;color:white">
+                                                <th rowspan="1">Sr_No.</th>
+                                                <th rowspan="1">Make </th>
+                                                <th rowspan="1"> Model</th>
+                                                <th rowspan="1">Hardware_Items </th>
+                                                <th rowspan="1"> Qty</th>
+                                                <th rowspan="1">Uom</th>
+                                                <th rowspan="1"> Cost_Supply_Rate</th>
+                                                <th rowspan="1"> Cost_Supply_Total</th>
+                                                <th rowspan="1"> Cost_Installation_Rate</th>
+                                                <th rowspan="1"> Cost_Installation_Total</th>
+                                                <th rowspan="1"> MRS_Rate</th>
+                                                <th rowspan="1"> MRS_Total</th>
+                                                <th rowspan="1"> MRI_Rate</th>
+                                                <th rowspan="1"> MRI_Total</th>
+                                                <th rowspan="1"> Supply_Rate</th>
+                                                <th rowspan="1"> Supply_Total</th>
+                                                <th rowspan="1"> Installation_Rate</th>
+                                                <th rowspan="1"> Installation_Total</th>
+                                
+                                        </tr>
                                         {% for entry in Bms_Sensor %}
-                                        <tr>
+                                        <tr style="background-color:white">
                                                 <td>{{entry.sr_no}}</td>
                                                 <td>{{entry.Make}}</td>
                                                 <td>{{entry.Model}}</td>
@@ -476,13 +605,34 @@
         </div>
         </div>
         <div id="maindivbar7" hidden class="maindivbar">
-        <p>BMS Cabling<p>
+        <!-- <p>BMS Cabling<p> -->
         <div style="width:100%;background-color: rgb(241, 241, 241);" id="" class="shadow mb-5 rounded">
                 <form class="my-1">
                         <table class="table" style="text-align: center;" border="1">
                                 <tbody>
+                                        <tr style="background-color: #20558B;;color:white">
+                                                <th rowspan="1">Sr_No.</th>
+                                                <th rowspan="1">Make </th>
+                                                <th rowspan="1"> Model</th>
+                                                <th rowspan="1">Hardware_Items </th>
+                                                <th rowspan="1"> Qty</th>
+                                                <th rowspan="1">Uom</th>
+                                                <th rowspan="1"> Cost_Supply_Rate</th>
+                                                <th rowspan="1"> Cost_Supply_Total</th>
+                                                <th rowspan="1"> Cost_Installation_Rate</th>
+                                                <th rowspan="1"> Cost_Installation_Total</th>
+                                                <th rowspan="1"> MRS_Rate</th>
+                                                <th rowspan="1"> MRS_Total</th>
+                                                <th rowspan="1"> MRI_Rate</th>
+                                                <th rowspan="1"> MRI_Total</th>
+                                                <th rowspan="1"> Supply_Rate</th>
+                                                <th rowspan="1"> Supply_Total</th>
+                                                <th rowspan="1"> Installation_Rate</th>
+                                                <th rowspan="1"> Installation_Total</th>
+                                
+                                        </tr>
                                         {% for entry in Bms_Cabling %}
-                                        <tr>
+                                        <tr style="background-color:white">
                                                 <td>{{entry.sr_no}}</td>
                                                 <td>{{entry.Make}}</td>
                                                 <td>{{entry.Model}}</td>
@@ -544,13 +694,34 @@
         </div>
         </div>
         <div id="maindivbar8" hidden class="maindivbar">
-        <p>Piping<p>
+        <!-- <p>Piping<p> -->
         <div style="width:100%;background-color: rgb(241, 241, 241);" id="" class="shadow mb-5 rounded">
                 <form class="my-1">
                         <table class="table" style="text-align: center;" border="1">
                                 <tbody>
+                                        <tr style="background-color: #20558B;;color:white">
+                                                <th rowspan="1">Sr_No.</th>
+                                                <th rowspan="1">Make </th>
+                                                <th rowspan="1"> Model</th>
+                                                <th rowspan="1">Hardware_Items </th>
+                                                <th rowspan="1"> Qty</th>
+                                                <th rowspan="1">Uom</th>
+                                                <th rowspan="1"> Cost_Supply_Rate</th>
+                                                <th rowspan="1"> Cost_Supply_Total</th>
+                                                <th rowspan="1"> Cost_Installation_Rate</th>
+                                                <th rowspan="1"> Cost_Installation_Total</th>
+                                                <th rowspan="1"> MRS_Rate</th>
+                                                <th rowspan="1"> MRS_Total</th>
+                                                <th rowspan="1"> MRI_Rate</th>
+                                                <th rowspan="1"> MRI_Total</th>
+                                                <th rowspan="1"> Supply_Rate</th>
+                                                <th rowspan="1"> Supply_Total</th>
+                                                <th rowspan="1"> Installation_Rate</th>
+                                                <th rowspan="1"> Installation_Total</th>
+                                
+                                        </tr>
                                         {% for entry in Bms_Piping %}
-                                        <tr>
+                                        <tr style="background-color:white">
                                                 <td>{{entry.sr_no}}</td>
                                                 <td>{{entry.Make}}</td>
                                                 <td>{{entry.Model}}</td>
@@ -612,13 +783,34 @@
         </div>
         </div>
         <div id="maindivbar9" hidden class="maindivbar">
-        <p>Trays<p>
+        <!-- <p>Trays<p> -->
         <div style="width:100%;background-color: rgb(241, 241, 241);" id="" class="shadow mb-5 rounded">
                 <form class="my-1">
                         <table class="table" style="text-align: center;" border="1">
                                 <tbody>
+                                        <tr style="background-color: #20558B;;color:white">
+                                                <th rowspan="1">Sr_No.</th>
+                                                <th rowspan="1">Make </th>
+                                                <th rowspan="1"> Model</th>
+                                                <th rowspan="1">Hardware_Items </th>
+                                                <th rowspan="1"> Qty</th>
+                                                <th rowspan="1">Uom</th>
+                                                <th rowspan="1"> Cost_Supply_Rate</th>
+                                                <th rowspan="1"> Cost_Supply_Total</th>
+                                                <th rowspan="1"> Cost_Installation_Rate</th>
+                                                <th rowspan="1"> Cost_Installation_Total</th>
+                                                <th rowspan="1"> MRS_Rate</th>
+                                                <th rowspan="1"> MRS_Total</th>
+                                                <th rowspan="1"> MRI_Rate</th>
+                                                <th rowspan="1"> MRI_Total</th>
+                                                <th rowspan="1"> Supply_Rate</th>
+                                                <th rowspan="1"> Supply_Total</th>
+                                                <th rowspan="1"> Installation_Rate</th>
+                                                <th rowspan="1"> Installation_Total</th>
+                                
+                                        </tr>
                                         {% for entry in Bms_Trays %}
-                                        <tr>
+                                        <tr style="background-color:white">
                                                 <td>{{entry.sr_no}}</td>
                                                 <td>{{entry.Make}}</td>
                                                 <td>{{entry.Model}}</td>
@@ -686,7 +878,7 @@
                         <table class="table" style="text-align: center;" border="1">
                                 <tbody>
                                         {% for entry in Third_Party %}
-                                        <tr>
+                                        <tr style="background-color:white">
                                                 <td>{{entry.sr_no}}</td>
                                                 <td>{{entry.Make}}</td>
                                                 <td>{{entry.Model}}</td>
@@ -754,7 +946,7 @@
                         <table class="table" style="text-align: center;" border="1">
                                 <tbody>
                                         {% for entry in Others %}
-                                        <tr>
+                                        <tr style="background-color:white">
                                                 <td>{{entry.sr_no}}</td>
                                                 <td>{{entry.Make}}</td>
                                                 <td>{{entry.Model}}</td>

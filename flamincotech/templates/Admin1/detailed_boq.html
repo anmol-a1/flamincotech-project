@@ -26,6 +26,35 @@
                         border: none;
                 }
         </style>
+            <style>
+                .btn {
+                  background-color: #107C41;
+                  border: none;
+                  color: white;
+                  padding: 3px 5px;
+                  cursor: pointer;
+                  font-size: 18px;
+                }
+                
+                /* Darker background on mouse-over */
+                /* .btn:hover {
+                  background-color: rgb(0, 64, 255);
+                } */
+                input[type=file]::file-selector-button {
+                  margin-top: 2px;
+                  border: 2px solid #107C41;
+                  padding: .2em .4em;
+                  color: white;
+                  border-radius: .2em;
+                  background-color: #107C41;
+                  transition: 1s;
+                }
+                
+                input[type=file]::file-selector-button:hover {
+                  background-color: rgb(0, 64, 255);
+                  border: 2px solid rgb(0, 64, 255);
+                }
+                </style>
 </head>
 <!-- Soft_Items,Bms_Trays,Bms_Piping,Bms_Cabling,Bms_Sensors,Ddc,Ethernet,Fiber,Active,General --> 
 
@@ -34,34 +63,34 @@
         <div class="container">
                 <div style="display:flex;align-items:center">
                         <div class="hometags" style="width:14.285%">
-                                <button class="btns activebtn" value="1" style="width:100%">General</button>
+                                <button class="btn activebtn" value="1" style="width:100%">General</button>
                         </div>
                         <div class="hometags" style="width:14.285%">
-                                <button class="btns" value="2" style="width:100%">Active</button>
+                                <button class="bt" value="2" style="width:100%">Active</button>
                         </div>
                         <div class="hometags" style="width:14.285%">
-                                <button class="btns" value="3" style="width:100%">Fiber</button>
+                                <button class="btn" value="3" style="width:100%">Fiber</button>
                         </div>
                         <div class="hometags" style="width:14.285%">
-                                <button class="btns" value="4" style="width:100%">Ethernet</button>
+                                <button class="btn" value="4" style="width:100%">Ethernet</button>
                         </div>
                         <div class="hometags" style="width:14.285%">
-                                <button class="btns" value="5" style="width:100%">Ddc</button>
+                                <button class="btn" value="5" style="width:100%">Ddc</button>
                         </div>
                         <div class="hometags" style="width:14.285%">
-                                <button class="btns" value="6" style="width:100%">Bms_Sensors</button>
+                                <button class="btn" value="6" style="width:100%">Bms_Sensors</button>
                         </div>
                         <div class="hometags" style="width:14.285%">
-                                <button class="btns" value="7" style="width:100%">Bms_Cabling</button>
+                                <button class="btn" value="7" style="width:100%">Bms_Cabling</button>
                         </div>
                         <div class="hometags" style="width:14.285%">
-                                <button class="btns" value="8" style="width:100%">Bms_Piping</button>
+                                <button class="btn" value="8" style="width:100%">Bms_Piping</button>
                         </div>
                         <div class="hometags" style="width:14.285%">
-                                <button class="btns" value="9" style="width:100%">Bms_Trays</button>
+                                <button class="btn" value="9" style="width:100%">Bms_Trays</button>
                         </div>
                         <div class="hometags" style="width:14.285%">
-                                <button class="btns" value="10" style="width:100%">Soft_Items</button>
+                                <button class="btn" value="10" style="width:100%">Soft_Items</button>
                         </div>
 
                 </div>
@@ -979,7 +1008,7 @@
         <script>
 
 
-        document.querySelectorAll('.btns').forEach(item => {
+        document.querySelectorAll('.btn').forEach(item => {
             item.addEventListener('click', event => {
                 event.preventDefault();
                 var abc=event.target.value;
@@ -994,7 +1023,7 @@
                     }
                 })
 
-                const boxes = document.querySelectorAll('.btns');
+                const boxes = document.querySelectorAll('.btn');
 
                 boxes.forEach(box => {
                     box.classList.remove('activebtn');
