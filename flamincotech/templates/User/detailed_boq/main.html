@@ -30,9 +30,46 @@
 <!-- Soft_Items,Bms_Trays,Bms_Piping,Bms_Cabling,Bms_Sensors,Ddc,Ethernet,Fiber,Active,General --> 
 
 <body>
+        <div style="display:flex;align-items:center">
+                <div class="hometags" style="width:14.285%">
+                    <button class="btns activebtn" id="activebtn1" value="1" style="width:100%">HARDWARE ITEMS</button>
+                </div>
+                <div class="hometags" style="width:14.285%">
+                    <button class="btns " id="activebtn2" value="2" style="width:100%">Active Components i.e. Server & Switches</button>
+                </div>
+                <div class="hometags" style="width:14.285%">
+                    <button class="btns " id="activebtn3" value="3" style="width:100%">Fiber Component</button>
+                </div>
+                <div class="hometags" style="width:14.285%">
+                    <button class="btns " id="activebtn4" value="4" style="width:100%">Ethernet Component</button>
+                </div>
+                <div class="hometags" style="width:14.285%">
+                    <button class="btns " id="activebtn5" value="5" style="width:100%">DDC Controllers</button>
+                </div>
+                <div class="hometags" style="width:14.285%">
+                    <button class="btns " id="activebtn6" value="6" style="width:100%">BMS Sensors</button>
+                </div>
+                <div class="hometags" style="width:14.285%">
+                    <button class="btns " id="activebtn7" value="7" style="width:100%">BMS Cabling</button>
+                </div>
+                <div class="hometags" style="width:14.285%">
+                    <button class="btns " id="activebtn8" value="8" style="width:100%">Piping</button>
+                </div>
+                <div class="hometags" style="width:14.285%">
+                    <button class="btns " id="activebtn9" value="9" style="width:100%">Trays</button>
+                </div>
+                <div class="hometags" style="width:14.285%">
+                    <button class="btns " id="activebtn10" value="10" style="width:100%">Third Party</button>
+                </div>
+                <div class="hometags" style="width:14.285%">
+                    <button class="btns " id="activebtn11" value="11" style="width:100%">Others</button>
+                </div>
+
+            </div>
         {%csrf_token%}
+       <div id="maindivbar1" class="maindivbar">
         <p>HARDWARE ITEMS<p>
-        <div style="width:100%;background-color: rgb(241, 241, 241);" id="" class="shadow mb-5 rounded maindivbar">
+        <div style="width:100%;background-color: rgb(241, 241, 241);" id="" class="shadow mb-5 rounded">
                 <form class="my-1">
                         <table class="table" style="text-align: center;" border="1">
                                 <tbody>
@@ -42,7 +79,7 @@
                                                 <td>{{entry.Make}}</td>
                                                 <td>{{entry.Model}}</td>
                                                 <td>{{entry.Hardware_Items}}</td>
-                                                <th><input  id="{{entry.sr_no}}Qty_General"
+                                                <th><input onclick="generalchange()" id="{{entry.sr_no}}Qty_General"
                                                                 style="width: 55px;border:none" value="{{entry.Qty}}"
                                                                 type="number"></th>
                                                 <th>{{entry.Uom}}</th>
@@ -97,8 +134,10 @@
                 </form>
 
         </div>
+        </div>
+        <div id="maindivbar2"  class="maindivbar" hidden>
         <p>Active Components i.e. Server & Switches<p>
-        <div style="width:100%;background-color: rgb(241, 241, 241);" id="" class="shadow mb-5 rounded maindivbar">
+        <div style="width:100%;background-color: rgb(241, 241, 241);" id="" class="shadow mb-5 rounded">
                 <form class="my-1">
                         <table class="table" style="text-align: center;" border="1">
                                 <tbody>
@@ -108,7 +147,7 @@
                                                 <td>{{entry.Make}}</td>
                                                 <td>{{entry.Model}}</td>
                                                 <td>{{entry.Hardware_Items}}</td>
-                                                <th><input onchange="abcd(event)" id="{{entry.sr_no}}Qty_Active"
+                                                <th><input onchange="activechange()" id="{{entry.sr_no}}Qty_Active"
                                                                 style="width: 55px;border:none" value="{{entry.Qty}}"
                                                                 type="number"></th>
                                                 <th>{{entry.Uom}}</th>
@@ -163,8 +202,10 @@
                 </form>
 
         </div>
+        </div>
+        <div id="maindivbar3" hidden class="maindivbar">
         <p>Fiber Component<p>
-        <div style="width:100%;background-color: rgb(241, 241, 241);" id="" class="shadow mb-5 rounded maindivbar">
+        <div style="width:100%;background-color: rgb(241, 241, 241);" id="" class="shadow mb-5 rounded">
                 <form class="my-1">
                         <table class="table" style="text-align: center;" border="1">
                                 <tbody>
@@ -174,7 +215,7 @@
                                                 <td>{{entry.Make}}</td>
                                                 <td>{{entry.Model}}</td>
                                                 <td>{{entry.Hardware_Items}}</td>
-                                                <th><input onchange="abcd(event)" id="{{entry.sr_no}}Qty_Fiber"
+                                                <th><input onchange="fiberchange()" id="{{entry.sr_no}}Qty_Fiber"
                                                                 style="width: 55px;border:none" value="{{entry.Qty}}"
                                                                 type="number"></th>
                                                 <th>{{entry.Uom}}</th>
@@ -229,8 +270,10 @@
                 </form>
 
         </div>
+        </div>
+        <div id="maindivbar4" hidden class="maindivbar">
         <p>Ethernet Component<p>
-        <div style="width:100%;background-color: rgb(241, 241, 241);" id="" class="shadow mb-5 rounded maindivbar">
+        <div style="width:100%;background-color: rgb(241, 241, 241);" id="" class="shadow mb-5 rounded">
                 <form class="my-1">
                         <table class="table" style="text-align: center;" border="1">
                                 <tbody>
@@ -240,7 +283,7 @@
                                                 <td>{{entry.Make}}</td>
                                                 <td>{{entry.Model}}</td>
                                                 <td>{{entry.Hardware_Items}}</td>
-                                                <th><input onchange="abcd(event)" id="{{entry.sr_no}}Qty_Ethernet"
+                                                <th><input onchange="ethernetchange()" id="{{entry.sr_no}}Qty_Ethernet"
                                                                 style="width: 55px;border:none" value="{{entry.Qty}}"
                                                                 type="number"></th>
                                                 <th>{{entry.Uom}}</th>
@@ -295,8 +338,10 @@
                 </form>
 
         </div>
+        </div>
+        <div id="maindivbar5" hidden class="maindivbar">
         <p>DDC Controllers<p>
-        <div style="width:100%;background-color: rgb(241, 241, 241);" id="" class="shadow mb-5 rounded maindivbar">
+        <div style="width:100%;background-color: rgb(241, 241, 241);" id="" class="shadow mb-5 rounded">
                 <form class="my-1">
                         <table class="table" style="text-align: center;" border="1">
                                 <tbody>
@@ -306,7 +351,7 @@
                                                 <td>{{entry.Make}}</td>
                                                 <td>{{entry.Model}}</td>
                                                 <td>{{entry.Hardware_Items}}</td>
-                                                <th><input onchange="abcd(event)" id="{{entry.sr_no}}Qty_Ddc"
+                                                <th><input onchange="ddcchange()" id="{{entry.sr_no}}Qty_Ddc"
                                                                 style="width: 55px;border:none" value="{{entry.Qty}}"
                                                                 type="number"></th>
                                                 <th>{{entry.Uom}}</th>
@@ -361,8 +406,10 @@
                 </form>
 
         </div>
+        </div>
+        <div id="maindivbar6" hidden class="maindivbar">
         <p>BMS Sensors <p>
-        <div style="width:100%;background-color: rgb(241, 241, 241);" id="" class="shadow mb-5 rounded maindivbar">
+        <div style="width:100%;background-color: rgb(241, 241, 241);" id="" class="shadow mb-5 rounded">
                 <form class="my-1">
                         <table class="table" style="text-align: center;" border="1">
                                 <tbody>
@@ -372,7 +419,7 @@
                                                 <td>{{entry.Make}}</td>
                                                 <td>{{entry.Model}}</td>
                                                 <td>{{entry.Hardware_Items}}</td>
-                                                <th><input onchange="abcd(event)" id="{{entry.sr_no}}Qty_Bms_Sensor"
+                                                <th><input onchange="bms_sensorchange()" id="{{entry.sr_no}}Qty_Bms_Sensor"
                                                                 style="width: 55px;border:none" value="{{entry.Qty}}"
                                                                 type="number"></th>
                                                 <th>{{entry.Uom}}</th>
@@ -427,8 +474,10 @@
                 </form>
 
         </div>
+        </div>
+        <div id="maindivbar7" hidden class="maindivbar">
         <p>BMS Cabling<p>
-        <div style="width:100%;background-color: rgb(241, 241, 241);" id="" class="shadow mb-5 rounded maindivbar">
+        <div style="width:100%;background-color: rgb(241, 241, 241);" id="" class="shadow mb-5 rounded">
                 <form class="my-1">
                         <table class="table" style="text-align: center;" border="1">
                                 <tbody>
@@ -438,7 +487,7 @@
                                                 <td>{{entry.Make}}</td>
                                                 <td>{{entry.Model}}</td>
                                                 <td>{{entry.Hardware_Items}}</td>
-                                                <th><input onchange="abcd(event)" id="{{entry.sr_no}}Qty_Bms_Cabling"
+                                                <th><input onchange="cablingchange()" id="{{entry.sr_no}}Qty_Bms_Cabling"
                                                                 style="width: 55px;border:none" value="{{entry.Qty}}"
                                                                 type="number"></th>
                                                 <th>{{entry.Uom}}</th>
@@ -493,8 +542,10 @@
                 </form>
 
         </div>
+        </div>
+        <div id="maindivbar8" hidden class="maindivbar">
         <p>Piping<p>
-        <div style="width:100%;background-color: rgb(241, 241, 241);" id="" class="shadow mb-5 rounded maindivbar">
+        <div style="width:100%;background-color: rgb(241, 241, 241);" id="" class="shadow mb-5 rounded">
                 <form class="my-1">
                         <table class="table" style="text-align: center;" border="1">
                                 <tbody>
@@ -504,7 +555,7 @@
                                                 <td>{{entry.Make}}</td>
                                                 <td>{{entry.Model}}</td>
                                                 <td>{{entry.Hardware_Items}}</td>
-                                                <th><input onchange="abcd(event)" id="{{entry.sr_no}}Qty_Piping"
+                                                <th><input onchange="pipingchange()" id="{{entry.sr_no}}Qty_Piping"
                                                                 style="width: 55px;border:none" value="{{entry.Qty}}"
                                                                 type="number"></th>
                                                 <th>{{entry.Uom}}</th>
@@ -559,8 +610,10 @@
                 </form>
 
         </div>
+        </div>
+        <div id="maindivbar9" hidden class="maindivbar">
         <p>Trays<p>
-        <div style="width:100%;background-color: rgb(241, 241, 241);" id="" class="shadow mb-5 rounded maindivbar">
+        <div style="width:100%;background-color: rgb(241, 241, 241);" id="" class="shadow mb-5 rounded">
                 <form class="my-1">
                         <table class="table" style="text-align: center;" border="1">
                                 <tbody>
@@ -570,7 +623,7 @@
                                                 <td>{{entry.Make}}</td>
                                                 <td>{{entry.Model}}</td>
                                                 <td>{{entry.Hardware_Items}}</td>
-                                                <th><input onchange="abcd(event)" id="{{entry.sr_no}}Qty_Bms_Trays"
+                                                <th><input onchange="bms_trayschange()" id="{{entry.sr_no}}Qty_Bms_Trays"
                                                                 style="width: 55px;border:none" value="{{entry.Qty}}"
                                                                 type="number"></th>
                                                 <th>{{entry.Uom}}</th>
@@ -625,8 +678,10 @@
                 </form>
 
         </div>
+        </div>
+        <div id="maindivbar10" hidden class="maindivbar">
         <p>HARDWARE ITEMS<p>
-        <div style="width:100%;background-color: rgb(241, 241, 241);" id="" class="shadow mb-5 rounded maindivbar">
+        <div style="width:100%;background-color: rgb(241, 241, 241);" id="" class="shadow mb-5 rounded">
                 <form class="my-1">
                         <table class="table" style="text-align: center;" border="1">
                                 <tbody>
@@ -691,8 +746,10 @@
                 </form>
 
         </div>
+        </div>
+        <div id="maindivbar11" hidden class="maindivbar">
         <p>HARDWARE ITEMS<p>
-        <div style="width:100%;background-color: rgb(241, 241, 241);" id="" class="shadow mb-5 rounded maindivbar">
+        <div style="width:100%;background-color: rgb(241, 241, 241);" id="" class="shadow mb-5 rounded">
                 <form class="my-1">
                         <table class="table" style="text-align: center;" border="1">
                                 <tbody>
@@ -751,6 +808,9 @@
                         </table>
                 </form>
         </div>
+        </div>
+        <button id="but2" type="submit" disabled="true" class="btn btn-primary mx-3 mb-2 prev">Previous</button>
+        <button id="ijk2" type="submit" class="btn btn-primary mx-3 mb-2 after">Next</button></div>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
                 integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
                 crossorigin="anonymous"></script>
@@ -776,6 +836,7 @@
         var ActiveData={{HardWareActives | safe}};
         console.log(HardGenData);
         console.log(General_Data);
+        function generalchange(){
         document.getElementById("1Cost_Supply_Rate_General").value=document.getElementById("1Qty_General").value==("0" || 0) ? 0 : General_Data[2].UnitCostInclusiveofContigency;
         document.getElementById("2Cost_Supply_Rate_General").value=document.getElementById("2Qty_General").value==("0" || 0) ? 0 : General_Data[3].UnitCostInclusiveofContigency;
         document.getElementById("3Cost_Supply_Rate_General").value=document.getElementById("3Qty_General").value==("0" || 0) ? 0 : General_Data[4].UnitCostInclusiveofContigency;
@@ -1138,10 +1199,13 @@
            document.getElementById(i+"Supply_Total_General").value=document.getElementById(i+"Qty_General").value*1*document.getElementById(i+"Supply_Rate_General").value;
 
         }
+}
+        generalchange();
 /////
         var ActiveData={{HardWareActives | safe}};
         var ActiveInstall={{HardWareActivesInstall | safe}};
 ///////////
+        function activechange(){
         for(var i=1;i<=18;i++){
            document.getElementById(i+"Cost_Supply_Rate_Active").value=document.getElementById(i+"Qty_Active").value==("0" || 0) ? 0 : ActiveData[i-1].UnitCostInclusiveofContigency;
            document.getElementById(i+"Cost_Supply_Total_Active").value=document.getElementById(i+"Qty_Active").value*1*document.getElementById(i+"Cost_Supply_Rate_Active").value;
@@ -1158,11 +1222,14 @@ document.getElementById(i+"Cost_Installation_Rate_Active").value=document.getEle
            document.getElementById(i+"Installation_Total_Active").value=document.getElementById(i+"Qty_Active").value*1*document.getElementById(i+"Installation_Rate_Active").value;
 
         }
+}
+        activechange();
 ///////////
 /////
         var FiberData={{ PassiveDatas| safe}};
         var FiberDataInstall={{PassiveDatasInstall | safe}};
 ///////////
+        function fiberchange(){
         for(var i=1;i<=12;i++){
            document.getElementById(i+"Cost_Supply_Rate_Fiber").value=document.getElementById(i+"Qty_Fiber").value==("0" || 0) ? 0 : FiberData[i-1].UnitCostInclusiveofContigency;
            document.getElementById(i+"Cost_Supply_Total_Fiber").value=document.getElementById(i+"Qty_Fiber").value*1*document.getElementById(i+"Cost_Supply_Rate_Fiber").value;
@@ -1178,12 +1245,15 @@ document.getElementById(i+"Cost_Installation_Rate_Active").value=document.getEle
            document.getElementById(i+"Installation_Total_Fiber").value=document.getElementById(i+"Qty_Fiber").value*1*document.getElementById(i+"Installation_Rate_Fiber").value;
 
         }
+}
+fiberchange();
 ///////////
 ///////////
 /////
         var EthernetData={{EthernetDatas | safe}};
         var EthernetDataInstall={{EthernetDatasInstall | safe}};
 ///////////
+        function ethernetchange(){
         for(var i=1;i<=24;i++){
            console.log("ff");
            document.getElementById(i+"Cost_Supply_Rate_Ethernet").value=document.getElementById(i+"Qty_Ethernet").value==("0" || 0) ? 0 : EthernetData[i-1].UnitCostInclusiveofContigency;
@@ -1200,12 +1270,15 @@ document.getElementById(i+"Cost_Installation_Rate_Active").value=document.getEle
            document.getElementById(i+"Installation_Total_Ethernet").value=document.getElementById(i+"Qty_Ethernet").value*1*document.getElementById(i+"Installation_Rate_Ethernet").value;
 
         }
+}
+        ethernetchange();
 ///////////
 ///////////
 /////
         var DdcData={{DdcDatas | safe}};
         var DdcDataInstall={{DdcDatasInstall | safe}};
 ///////////
+        function ddcchange(){
         for(var i=1;i<=19;i++){
            console.log("ff");
            document.getElementById(i+"Cost_Supply_Rate_Ddc").value=document.getElementById(i+"Qty_Ddc").value==("0" || 0) ? 0 : DdcData[i-1].UnitCostInclusiveofContigency;
@@ -1221,13 +1294,15 @@ document.getElementById(i+"Cost_Installation_Rate_Active").value=document.getEle
            document.getElementById(i+"Installation_Rate_Ddc").value=document.getElementById(i+"Qty_Ddc").value==("0" || 0) ? 0 : DdcDataInstall[i-1].ListPricewithoutRoundup;
            document.getElementById(i+"Installation_Total_Ddc").value=document.getElementById(i+"Qty_Ddc").value*1*document.getElementById(i+"Installation_Rate_Ddc").value;
 
-        }
+        }}
+       ddcchange();
 ///////////
 ///////////
 /////
         var Bms_SensorData={{BmsSensorsDatas | safe}};
         var Bms_SensorDataInstall={{BmsSensorsDatasInstall | safe}};
 ///////////
+        function bms_sensorchange(){
         for(var i=1;i<=13;i++){
            console.log("ff");
            document.getElementById(i+"Cost_Supply_Rate_Bms_Sensor").value=document.getElementById(i+"Qty_Bms_Sensor").value==("0" || 0) ? 0 : Bms_SensorData[i-1].UnitCostInclusiveofContigency;
@@ -1244,12 +1319,15 @@ document.getElementById(i+"Cost_Installation_Rate_Active").value=document.getEle
            document.getElementById(i+"Installation_Total_Bms_Sensor").value=document.getElementById(i+"Qty_Bms_Sensor").value*1*document.getElementById(i+"Installation_Rate_Bms_Sensor").value;
 
         }
+}
+        bms_sensorchange();
 ///////////
 ///////////
 /////
         var Bms_CablingData={{BmsScablingDatas | safe}};
         var Bms_CablingDataInstall={{BmsScablingDatasInstall | safe}};
 ///////////
+        function cablingchange(){
         for(var i=1;i<=14;i++){
            console.log("ff");
            document.getElementById(i+"Cost_Supply_Rate_Bms_Cabling").value=document.getElementById(i+"Qty_Bms_Cabling").value==("0" || 0) ? 0 : Bms_CablingData[i-1].UnitCostInclusiveofContigency;
@@ -1266,11 +1344,14 @@ document.getElementById(i+"Cost_Installation_Rate_Active").value=document.getEle
            document.getElementById(i+"Installation_Total_Bms_Cabling").value=document.getElementById(i+"Qty_Bms_Cabling").value*1*document.getElementById(i+"Installation_Rate_Bms_Cabling").value;
 
         }
+}
+        cablingchange();
 ///////////
 /////
         var PipingData={{PipingDatas | safe}};
         var PipingDataInstall={{PipingDatasInstall | safe}};
 ///////////
+        function pipingchange(){
         for(var i=1;i<=9;i++){
            console.log("ff");
            document.getElementById(i+"Cost_Supply_Rate_Piping").value=document.getElementById(i+"Qty_Piping").value==("0" || 0) ? 0 : PipingData[i-1].UnitCostInclusiveofContigency;
@@ -1287,11 +1368,14 @@ document.getElementById(i+"Cost_Installation_Rate_Active").value=document.getEle
            document.getElementById(i+"Installation_Total_Piping").value=document.getElementById(i+"Qty_Piping").value*1*document.getElementById(i+"Installation_Rate_Piping").value;
 
         }
+}
+        pipingchange();
 ///////////
 /////
         var Bms_TraysData={{TraysDatas | safe}};
         var Bms_TraysDataInstall={{TraysDatasInstall | safe}};
 ///////////
+        function bms_trayschange(){
         for(var i=1;i<=4;i++){
            console.log("ff");
            document.getElementById(i+"Cost_Supply_Rate_Bms_Trays").value=document.getElementById(i+"Qty_Bms_Trays").value==("0" || 0) ? 0 : Bms_TraysData[i-1].UnitCostInclusiveofContigency;
@@ -1308,9 +1392,103 @@ document.getElementById(i+"Cost_Installation_Rate_Active").value=document.getEle
            document.getElementById(i+"Installation_Total_Bms_Trays").value=document.getElementById(i+"Qty_Bms_Trays").value*1*document.getElementById(i+"Installation_Rate_Bms_Trays").value;
 
         }
+}
+        bms_trayschange();
+        var abc=1;
 ///////////
+        
+        document.querySelectorAll('.btns').forEach(item => {
+            item.addEventListener('click', event => {
+                event.preventDefault();
+                var temp = event.target.value;
+                divchange=parseInt(temp);
+                abc=divchange;
+                if(abc==1){
+                    document.getElementById("but2").disabled=true;  
+                }
+                else{
+                  document.getElementById("but2").disabled=false;  
+               }
+                if(abc==11){
+                   document.getElementById("ijk2").disabled=true;
+                }
+                else{
+                    document.getElementById("ijk2").disabled=false;
+                }
+                var ids = "maindivbar" + abc;
+                document.querySelectorAll('.maindivbar').forEach(item2 => {
+                    if (item2.id === ids) {
+                        item2.hidden = false;
+
+                    }
+                    else {
+                        item2.hidden = true;
+                    }
+                })
+
+                const boxes = document.querySelectorAll('.btns');
+
+                boxes.forEach(box => {
+                    box.classList.remove('activebtn');
+                });
+                event.target.classList.add('activebtn');
+               
 
 
+            })
+
+
+        })
+
+
+        document.querySelectorAll('.prev').forEach(item => {
+            item.addEventListener('click', event => {
+                event.preventDefault();
+                divchange=abc-1;
+                abc=abc-1;
+                document.getElementById("maindivbar"+divchange).hidden=false;
+                document.getElementById("maindivbar"+(divchange+1)).hidden=true;
+                if(divchange==1){
+                    document.getElementById("but2").disabled=true;
+                }
+                else{
+                   document.getElementById("but2").disabled=false;
+                }
+                document.getElementById("ijk2").disabled=false;
+                const boxes = document.querySelectorAll('.btns');
+
+                boxes.forEach(box => {
+                    box.classList.remove('activebtn');
+                });
+                document.getElementById("activebtn"+divchange).classList.add('activebtn');
+                
+
+
+            })
+        })
+        document.querySelectorAll('.after').forEach(item => {
+            item.addEventListener('click', event => {
+                event.preventDefault();
+                divchange=abc+1;
+                abc=abc+1;
+                document.getElementById("maindivbar"+divchange).hidden=false;
+                document.getElementById("maindivbar"+(divchange-1)).hidden=true;
+                document.getElementById("but2").disabled=false;
+                if(divchange==11){
+                    document.getElementById("ijk2").disabled=true;
+                }
+                const boxes = document.querySelectorAll('.btns');
+
+                boxes.forEach(box => {
+                    box.classList.remove('activebtn');
+                });
+                document.getElementById("activebtn"+divchange).classList.add('activebtn');
+               
+                
+
+
+            })
+        })
 
 
 
