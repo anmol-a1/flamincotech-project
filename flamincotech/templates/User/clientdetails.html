@@ -42,10 +42,55 @@ input[type="number"] {
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
             border: none;
         }
+        .navbar .nav-item a{
+          font-size: 17px;
+  
+        }
     </style>
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <!-- <a
+          class="navbar-brand"
+          href="https://www.flamencotech.com/"
+          target="_blank"
+          >FlamencoTech</a
+        > -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+  
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="navbar-brand" href="https://www.flamencotech.com/" target="_blank" style="display: flex;align-items: center;
+              padding: 5px;">
+               <img src="/static/f1.png" alt="" width="250" height="60" style="position:relative;top:-10px">
+            </a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link text-primary" href="/admins/"
+                >Home<span class="sr-only">(current)</span></a
+              >
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            
+              <a href="{% url 'signup' %}" class="btn btn-outline-danger my-2 my-sm-0" type="submit">
+                Logout
+              </a>
+          </form>
+        </div>
+      </nav> 
     <div hidden id="alertdiv" class="alert alert-danger alert-dismissible fade show" role="alert">
         <strong id="alertmsg"></strong>
     </div>
@@ -69,18 +114,19 @@ input[type="number"] {
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label required class="col-sm-4 col-form-label req">Company Number</label>
-                    <div class="col-sm-8">
-                        <input id="c1" type="number" onwheel="this.blur()" value=0 required class="form-control" placeholder="Company Number">
-                    </div>
-                </div>
-                
-                <div class="form-group row">
                     <label class="col-sm-4 col-form-label req">Contact Person</label>
                     <div class="col-sm-8">
                         <input id="c3" type="text" class="form-control" placeholder="Contact Person">
                     </div>
                 </div>
+                <div class="form-group row">
+                    <label required class="col-sm-4 col-form-label req">Contact Number</label>
+                    <div class="col-sm-8">
+                        <input id="c1" type="number" onwheel="this.blur()" value=0 required class="form-control" placeholder="Company Number">
+                    </div>
+                </div>
+                
+                
                 <div class="form-group row">
                     <label class="col-sm-4 col-form-label req">E-mail</label>
                     <div class="col-sm-8">

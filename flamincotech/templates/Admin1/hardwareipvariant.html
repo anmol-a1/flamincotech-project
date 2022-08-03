@@ -20,9 +20,9 @@
 }
 
 /* Darker background on mouse-over */
-.btn:hover {
+/* .btn:hover {
   background-color: rgb(0, 64, 255);
-}
+} */
 input[type=file]::file-selector-button {
   margin-top: 2px;
   border: 2px solid #20558B;
@@ -44,7 +44,7 @@ input[type=file]::file-selector-button {
 <div style="display:flex;align-items:flex-end" >
     <form  action="/admins/hardwareipvariantimport/" style="display:flex;align-items:flex-end" class="mx-3"  method="post" enctype="multipart/form-data">{% csrf_token %}
             <div style="display:inline-block"><input type="file" style="color: blue;" accept=".xls" required name="bookfile" id=""></div>
-            <button type="submit" class="btn"><i class="fa fa-paper-plane"></i>Submit</button>
+            <button type="submit" class="btn"><i class=""></i>Upload</button>
     </form>
     <a style="margin-left:auto ;" class="btnss" href="{% url 'export_hardwareipvariant' %}">
           <button class="btn mx-3"><i class="fa fa-download"></i> Download</button>
@@ -72,25 +72,25 @@ input[type=file]::file-selector-button {
                         <th>Installation Equipments</th>
                         <th>Unit Description</th>
                         <th>Qty</th>
-                        <th>Input Price </th>
-                        <th>Discount</th>
-                        <th>Discounted Price</th>
-                        <th>Freight</th>
-                        <th>Input Cost Inclusive of freight</th>
-                        <th>Interest or COM</th>
+                        <th>Input Price (₹)</th>
+                        <th>Discount (In%)</th>
+                        <th>Discounted Price (₹)</th>
+                        <th>Freight (In%)</th>
+                        <th>Input Cost Inclusive of freight (₹)</th>
+                        <th>Interest or COM (In%)</th>
                         <th>Unit Cost (₹)</th>
-                        <th>Inward Tax</th>
-                        <th>Unit Cost Inclusive of Risk</th>
-                        <th>Contigency Percentage</th>
-                        <th>Unit Cost Inclusive of Contigency</th>
-                        <th>Margin</th>
-                        <th>Unit Margin</th>
-                        <th>Warranty Charges</th>
+                        <th>Inward Tax (In%)</th>
+                        <th>Unit Cost Inclusive of Risk (₹)</th>
+                        <th>Contigency Percentage (In%)</th>
+                        <th>Unit Cost Inclusive of Contigency (₹)</th>
+                        <th>Margin (In%)</th>
                         <th>Unit Price (₹)</th>
-                        <th>Insurance Charges </th>
-                        <th>List Price without Round up </th>
-                        <th>List Price with Rounded up </th>
-                        <th><br></th>
+                        <th>Warranty Charges (In%)</th>
+                        <th>Unit Price (₹)</th>
+                        <th>Insurance Charges (In%)</th>
+                        <th>List Price without Round up (₹)</th>
+                        <th>List Price with Rounded up (₹)</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -298,10 +298,12 @@ function abcd(e){
                 },
                 success: function (json) {
                    console.log(json.adg);
+                   window.alert(" Changes Save Successfully");
         
             
                 },
                 error: function (xhr, errmsg, err) {
+                    window.alert(" Changes Could not Save Successfully");
             
                 }
             });

@@ -17,19 +17,23 @@
             margin-left: 10px;
             color: red;
             margin-top: 5px;
-        }    
+        }  
+        .navbar .nav-item a{
+          font-size: 17px;
+  
+        }  
    </style>
 </head>
 
 <body>
     {% load widget_tweaks %}
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a
+      <!-- <a
         class="navbar-brand"
         href="https://www.flamencotech.com/"
         target="_blank"
         >FlamencoTech</a
-      >
+      > -->
       <button
         class="navbar-toggler"
         type="button"
@@ -44,6 +48,12 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="navbar-brand" href="https://www.flamencotech.com/" target="_blank" style="display: flex;align-items: center;
+            padding: 5px;">
+             <img src="/static/f1.png" alt="" width="250" height="60" style="position:relative;top:-10px">
+          </a>
+          </li>
           <li class="nav-item active">
             <a class="nav-link text-primary" href="/admins/"
               >Home<span class="sr-only">(current)</span></a
@@ -177,54 +187,56 @@
     </div>
     {% endfor %} 
     
-  
+   <!-- <div style="width: 900px;background-color:  #20558B;" class="container my-5 shadow p-3 mb-5 rounded"> -->
     <div style="width: 700px;background-color: rgb(241, 241, 241);" class="container my-5 shadow p-3 mb-5 rounded">
-        <div style="text-align: center;" class="container my-5">
-            <h3> <b>SignUp Page</b> </h3>
-        </div>
-        <div  class="container my-5">
-            <div class="my-5">
-                <form method="POST"  class="signup">
-                    {%csrf_token%}
-                    <div class="form-group row">
-                        <label for="staticEmail" class="col-sm-4 col-form-label req" >Name</label>
-                        <div class="col-sm-8">
-                            {% render_field AddMemberForm.first_name class="form-control" type="text" placeholder="Name" %}
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="staticEmail" class="col-sm-4 col-form-label req">Email</label>
-                        <div class="col-sm-8">
-                            {% render_field AddMemberForm.email class="form-control" type="email" placeholder="Email" %}
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="staticEmail" class="col-sm-4 col-form-label req">Employee Id</label>
-                        <div class="col-sm-8">
-                            {% render_field AddMemberForm.user_name class="form-control" type="text" placeholder="Employee Id"%}
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="inputPassword" class="col-sm-4 col-form-label req">Password</label>
-                        <div class="col-sm-8">
-                            {% render_field AddMemberForm.confirm_password class="form-control" type="password" placeholder="Password" %}
-                        </div>
-                    </div>
-                   
-                    <div class="form-group row">
-                        <label for="inputPassword" class="col-sm-4 col-form-label req">Confirm Password</label>
-                        <div class="col-sm-8">
-                            {% render_field AddMemberForm.password class="form-control" type="password" placeholder="Password" %}
-                        </div>
-                    </div>
-                    <div class="my-5">
-                        <button type="submit" class="btn btn-primary mb-2">Save</button>
-                    </div>
-                </form>
-            </div>
-            
-        </div>
-    </div>
+      <div style="text-align: center;" class="container my-5">
+          <h3> <b>SignUp Page</b> </h3>
+      </div>
+      <div  class="container my-5">
+          <div class="my-5">
+              <form method="POST"  class="signup">
+                  {%csrf_token%}
+                  <div class="form-group row">
+                      <label for="staticEmail" class="col-sm-4 col-form-label req" >Name</label>
+                      <div class="col-sm-8">
+                          {% render_field AddMemberForm.first_name class="form-control" type="text" placeholder="Name" %}
+                      </div>
+                  </div>
+                  <div class="form-group row">
+                      <label for="staticEmail" class="col-sm-4 col-form-label req">Email</label>
+                      <div class="col-sm-8">
+                          {% render_field AddMemberForm.email class="form-control" type="email" placeholder="Email" %}
+                      </div>
+                  </div>
+                  <div class="form-group row">
+                      <label for="staticEmail" class="col-sm-4 col-form-label req">Employee Id</label>
+                      <div class="col-sm-8">
+                          {% render_field AddMemberForm.user_name class="form-control" type="text" placeholder="Employee Id"%}
+                      </div>
+                  </div>
+                  <div class="form-group row">
+                      <label for="inputPassword" class="col-sm-4 col-form-label req">Password</label>
+                      <div class="col-sm-8">
+                          {% render_field AddMemberForm.confirm_password class="form-control" type="password" placeholder="Password" %}
+                      </div>
+                  </div>
+                 
+                  <div class="form-group row">
+                      <label for="inputPassword" class="col-sm-4 col-form-label req">Confirm Password</label>
+                      <div class="col-sm-8">
+                          {% render_field AddMemberForm.password class="form-control" type="password" placeholder="Password" %}
+                      </div>
+                  </div>
+                  <div class="my-5">
+                      <button type="submit" class="btn btn-primary mb-2">Save</button>
+                  </div>
+              </form>
+          </div>
+          
+      </div>
+  </div>
+   <!-- </div> -->
+    
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>

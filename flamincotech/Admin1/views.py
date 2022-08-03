@@ -103,7 +103,7 @@ class NewUserResource(resources.ModelResource):
 def export_userlist(request):
 	member_resource =NewUserResource()
 	dataset = member_resource.export()
-	fname=f"member-data {datetime.datetime.now().date()}"
+	fname=f"User List {datetime.datetime.now().date()}"
 	response = HttpResponse(dataset.xls, content_type='application/vnd.ms-excel')
 	response['Content-Disposition'] = f'attachment; filename={fname}.xls'
 	return response
@@ -193,7 +193,7 @@ class vpssResource(resources.ModelResource):
 def export_vpss1(request):
 	member_resource =vpssResource()
 	dataset = member_resource.export()
-	fname=f"member-data {datetime.datetime.now().date()}"
+	fname=f"Variable Project Specific Sheet {datetime.datetime.now().date()}"
 	response = HttpResponse(dataset.xls, content_type='application/vnd.ms-excel')
 	response['Content-Disposition'] = f'attachment; filename={fname}.xls'
 	return response
@@ -292,7 +292,7 @@ class InputConfigurationResource(resources.ModelResource):
 def export_percentagechangesheet(request):
 	member_resource =InputConfigurationResource()
 	dataset = member_resource.export()
-	fname=f"member-data {datetime.datetime.now().date()}"
+	fname=f"Percentage Change Sheet {datetime.datetime.now().date()}"
 	response = HttpResponse(dataset.xls, content_type='application/vnd.ms-excel')
 	response['Content-Disposition'] = f'attachment; filename={fname}.xls'
 	return response
@@ -384,7 +384,7 @@ class HardWareGeneralResource(resources.ModelResource):
 def export_hardwaregeneral(request):
 	member_resource =HardWareGeneralResource()
 	dataset = member_resource.export()
-	fname=f"member-data {datetime.datetime.now().date()}"
+	fname=f"H_FlamencoTech Hardware {datetime.datetime.now().date()}"
 	response = HttpResponse(dataset.xls, content_type='application/vnd.ms-excel')
 	response['Content-Disposition'] = f'attachment; filename={fname}.xls'
 	return response
@@ -433,7 +433,7 @@ class HardWareIpVariantResource(resources.ModelResource):
 def export_hardwareipvariant(request):
 	member_resource =HardWareIpVariantResource()
 	dataset = member_resource.export()
-	fname=f"member-data {datetime.datetime.now().date()}"
+	fname=f"H_IP Variant Sheet {datetime.datetime.now().date()}"
 	response = HttpResponse(dataset.xls, content_type='application/vnd.ms-excel')
 	response['Content-Disposition'] = f'attachment; filename={fname}.xls'
 	return response
@@ -483,7 +483,7 @@ class HardWareActiveResource(resources.ModelResource):
 def export_hardwareactive(request):
 	member_resource = HardWareActiveResource()
 	dataset = member_resource.export()
-	fname=f"member-data {datetime.datetime.now().date()}"
+	fname=f"H_Active Components {datetime.datetime.now().date()}"
 	response = HttpResponse(dataset.xls, content_type='application/vnd.ms-excel')
 	response['Content-Disposition'] = f'attachment; filename={fname}.xls'
 	return response
@@ -533,7 +533,7 @@ class HardWarePassiveResource(resources.ModelResource):
 def export_hardwarepassive(request):
 	member_resource =HardWarePassiveResource()
 	dataset = member_resource.export()
-	fname=f"member-data {datetime.datetime.now().date()}"
+	fname=f"H_Passive Components {datetime.datetime.now().date()}"
 	response = HttpResponse(dataset.xls, content_type='application/vnd.ms-excel')
 	response['Content-Disposition'] = f'attachment; filename={fname}.xls'
 	return response
@@ -582,7 +582,7 @@ class HardWareEthernetResource(resources.ModelResource):
 def export_hardwareethernet(request):
 	member_resource =HardWareEthernetResource()
 	dataset = member_resource.export()
-	fname=f"member-data {datetime.datetime.now().date()}"
+	fname=f"H_Ethernet Components {datetime.datetime.now().date()}"
 	response = HttpResponse(dataset.xls, content_type='application/vnd.ms-excel')
 	response['Content-Disposition'] = f'attachment; filename={fname}.xls'
 	return response
@@ -631,7 +631,7 @@ class HardWareDdcResource(resources.ModelResource):
 def export_hardwareddc(request):
 	member_resource =HardWareDdcResource()
 	dataset = member_resource.export()
-	fname=f"member-data {datetime.datetime.now().date()}"
+	fname=f"H_DDC Components {datetime.datetime.now().date()}"
 	response = HttpResponse(dataset.xls, content_type='application/vnd.ms-excel')
 	response['Content-Disposition'] = f'attachment; filename={fname}.xls'
 	return response
@@ -680,7 +680,7 @@ class HardWareBmsSensorsResource(resources.ModelResource):
 def export_hardwarebmssensors(request):
 	member_resource =HardWareBmsSensorsResource()
 	dataset = member_resource.export()
-	fname=f"member-data {datetime.datetime.now().date()}"
+	fname=f"H_BMS Sensors {datetime.datetime.now().date()}"
 	response = HttpResponse(dataset.xls, content_type='application/vnd.ms-excel')
 	response['Content-Disposition'] = f'attachment; filename={fname}.xls'
 	return response
@@ -729,7 +729,7 @@ class HardWareThirdPartyResource(resources.ModelResource):
 def export_hardwarethirdparty(request):
 	member_resource =HardWareThirdPartyResource()
 	dataset = member_resource.export()
-	fname=f"member-data {datetime.datetime.now().date()}"
+	fname=f"H_Third Party Software {datetime.datetime.now().date()}"
 	response = HttpResponse(dataset.xls, content_type='application/vnd.ms-excel')
 	response['Content-Disposition'] = f'attachment; filename={fname}.xls'
 	return response
@@ -778,7 +778,7 @@ class HardWareBmsScablingResource(resources.ModelResource):
 def export_hardwarebmscabling(request):
 	member_resource =HardWareBmsScablingResource()
 	dataset = member_resource.export()
-	fname=f"member-data {datetime.datetime.now().date()}"
+	fname=f"H_BMS Cabling {datetime.datetime.now().date()}"
 	response = HttpResponse(dataset.xls, content_type='application/vnd.ms-excel')
 	response['Content-Disposition'] = f'attachment; filename={fname}.xls'
 	return response
@@ -827,7 +827,7 @@ class HardWarePipingResource(resources.ModelResource):
 def export_hardwarepiping(request):
 	member_resource =HardWarePipingResource()
 	dataset = member_resource.export()
-	fname=f"member-data {datetime.datetime.now().date()}"
+	fname=f"H_Piping {datetime.datetime.now().date()}"
 	response = HttpResponse(dataset.xls, content_type='application/vnd.ms-excel')
 	response['Content-Disposition'] = f'attachment; filename={fname}.xls'
 	return response
@@ -876,7 +876,7 @@ class HardWareTraysResource(resources.ModelResource):
 def export_hardwaretrays(request):
 	member_resource =HardWareTraysResource()
 	dataset = member_resource.export()
-	fname=f"member-data {datetime.datetime.now().date()}"
+	fname=f"H_Trays {datetime.datetime.now().date()}"
 	response = HttpResponse(dataset.xls, content_type='application/vnd.ms-excel')
 	response['Content-Disposition'] = f'attachment; filename={fname}.xls'
 	return response
@@ -926,7 +926,7 @@ class HardWareGeneralInstallResource(resources.ModelResource):
 def export_hardwaregeneralinstall(request):
 	member_resource =HardWareGeneralInstallResource()
 	dataset = member_resource.export()
-	fname=f"member-data {datetime.datetime.now().date()}"
+	fname=f"FT_Hardware Install {datetime.datetime.now().date()}"
 	response = HttpResponse(dataset.xls, content_type='application/vnd.ms-excel')
 	response['Content-Disposition'] = f'attachment; filename={fname}.xls'
 	return response
@@ -975,7 +975,7 @@ class HardWareIpVariantInstallResource(resources.ModelResource):
 def export_hardwareipvariantinstall(request):
 	member_resource =HardWareIpVariantInstallResource()
 	dataset = member_resource.export()
-	fname=f"member-data {datetime.datetime.now().date()}"
+	fname=f"H_IP Variant Install {datetime.datetime.now().date()}"
 	response = HttpResponse(dataset.xls, content_type='application/vnd.ms-excel')
 	response['Content-Disposition'] = f'attachment; filename={fname}.xls'
 	return response
@@ -1024,7 +1024,7 @@ class HardWareActiveInstallResource(resources.ModelResource):
 def export_hardwareactiveinstall(request):
 	member_resource =HardWareActiveInstallResource()
 	dataset = member_resource.export()
-	fname=f"member-data {datetime.datetime.now().date()}"
+	fname=f"H_Active Components Install {datetime.datetime.now().date()}"
 	response = HttpResponse(dataset.xls, content_type='application/vnd.ms-excel')
 	response['Content-Disposition'] = f'attachment; filename={fname}.xls'
 	return response
@@ -1073,7 +1073,7 @@ class HardWarePassiveInstallResource(resources.ModelResource):
 def export_hardwarepassiveinstall(request):
 	member_resource=HardWarePassiveInstallResource()
 	dataset = member_resource.export()
-	fname=f"member-data {datetime.datetime.now().date()}"
+	fname=f"H_Passive Components Install {datetime.datetime.now().date()}"
 	response = HttpResponse(dataset.xls, content_type='application/vnd.ms-excel')
 	response['Content-Disposition'] = f'attachment; filename={fname}.xls'
 	return response
@@ -1122,7 +1122,7 @@ class HardWareEthernetInstallResource(resources.ModelResource):
 def export_hardwareethernetinstall(request):
 	member_resource =HardWareEthernetInstallResource()
 	dataset = member_resource.export()
-	fname=f"member-data {datetime.datetime.now().date()}"
+	fname=f"H_Ethernet_Install {datetime.datetime.now().date()}"
 	response = HttpResponse(dataset.xls, content_type='application/vnd.ms-excel')
 	response['Content-Disposition'] = f'attachment; filename={fname}.xls'
 	return response
@@ -1169,7 +1169,7 @@ class HardWareDdcInstallResource(resources.ModelResource):
 def export_hardwareddcinstall(request):
 	member_resource =HardWareDdcInstallResource()
 	dataset = member_resource.export()
-	fname=f"member-data {datetime.datetime.now().date()}"
+	fname=f"H_DDC Components Install {datetime.datetime.now().date()}"
 	response = HttpResponse(dataset.xls, content_type='application/vnd.ms-excel')
 	response['Content-Disposition'] = f'attachment; filename={fname}.xls'
 	return response
@@ -1221,7 +1221,7 @@ class SpazioPriceCalculatorResource(resources.ModelResource):
 def export_SpazioPriceCalculators(request):
 	member_resource =SpazioPriceCalculatorResource()
 	dataset = member_resource.export()
-	fname=f"member-data {datetime.datetime.now().date()}"
+	fname=f"Spazio Price Calculator {datetime.datetime.now().date()}"
 	response = HttpResponse(dataset.xls, content_type='application/vnd.ms-excel')
 	response['Content-Disposition'] = f'attachment; filename={fname}.xls'
 	return response
@@ -1252,7 +1252,7 @@ class HardWareBmsSensorsInstallResource(resources.ModelResource):
 def export_hardwarebmssensorsinstall(request):
 	member_resource =HardWareBmsSensorsInstallResource()
 	dataset = member_resource.export()
-	fname=f"member-data {datetime.datetime.now().date()}"
+	fname=f"H_BMS Sensors Install {datetime.datetime.now().date()}"
 	response = HttpResponse(dataset.xls, content_type='application/vnd.ms-excel')
 	response['Content-Disposition'] = f'attachment; filename={fname}.xls'
 	return response
@@ -1301,7 +1301,7 @@ class HardWareThirdPartyInstallResource(resources.ModelResource):
 def export_hardwarethirdpartyinstall(request):
 	member_resource =HardWareThirdPartyInstallResource()
 	dataset = member_resource.export()
-	fname=f"member-data {datetime.datetime.now().date()}"
+	fname=f"H_Third Party Software Install {datetime.datetime.now().date()}"
 	response = HttpResponse(dataset.xls, content_type='application/vnd.ms-excel')
 	response['Content-Disposition'] = f'attachment; filename={fname}.xls'
 	return response
@@ -1350,7 +1350,7 @@ class HardWareBmsScablingInstallResource(resources.ModelResource):
 def export_hardwarebmscablinginstall(request):
 	member_resource =HardWareBmsScablingInstallResource()
 	dataset = member_resource.export()
-	fname=f"member-data {datetime.datetime.now().date()}"
+	fname=f"H_BMS Cabling Instal {datetime.datetime.now().date()}"
 	response = HttpResponse(dataset.xls, content_type='application/vnd.ms-excel')
 	response['Content-Disposition'] = f'attachment; filename={fname}.xls'
 	return response
@@ -1399,7 +1399,7 @@ class HardWarePipingInstallResource(resources.ModelResource):
 def export_hardwarepipinginstall(request):
 	member_resource =HardWarePipingInstallResource()
 	dataset = member_resource.export()
-	fname=f"member-data {datetime.datetime.now().date()}"
+	fname=f"H_Piping Install {datetime.datetime.now().date()}"
 	response = HttpResponse(dataset.xls, content_type='application/vnd.ms-excel')
 	response['Content-Disposition'] = f'attachment; filename={fname}.xls'
 	return response
@@ -1453,7 +1453,7 @@ class HardWareTraysInstallResource(resources.ModelResource):
 def export_hardwaretraysinstall(request):
 	member_resource =HardWareTraysInstallResource()
 	dataset = member_resource.export()
-	fname=f"member-data {datetime.datetime.now().date()}"
+	fname=f"H_Trays Install {datetime.datetime.now().date()}"
 	response = HttpResponse(dataset.xls, content_type='application/vnd.ms-excel')
 	response['Content-Disposition'] = f'attachment; filename={fname}.xls'
 	return response
@@ -1481,7 +1481,7 @@ class HardWareManEfforts(resources.ModelResource):
 def export_maneffortsinstall(request):
 	member_resource =HardWareManEfforts()
 	dataset = member_resource.export()
-	fname=f"member-data {datetime.datetime.now().date()}"
+	fname=f"FT Efforts Man Days {datetime.datetime.now().date()}"
 	response = HttpResponse(dataset.xls, content_type='application/vnd.ms-excel')
 	response['Content-Disposition'] = f'attachment; filename={fname}.xls'
 	return response

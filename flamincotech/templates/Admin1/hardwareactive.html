@@ -66,25 +66,25 @@ input[type=file]::file-selector-button {
                         <th>Installation Equipments</th>
                         <th>Unit Description</th>
                         <th>Qty</th>
-                        <th>Input Price </th>
-                        <th>Discount</th>
-                        <th>Discounted Price</th>
-                        <th>Freight</th>
-                        <th>Input Cost Inclusive of freight</th>
-                        <th>Interest or COM</th>
+                        <th>Input Price (₹)</th>
+                        <th>Discount (In%)</th>
+                        <th>Discounted Price (₹)</th>
+                        <th>Freight (In%)</th>
+                        <th>Input Cost Inclusive of freight (₹)</th>
+                        <th>Interest or COM (In%)</th>
                         <th>Unit Cost (₹)</th>
-                        <th>Inward Tax</th>
-                        <th>Unit Cost Inclusive of Risk</th>
-                        <th>Contigency Percentage</th>
-                        <th>Unit Cost Inclusive of Contigency</th>
-                        <th>Margin</th>
-                        <th>Unit Margin</th>
-                        <th>Warranty Charges</th>
+                        <th>Inward Tax (In%)</th>
+                        <th>Unit Cost Inclusive of Risk (₹)</th>
+                        <th>Contigency Percentage (In%)</th>
+                        <th>Unit Cost Inclusive of Contigency (₹)</th>
+                        <th>Margin (In%)</th>
                         <th>Unit Price (₹)</th>
-                        <th>Insurance Charges </th>
-                        <th>List Price without Round up </th>
-                        <th>List Price with Rounded up </th>
-                        <th> <br> </th>
+                        <th>Warranty Charges (In%)</th>
+                        <th>Unit Price (₹)</th>
+                        <th>Insurance Charges (In%)</th>
+                        <th>List Price without Round up (₹)</th>
+                        <th>List Price with Rounded up (₹)</th>
+                        <th> Action </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -313,9 +313,11 @@ var lmno={{ entries|length }};
                 },
                 success: function (json) {
                    console.log(json.adg);
+                   window.alert(" Changes Save Successfully");
                   
                 },
                 error: function (xhr, errmsg, err) {
+                    window.alert(" Changes Could not Save Successfully");
             
                 }
             });
