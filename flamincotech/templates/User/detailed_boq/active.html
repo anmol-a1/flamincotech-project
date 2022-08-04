@@ -31,7 +31,7 @@
 
 <body>
         {%csrf_token%}
-        <div style="width:100%;background-color: rgb(241, 241, 241);" id="maindivbar2" hidden class="shadow mb-5 rounded maindivbar">
+        <div style="width:3000px; background-color: rgb(241, 241, 241);" id="maindivbar2" hidden class="shadow mb-5 rounded maindivbar">
                 <form class="my-1">
                         <table class="table" style="text-align: center;" border="1">
                                 <tbody>
@@ -42,7 +42,7 @@
                                                 <td>{{entry.Model}}</td>
                                                 <td>{{entry.Hardware_Items}}</td>
                                                 <th><input onchange="abcd(event)" id="{{entry.sr_no}}Qty_Active"
-                                                                style="width: 55px;border:none" value="{{entry.Qty}}"
+                                                                style="width: 95px;border:none" value="{{entry.Qty}}"
                                                                 type="number"></th>
                                                 <th>{{entry.Uom}}</th>
                                                 <th><input id="{{entry.sr_no}}Cost_Supply_Rate_Active"

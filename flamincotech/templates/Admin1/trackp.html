@@ -9,6 +9,81 @@
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <title>Document</title>
     <style>
+      .navbar .nav-item a{
+      font-size: 17px;	
+      position: relative;
+      display: inline-block;
+      /* margin: 45px 25px; */
+      outline: none;
+      /* color: pink; */
+      text-decoration: none;
+      /* text-transform: uppercase; */
+      /* letter-spacing: 1px; */
+      /* font-weight: 400; */
+      text-shadow: 0 0 1px rgba(255,255,255,0.3);
+      /* font-size: 1.35em; */
+
+    }
+
+    .navbar .nav-item a:hover,
+    .navbar .nav-item a:focus {
+      outline: none;
+    }
+
+    /* .navbar .nav-item{
+
+    } */
+
+    /* .navbar .nav-item a {
+    color: pink;
+    text-shadow: none;
+    padding: 10px 0;
+  } */
+
+  .navbar .nav-item a::before {
+    color:  rgba(255,255,255,0.3);
+    text-shadow: 0 0 1px rgba(255,255,255,0.3);
+    content: attr(data-hover);
+    position: absolute;
+    -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+    -moz-transition: -moz-transform 0.3s, opacity 0.3s;
+    transition: transform 0.3s, opacity 0.3s;
+    pointer-events: none;
+  }
+
+  .navbar .nav-item a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: black;
+    opacity: 0;
+    -webkit-transform: translateY(5px);
+    -moz-transform: translateY(5px);
+    transform: translateY(5px);
+    -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+    -moz-transition: -moz-transform 0.3s, opacity 0.3s;
+    transition: transform 0.3s, opacity 0.3s;
+    pointer-events: none;
+  }
+
+  .navbar .nav-item a:hover::before,
+  .navbar .nav-item a:focus::before {
+    opacity: 0;
+    -webkit-transform: translateY(-2px);
+    -moz-transform: translateY(-2px);
+    transform: translateY(-2px);
+  }
+
+  .navbar .nav-item a:hover::after,
+  .navbar .nav-item a:focus::after {
+    opacity: 1;
+    -webkit-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    transform: translateY(0px);
+  }
         .navbar .nav-item a{
           font-size: 17px;
   
@@ -37,10 +112,10 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
+        <li>
           <a class="navbar-brand" href="https://www.flamencotech.com/" target="_blank" style="display: flex;align-items: center;
           padding: 5px;">
-           <img src="/static/f1.png" alt="" width="250" height="60" style="position:relative;top:-10px">
+           <img src="/static/f1.png" alt="" width="200" height="40">
         </a>
         </li>
         <li class="nav-item active">

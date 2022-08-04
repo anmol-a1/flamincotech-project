@@ -9,6 +9,88 @@
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <title>Document</title>
     <style>
+      body{
+        /* background-image: url("https://www.alll.com/wp-content/uploads/2019/01/signup-background.jpg"); */
+        background-image: url("https://th.bing.com/th/id/R.790153674a994fa96fb4ce5d33d23bc6?rik=7UiaXeHJw88D5w&riu=http%3a%2f%2fonlinetests.byjusclasses.com%2fLibrary%2fassets%2fimages%2floginimg.jpg&ehk=7Jug8R97CCYlpN0Xq%2fqtuJMeBXd0vHJgqa1NzcRFjw0%3d&risl=&pid=ImgRaw&r=0");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+      }
+      .navbar .nav-item a{
+      font-size: 17px;	
+      position: relative;
+      display: inline-block;
+      /* margin: 45px 25px; */
+      outline: none;
+      /* color: pink; */
+      text-decoration: none;
+      /* text-transform: uppercase; */
+      /* letter-spacing: 1px; */
+      /* font-weight: 400; */
+      text-shadow: 0 0 1px rgba(255,255,255,0.3);
+      /* font-size: 1.35em; */
+
+    }
+
+    .navbar .nav-item a:hover,
+    .navbar .nav-item a:focus {
+      outline: none;
+    }
+
+    /* .navbar .nav-item{
+
+    } */
+
+    /* .navbar .nav-item a {
+    color: pink;
+    text-shadow: none;
+    padding: 10px 0;
+  } */
+
+  .navbar .nav-item a::before {
+    color:  rgba(255,255,255,0.3);
+    text-shadow: 0 0 1px rgba(255,255,255,0.3);
+    content: attr(data-hover);
+    position: absolute;
+    -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+    -moz-transition: -moz-transform 0.3s, opacity 0.3s;
+    transition: transform 0.3s, opacity 0.3s;
+    pointer-events: none;
+  }
+
+  .navbar .nav-item a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: black;
+    opacity: 0;
+    -webkit-transform: translateY(5px);
+    -moz-transform: translateY(5px);
+    transform: translateY(5px);
+    -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+    -moz-transition: -moz-transform 0.3s, opacity 0.3s;
+    transition: transform 0.3s, opacity 0.3s;
+    pointer-events: none;
+  }
+
+  .navbar .nav-item a:hover::before,
+  .navbar .nav-item a:focus::before {
+    opacity: 0;
+    -webkit-transform: translateY(-2px);
+    -moz-transform: translateY(-2px);
+    transform: translateY(-2px);
+  }
+
+  .navbar .nav-item a:hover::after,
+  .navbar .nav-item a:focus::after {
+    opacity: 1;
+    -webkit-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    transform: translateY(0px);
+  }
    .req::after {
             content: '*';
             font-size: 24px;
@@ -48,10 +130,10 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="navbar-brand" href="https://www.flamencotech.com/" target="_blank" style="display: flex;align-items: center;
+          <li>
+            <a class="navbar-brand  .align-middle"  href="https://www.flamencotech.com/" target="_blank" style="display: flex;align-items: center;
             padding: 5px;">
-             <img src="/static/f1.png" alt="" width="250" height="60" style="position:relative;top:-10px">
+             <img src="/static/f1.png" alt="" width="200" height="40" style="position:relative;">
           </a>
           </li>
           <li class="nav-item active">
