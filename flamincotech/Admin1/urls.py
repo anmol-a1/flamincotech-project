@@ -68,7 +68,7 @@ urlpatterns = [
     path('edithardwarebmssensorsinstall/',views.edithardwarebmssensorsinstall,name='edithardwarebmssensorsinstall'),
     path('edithardwarethirdpartyinstall/',views.edithardwarethirdpartyinstall,name='edithardwarethirdpartyinstall'),
     path('edithardwarebmscablinginstall/',views.edithardwarebmscablinginstall,name='edithardwarebmscablinginstall'),
-    path('edithardwarepipinginstall/',views.edithardwarepiping,name='edithardwarepiping'),
+    path('edithardwarepipinginstall/',views.edithardwarepipinginstall,name='edithardwarepipinginstall'),
     path('edithardwaretraysinstall/',views.edithardwaretraysinstall,name='edithardwaretraysinstall'),
     path('editmaneffortsinstall/',views.editmaneffortsinstall,name='editmaneffortsinstall'),
     path('configuration/',views.configuration,name='configuration'),
@@ -140,7 +140,7 @@ urlpatterns = [
     path('hardwarebmssensorsinstallimport/',views.hardwarebmssensorsinstallimport,name='hardwarebmssensorsinstallimport'),
     path('hardwarethirdpartyinstallimport/',views.hardwarethirdpartyinstallimport,name='hardwarethirdpartyinstallimport'),
     path('hardwarebmscablinginstallimport/',views.hardwarebmscablinginstallimport,name='hardwarebmscablinginstallimport'),
-    path('hardwarepipinginstallimport/',views.hardwarepipingimport,name='hardwarepiping'),
+    path('hardwarepipinginstallimport/',views.hardwarepipinginstallimport,name='hardwarepipinginstallimport'),
     path('hardwaretraysinstallimport/',views.hardwaretraysinstallimport,name='hardwaretraysinstallimport'),
     path('maneffortsinstallimport/',views.maneffortsinstallimport,name='maneffortsinstallimport'),
     

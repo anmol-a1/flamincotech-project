@@ -9,6 +9,12 @@
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <title>Document</title>
     <style>
+      body{
+        background-image: url("/static/b1.png");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+      }
       .navbar .nav-item a{
       font-size: 17px;	
       position: relative;
@@ -58,7 +64,7 @@
     bottom: 0;
     width: 100%;
     height: 2px;
-    background: black;
+    background: #205690;
     opacity: 0;
     -webkit-transform: translateY(5px);
     -moz-transform: translateY(5px);
@@ -88,6 +94,26 @@
         font-size: 17px;
 
       }
+
+      .navbar .dropdown-menu a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 0.5px;
+    background-color: #afa8afd9;
+    opacity: 0;
+    -webkit-transform: translateY(5px);
+    -moz-transform: translateY(5px);
+    transform: translateY(5px);
+    -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+    -moz-transition: -moz-transform 0.3s, opacity 0.3s;
+    transition: transform 0.3s, opacity 0.3s;
+    /* pointer-events: none;
+    background-image: none;
+    background-color: red; */
+  }
     </style>
 </head>
 
