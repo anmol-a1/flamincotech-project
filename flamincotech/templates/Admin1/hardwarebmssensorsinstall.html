@@ -46,7 +46,7 @@
         <!-- <a class="btnss" href="{% url 'export_hardwarebmssensorsinstall' %}">
                 <span class="links_name">Export Hardware ACtive Data</span>
                 </a> -->
-                <form  action="/admins/hardwaregeneralimport/" style="display:flex;align-items:flex-end" class="mx-3"  method="post" enctype="multipart/form-data">{% csrf_token %}
+                <form  action="/admins/hardwarebmssensorsinstallimport/" style="display:flex;align-items:flex-end" class="mx-3"  method="post" enctype="multipart/form-data">{% csrf_token %}
                     <div style="display:inline-block"><input type="file" style="color: blue;" accept=".xls" required name="bookfile" id=""></div>
                     <button type="submit" class="btn"><i class=""></i>Upload</button>
             </form>
