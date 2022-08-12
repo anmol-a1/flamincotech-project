@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>VPSS</title>
+    <style>
+        .btn {
+          background-color:  #20558B;
+          border: none;
+          color: white;
+          padding: 3px 5px;
+          cursor: pointer;
+          font-size: 18px;
+        }
+        
+        /* Darker background on mouse-over */
+        /* .btn:hover {
+          background-color: rgb(0, 64, 255);
+        } */
+        input[type=file]::file-selector-button {
+          margin-top: 2px;
+          border: 2px solid#20558B;
+          padding: .2em .4em;
+          color: white;
+          border-radius: .2em;
+          background-color: #20558B;
+          transition: 1s;
+        }
+        
+        /* input[type=file]::file-selector-button:hover {
+          background-color: rgb(0, 64, 255);
+          border: 2px solid rgb(0, 64, 255);
+        } */
+        </style>
+</head>
+
+<body>
+    <div style="display:flex;align-items:flex-end" >
+        <!-- <a class="btnss" href="{% url 'export_hardwarepiping' %}">
+                <span class="links_name">Export Hardware ACtive Data</span>
+                </a> -->
+                {% csrf_token %}
+                <form  action="/admins/hardwarepipingimport/" style="display:flex;align-items:flex-end" class="mx-3"  method="post" enctype="multipart/form-data">{% csrf_token %}
+                    <div style="display:inline-block"><input type="file" style="color: blue;" accept=".xls" required name="bookfile" id=""></div>
+                    <button type="submit" class="btn"><i class=""></i>Upload</button>
+            </form>
+
+            <a style="margin-left:auto ;" class="btnss" href="{% url 'export_hardwarepiping' %}">
+                <button class="btn mx-3"><i class="fa fa-download"></i> Download</button>
+              </a>
+    </div>        
+    <h4 style="text-align: center;">Piping Sheet</h4> 
+    {%csrf_token%}
+    <div style="width:3000px;background-color: rgb(241, 241, 241);" class="shadow p-3 mb-5 rounded">
+
+        <form class="my-1">
+            <table class="table" border='1'>
+                <thead>
+                    <tr style="background-color:#20558B;color:white">
+                        <th>Sr No</th>
+                        <th>Make/Brand</th>
+                        <th>Model</th>
+                        <th>Installation Equipments</th>
+                        <th>Unit Description</th>
+                        <th>Qty</th>
+                        <th>Input Price (₹)</th>
+                        <th>Discount (In%)</th>
+                        <th>Discounted Price (₹)</th>
+                        <th>Freight (In%)</th>
+                        <th>Input Cost Inclusive of freight (₹)</th>
+                        <th>Interest or COM (In%)</th>
+                        <th>Unit Cost (₹)</th>
+                        <th>Inward Tax (In%)</th>
+                        <th>Unit Cost Inclusive of Risk (₹)</th>
+                        <th>Contigency Percentage (In%)</th>
+                        <th>Unit Cost Inclusive of Contigency (₹)</th>
+                        <th>Margin (In%)</th>
+                        <th>Unit Price (₹)</th>
+                        <th>Warranty Charges (In%)</th>
+                        <th>Unit Price (₹)</th>
+                        <th>Insurance Charges (In%)</th>
+                        <th>List Price without Round up (₹)</th>
+                        <th>List Price with Rounded up (₹)</th>
+                        <th>Action </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for entry in entries %}
+                    <tr style="background-color:white">
+                        <td>{{entry.sr_no}}</td>
+                        <td>{{entry.MakeBrand}}</td>
+                        <td>{{entry.Model}}</td>
+                        <td>{{entry.InstallationEquipments}}</td>
+                        <td>{{entry.UnitDescription}}</td>
+                        <th><input onchange="abcd(event)" class="{{entry.sr_no}}" id="{{entry.sr_no}}Qty" style="width: 55px;border:none" value="{{entry.Qty}}"
+                                    type="number"></th>
+                        <th><input onchange="efgh(event)" class="{{entry.sr_no}}" id="{{entry.sr_no}}InputPrice" style="width: 95px;border:none"  value="{{entry.InputPrice}}"
+                                    type="number"></th>
+                        <th><input  id="{{entry.sr_no}}Discount" style="width: 55px;border:none" readonly="true" value="{{InputConfigurations1.cabpiptray}}"
+                                    type="number"></th>
+                        <th><input  id="{{entry.sr_no}}DiscountedPrice" style="width: 95px;border:none" readonly="true" value="{{entry.DiscountedPrice}}"
+                                    type="number"></th>
+                        <th><input  id="{{entry.sr_no}}Freight" style="width: 55px;border:none" readonly="true" value="{{InputConfigurations2.cabpiptray}}"
+                                    type="number"></th>
+                        <th><input  id="{{entry.sr_no}}InputCostInclusiveoffreight" style="width: 95px;border:none" readonly="true" value="{{entry.InputCostInclusiveoffreight}}"
+                                    type="number"></th>
+                        <th><input  id="{{entry.sr_no}}InterestCOM" style="width: 55px;border:none" readonly="true" value="{{InputConfigurations3.cabpiptray}}"
+                                    type="number"></th>
+                        <th><input  id="{{entry.sr_no}}UnitCost" style="width: 95px;border:none" readonly="true" value="{{entry.UnitCost}}"
+                                    type="number"></th>
+                        <th><input  id="{{entry.sr_no}}InwardTax" style="width: 55px;border:none" readonly="true" value="{{InputConfigurations4.cabpiptray}}"
+                                    type="number"></th>
+                        <th><input  id="{{entry.sr_no}}UnitCostInclusiveofRisk" style="width: 95px;border:none" readonly="true" value="{{entry.UnitCostInclusiveofRisk}}"
+                                    type="number"></th>
+                        <th><input  id="{{entry.sr_no}}ContigencyPercentage" style="width: 55px;border:none" readonly="true" value="{{InputConfigurations5.cabpiptray}}"
+                                    type="number"></th>
+                        <th><input  id="{{entry.sr_no}}UnitCostInclusiveofContigency" style="width: 95px;border:none" readonly="true" value="{{entry.UnitCostInclusiveofContigency}}"
+                                    type="number"></th>
+                        <th><input  id="{{entry.sr_no}}Margin" style="width: 55px;border:none" readonly="true" value="{{InputConfigurations6.cabpiptray}}"
+                                    type="number"></th>
+                        <th><input  id="{{entry.sr_no}}Unit_Price" style="width: 95px;border:none" readonly="true" value="{{entry.Unit_Price}}"
+                                    type="number"></th>
+                        <th><input  id="{{entry.sr_no}}WarrantyCharges" style="width: 55px;border:none" readonly="true" value="{{InputConfigurations7.cabpiptray}}"
+                                    type="number"></th>
+                        <th><input  id="{{entry.sr_no}}UnitPrice" style="width: 95px;border:none" readonly="true" value="{{entry.UnitPrice}}"
+                                    type="number"></th>
+                        <th><input  id="{{entry.sr_no}}InsuranceCharges" style="width: 55px;border:none" readonly="true" value="{{InputConfigurations8.cabpiptray}}"
+                                    type="number"></th>
+                        <th><input  id="{{entry.sr_no}}ListPricewithoutRoundup" style="width: 95px;border:none" readonly="true" value="{{entry.ListPricewithoutRoundup}}"
+                                    type="number"></th>
+                        <th><input  id="{{entry.sr_no}}ListPricewithRoundedup" style="width: 95px;border:none" readonly="true" value="{{entry.ListPricewithRoundedup}}"
+                                    type="number"></th>
+                        <td><button value="{{entry.sr_no}}" id="{{entry.sr_no}}" type="submit"  class="btn btn-primary save">Save</button></td>
+                    </tr>
+
+
+                    {% endfor %}
+
+                </tbody>
+            </table>
+
+        </form>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script>
+
+        function abcd(e){
+            var sr_no=parseInt(e.target.className);
+            var Qty=document.getElementById(sr_no+"Qty");
+            var InputPrice=document.getElementById(sr_no+"InputPrice");
+            var Discount=document.getElementById(sr_no+"Discount");
+            var DiscountedPrice=document.getElementById(sr_no+"DiscountedPrice");
+            var Freight=document.getElementById(sr_no+"Freight");
+            var InputCostInclusiveoffreight=document.getElementById(sr_no+"InputCostInclusiveoffreight");
+            var InterestCOM=document.getElementById(sr_no+"InterestCOM");
+            var UnitCost=document.getElementById(sr_no+"UnitCost");
+            var InwardTax=document.getElementById(sr_no+"InwardTax");
+            var UnitCostInclusiveofRisk=document.getElementById(sr_no+"UnitCostInclusiveofRisk");
+            var ContigencyPercentage=document.getElementById(sr_no+"ContigencyPercentage");
+            var UnitCostInclusiveofContigency=document.getElementById(sr_no+"UnitCostInclusiveofContigency");
+            var Margin=document.getElementById(sr_no+"Margin");
+            var Unit_Price=document.getElementById(sr_no+"Unit_Price");
+            var WarrantyCharges=document.getElementById(sr_no+"WarrantyCharges");
+            var UnitPrice=document.getElementById(sr_no+"UnitPrice");
+            var InsuranceCharges=document.getElementById(sr_no+"InsuranceCharges");
+            var ListPricewithoutRoundup=document.getElementById(sr_no+"ListPricewithoutRoundup");
+            var ListPricewithRoundedup=document.getElementById(sr_no+"ListPricewithRoundedup");
+            DiscountedPrice.value=Math.ceil((InputPrice.value)-(InputPrice.value * (Discount.value)/100)); 
+            InputCostInclusiveoffreight.value=Math.ceil(1*(DiscountedPrice.value)+1*(DiscountedPrice.value * (Freight.value)/100));
+            UnitCost.value=Math.ceil(1*(InputCostInclusiveoffreight.value)+1*(InputCostInclusiveoffreight.value * (InterestCOM.value)/100));
+            UnitCostInclusiveofRisk.value=Math.ceil(1*(UnitCost.value)+1*(UnitCost.value * (InwardTax.value)/100));
+            UnitCostInclusiveofContigency.value=Math.ceil(1*(UnitCostInclusiveofRisk.value)+1*(UnitCostInclusiveofRisk.value * (ContigencyPercentage.value)/100));
+            
+            Unit_Price.value=Math.ceil((100*UnitCostInclusiveofContigency.value)/(100-Margin.value));
+            
+            UnitPrice.value=Math.ceil(1*(Unit_Price.value)+1*(Unit_Price.value * (WarrantyCharges.value)/100));
+           
+            ListPricewithoutRoundup.value=Math.ceil(1*(UnitPrice.value)+1*(UnitPrice.value*InsuranceCharges.value/100));
+            
+            ListPricewithRoundedup.value=(Math.ceil(ListPricewithoutRoundup.value/50))*50;
+        }
+        function efgh(e){
+            var sr_no=parseInt(e.target.className);
+            var Qty=document.getElementById(sr_no+"Qty");
+            var InputPrice=document.getElementById(sr_no+"InputPrice");
+            var Discount=document.getElementById(sr_no+"Discount");
+            var DiscountedPrice=document.getElementById(sr_no+"DiscountedPrice");
+            var Freight=document.getElementById(sr_no+"Freight");
+            var InputCostInclusiveoffreight=document.getElementById(sr_no+"InputCostInclusiveoffreight");
+            var InterestCOM=document.getElementById(sr_no+"InterestCOM");
+            var UnitCost=document.getElementById(sr_no+"UnitCost");
+            var InwardTax=document.getElementById(sr_no+"InwardTax");
+            var UnitCostInclusiveofRisk=document.getElementById(sr_no+"UnitCostInclusiveofRisk");
+            var ContigencyPercentage=document.getElementById(sr_no+"ContigencyPercentage");
+            var UnitCostInclusiveofContigency=document.getElementById(sr_no+"UnitCostInclusiveofContigency");
+            var Margin=document.getElementById(sr_no+"Margin");
+            var Unit_Price=document.getElementById(sr_no+"Unit_Price");
+            var WarrantyCharges=document.getElementById(sr_no+"WarrantyCharges");
+            var UnitPrice=document.getElementById(sr_no+"UnitPrice");
+            var InsuranceCharges=document.getElementById(sr_no+"InsuranceCharges");
+            var ListPricewithoutRoundup=document.getElementById(sr_no+"ListPricewithoutRoundup");
+            var ListPricewithRoundedup=document.getElementById(sr_no+"ListPricewithRoundedup");
+            DiscountedPrice.value=Math.ceil((InputPrice.value)-(InputPrice.value * (Discount.value)/100)); 
+            InputCostInclusiveoffreight.value=Math.ceil(1*1*(DiscountedPrice.value)+1*(DiscountedPrice.value * (Freight.value)/100));
+            UnitCost.value=Math.ceil(1*(InputCostInclusiveoffreight.value)+1*(InputCostInclusiveoffreight.value * (InterestCOM.value)/100));
+            UnitCostInclusiveofRisk.value=Math.ceil(1*(UnitCost.value)+1*(UnitCost.value * (InwardTax.value)/100));
+            UnitCostInclusiveofContigency.value=Math.ceil(1*(UnitCostInclusiveofRisk.value)+1*(UnitCostInclusiveofRisk.value * (ContigencyPercentage.value)/100));
+            
+            Unit_Price.value=Math.ceil((100*UnitCostInclusiveofContigency.value)/(100-Margin.value));
+            
+            UnitPrice.value=Math.ceil(1*(Unit_Price.value)+1*(Unit_Price.value * (WarrantyCharges.value)/100));
+           
+            ListPricewithoutRoundup.value=Math.ceil(1*(UnitPrice.value)+1*(UnitPrice.value*InsuranceCharges.value/100));
+            
+            ListPricewithRoundedup.value=(Math.ceil(ListPricewithoutRoundup.value/50))*50;
+            
+            console.log(DiscountedPrice.value,InputCostInclusiveoffreight.value);
+        }
+       
+        $(document).on('click', '.save', function (e) {
+            e.preventDefault();
+            let sr_no=$(this).val();
+            $.ajax({
+                type: 'POST',
+                url: '{% url "edithardwarepiping" %}',
+                data: {
+                    sr_no:sr_no,
+                    Qty:parseInt(document.getElementById(sr_no+"Qty").value),
+                    InputPrice:parseInt(document.getElementById(sr_no+"InputPrice").value),
+                    DiscountedPrice:parseInt(document.getElementById(sr_no+"DiscountedPrice").value),
+                    InputCostInclusiveoffreight:parseInt(document.getElementById(sr_no+"InputCostInclusiveoffreight").value),
+                    UnitCost:parseInt(document.getElementById(sr_no+"UnitCost").value),
+                    UnitCostInclusiveofRisk:parseInt(document.getElementById(sr_no+"UnitCostInclusiveofRisk").value),
+                    UnitCostInclusiveofContigency:parseInt(document.getElementById(sr_no+"UnitCostInclusiveofContigency").value),
+                    
+                    Unit_Price:parseInt(document.getElementById(sr_no+"Unit_Price").value),
+                    
+                    UnitPrice:parseInt(document.getElementById(sr_no+"UnitPrice").value),
+                    
+                    ListPricewithoutRoundup:parseInt(document.getElementById(sr_no+"ListPricewithoutRoundup").value),
+                    ListPricewithRoundedup:parseInt(document.getElementById(sr_no+"ListPricewithRoundedup").value),
+                    csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+                    action: 'post'
+                },
+                success: function (json) {
+                   console.log(json.adg);
+                   window.alert(" Changes Save Successfully");
+
+            
+                },
+                error: function (xhr, errmsg, err) {
+                    window.alert(" Changes could not Save Successfully");
+            
+                }
+            });
+        })
+    </script>
+
+</body>
+
+</html>

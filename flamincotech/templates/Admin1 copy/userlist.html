@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+        <style>
+body{
+        /* background-image: url("https://www.alll.com/wp-content/uploads/2019/01/signup-background.jpg"); */
+        /* background-image: url("https://th.bing.com/th/id/R.790153674a994fa96fb4ce5d33d23bc6?rik=7UiaXeHJw88D5w&riu=http%3a%2f%2fonlinetests.byjusclasses.com%2fLibrary%2fassets%2fimages%2floginimg.jpg&ehk=7Jug8R97CCYlpN0Xq%2fqtuJMeBXd0vHJgqa1NzcRFjw0%3d&risl=&pid=ImgRaw&r=0"); */
+        background-image: url("/static/b1.png");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+      }
+      .navbar .nav-item a{
+      font-size: 17px;	
+      position: relative;
+      display: inline-block;
+      /* margin: 45px 25px; */
+      outline: none;
+      /* color: pink; */
+      text-decoration: none;
+      /* text-transform: uppercase; */
+      /* letter-spacing: 1px; */
+      /* font-weight: 400; */
+      text-shadow: 0 0 1px rgba(255,255,255,0.3);
+      /* font-size: 1.35em; */
+
+    }
+
+    .navbar .nav-item a:hover,
+    .navbar .nav-item a:focus {
+      outline: none;
+    }
+
+    /* .navbar .nav-item{
+
+    } */
+
+    /* .navbar .nav-item a {
+    color: pink;
+    text-shadow: none;
+    padding: 10px 0;
+  } */
+
+  .navbar .nav-item a::before {
+    color:  rgba(255,255,255,0.3);
+    text-shadow: 0 0 1px rgba(255,255,255,0.3);
+    content: attr(data-hover);
+    position: absolute;
+    -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+    -moz-transition: -moz-transform 0.3s, opacity 0.3s;
+    transition: transform 0.3s, opacity 0.3s;
+    pointer-events: none;
+  }
+
+  .navbar .nav-item a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background:#205690;
+    opacity: 0;
+    -webkit-transform: translateY(5px);
+    -moz-transform: translateY(5px);
+    transform: translateY(5px);
+    -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+    -moz-transition: -moz-transform 0.3s, opacity 0.3s;
+    transition: transform 0.3s, opacity 0.3s;
+    pointer-events: none;
+  }
+
+  .navbar .nav-item a:hover::before,
+  .navbar .nav-item a:focus::before {
+    opacity: 0;
+    -webkit-transform: translateY(-2px);
+    -moz-transform: translateY(-2px);
+    transform: translateY(-2px);
+  }
+
+  .navbar .nav-item a:hover::after,
+  .navbar .nav-item a:focus::after {
+    opacity: 1;
+    -webkit-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    transform: translateY(0px);
+  }
+   .req::after {
+            content: '*';
+            font-size: 24px;
+            line-height: 0;
+            vertical-align: middle;
+            margin-left: 10px;
+            color: red;
+            margin-top: 5px;
+        }  
+        .navbar .nav-item a{
+          font-size: 17px;
+  
+        } 
+.btns {
+  background-color: #22508b;
+  border: none;
+  color: white;
+  padding: 3px 5px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* Darker background on mouse-over */
+.btns:hover {
+  background-color: rgb(0, 64, 255);
+}
+input[type=file]::file-selector-button {
+  margin-top: 2px;
+  border: 2px solid #22508b;
+  padding: .2em .4em;
+  color: white;
+  border-radius: .2em;
+  background-color: #22508b;
+  transition: 1s;
+}
+
+input[type=file]::file-selector-button:hover {
+  background-color: rgb(0, 64, 255);
+  border: 2px solid rgb(0, 64, 255);
+}
+.navbar .nav-item a{
+  font-size: 17px;
+
+}
+</style>
+    <title>FlamencoTech</title>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <!-- <a
+        class="navbar-brand"
+        href="https://www.flamencotech.com/"
+        target="_blank"
+        >FlamencoTech</a
+      > -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+  
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        {%csrf_token%}
+        <ul class="navbar-nav mr-auto">
+          <li>
+            <a class="navbar-brand" href="https://www.flamencotech.com/" target="_blank" style="display: flex;align-items: center;
+            padding: 5px;">
+             <img src="/static/f1.png" alt="" width="200" height="40">
+          </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link text-primary" href="/admins/"
+              >Home<span class="sr-only">(current)</span></a
+            >
+          </li>
+<li class="nav-item active">
+            <a class="nav-link text-primary" href="{% url 'signup' %}"
+              >Register User <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link text-primary" href="/admins/history"
+              >Client History <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link text-primary" href="/admins/trackp"
+              >Track Proposal<span class="sr-only">(current)</span></a
+            >
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">
+            Logout
+          </button>
+        </form>
+      </div>
+    </nav>
+        <a class="btnss" href="{% url 'export_userlist' %}">
+        {% comment %} <span class="links_name">Export Hardware ACtive Data</span> {% endcomment %}
+         <button class="btns mx-3"> Download</button>
+      </a>
+    <div
+      style="width: 1000px; background-color: rgb(241, 241, 241)"
+      class="container my-5 shadow p-3 mb-5 rounded"
+    >
+      <div style="text-align: center" class="container my-1">
+        <h3><b>Users List</b></h3>
+      </div>
+      <table
+        style="
+          text-align: center;
+          margin: 10px auto;
+          background-color: black;
+          color: white;
+          border:2px solid grey;
+        "
+        class="table"
+        border='2'
+      >
+        <thead>
+          <tr style="background-color: #22508b;color:white" >
+            <th scope="col">Name</th>
+            <th scope="col">Employee Id</th>
+            <th scope="col">Email</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody id="tbody" border='2'>
+          {% for user in users %}
+          <tr id="{{user.user_name}}" style="background-color:white;color:black">
+            <td>{{user.first_name}}</td>
+            <td>{{user.user_name}}</td>
+            <td>{{user.email}}</td>
+            <td>
+              <button
+                value="{{user.user_name}}"
+                type="submit"
+                class="btn btn-danger deleteuser"
+              >
+                Delete
+              </button>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+      $(document).on("click", ".deleteuser", function (e) {
+        e.preventDefault();
+        if (confirm("Are You Sure To Delete A User") == true) {
+          text = "You pressed OK!";
+
+          var t = $(this).val();
+          $.ajax({
+            type: "POST",
+            url: '{% url "deleteuser" %}',
+            data: {
+              user_name: t,
+              csrfmiddlewaretoken: $("input[name=csrfmiddlewaretoken]").val(),
+              action: "post",
+            },
+            success: function (json) {
+              if (json.error === "None") {
+                console.log("deleted");
+                var row = document.getElementById(json.user_name);
+                row.parentNode.removeChild(row);
+              } else {
+                console.log("no no");
+              }
+            },
+            error: function (xhr, errmsg, err) {
+              console.log("no no no");
+            },
+          });
+        } 
+        else {
+          text = "You canceled!";
+        }
+      });
+    </script>
+  </body>
+</html>

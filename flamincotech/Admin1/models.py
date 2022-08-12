@@ -965,7 +965,7 @@ class PM_Mapping_table_After_Cost_column(models.Model):
 #     Qty=models.IntegerField(default=0)
 #     Uom=models.CharField(max_length=100)
 #     Cost_Supply_Rate=models.IntegerField(default=0)
-#     Cost_Supply_Total=models.IntegerField(default=0)
+#     Cost_Supply_Total=models.IntegerF=models.IntegerField(default=0)ield(default=0)
 #     Cost_Installation_Rate=models.IntegerField(default=0)
 #     Cost_Installation_Total=models.IntegerField(default=0)
 #     MRS_Rate=models.IntegerField(default=0)
@@ -979,7 +979,14 @@ class PM_Mapping_table_After_Cost_column(models.Model):
 
 
 
-    
-    
-    
+class margin(models.Model):
+    sr_no=models.AutoField(primary_key=True)
+    Details=models.CharField(max_length=100)
+    Total_Cost=models.IntegerField(default=0)
+    Pr_Wt_Mrgn=models.IntegerField(default=0)
+    Gross_Mrgn=models.IntegerField(default=0)
+    Gross_Mrgn_In_Prcnt=models.IntegerField(default=0)
+    Sell_Price=models.IntegerField(default=0)
+    Net_Price=models.IntegerField(default=0)
+    Profit_On_Nt_Mrgn=models.IntegerField(default=0)
     
