@@ -175,8 +175,67 @@ input{
                         </table>
 
                         <!-- Add your table here of products...... -->
+                        <div class="table-responsive">
+                            <table class="table table-lg "  border="1">
+
+                                <tr>
+                                   <th colspan="6">-</th>
+                                   <th colspan="2">SUPPLY</th>
+                                   <th colspan="2">INSTALLATION</th>
+                                   
+                                </tr>
+                                <tr>
+                                   <th>S.N.</th>
+                                   <th>MAKE</th>
+                                   <th>MODEL</th>
+                                   <th>ITEM DESCRIPTION</th>
+                                   <th>QTY</th>
+                                   <th>UOM</th>
+                                   <th>RATE</th>
+                                   <th>TOTAL</th>
+                                   <th>RATE</th>
+                                   <th>TOTAL</th>
+                                   <th>REMARK</th>
+                                </tr>
+                                <tr  style="background-color: yellow;">
+                                   <th>A</th>
+                                   <th>FlamencoTech</th>
+                                   <th></th>
+                                   <th>HARDWARE</th>
+                                   <th></th>
+                                   <th></th>
+                                   <th></th>
+                                   <th></th>
+                                   <th></th>
+                                   <th></th>
+                                   <th></th>
+                                   
+                                </tr>
+                                <tbody id="maincontenthard">
 
 
+
+                                </tbody>
+                                <br>
+                                <tr  style="background-color: yellow;">
+                                    <th>A</th>
+                                    <th>FlamencoTech</th>
+                                    <th></th>
+                                    <th>SOFTWARE</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    
+                                 </tr>
+
+                            </table>
+                        </div>
+                        
+                        
 
 
                         <div class="bg-dark text-white" >
@@ -346,5 +405,46 @@ function auto_height(elem) {  /* javascript */
     elem.style.height = "1px";
     elem.style.height = (elem.scrollHeight)+"px";
 }
+var hard_data = JSON.parse(localStorage.getItem('hard_data_quot'));
+var soft_data = JSON.parse(localStorage.getItem('soft_data_quot'));
+console.log(hard_data);
+var hardhtml=document.getElementById("maincontenthard");
+for(var i=0;i<hard_data.length;i++){
+    hardhtml.innerHTML=hardhtml.innerHTML+`
+    <tr>
+                                   <th>${i+1}</th>
+                                   <th>${hard_data[i].Make}</th>
+                                   <th>${hard_data[i].Model}</th>
+                                   <th>${hard_data[i].Hardware_Items}</th>
+                                   <th>${hard_data[i].Qty}</th>
+                                   <th>${hard_data[i].Uoms}</th>
+                                   <th>${hard_data[i].Supply_Rate}</th>
+                                   <th>${hard_data[i].Supply_Total}</th>
+                                   <th>${hard_data[i].Installation_Rate}</th>
+                                   <th>${hard_data[i].Installation_Total}</th>
+                                </tr>
+    
+    
+    `;
+}
+for(var i=0;i<soft_data.length;i++){
+    hardhtml.innerHTML=hardhtml.innerHTML+`
+    <tr>
+                                   <th>${i+1}</th>
+                                   <th>${soft_data[i].Make}</th>
+                                   <th>${soft_data[i].Model}</th>
+                                   <th>${soft_data[i].Hardware_Items}</th>
+                                   <th>${soft_data[i].Qty}</th>
+                                   <th>${soft_data[i].Uoms}</th>
+                                   <th>${soft_data[i].Supply_Rate}</th>
+                                   <th>${soft_data[i].Supply_Total}</th>
+                                   <th>${soft_data[i].Installation_Rate}</th>
+                                   <th>${soft_data[i].Installation_Total}</th>
+                                </tr>
+    
+    
+    `;
+}
+
 </script>
 </html>
