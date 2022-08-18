@@ -990,3 +990,14 @@ class margin(models.Model):
     Net_Price=models.IntegerField(default=0)
     Profit_On_Nt_Mrgn=models.IntegerField(default=0)
     
+class Soft_Items_DB(models.Model):
+    sr_no=models.IntegerField(primary_key=True)
+    Make=models.CharField(max_length=100,default="Flamencotech")
+    Model=models.CharField(max_length=100,default="DB V3.3")
+    Item=models.CharField(max_length=300)
+    Qty=models.IntegerField(default=0)
+    UOM=models.CharField(max_length=50,default="Per Item")
+    Capex=models.IntegerField(default=0)
+    C_Total=models.IntegerField(default=0)
+    Opex=models.IntegerField(default=0)
+    O_Total=models.IntegerField(default=0)

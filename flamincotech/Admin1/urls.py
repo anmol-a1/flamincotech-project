@@ -173,6 +173,9 @@ urlpatterns = [
     
     path('db_general/',views.db_general,name='db_general'),
     path('detailed_boq/',views.detailed_boq,name='detailed_boq'),
+    path('margin/',views.margins,name='margin'),
+    path('summary/',views.summarys,name='summary'),
+    path('quotation/',views.quotations,name='quotation'),
     
     
     

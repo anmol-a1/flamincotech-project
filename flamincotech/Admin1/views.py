@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 import json
 from django.http import HttpResponseRedirect,HttpResponse,JsonResponse
-from .models import ManEffortsInstall,IandC,NewUser,Software_Revised_Extra,Automate_Pricing,InputConfiguration,vpss,HardWareGeneral,HardWareIpVariant,HardWareActive,HardWarePassive,HardWareEthernet,HardWareDdc,HardWareBmsSensors,HardWareThirdParty,HardWareBmsScabling,HardWarePiping,HardWareTrays,HardWareGeneralInstall,HardWareIpVariantInstall,HardWareActiveInstall,HardWarePassiveInstall,HardWareEthernetInstall,HardWareDdcInstall,HardWareBmsSensorsInstall,HardWareThirdPartyInstall,HardWareBmsScablingInstall,HardWarePipingInstall,HardWareTraysInstall,SpazioPriceCalculator,Desk_Booking_Solution,Desk_Utilization_Solution,Desk_Planning_Solution,Employee_One_Mobile_App,Rostering,Wayfinding,Feedback,Kiosk_License,Meeting_Room_License_Occupancy,Meeting_Room_License_People_Count,Meeting_Room_License_Booking,Restroom_License_People_Count,Restroom_License_Wet_floor_detection,Restroom_License_Odour ,Human_body_temperature_License
+from .models import Soft_Items_DB,margin,ManEffortsInstall,IandC,NewUser,Software_Revised_Extra,Automate_Pricing,InputConfiguration,vpss,HardWareGeneral,HardWareIpVariant,HardWareActive,HardWarePassive,HardWareEthernet,HardWareDdc,HardWareBmsSensors,HardWareThirdParty,HardWareBmsScabling,HardWarePiping,HardWareTrays,HardWareGeneralInstall,HardWareIpVariantInstall,HardWareActiveInstall,HardWarePassiveInstall,HardWareEthernetInstall,HardWareDdcInstall,HardWareBmsSensorsInstall,HardWareThirdPartyInstall,HardWareBmsScablingInstall,HardWarePipingInstall,HardWareTraysInstall,SpazioPriceCalculator,Desk_Booking_Solution,Desk_Utilization_Solution,Desk_Planning_Solution,Employee_One_Mobile_App,Rostering,Wayfinding,Feedback,Kiosk_License,Meeting_Room_License_Occupancy,Meeting_Room_License_People_Count,Meeting_Room_License_Booking,Restroom_License_People_Count,Restroom_License_Wet_floor_detection,Restroom_License_Odour ,Human_body_temperature_License
 from User.models import Soft_Items,Bms_Trays,Bms_Piping,Bms_Cabling,Bms_Sensors,Ddc,Ethernet,Fiber,Active,General,Others,Third_Party
 import datetime
 from import_export import resources
@@ -20,6 +20,7 @@ def detailed_boq(request):
 	Active1=Active.objects.all()
 	General1=General.objects.all()
 	Others1=Others.objects.all()
+	abcd=General.objects.all()
 	Third_Party1=Third_Party.objects.all()
 	HardWareGenerals=HardWareGeneral.objects.all()
 	HardWareIpVariants=HardWareIpVariant.objects.all()
@@ -46,8 +47,9 @@ def detailed_boq(request):
 	vpsss=vpss.objects.all()
 	entries1=vpsss[0:7]
 	entries2=vpsss[7:]
+	soft_items=Soft_Items_DB.objects.all()
 #  HardWareTrays,HardWareTraysInstall
-	context={'ManEfforts': ManEffortsInstalls,'ManEffortsData':list(ManEffortsInstalls.values()),'vpssdata':list(vpsss.values()),'Trays1':entries1,'Trays2':entries2,'TraysDatas':list(HardWareTrayss.values()),'TraysDatasInstall': list(HardWareTrayssInstall.values()),'PipingDatas':list(HardWarePipings.values()),'PipingDatasInstall': list(HardWarePipingsInstall.values()),'BmsScablingDatas':list(HardWareBmsScablings.values()),'BmsScablingDatasInstall': list(HardWareBmsScablingsInstall.values()),'ThirdPartyDatas':list(HardWareThirdPartys.values()),'ThirdPartyDatasInstall': list(HardWareThirdPartysInstall.values()),'BmsSensorsDatas':list(HardWareBmsSensorss.values()),'BmsSensorsDatasInstall': list(HardWareBmsSensorssInstall.values()),'DdcDatas':list(HardWareDdcs.values()),'DdcDatasInstall': list(HardWareDdcsInstall.values()),'EthernetDatas':list(HardWareEthernets.values()),'EthernetDatasInstall': list(HardWareEthernetsInstall.values()),'PassiveDatas':list(HardWarePassives.values()),'PassiveDatasInstall': list(HardWarePassivesInstall.values()),'HardWareActives':list(HardWareActives.values()),'HardWareActivesInstall':list(HardWareActivesInstall.values()),'HardWareGeneralInstalls':list(HardWareGeneralInstalls.values()),'HardGeneral':list(HardWareGenerals.values()),'HardIP':list(HardWareIpVariants.values()),'Ddc':HardWareDdcs,'Bms_Trays':HardWareTrayss,'Bms_Piping':HardWarePipings,'Bms_Cabling':HardWareBmsScablings,'Bms_Sensor':HardWareBmsSensorss,'Ethernet':HardWareEthernets,'Fiber':HardWarePassives,'Active':HardWareActives,'General':HardWareGenerals,'Others':Others1,'Third_Party':HardWareThirdPartys}
+	context={'soft_data':list(soft_items.values()),'hard_data':list(abcd.values()),'Software_Items':soft_items,'ManEfforts': ManEffortsInstalls,'ManEffortsData':list(ManEffortsInstalls.values()),'vpssdata':list(vpsss.values()),'Trays1':entries1,'Trays2':entries2,'TraysDatas':list(HardWareTrayss.values()),'TraysDatasInstall': list(HardWareTrayssInstall.values()),'PipingDatas':list(HardWarePipings.values()),'PipingDatasInstall': list(HardWarePipingsInstall.values()),'BmsScablingDatas':list(HardWareBmsScablings.values()),'BmsScablingDatasInstall': list(HardWareBmsScablingsInstall.values()),'ThirdPartyDatas':list(HardWareThirdPartys.values()),'ThirdPartyDatasInstall': list(HardWareThirdPartysInstall.values()),'BmsSensorsDatas':list(HardWareBmsSensorss.values()),'BmsSensorsDatasInstall': list(HardWareBmsSensorssInstall.values()),'DdcDatas':list(HardWareDdcs.values()),'DdcDatasInstall': list(HardWareDdcsInstall.values()),'EthernetDatas':list(HardWareEthernets.values()),'EthernetDatasInstall': list(HardWareEthernetsInstall.values()),'PassiveDatas':list(HardWarePassives.values()),'PassiveDatasInstall': list(HardWarePassivesInstall.values()),'HardWareActives':list(HardWareActives.values()),'HardWareActivesInstall':list(HardWareActivesInstall.values()),'HardWareGeneralInstalls':list(HardWareGeneralInstalls.values()),'HardGeneral':list(HardWareGenerals.values()),'HardIP':list(HardWareIpVariants.values()),'Ddc':HardWareDdcs,'Bms_Trays':HardWareTrayss,'Bms_Piping':HardWarePipings,'Bms_Cabling':HardWareBmsScablings,'Bms_Sensor':HardWareBmsSensorss,'Ethernet':HardWareEthernets,'Fiber':HardWarePassives,'Active':HardWareActives,'General':abcd,'Others':Others1,'Third_Party':HardWareThirdPartys}
 	
 	return render(request,'User/detailed_boq/main.html',context)
 def fetchdata():
@@ -93,6 +95,13 @@ def iandcimport(request):
 		return redirect('iandc')
 def index(request):
 	return render(request,'Admin1/index.html')
+def summarys(request):
+	return render(request,'Admin1/summary.html')
+def quotations(request):
+	return render(request,'Admin1/pdf.html')
+def margins(request):
+	context={'Margin':margin.objects.all()}
+	return render(request,'Admin1/margin.html',context)
 def deleteuser(request):
 	if request.POST.get('action') == 'post':
 		NewUser.objects.filter(user_name=request.POST.get('user_name')).delete()

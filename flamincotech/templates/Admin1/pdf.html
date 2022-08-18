@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" crossorigin="anonymous">
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <style>
+body {
+    margin: 0;
+    font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: .8125rem;
+    font-weight: 400;
+    line-height: 1.5385;
+    color: #333;
+    text-align: left;
+    background-color: #eee
+}
+
+.mt-50 {
+    margin-top: 50px
+}
+
+.mb-50 {
+    margin-bottom: 50px
+}
+
+.card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-radius: .1875rem
+}
+
+.card-img-actions {
+    position: relative
+}
+
+.card-body {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 1.25rem;
+    text-align: center
+}
+
+.card-title {
+    margin-top: 10px;
+    font-size: 17px
+}
+
+.invoice-color {
+    color: red !important
+}
+
+.card-header {
+    padding: .9375rem 1.25rem;
+    margin-bottom: 0;
+    background-color: rgba(0, 0, 0, .02);
+    border-bottom: 1px solid rgba(0, 0, 0, .125)
+}
+
+a {
+    text-decoration: none !important
+}
+
+.btn-light {
+    color: #333;
+    background-color: #fafafa;
+    border-color: #ddd
+}
+
+.header-elements-inline {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap
+}
+
+@media (min-width: 768px) {
+    .wmin-md-400 {
+        min-width: 400px !important
+    }
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #2196f3
+}
+
+.btn-labeled>b {
+    position: absolute;
+    top: -1px;
+    background-color: blue;
+    display: block;
+    line-height: 1;
+    padding: .62503rem
+}
+
+input{
+    border: none;
+    background: transparent;
+}
+
+.auto_height { /* CSS */
+    width: 100%;
+  }
+
+   </style>
+</head>
+
+<body>
+    <div class="container d-flex justify-content-center mt-50 mb-50">
+        <div class="row">
+            <div class="col-md-12 text-right mb-3">
+                <button class="btn btn-primary" id="download">Download pdf</button>
+            </div>
+            <div class="col-md-12">
+                <div class="card" id="invoice">
+                    <img src="/static/f1.png" class="img-thumbnail" class="rounded float-left">
+                    <div class="bg-primary text-white" >
+                        <h6 class="card-title text-center"> Flamenco Tech Commercial Quotation </h6>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-lg " border="1">
+                            <thead style="border: 1px;">
+                                <tr>
+                                    <td style="font-weight:bold">Company: </td>
+                                    <td><input type="text" id="1" style="border: none"></td>
+                                    <td style="font-weight:bold">  </td>
+                                    <td rowspan="4" style="vertical-align : middle;"><b>FlamencoTech India Pvt Ltd</b>
+                                        <br>#731, 1st Floor, 7th Cross, 3rd Block,
+                                        Koramangala, Bangalore, India - 560 034<br><br>+91 80 2563 3803<br>connect@flamencotech.com<br></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight:bold">Kind Attn: </td>
+                                    <td><input style="border: none" type="text" id="1" ></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight:bold">Email ID: </td>
+                                    <td><input style="border: none" type="text" id="1" ></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight:bold">Mobile: </td>
+                                    <td><input style="border: none" type="text" id="1" ></td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2" style="vertical-align : middle;font-weight:bold" >Subject: </td>
+                                    <td rowspan="2" style="vertical-align : middle;" ><input type="text" style="border: none" id="1" oninput="auto_height(this)" class="auto_height" value="Flamenco Tech Offer for IAQ & UV-Based Air Santization Devices" maxlength="100"></td>
+                                    <td style="font-weight:bold"> Ref No: </td>
+                                    <td ><input style="border: none" type="text" id="1" style="border: none"></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight:bold"> Date: </td>
+                                    <td><input type="text" id="1" style="border: none"></td>
+                                </tr>
+                            </thead>
+                            
+                        </table>
+
+                        <!-- Add your table here of products...... -->
+
+
+
+
+                        <div class="bg-dark text-white" >
+                            <h6 class="card-title text-center">Terms and Conditions : </h6>
+                        </div>
+                        <div class="table-responsive">
+                        <table class="table table-lg " border="1">
+                    
+                            <tr>
+                                <td > 1</td>
+                                <td >Payment Terms -</td>
+                            </tr>
+                            <tr>
+                                <td> </td>
+                                <td>I- Hardware - 100% Advance with PO<br>II- Monthly Charges - 100% Annual in advance <br>III- Installation - 50% Advance, 30% on completion & 20% on Sign off</td>
+                            </tr>
+                            <tr>
+                                <td> 2</td>
+                                <td >Hardware rates are Ex-works Bangalore & it does not include any Freight charges, transit insurance Import duties, clearance charges, etc.</td>
+                            </tr>
+                            <tr>
+                                <td> 3</td>
+                                <td >GST and Government taxes extra as applicable</td>
+                            </tr>
+                            <tr>
+                                <td> 4</td>
+                                <td >Offer valid for 30 days from the date of quotation</td>
+                            </tr>
+                            <tr>
+                                <td> 5</td>
+                                <td >Delivery Period for FlamencoTech hardware - 16 - 24 weeks<br>Delivery Period for Air Santization Device - 10-12 Week </td>
+                            </tr>
+                            <tr>
+                                <td> 6</td>
+                                <td >Only Remote Support services are considered</td>
+                            </tr>
+                            <tr>
+                                <td> 7</td>
+                                <td >Cloud server augementation may required based on the final scope of the solution.</td>
+                            </tr>
+                            <tr>
+                                <td> 8</td>
+                                <td >The contract period for monthly recurring charges will be 3 years</td>
+                            </tr>
+                            <tr>
+                                <td> 9</td>
+                                <td >All Flamenco Tech hardware are supplied with 13 month warranty from the date of supply or 12 month warranty from the date of installation, which ever is earlier.</td>
+                            </tr>
+                            <tr>
+                                <td> 10</td>
+                                <td >Air Santization Hardware - The product is warranted to be free from defects in material and workmanship for a period of 12 months from the date of supply with exclusion of servicing and cleaning.
+                                    Warranty Void - </td>
+                            </tr>
+                            <tr>
+                                <td> </td>
+                                <td > I- Does not cover consequential loss or damages.<br>II- Is Void if any repair are carried out by unauthorized person <br>III- Failure of equipment because of electrical fault or unstable power supply</td>
+                            </tr>
+                            <tr>
+                                <td> 11</td>
+                                <td >Any type of ladders, plumbing, scaffolding or other similar associated works related to False Ceiling, false ceiling access panels, ceiling wooden frames for grills and diffusers, painting or matching of wall texture after any work will be in customer scope.</td>
+                            </tr>
+                            <tr>
+                                <td> 12</td>
+                                <td >Protected storage for the tools and equipment or any theft from site will be buyers
+                                    Responsibility.</td>
+                            </tr>
+                            <tr>
+                                <td> 13</td>
+                                <td >Network Infrastructure like LAN Cabling, Network Active switches (POE or NPOE), Racks, etc.to be provided by customer </td>
+                            </tr>
+                            <tr>
+                                <td> 14</td>
+                                <td >Firewalls, Internet connection to be arranged by the customer for Gateway</td>
+                            </tr>
+                            <tr>
+                                <td> 15</td>
+                                <td >UPS power point to be provided by the customer as required</td>
+                            </tr>
+                            <tr>
+                                <td> 16</td>
+                                <td >Any Electrical, Carpentry Civil work and Repainting or cleaning of Attic spaces/Air conditioning system will be in client scope</td>
+                            </tr>
+                            <tr>
+                                <td> 17</td>
+                                <td >All hardware quantities are arrived based on the shared layouts. Final quantity can be arrived based on detailed site study.</td>
+                            </tr>
+                            <tr>
+                                <td> 18</td>
+                                <td >Travel, Stay, Per Diem charges will be extra at actuals</td>
+                            </tr>
+                            <tr>
+                                <td> 19</td>
+                                <td >5 Admin Logins will be available for reports & dashboards, additional users if required then it will be charged extra</td>
+                            </tr>
+                            <tr>
+                                <td> 20</td>
+                                <td >The charges does not include any Mobilization (Store & Site Office) , Other Expenses (Power, house keeping, BG, insurance, compliance etc.) </td>
+                            </tr>
+                            <tr>
+                                <td> 21</td>
+                                <td >Installation charges may vary based on project specific details, site condition & work timings</td>
+                            </tr>
+                            <tr>
+                                <td> 22</td>
+                                <td >Kiosk hardware charges will be extra.</td>
+                            </tr>
+                            
+                        </table>
+                        <div class="bg-dark text-white" >
+                            <h6 class="card-title text-center">Assumptions : </h6>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-lg " border="1">
+                        
+                                <tr>
+                                    <td >1</td>
+                                    <td >Integration with Third Party application is not part of the proposal, but it can be discussed and based on integration feasibility additional charges will be shared.</td>
+                                </tr>
+                                <tr>
+                                    <td> 2</td>
+                                    <td >Customization is not included, but can be discussed and based on feasibility additional charges will be shared</td>
+                                </tr>
+                                <tr>
+                                    <td> 3</td>
+                                    <td >Application web link to be white listed by the customer to access the reports on their local machine</td>
+                                </tr>
+                                <tr>
+                                    <td> 4</td>
+                                    <td >Customer to provide the Data collector machine with below configuration<br><br>Intel I5 3.0 GHZ CPU, Quad Core processor  8 GB RAM, <br>500 GB  HDD, MS Windows 10 pro OS, 4 No.s X USB v2.0 and 2 X USB v3.0 <br>Full HD graphics, HDMI connectivity, Antivirus</td>
+                                </tr>
+                                <tr>
+                                    <td> 5</td>
+                                    <td >Installation of Air Sanitization devices to be arranged by customer through their existing HVAC vendor partner</td>
+                                </tr>
+                                <tr>
+                                    <td> 6</td>
+                                    <td >Sharing of IAQ sensor data to the existing BMS system is possbile with an additional protocol hardware which will be charged extra </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card-footer"> <span class="text-muted">Please get in touch in case of any queries about the aforementioned quote</span> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+window.onload = function () {
+    document.getElementById("download")
+        .addEventListener("click", () => {
+            const invoice = this.document.getElementById("invoice");
+            console.log(invoice);
+            console.log(window);
+            var opt = {
+                margin: 1,
+                filename: 'myfile.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+            html2pdf().from(invoice).set(opt).save();
+        })
+}
+
+function auto_height(elem) {  /* javascript */
+    elem.style.height = "1px";
+    elem.style.height = (elem.scrollHeight)+"px";
+}
+</script>
+</html>

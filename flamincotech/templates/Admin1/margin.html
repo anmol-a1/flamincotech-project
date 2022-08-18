@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -53,7 +54,7 @@ input[type=file]::file-selector-button {
         </a>
     </div>
 
-    <h4 style="text-align: center;">Variable Project Specific Sheet</h4> 
+    <h4 style="text-align: center;">Margin Sheet</h4> 
     <div style="width:3000px;" class="mx-3 shadow my-2 p-3 mb-5 rounded">
 
         <form class="my-1">
@@ -76,25 +77,21 @@ input[type=file]::file-selector-button {
                     <tr style="background-color:white">
                         <td>{{entry.sr_no}}</td>
                         <td>{{entry.Details}}</td>
-                        <th><input  id="{{entry.sr_no}}Total_Cost" style="width: 55px;border:none" value=0
+                        <th><input width="auto" id="{{entry.sr_no}}Total_Cost" readonly="true" style="width: 55px;border:none" value=0
                                     type="number"></th>
-                        <th><input  id="{{entry.sr_no}}Pr_Wt_Mrgn" style="width: 95px;border:none"  value=0
+                        <th><input width="auto"  id="{{entry.sr_no}}Pr_Wt_Mrgn" readonly="true" style="width: 95px;border:none"  value=0
                                     type="number"></th>
-                        <th><input  id="{{entry.sr_no}}Gross_Mrgn" style="width: 55px;border:none" readonly="true" value=0
+                        <th><input width="auto"  id="{{entry.sr_no}}Gross_Mrgn" readonly="true" style="width: 55px;border:none" readonly="true" value=0
                                     type="number"></th>
-                        <th><input  id="{{entry.sr_no}}Gross_Mrgn_In_Prcnt" style="width: 95px;border:none" readonly="true" value=0
+                        <th><input width="auto"  id="{{entry.sr_no}}Gross_Mrgn_In_Prcnt" readonly="true" style="width: 95px;border:none" readonly="true" value=0
                                     type="number"></th>
-                        <th><input  id="{{entry.sr_no}}Sell_Price" style="width: 55px;border:none" readonly="true" value=0
+                        <th><input width="auto"  id="{{entry.sr_no}}Sell_Price" readonly="true" style="width: 55px;border:none" readonly="true" value=0
                                     type="number"></th>
-                        <th><input  id="{{entry.sr_no}}Net_Price" style="width: 95px;border:none" readonly="true" value=0
+                        <th><input width="auto"  id="{{entry.sr_no}}Net_Price" readonly="true" style="width: 95px;border:none" readonly="true" value=0
                                     type="number"></th>
-                        <th><input  id="{{entry.sr_no}}Profit_On_Nt_Mrgn" style="width: 55px;border:none" readonly="true" value=0
-                                    type="number"></th>
-                        
-
+                        <th><input width="auto"  id="{{entry.sr_no}}Profit_On_Nt_Mrgn" readonly="true" style="width: 55px;border:none" readonly="true" value=0
+                                    type="number"></th> 
                     </tr>
-
-
                     {% endfor %}
                 </tbody>
             </table>
@@ -112,13 +109,104 @@ input[type=file]::file-selector-button {
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <button type="submit" onclick="gotosummary()" class="btn btn-primary mx-3 mb-2">Go To Summary</button>
     <script>
+//software_revised
+        var detail_boq = JSON.parse(localStorage.getItem('detailed_boq'));
+        var soft_revised = JSON.parse(localStorage.getItem('software_revised'));
+        console.log(detail_boq);
+        console.log(soft_revised);
+        soft_revised=[1,2];
+//Total_Cost,Pr_Wt_Mrgn,Gross_Mrgn,Gross_Mrgn_In_Prcnt,Sell_Price,Net_Price,Profit_On_Nt_Mrgn
+        document.getElementById("1Total_Cost").readonly=false;
+        document.getElementById("2Total_Cost").readonly=false;
+        document.getElementById("1Pr_Wt_Mrgn").value=soft_revised[1];
+        document.getElementById("2Pr_Wt_Mrgn").value=soft_revised[0];
+        document.getElementById("1Gross_Mrgn").value=document.getElementById("1Pr_Wt_Mrgn").value*1-document.getElementById("1Total_Cost").value*1;
+        document.getElementById("2Gross_Mrgn").value=document.getElementById("2Pr_Wt_Mrgn").value*1-document.getElementById("2Total_Cost").value*1;
+        document.getElementById("1Gross_Mrgn_In_Prcnt").value= document.getElementById("1Gross_Mrgn").value/document.getElementById("1Pr_Wt_Mrgn").value;
+        document.getElementById("2Gross_Mrgn_In_Prcnt").value=document.getElementById("2Gross_Mrgn").value/document.getElementById("2Pr_Wt_Mrgn").value;
+        
+        var detailed_boq_p197=JSON.parse(localStorage.getItem('detailed_boq_p197'));
+        var detailed_boq_p199=JSON.parse(localStorage.getItem('detailed_boq_p199'));
+        document.getElementById("1Sell_Price").value=detailed_boq_p199;
+        document.getElementById("2Sell_Price").value=detailed_boq_p197;
+        document.getElementById("3Total_Cost").value=detail_boq[0].H;
+        document.getElementById("4Total_Cost").value=detail_boq[3].H;
+        document.getElementById("5Total_Cost").value=detail_boq[5].H;
+        document.getElementById("6Total_Cost").value=detail_boq[1].H;
+        document.getElementById("7Total_Cost").value=detail_boq[2].H;
+        document.getElementById("8Total_Cost").value=detail_boq[1].J;
+        document.getElementById("9Total_Cost").value=detail_boq[2].J;
+        document.getElementById("10Total_Cost").value=detail_boq[0].J;
+        document.getElementById("11Total_Cost").value=detail_boq[8].J;
+        document.getElementById("12Total_Cost").value=detail_boq[7].J;
+        document.getElementById("13Total_Cost").value=detail_boq[3].J*1+1*detail_boq[5].J;
+        document.getElementById("14Total_Cost").value=detail_boq[9].J;
+        document.getElementById("15Total_Cost").value=detail_boq[10].J;
+        document.getElementById("3Pr_Wt_Mrgn").value=detail_boq[0].L;
+        document.getElementById("4Pr_Wt_Mrgn").value=detail_boq[3].L;
+        document.getElementById("5Pr_Wt_Mrgn").value=detail_boq[5].L;
+        document.getElementById("6Pr_Wt_Mrgn").value=detail_boq[1].L;
+        document.getElementById("7Pr_Wt_Mrgn").value=detail_boq[2].L;
+        document.getElementById("8Pr_Wt_Mrgn").value=detail_boq[1].N;
+        document.getElementById("9Pr_Wt_Mrgn").value=detail_boq[2].N;
+        document.getElementById("10Pr_Wt_Mrgn").value=detail_boq[0].N;
+        document.getElementById("11Pr_Wt_Mrgn").value=detail_boq[8].N;
+        document.getElementById("12Pr_Wt_Mrgn").value=detail_boq[7].N;
+        document.getElementById("13Pr_Wt_Mrgn").value=detail_boq[3].N*1+1*detail_boq[5].N;
+        document.getElementById("14Pr_Wt_Mrgn").value=detail_boq[9].N;
+        document.getElementById("15Pr_Wt_Mrgn").value=detail_boq[10].N;
+        document.getElementById("3Sell_Price").value=detail_boq[0].P;
+        document.getElementById("4Sell_Price").value=detail_boq[3].P;
+        document.getElementById("5Sell_Price").value=detail_boq[5].P;
+        document.getElementById("6Sell_Price").value=detail_boq[1].P;
+        document.getElementById("7Sell_Price").value=detail_boq[2].P;
+        document.getElementById("8Sell_Price").value=detail_boq[1].R;
+        document.getElementById("9Sell_Price").value=detail_boq[2].R;
+        document.getElementById("10Sell_Price").value=detail_boq[0].R;
+        document.getElementById("11Sell_Price").value=detail_boq[8].R;
+        document.getElementById("12Sell_Price").value=detail_boq[7].R;
+        document.getElementById("13Sell_Price").value=detail_boq[3].R*1+1*detail_boq[5].R;
+        document.getElementById("14Sell_Price").value=detail_boq[9].R;
+        document.getElementById("15Sell_Price").value=detail_boq[10].R;
+        for(var i=1;i<=15;i++){
+
+           try{
+document.getElementById(i+"Gross_Mrgn").value=document.getElementById(i+"Pr_Wt_Mrgn").value*1-document.getElementById(i+"Total_Cost").value*1;
+           }
+           catch(e){
+document.getElementById(i+"Gross_Mrgn").value=0;
+           }
+           try{
+document.getElementById(i+"Gross_Mrgn_In_Prcnt").value= document.getElementById(i+"Gross_Mrgn").value/document.getElementById(i+"Pr_Wt_Mrgn").value;
+           }
+           catch(e){
+document.getElementById(i+"Gross_Mrgn_In_Prcnt").value=0;
+           }
+           try{
+document.getElementById(i+"Net_Price").value=document.getElementById(i+"Sell_Price").value*1-document.getElementById(i+"Total_Cost").value*1;
+           }
+           catch(e){
+document.getElementById(i+"Net_Price").value=0;
+           }
+           try{
+document.getElementById(i+"Profit_On_Nt_Mrgn").value= document.getElementById(i+"Net_Price").value/document.getElementById(i+"Sell_Price").value;
+           }
+           catch(e){
+document.getElementById(i+"Profit_On_Nt_Mrgn").value=0;
+           }
 
 
 
+        //window.location.href = 'http://127.0.0.1:8000/admins/summary/';
 
-
-       
+        }
+        
+       function gotosummary() 
+        {
+            window.location.href = 'http://127.0.0.1:8000/admins/summary/';
+        }
     </script>
 
 </body>

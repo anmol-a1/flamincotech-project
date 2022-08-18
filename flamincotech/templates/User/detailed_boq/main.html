@@ -103,14 +103,14 @@
                                                 {% for entry in General %}
                                                 <tr style="background-color:white">
                                                         <td>{{entry.sr_no}}</td>
-                                                        <td>{{entry.MakeBrand}}</td>
+                                                        <td>{{entry.Make}}</td>
                                                         <td>{{entry.Model}}</td>
-                                                        <td>{{entry.InstallationEquipments}}</td>
+                                                        <td>{{entry.Hardware_Items}}</td>
                                                         <th><input onclick="generalchange()"
                                                                         id="{{entry.sr_no}}Qty_General"
                                                                         style="width: 55px;border:none" value=0
                                                                         type="number"></th>
-                                                        <th>{{entry.UnitDescription}}</th>
+                                                        <th>{{entry.Uom}}</th>
                                                         <th><input id="{{entry.sr_no}}Cost_Supply_Rate_General"
                                                                         style="width: 55px;border:none" value=0
                                                                         type="number"></th>
@@ -1461,52 +1461,82 @@
                         <form class="my-1">
                                 <table class="table" style="text-align: center;" border="1">
                                         <tbody>
+                                                <tr style="background-color:white">
+                                                        <td>1</td>
+                                                        <td>FLAMENCOTECH</td>
+                                                        <td>-</td>
+                                                        <td>Software Deployment, configuration & complete commissioning,
+                                                                testing of solutions </td>
+                                                        <th>1</th>
+                                                        <th>Lot</th>
+                                                        <th>-</th>
+                                                        <th>-</th>
+                                                        <th>-</th>
+                                                        <th><input id="1Cost_Installation_Total_ManEfforts"
+                                                                        style="width: 55px;border:none" value=0
+                                                                        type="number">
+                                                        </th>
+                                                        <th>-</th>
+                                                        <th>-</th>
+                                                        <th>-</th>
+                                                        <th><input id="1MRI_Total_ManEfforts"
+                                                                        style="width: 55px;border:none" value=0
+                                                                        type="number"></th>
+                                                        <th>-</th>
+                                                        <th>-</th>
+                                                        <th>-</th>
+                                                        <th><input id="1Installation_Total_ManEfforts"
+                                                                        style="width: 55px;border:none" value=0
+                                                                        type="number"></th>
+
+                                                        </th>
+                                                </tr>
                                                 {% for entry in ManEfforts %}
                                                 <tr style="background-color:white">
-                                                        <td>{{entry.sr_no}}</td>
+                                                        <td>{{entry.sr_no|add:"1"}}</td>
                                                         <td>{{entry.MakeBrand}}</td>
                                                         <td>{{entry.Model}}</td>
                                                         <td>{{entry.InstallationEquipments}}</td>
-                                                        <th><input onchange="maneffortschange()" id="{{entry.sr_no}}Qty_ManEfforts"
+                                                        <th><input onchange="maneffortschange()" id="{{entry.sr_no|add:"1"}}Qty_ManEfforts"
                                                                         style="width: 55px;border:none" value=0
                                                                         type="number"></th>
                                                         <th>{{entry.UnitDescription}}</th>
-                                                        <th><input id="{{entry.sr_no}}Cost_Supply_Rate_ManEfforts"
+                                                        <th><input id="{{entry.sr_no|add:"1"}}Cost_Supply_Rate_ManEfforts"
                                                                         style="width: 55px;border:none" value=0
                                                                         type="number"></th>
-                                                        <th><input id="{{entry.sr_no}}Cost_Supply_Total_ManEfforts"
+                                                        <th><input id="{{entry.sr_no|add:"1"}}Cost_Supply_Total_ManEfforts"
                                                                         style="width: 55px;border:none" value=0
                                                                         type="number"></th>
-                                                        <th><input id="{{entry.sr_no}}Cost_Installation_Rate_ManEfforts"
+                                                        <th><input id="{{entry.sr_no|add:"1"}}Cost_Installation_Rate_ManEfforts"
                                                                         style="width: 55px;border:none" value=0
                                                                         type="number">
                                                         </th>
-                                                        <th><input id="{{entry.sr_no}}Cost_Installation_Total_ManEfforts"
+                                                        <th><input id="{{entry.sr_no|add:"1"}}Cost_Installation_Total_ManEfforts"
                                                                         style="width: 55px;border:none" value=0
                                                                         type="number">
                                                         </th>
-                                                        <th><input id="{{entry.sr_no}}MRS_Rate_ManEfforts"
+                                                        <th><input id="{{entry.sr_no|add:"1"}}MRS_Rate_ManEfforts"
                                                                         style="width: 55px;border:none" value=0
                                                                         type="number"></th>
-                                                        <th><input id="{{entry.sr_no}}MRS_Total_ManEfforts"
+                                                        <th><input id="{{entry.sr_no|add:"1"}}MRS_Total_ManEfforts"
                                                                         style="width: 55px;border:none" value=0
                                                                         type="number"></th>
-                                                        <th><input id="{{entry.sr_no}}MRI_Rate_ManEfforts"
+                                                        <th><input id="{{entry.sr_no|add:"1"}}MRI_Rate_ManEfforts"
                                                                         style="width: 55px;border:none" value=0
                                                                         type="number"></th>
-                                                        <th><input id="{{entry.sr_no}}MRI_Total_ManEfforts"
+                                                        <th><input id="{{entry.sr_no|add:"1"}}MRI_Total_ManEfforts"
                                                                         style="width: 55px;border:none" value=0
                                                                         type="number"></th>
-                                                        <th><input id="{{entry.sr_no}}Supply_Rate_ManEfforts"
+                                                        <th><input id="{{entry.sr_no|add:"1"}}Supply_Rate_ManEfforts"
                                                                         style="width: 55px;border:none" value=0
                                                                         type="number"></th>
-                                                        <th><input id="{{entry.sr_no}}Supply_Total_ManEfforts"
+                                                        <th><input id="{{entry.sr_no|add:"1"}}Supply_Total_ManEfforts"
                                                                         style="width: 55px;border:none" value=0
                                                                         type="number"></th>
-                                                        <th><input id="{{entry.sr_no}}Installation_Rate_ManEfforts"
+                                                        <th><input id="{{entry.sr_no|add:"1"}}Installation_Rate_ManEfforts"
                                                                         style="width: 55px;border:none" value=0
                                                                         type="number"></th>
-                                                        <th><input id="{{entry.sr_no}}Installation_Total_ManEfforts"
+                                                        <th><input id="{{entry.sr_no|add:"1"}}Installation_Total_ManEfforts"
                                                                         style="width: 55px;border:none" value=0
                                                                         type="number"></th>
                                                         </th>
@@ -1552,18 +1582,75 @@
                         </form>
                 </div>
         </div>
+        <div>
+                <p>Software Items
+                <p>
+                <div style="width:100%;background-color: rgb(241, 241, 241);" id="" class="shadow mb-5 rounded">
+                        <form class="my-1">
+                                <table class="table" style="text-align: center;" border="1">
+                                        <tbody>
+                                                {% for entry in Software_Items %}
+                                                <tr style="background-color:white">
+                                                        <td>{{entry.sr_no}}</td>
+                                                        <td>{{entry.Make}}</td>
+                                                        <td>{{entry.Model}}</td>
+                                                        <td>{{entry.Item}}</td>
+                                                        <th><input onchange="softchange()"
+                                                                        id="{{entry.sr_no}}Qty_Soft_Items"
+                                                                        style="width: 55px;border:none" value=0
+                                                                        type="number"></th>
+                                                        <th>{{entry.UOM}}</th>
+                                                        <th><input id="{{entry.sr_no}}Capex" readonly="true"
+                                                                        style="width: 55px;border:none" value=0
+                                                                        type="number"></th>
+                                                        <th><input id="{{entry.sr_no}}C_Total" readonly="true"
+                                                                        style="width: 55px;border:none" value=0
+                                                                        type="number"></th>
+                                                        <th><input id="{{entry.sr_no}}Opex" readonly="true"
+                                                                        style="width: 55px;border:none" value=0
+                                                                        type="number">
+                                                        </th>
+                                                        <th><input id="{{entry.sr_no}}O_Total" readonly="true"
+                                                                        style="width: 55px;border:none" value=0
+                                                                        type="number">
+                                                        </th>
+                                                        
+                                                        
+                                                </tr>
+                                                {% endfor %}
+                                                <tr style="background-color:white">
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                        <td>Total Software</td>
+                                                        <th>-</th>
+                                                        <th>-</th>
+                                                        <th>-</th>
+                                                        <th><input id="C_Total" readonly="true"
+                                                                        style="width: 55px;border:none" value=0
+                                                                        type="number"></th>
+                                                        <th>-
+                                                        </th>
+                                                        <th><input id="O_Total" readonly="true"
+                                                                        style="width: 55px;border:none" value=0
+                                                                        type="number">
+                                                        </th>
+                                                        
+                                                        
+                                                </tr>
+                                                
+                                        </tbody>
+                                </table>
+                        </form>
+                </div>
+        </div>
         <button id="but2" type="submit" disabled="true" class="btn btn-primary mx-3 mb-2 prev">Previous</button>
         <button id="ijk2" type="submit" class="btn btn-primary mx-3 mb-2 after">Next</button></div>
         <button type="submit" onclick="gotomargin()" class="btn btn-primary mx-3 mb-2">Go To Margin</button>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-                integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-                crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
-                integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-                crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
-                integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-                crossorigin="anonymous"></script>
+        <button type="submit" onclick="gotoquotation()" class="btn btn-primary mx-3 mb-2">Create Quotation</button>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
         <script>
                 var harddetails = JSON.parse(localStorage.getItem('harddetails'));
@@ -2226,7 +2313,7 @@
                         document.getElementById("Sum_Installation_Total_Piping").value=ita;
                 }
                 
-pipingchange();
+                pipingchange();
                 ///////////
                 /////
                 var Bms_TraysData = {{ TraysDatas | safe}};
@@ -2364,28 +2451,28 @@ pipingchange();
                 var efforts_data = {{ ManEffortsData | safe}};
                 var manefforts = {{ ManEfforts | length }};
                 function maneffortschange() {
-                        let cst=0,cit=0,msta=0,mita=0,sta=0,ita=0;
+                        let cst = 0, cit = 0, msta = 0, mita = 0, sta = 0, ita = 0;
 
-                        for (var i = 1; i <= manefforts; i++) {
+                        for (var i = 2; i <= manefforts; i++) {
                                 console.log("ff");
-                                
+
                                 document.getElementById(i + "Cost_Installation_Rate_ManEfforts").value = document.getElementById(i + "Qty_ManEfforts").value == ("0" || 0) ? 0 : efforts_data[i - 1].UnitCostInclusiveofContigency;
                                 document.getElementById(i + "Cost_Installation_Total_ManEfforts").value = document.getElementById(i + "Qty_ManEfforts").value * 1 * document.getElementById(i + "Cost_Installation_Rate_ManEfforts").value;
-                                
+
                                 document.getElementById(i + "MRI_Rate_ManEfforts").value = document.getElementById(i + "Qty_ManEfforts").value == ("0" || 0) ? 0 : efforts_data[i - 1].Unit_Price;
                                 document.getElementById(i + "MRI_Total_ManEfforts").value = document.getElementById(i + "Qty_Trays1").value * 1 * document.getElementById(i + "MRI_Rate_ManEfforts").value;
-                                
+
                                 document.getElementById(i + "Installation_Rate_ManEfforts").value = document.getElementById(i + "Qty_ManEfforts").value == ("0" || 0) ? 0 : efforts_data[i - 1].ListPricewithoutRoundup;
                                 document.getElementById(i + "Installation_Total_ManEfforts").value = document.getElementById(i + "Qty_ManEfforts").value * 1 * document.getElementById(i + "Installation_Rate_ManEfforts").value;
 
-                           
-                                cit=parseInt(cit)+1*document.getElementById(i + "Cost_Installation_Total_ManEfforts").value;
-                                mita=parseInt(mita)+1*document.getElementById(i + "MRI_Total_ManEfforts").value;
-                                ita=parseInt(ita)+1*document.getElementById(i + "Installation_Total_ManEfforts").value;
+
+                                cit = parseInt(cit) + 1 * document.getElementById(i + "Cost_Installation_Total_ManEfforts").value;
+                                mita = parseInt(mita) + 1 * document.getElementById(i + "MRI_Total_ManEfforts").value;
+                                ita = parseInt(ita) + 1 * document.getElementById(i + "Installation_Total_ManEfforts").value;
                         }
-                        document.getElementById("Sum_Cost_Installation_Total_ManEfforts").value=cit;
-                        document.getElementById("Sum_MRI_Total_ManEfforts").value=mita;
-                        document.getElementById("Sum_Installation_Total_ManEfforts").value=ita;
+                        document.getElementById("Sum_Cost_Installation_Total_ManEfforts").value = cit;
+                        document.getElementById("Sum_MRI_Total_ManEfforts").value = mita;
+                        document.getElementById("Sum_Installation_Total_ManEfforts").value = ita;
                 }
                 maneffortschange();
                 document.querySelectorAll('.btns').forEach(item => {
@@ -2480,30 +2567,324 @@ pipingchange();
                         })
                 })
 
-function gotomargin()
-{
-        let temp=[];
-        let abcd=["_General","_Active","_Fiber","_Ethernet","_Ddc","_Bms_Sensor","_Bms_Cabling","_Piping","_Bms_Trays","_Third_Party","_Trays1","_ManEfforts"];
-        for(var i=0;i<12;i++){
-            let person = {H:0, J:0, L:0, N:0,P:0,R:0};
-            person.H=document.getElementById("Sum_Cost_Supply_Total"+abcd[i]).value;
-            person.J=document.getElementById("Sum_Cost_Installation_Total"+abcd[i]).value;
-            person.L=document.getElementById("Sum_MRS_Total"+abcd[i]).value;
-            person.N=document.getElementById("Sum_MRI_Total"+abcd[i]).value;
-            person.P=document.getElementById("Sum_Supply_Total"+abcd[i]).value;
-            person.R=document.getElementById("Sum_Installation_Total"+abcd[i]).value;
-            temp.push(person);
+
+               
+       
+        var automate_data = JSON.parse(localStorage.getItem('automatedetails'));
+        var software_revised_d = JSON.parse(localStorage.getItem('soft_rates'));
+        var software_revised_c_first = JSON.parse(localStorage.getItem('software_revised_c_first'));
+        var soft_module_c = JSON.parse(localStorage.getItem('soft_module_c'));
+        var soft_total= JSON.parse(localStorage.getItem('soft_total_l'));
+        console.log(soft_module_c);
+        console.log(software_revised_d);
+        document.getElementById("16Qty_Soft_Items").value= automate_data[1];
+        document.getElementById("17Qty_Soft_Items").value= 1;
+        for(var jk=1;jk<=14;jk++){
+                if(software_revised_d[jk-1] != null){
+                document.getElementById(jk+"Capex").value=software_revised_d[jk-1];
+                }
+
         }
-        localStorage.setItem('detailed_boq', JSON.stringify(temp));
         
+        for(var jk=1;jk<=15;jk++){
+                document.getElementById(jk+"Qty_Soft_Items").value=software_revised_c_first[jk-1];
+                if(soft_module_c[jk-1] != null){
+                document.getElementById(jk+"Opex").value=soft_module_c[jk-1];
+                }
 
+        }
+        var soft_l_19=soft_total[14];
+        var soft_l_20=soft_total[15];
+        var soft_l_21=soft_total[16]; 
+        var soft_l_23=soft_total[18]; 
+        try{
+
+             soft_l_19=soft_l_19/document.getElementById("15Qty_Soft_Items").value;
+        }
+        catch(e){
+             soft_l_19=0;
+        }
+        if(automate_data[0]==0){
+
+soft_l_20=0;
+document.getElementById("16Opex").value=0;
+        }
+else if(automate_data[0]==1){
+document.getElementById("16Opex").value=soft_module_c[15];
 }
+else{
+soft_l_20=soft_l_21;
+document.getElementById("16Opex").value=soft_module_c[16];
+}       
+       var o_totals=0;
+       var c_totals=0
+       soft_l_23=soft_l_23/document.getElementById("17Qty_Soft_Items").value;
+        document.getElementById("15Capex").value=soft_l_19;
+        document.getElementById("16Capex").value=soft_l_20;
+        document.getElementById("17Capex").value=soft_l_23;
+       document.getElementById("17Opex").value=soft_module_c[18]/document.getElementById("17Qty_Soft_Items").value;
+        for(var anm=1;anm<=17;anm++){
+              try{
+              document.getElementById(anm+"C_Total").value=document.getElementById(anm+"Capex").value*1*document.getElementById(anm+"Qty_Soft_Items").value;
+              document.getElementById(anm+"O_Total").value=document.getElementById(anm+"Opex").value*1*document.getElementById(anm+"Qty_Soft_Items").value;
+              
+               }
+catch(e){
+continue;}
+              if(anm==16){
+continue;}
+              c_totals=1*c_totals+1*document.getElementById(anm+"C_Total").value;
+              o_totals=1*o_totals+1*document.getElementById(anm+"O_Total").value;
 
 
+        }
+        document.getElementById("C_Total").value=c_totals;
+        document.getElementById("O_Total").value=o_totals;
+        localStorage.setItem('detailed_boq_p197', JSON.stringify(document.getElementById("17C_Total").value));
+        localStorage.setItem('detailed_boq_p199', JSON.stringify(document.getElementById("C_Total").value));
+        man_cos_t=0;
+        for(var nikmc=2;nikmc<=6;nikmc++){
+            document.getElementById(nikmc+"Cost_Installation_Rate_ManEfforts").value=efforts_data[0].UnitCostInclusiveofContigency;
+            document.getElementById(nikmc+"Cost_Installation_Total_ManEfforts").value=document.getElementById(nikmc+"Cost_Installation_Rate_ManEfforts").value*1*document.getElementById(nikmc+"Qty_ManEfforts").value;
+            if(nikmc==6){
+            continue; 
+        }
+            man_cos_t=man_cos_t*1+1*document.getElementById(nikmc+"Cost_Installation_Total_ManEfforts").value;
+       
+        }
+        document.getElementById(1+"Cost_Installation_Total_ManEfforts").value=man_cos_t;
+        man_cos_t=1*man_cos_t+1*document.getElementById(6+"Cost_Installation_Total_ManEfforts").value;
+        document.getElementById("Sum_Cost_Installation_Total_ManEfforts").value=man_cos_t;
+        man_cos_m=0;
+        for(var nikmc=2;nikmc<=6;nikmc++){
+            document.getElementById(nikmc+"MRI_Rate_ManEfforts").value=efforts_data[0].Unit_Price;
+            document.getElementById(nikmc+"MRI_Total_ManEfforts").value=document.getElementById(nikmc+"MRI_Rate_ManEfforts").value*1*document.getElementById(nikmc+"Qty_ManEfforts").value;
+            if(nikmc==6){
+            continue; 
+        }
+            man_cos_m=man_cos_m*1+1*document.getElementById(nikmc+"MRI_Total_ManEfforts").value;
+       
+        }
+        document.getElementById(1+"MRI_Total_ManEfforts").value=man_cos_m;
+        man_cos_m=1*man_cos_m+1*document.getElementById(6+"MRI_Total_ManEfforts").value;
+        document.getElementById("Sum_MRI_Total_ManEfforts").value=man_cos_m;
+        man_cos_i=0;
+        for(var nikmc=2;nikmc<=6;nikmc++){
+            document.getElementById(nikmc+"Installation_Rate_ManEfforts").value=efforts_data[0].Unit_Price;
+            document.getElementById(nikmc+"Installation_Total_ManEfforts").value=document.getElementById(nikmc+"Installation_Rate_ManEfforts").value*1*document.getElementById(nikmc+"Qty_ManEfforts").value;
+            if(nikmc==6){
+            continue; 
+        }
+            man_cos_i=man_cos_i*1+1*document.getElementById(nikmc+"Installation_Total_ManEfforts").value;
+       
+        }
+        document.getElementById(1+"Installation_Total_ManEfforts").value=man_cos_i;
+        man_cos_i=1*man_cos_i+1*document.getElementById(6+"Installation_Total_ManEfforts").value;
+        document.getElementById("Sum_Installation_Total_ManEfforts").value=man_cos_i;
+        function gotomargin() {
+                        let temp = [];
+                        let abcd = ["_General", "_Active", "_Fiber", "_Ethernet", "_Ddc", "_Bms_Sensor", "_Bms_Cabling", "_Piping", "_Bms_Trays", "_Third_Party", "_Trays1", "_ManEfforts"];
 
 
+                        for (var i = 1; i < 2; i++) {
+                                let person = { H: 0, J: 0, L: 0, N: 0, P: 0, R: 0 };
+                                person.H = document.getElementById("Sum_Cost_Supply_Total" + abcd[i-1]).value;
+                                person.J = document.getElementById("Sum_Cost_Installation_Total" + abcd[i-1]).value;
+                                person.L = document.getElementById("Sum_MRS_Total" + abcd[i-1]).value;
+                                person.N = document.getElementById("Sum_MRI_Total" + abcd[i-1]).value;
+                                person.P = document.getElementById("Sum_Supply_Total" + abcd[i-1]).value;
+                                person.R = document.getElementById("Sum_Installation_Total" + abcd[i-1]).value;
+                                temp.push(person);
+                        }
+                        for (var i = 2; i < 3; i++) {
+                                let person = { H: 0, J: 0, L: 0, N: 0, P: 0, R: 0 };
+                                person.H = document.getElementById("Sum_Cost_Supply_Total" + abcd[i-1]).value;
+                                person.J = document.getElementById("Sum_Cost_Installation_Total" + abcd[i-1]).value;
+                                person.L = document.getElementById("Sum_MRS_Total" + abcd[i-1]).value;
+                                person.N = document.getElementById("Sum_MRI_Total" + abcd[i-1]).value;
+                                person.P = document.getElementById("Sum_Supply_Total" + abcd[i-1]).value;
+                                person.R = document.getElementById("Sum_Installation_Total" + abcd[i-1]).value;
+                                temp.push(person);
+                        }
+                        for (var i = 3; i < 4; i++) {
+                                let person = { H: 0, J: 0, L: 0, N: 0, P: 0, R: 0 };
+                                person.H = document.getElementById("Sum_Cost_Supply_Total" + abcd[i-1]).value;
+                                person.J = document.getElementById("Sum_Cost_Installation_Total" + abcd[i-1]).value;
+                                person.L = document.getElementById("Sum_MRS_Total" + abcd[i-1]).value;
+                                person.N = document.getElementById("Sum_MRI_Total" + abcd[i-1]).value;
+                                person.P = document.getElementById("Sum_Supply_Total" + abcd[i-1]).value;
+                                person.R = document.getElementById("Sum_Installation_Total" + abcd[i-1]).value;
+                                temp.push(person);
+                        }
+                        for (var i = 4; i < 5; i++) {
+                                let person = { H: 0, J: 0, L: 0, N: 0, P: 0, R: 0 };
+                                person.H = document.getElementById("Sum_Cost_Supply_Total" + abcd[i-1]).value * 1 + 1 * temp[2].H;
+                                person.J = document.getElementById("Sum_Cost_Installation_Total" + abcd[i-1]).value * 1 + 1 * temp[2].J;
+                                person.L = document.getElementById("Sum_MRS_Total" + abcd[i-1]).value * 1 + 1 * temp[2].L;
+                                person.N = document.getElementById("Sum_MRI_Total" + abcd[i-1]).value * 1 + 1 * temp[2].N;
+                                person.P = document.getElementById("Sum_Supply_Total" + abcd[i-1]).value * 1 + 1 * temp[2].P;
+                                person.R = document.getElementById("Sum_Installation_Total" + abcd[i-1]).value * 1 + 1 * temp[2].R;
+                                temp.push(person);
+                        }
+                        console.log(temp)
+                        temp.splice(2,1);
+                        console.log(temp)
+                        for (var i = 5; i < 6; i++) {
+                                console.log("iiih");
+                                let person = { H: 0, J: 0, L: 0, N: 0, P: 0, R: 0 };
+                                person.H = document.getElementById("Sum_Cost_Supply_Total" + abcd[i-1]).value;
+                                person.J = document.getElementById("Sum_Cost_Installation_Total" + abcd[i-1]).value;
+                                person.L = document.getElementById("Sum_MRS_Total" + abcd[i-1]).value;
+                                person.N = document.getElementById("Sum_MRI_Total" + abcd[i-1]).value;
+                                person.P = document.getElementById("Sum_Supply_Total" + abcd[i-1]).value;
+                                person.R = document.getElementById("Sum_Installation_Total" + abcd[i-1]).value;
+                                temp.push(person);
+                                console.log(temp)
+                        }
+                        console.log(temp);
+                        for (var i = 6; i < 7; i++) {
+                                let person = { H: 0, J: 0, L: 0, N: 0, P: 0, R: 0 };
+                                person.H = document.getElementById("Sum_Cost_Supply_Total" + abcd[i-1]).value * 1 + 1 * temp[3].H;
+                                person.J = document.getElementById("Sum_Cost_Installation_Total" + abcd[i-1]).value * 1 + 1 * temp[3].J;
+                                person.L = document.getElementById("Sum_MRS_Total" + abcd[i-1]).value * 1 + 1 * temp[3].L;
+                                person.N = document.getElementById("Sum_MRI_Total" + abcd[i-1]).value * 1 + 1 * temp[3].N;
+                                person.P = document.getElementById("Sum_Supply_Total" + abcd[i-1]).value * 1 + 1 * temp[3].P;
+                                person.R = document.getElementById("Sum_Installation_Total" + abcd[i-1]).value * 1 + 1 * temp[3].R;
+                                temp.push(person);
+                        }
+                        temp.splice(3, 1);
+                        for (var i = 7; i < 8; i++) {
+                                let person = { H: 0, J: 0, L: 0, N: 0, P: 0, R: 0 };
+                                person.H = document.getElementById("Sum_Cost_Supply_Total" + abcd[i-1]).value;
+                                person.J = document.getElementById("Sum_Cost_Installation_Total" + abcd[i-1]).value;
+                                person.L = document.getElementById("Sum_MRS_Total" + abcd[i-1]).value;
+                                person.N = document.getElementById("Sum_MRI_Total" + abcd[i-1]).value;
+                                person.P = document.getElementById("Sum_Supply_Total" + abcd[i-1]).valu;;
+                                person.R = document.getElementById("Sum_Installation_Total" + abcd[i-1]).value;
+                                temp.push(person);
+                        }
+                        for (var i = 8; i < 9; i++) {
+                                let person = { H: 0, J: 0, L: 0, N: 0, P: 0, R: 0 };
+                                person.H = document.getElementById("Sum_Cost_Supply_Total" + abcd[i-1]).value;
+                                person.J = document.getElementById("Sum_Cost_Installation_Total" + abcd[i-1]).value;
+                                person.L = document.getElementById("Sum_MRS_Total" + abcd[i-1]).value;
+                                person.N = document.getElementById("Sum_MRI_Total" + abcd[i-1]).value;
+                                person.P = document.getElementById("Sum_Supply_Total" + abcd[i-1]).value;
+                                person.R = document.getElementById("Sum_Installation_Total" + abcd[i-1]).value;
+                                temp.push(person);
+                        }
+                        for (var i = 9; i < 10; i++) {
+                                let person = { H: 0, J: 0, L: 0, N: 0, P: 0, R: 0 };
+                                person.H = document.getElementById("Sum_Cost_Supply_Total" + abcd[i-1]).value * 1 + 1 * temp[4].H + 1 * temp[5].H;
+                                person.J = document.getElementById("Sum_Cost_Installation_Total" + abcd[i-1]).value * 1 + 1 * temp[4].J + 1 * temp[5].J;
+                                person.L = document.getElementById("Sum_MRS_Total" + abcd[i-1]).value * 1 + 1 * temp[4].L + 1 * temp[5].L;
+                                person.N = document.getElementById("Sum_MRI_Total" + abcd[i-1]).value * 1 + 1 * temp[4].N + 1 * temp[5].N;
+                                person.P = document.getElementById("Sum_Supply_Total" + abcd[i-1]).value * 1 + 1 * temp[4].P + 1 * temp[5].P;
+                                person.R = document.getElementById("Sum_Installation_Total" + abcd[i-1]).value * 1 + 1 * temp[4].R + 1 * temp[5].R;
+                                temp.push(person);
+                        }
+                        temp.splice(4, 2);
+                        for (var i = 10; i < 13; i++) {
+                                console.log("yass");
+                                let person = { H: 0, J: 0, L: 0, N: 0, P: 0, R: 0 };
+                                person.H = document.getElementById("Sum_Cost_Supply_Total" + abcd[i-1]).value;
+                                person.J = document.getElementById("Sum_Cost_Installation_Total" + abcd[i-1]).value;
+                                person.L = document.getElementById("Sum_MRS_Total" + abcd[i-1]).value;
+                                person.N = document.getElementById("Sum_MRI_Total" + abcd[i-1]).value;
+                                person.P = document.getElementById("Sum_Supply_Total" + abcd[i-1]).value;
+                                person.R = document.getElementById("Sum_Installation_Total" + abcd[i-1]).value;
+                                temp.push(person);
+                        }
 
 
+                        let person = { H: 0, J: 0, L: 0, N: 0, P: 0, R: 0 };
+                        person.H = 0;
+                        person.J = document.getElementById("1Cost_Installation_Total_ManEfforts").value;
+                        person.L = 0;
+                        person.N = document.getElementById("1MRI_Total_ManEfforts").value;
+                        person.P = 0;
+                        person.R = document.getElementById("1Installation_Total_ManEfforts").value;
+                        temp.push(person);
+                        person = { H: 0, J: 0, L: 0, N: 0, P: 0, R: 0 };
+                        person.H = 0;
+                        person.J = document.getElementById("5Cost_Installation_Total_Trays1").value;
+                        person.L = 0;
+                        person.N = document.getElementById("5MRI_Total_Trays1").value;
+                        person.P = 0;
+                        person.R = document.getElementById("5Installation_Total_Trays1").value;
+                        temp.push(person);
+                        person = { H: 0, J: 0, L: 0, N: 0, P: 0, R: 0 };
+                        person.H = 0;
+                        person.J = temp[6].H - 1 * document.getElementById("5Cost_Installation_Total_Trays1").value;
+                        person.L = 0;
+                        person.N = temp[6].L - 1 * document.getElementById("5MRI_Total_Trays1").value;
+                        person.P = 0;
+                        person.R = temp[6].R - 1 * document.getElementById("5Installation_Total_Trays1").value;
+                        temp.push(person);
+
+
+                        localStorage.setItem('detailed_boq', JSON.stringify(temp));
+                        window.location.href = 'http://127.0.0.1:8000/admins/margin/';
+
+        }
+       
+ 
+        var Hard_Data = {{ hard_data | safe}};
+        var Soft_Data = {{ soft_data | safe}};
+        console.log(Hard_Data);
+
+        function gotoquotation(){
+
+                var samp_hard_array=[];
+                for(var k=1;k<=16;k++){
+
+                     let sampobj={Hardware_Items: "Digital Blanket IOT Data Collector Machine ",Installation_Rate: 7500,Installation_Total: 0,Make: "Flamenco Tech",Model: "DB-IOT-DC",Qty: 0,Remarks: " ",Supply_Rate: 0,Supply_Total: 0,Uom: "Per Device",sr_no: 1};
+                     let qty= parseInt(document.getElementById(k+"Qty_General").value);
+                     var sm=1;
+                     if(qty>0){
+
+                        sampobj.Hardware_Items=Hard_Data[k-1].Hardware_Items;
+                        sampobj.Make=Hard_Data[k-1].Make;
+                        sampobj.Qty=qty;
+                        sampobj.sr_no=sm;
+                        sm=sm+1;
+                        sampobj.Model=Hard_Data[k-1].Model;
+                        sampobj.Uom=Hard_Data[k-1].Uom;
+                        sampobj.Supply_Rate= parseInt(document.getElementById(k+"Supply_Rate_General").value);
+                        sampobj.Supply_Total=parseInt(document.getElementById(k+"Supply_Total_General").value);
+                        sampobj.Installation_Rate= parseInt(document.getElementById(k+"Installation_Rate_General").value);
+                        sampobj.Installation_Total=parseInt(document.getElementById(k+"Installation_Total_General").value);
+                        samp_hard_array.push(sampobj)
+                     }
+                }      
+                var samp_soft_array=[];
+                for(var k=1;k<=17;k++){
+
+                     let sampobj={Hardware_Items: "Digital Blanket IOT Data Collector Machine ",Installation_Rate: 7500,Installation_Total: 0,Make: "Flamenco Tech",Model: "DB-IOT-DC",Qty: 0,Remarks: " ",Supply_Rate: 0,Supply_Total: 0,Uom: "Per Device",sr_no: 1};
+                     let qty= parseInt(document.getElementById(k+"Qty_Soft_Items").value);
+                     var lm=1;
+                     if(qty>0){
+
+                        sampobj.Hardware_Items=Soft_Data[k-1].Item;
+                        sampobj.Make=Soft_Data[k-1].Make;
+                        sampobj.Qty=qty;
+                        sampobj.sr_no=lm;
+                        lm=lm+1;
+                        sampobj.Model=Soft_Data[k-1].Model;
+                        sampobj.Uom=Soft_Data[k-1].Uom;
+                        sampobj.Supply_Rate= parseInt(document.getElementById(k+"Capex").value);
+                        sampobj.Supply_Total=parseInt(document.getElementById(k+"C_Total").value);
+                        sampobj.Installation_Rate= parseInt(document.getElementById(k+"Opex").value);
+                        sampobj.Installation_Total=parseInt(document.getElementById(k+"O_Total").value);
+                        samp_soft_array.push(sampobj)
+                     }
+                }      
+                localStorage.setItem('hard_data_quot', JSON.stringify(samp_hard_array));
+                localStorage.setItem('soft_data_quot', JSON.stringify(samp_soft_array));
+                window.location.href = 'http://127.0.0.1:8000/admins/quotation/';
+
+
+        }
         </script>
 </body>
 

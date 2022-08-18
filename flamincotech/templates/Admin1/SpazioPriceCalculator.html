@@ -972,8 +972,7 @@
         crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script>
-         //window.location.href = 'http://127.0.0.1:8000/admins/iandc/';
-        window.location.href = 'http://127.0.0.1:8000/admins/iandc/';
+        // window.location.href = 'http://127.0.0.1:8000/admins/iandc/';
         var harddetails = JSON.parse(localStorage.getItem('harddetails'));
         var softdetails = JSON.parse(localStorage.getItem('softdetails'));
         var automatedetails = JSON.parse(localStorage.getItem('automatedetails'));
@@ -2663,7 +2662,52 @@ console.log("holw is mc mc mc",subtotals[14]);
 
         }
         
-       
+        var soft23=parseInt(document.getElementById("19TotalWarranty").value);
+        var soft26=parseInt(document.getElementById("22TotalWarranty").value);
+        
+        var temp=[soft23,soft26]
+        localStorage.setItem('software_revised', JSON.stringify(temp));
+        var c299= parseInt(document.getElementById("1Value").value);
+        var soft_module_c=[];
+        var soft_module_e=[];
+        var soft_rates=[];
+        var soft_total_l=[];
+        var software_revised_c_first=[];
+        var soft_module_e_sum=0;
+        for(var i=1;i<=19;i++){
+        try{
+            soft_module_c.push(Math.round((parseInt(document.getElementById(i+"Total").value))/(parseInt(document.getElementById(i+"Quantity").value))/c299));
+            soft_module_e.push(Math.round(soft_module_c[i-1]*1*(document.getElementById(i+"Quantity").value)));
+            soft_rates.push(Math.round(parseInt(document.getElementById(i+"Rate").value)));
+            soft_total_l.push(parseInt(document.getElementById(i+"Total").value));
+            if(!isNaN(soft_module_e[i-1])){
+                soft_module_e_sum=soft_module_e_sum+soft_module_e[i-1];  
+            }
+            if(!isNaN(document.getElementById(i+"Quantity").value)){
+            software_revised_c_first.push(parseInt(document.getElementById(i+"Quantity").value));
+            }
+            else{
+            software_revised_c_first.push(0); 
+            }
+        }
+          catch(e){
+            console.log(e);
+
+        }
+        }
+        console.log(soft_module_c);
+        console.log(soft_module_e);
+        console.log(soft_module_e_sum);
+        console.log(soft_rates);
+        console.log(software_revised_c_first);
+        localStorage.setItem('soft_module_c', JSON.stringify(soft_module_c));
+        localStorage.setItem('soft_module_e', JSON.stringify(soft_module_e));
+        localStorage.setItem('soft_total_l', JSON.stringify(soft_total_l));
+        localStorage.setItem('soft_module_e_sum', JSON.stringify(soft_module_e_sum));
+        localStorage.setItem('soft_rates', JSON.stringify(soft_rates));
+        localStorage.setItem('software_revised_c_first', JSON.stringify(software_revised_c_first));
+
+        window.location.href = 'http://127.0.0.1:8000/admins/iandc/';
     </script>
 
 </body>

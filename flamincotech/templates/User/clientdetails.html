@@ -258,9 +258,9 @@ input[type="number"] {
 
             <div class="shadow p-3 mb-5 rounded" style="width: 800px;margin: 20px auto;padding: 50px;padding-right: 50px;background-color: rgb(241, 241, 241);">
                 
-                <div style="position:fixed;top:150px;right:100px">
+                {% comment %} <div style="position:fixed;top:150px;right:100px">
                     <button type="submit" onclick="saveautovalues(event)" class="btn btn-primary">Create Quotation</button>
-                </div>
+                </div> {% endcomment %}
 
                 <div id="maindivbar1" class="maindivbar">
                     <h4>
@@ -465,7 +465,7 @@ input[type="number"] {
                     <div class="form-group row">
                         <label class="col" for="exampleFormControlTextarea1">Enter the Number of Point or KPI
                             required</label>
-                        <input id="auto2" type="number" class="form-control col" rows="3"></input>
+                        <input id="auto2" type="number" value=0 class="form-control col" rows="3"></input>
 
                     </div>
                 </div>
@@ -476,6 +476,10 @@ input[type="number"] {
                 
                 <button id="but2" type="submit" disabled="true" class="btn btn-primary mx-3 mb-2 prev">Previous</button>
                 <button id="ijk2" type="submit" class="btn btn-primary mx-3 mb-2 after">Next</button></div>
+                <div style="display:flex;justify-content: center">
+                
+                <button type="submit" onclick="saveautovalues(event)" class="btn btn-primary">Create Quotation</button>
+                </div>
         </form>
 
         <form hidden class="shadow p-3 mb-5 rounded"
