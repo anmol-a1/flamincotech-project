@@ -113,10 +113,6 @@ a {
     padding: .62503rem
 }
 
-input{
-    border: none;
-    background: transparent;
-}
 
 .auto_height { /* CSS */
     width: 100%;
@@ -126,7 +122,7 @@ input{
 </head>
 
 <body>
-    <div class="container d-flex justify-content-center mt-50 mb-50">
+    <div style="width: auto;" class="container d-flex justify-content-center mt-50 mb-50">
         <div class="row">
             <div class="col-md-12 text-right mb-3">
                 <button class="btn btn-primary" id="download">Download pdf</button>
@@ -142,7 +138,7 @@ input{
                             <thead style="border: 1px;">
                                 <tr>
                                     <td style="font-weight:bold">Company: </td>
-                                    <td><input type="text" id="1" style="border: none"></td>
+                                    <td><input type="text" class="changefont" id="company_name"  style="border: none;height:30px"></td>
                                     <td style="font-weight:bold">  </td>
                                     <td rowspan="4" style="vertical-align : middle;"><b>FlamencoTech India Pvt Ltd</b>
                                         <br>#731, 1st Floor, 7th Cross, 3rd Block,
@@ -150,25 +146,25 @@ input{
                                 </tr>
                                 <tr>
                                     <td style="font-weight:bold">Kind Attn: </td>
-                                    <td><input style="border: none" type="text" id="1" ></td>
+                                    <td><input style="border: none;height:30px" type="text"  id="contact_person" ></td>
                                 </tr>
                                 <tr>
                                     <td style="font-weight:bold">Email ID: </td>
-                                    <td><input style="border: none" type="text" id="1" ></td>
+                                    <td><input style="border: none;height:30px" type="text" id="email_id" ></td>
                                 </tr>
                                 <tr>
                                     <td style="font-weight:bold">Mobile: </td>
-                                    <td><input style="border: none" type="text" id="1" ></td>
+                                    <td><input style="border: none;height:30px" type="text" id="mobile" ></td>
                                 </tr>
                                 <tr>
                                     <td rowspan="2" style="vertical-align : middle;font-weight:bold" >Subject: </td>
-                                    <td rowspan="2" style="vertical-align : middle;" ><input type="text" style="border: none" id="1" oninput="auto_height(this)" class="auto_height" value="Flamenco Tech Offer for IAQ & UV-Based Air Santization Devices" maxlength="100"></td>
+                                    <td rowspan="2" style="vertical-align : middle;" ><input type="text" style="border: none" id="subject" oninput="auto_height(this)" class="auto_height" value="Flamenco Tech Offer for IAQ & UV-Based Air Santization Devices" maxlength="100"></td>
                                     <td style="font-weight:bold"> Ref No: </td>
-                                    <td ><input style="border: none" type="text" id="1" style="border: none"></td>
+                                    <td ><input style="border: none;height:30px" type="text" id="1" ></td>
                                 </tr>
                                 <tr>
                                     <td style="font-weight:bold"> Date: </td>
-                                    <td><input type="text" id="1" style="border: none"></td>
+                                    <td><input type="text" id="date" style="border: none;height:30px"></td>
                                 </tr>
                             </thead>
                             
@@ -184,7 +180,7 @@ input{
                                    <th colspan="2">INSTALLATION</th>
                                    
                                 </tr>
-                                <tr>
+                                <tr style="background-color: grey;">
                                    <th>S.N.</th>
                                    <th>MAKE</th>
                                    <th>MODEL</th>
@@ -197,7 +193,7 @@ input{
                                    <th>TOTAL</th>
                                    <th>REMARK</th>
                                 </tr>
-                                <tr  style="background-color: yellow;">
+                                <tr id="hardwarerow" style="background-color: yellow;">
                                    <th>A</th>
                                    <th>FlamencoTech</th>
                                    <th></th>
@@ -217,8 +213,53 @@ input{
 
                                 </tbody>
                                 <br>
-                                <tr  style="background-color: yellow;">
-                                    <th>A</th>
+                                <tr id="installrow"  style="background-color: yellow;">
+                                    <th>C</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th>FT INSTALLATION</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                 </tr>
+                                <tbody id="maincontentinstall">
+                                    <th></th>
+                                    <th>Flamencotech</th>
+                                    <th>-</th>
+                                    <th>Installation, Commissioning, Testing, Training (Train the Trainer), Handover, Documentation & Project Management</th>
+                                    <th><input style="border: none;height:30px" onchange="installchange()" type="number"  value=1 id="installinput"></th>
+                                    <th>Lot</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th id="installationinstallrate"></th>
+                                    <th id="installationinstalltotal"></th>
+                                    <th><input style="border: none;height:30px" type="text"></th>
+                                </tbody>
+                                <tr>
+<th colspan="7">Total</th>
+<th id="rateinstall">0</th>
+<th></th>
+<th id="totalinstall">0</th>
+</tr>
+<tr style="background-color: grey;">
+                                   <th>S.N.</th>
+                                   <th>MAKE</th>
+                                   <th>MODEL</th>
+                                   <th>MONTHLY RECURRING CHANGER</th>
+                                   <th>QTY</th>
+                                   <th>UOM</th>
+                                   <th>RATE</th>
+                                   <th>TOTAL PER MONTH</th>
+                                   <th></th>
+                                   <th></th>
+                                   <th>REMARK</th>
+                                </tr>
+                               <tr id="softwarerow" style="background-color: yellow;">
+                                    <th>B</th>
                                     <th>FlamencoTech</th>
                                     <th></th>
                                     <th>SOFTWARE</th>
@@ -231,7 +272,16 @@ input{
                                     <th></th>
                                     
                                  </tr>
+                                <tbody id="maincontentsoft">
 
+
+
+                                </tbody>
+                                <tr>
+<th colspan="7">Total Amount Per Month</th>
+<th></th>
+<th id="softtotal"></th>
+</tr>
                             </table>
                         </div>
                         
@@ -391,11 +441,12 @@ window.onload = function () {
             console.log(invoice);
             console.log(window);
             var opt = {
-                margin: 1,
+                border:"1px",
+                margin: 0.2,
                 filename: 'myfile.pdf',
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 2 },
-                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+                image: { type: 'jpeg', quality: 1 },
+                html2canvas: { scale: 4 },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'landscape' }
             };
             html2pdf().from(invoice).set(opt).save();
         })
@@ -406,10 +457,24 @@ function auto_height(elem) {  /* javascript */
     elem.style.height = (elem.scrollHeight)+"px";
 }
 var hard_data = JSON.parse(localStorage.getItem('hard_data_quot'));
+if(hard_data.length<=0){
+document.getElementById("hardwarerow").hidden=true;
+
+}
+var rate_sum=0;
+var total_sum=0;
+var soft_total_sum=0;
 var soft_data = JSON.parse(localStorage.getItem('soft_data_quot'));
+if(soft_data.length<=0){
+document.getElementById("softwarerow").hidden=true;
+
+}
 console.log(hard_data);
 var hardhtml=document.getElementById("maincontenthard");
+var softhtml=document.getElementById("maincontentsoft");
 for(var i=0;i<hard_data.length;i++){
+    rate_sum=rate_sum*1+1*hard_data[i].Supply_Total;
+    total_sum=total_sum*1+1*hard_data[i].Installation_Total;
     hardhtml.innerHTML=hardhtml.innerHTML+`
     <tr>
                                    <th>${i+1}</th>
@@ -422,13 +487,15 @@ for(var i=0;i<hard_data.length;i++){
                                    <th>${hard_data[i].Supply_Total}</th>
                                    <th>${hard_data[i].Installation_Rate}</th>
                                    <th>${hard_data[i].Installation_Total}</th>
+                                   <th><input style="border: none;height:30px" type="text"></th>
                                 </tr>
     
     
     `;
 }
 for(var i=0;i<soft_data.length;i++){
-    hardhtml.innerHTML=hardhtml.innerHTML+`
+    soft_total_sum=soft_total_sum*1+1*soft_data[i].Supply_Total;
+    softhtml.innerHTML=softhtml.innerHTML+`
     <tr>
                                    <th>${i+1}</th>
                                    <th>${soft_data[i].Make}</th>
@@ -440,11 +507,34 @@ for(var i=0;i<soft_data.length;i++){
                                    <th>${soft_data[i].Supply_Total}</th>
                                    <th>${soft_data[i].Installation_Rate}</th>
                                    <th>${soft_data[i].Installation_Total}</th>
+                                   <th><input style="border: none;height:30px" type="text"></th>
                                 </tr>
     
     
     `;
 }
-
+var installationtotal = JSON.parse(localStorage.getItem('installationtotal'));
+var clientdata = JSON.parse(localStorage.getItem('clientdata'));
+total_sum=total_sum*1+1*installationtotal;
+document.getElementById("installationinstallrate").innerText=installationtotal;
+document.getElementById("installationinstalltotal").innerText=installationtotal;
+function installchange(){
+        var yt=parseInt(document.getElementById("installinput").value);
+        document.getElementById("installationinstalltotal").innerText=installationtotal*1*yt;
+        total_sum=total_sum*1+yt*installationtotal-installationtotal;
+        document.getElementById("totalinstall").innerText=total_sum;
+}
+console.log(rate_sum,total_sum);
+document.getElementById("rateinstall").innerText=rate_sum;
+document.getElementById("totalinstall").innerText=total_sum;
+document.getElementById("softtotal").innerText=soft_total_sum;  
+//var clientdata={company_name:"",contact_person:"",email_id:"",mobile:"",subject:"",location:""};
+document.getElementById("company_name").value=clientdata.company_name;
+document.getElementById("contact_person").value=clientdata.contact_person;
+document.getElementById("email_id").value=clientdata.email_id;
+document.getElementById("mobile").value=clientdata.mobile;
+document.getElementById("subject").value=clientdata.subject;
+const d = new Date();
+document.getElementById("date").value = d.toUTCString();
 </script>
 </html>

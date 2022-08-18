@@ -2449,6 +2449,11 @@
                 }
                 trays1change();
                 var efforts_data = {{ ManEffortsData | safe}};
+                var iandc_datas=JSON.parse(localStorage.getItem('iandc_data'));
+                for(var abc=2;abc<=5;abc++){
+  
+document.getElementById(abc + "Qty_ManEfforts").value=iandc_datas[abc-2];
+}
                 var manefforts = {{ ManEfforts | length }};
                 function maneffortschange() {
                         let cst = 0, cit = 0, msta = 0, mita = 0, sta = 0, ita = 0;
@@ -2473,6 +2478,7 @@
                         document.getElementById("Sum_Cost_Installation_Total_ManEfforts").value = cit;
                         document.getElementById("Sum_MRI_Total_ManEfforts").value = mita;
                         document.getElementById("Sum_Installation_Total_ManEfforts").value = ita;
+                        manchanges();
                 }
                 maneffortschange();
                 document.querySelectorAll('.btns').forEach(item => {
@@ -2642,13 +2648,12 @@ continue;}
         document.getElementById("O_Total").value=o_totals;
         localStorage.setItem('detailed_boq_p197', JSON.stringify(document.getElementById("17C_Total").value));
         localStorage.setItem('detailed_boq_p199', JSON.stringify(document.getElementById("C_Total").value));
+        function manchanges(){
         man_cos_t=0;
         for(var nikmc=2;nikmc<=6;nikmc++){
             document.getElementById(nikmc+"Cost_Installation_Rate_ManEfforts").value=efforts_data[0].UnitCostInclusiveofContigency;
             document.getElementById(nikmc+"Cost_Installation_Total_ManEfforts").value=document.getElementById(nikmc+"Cost_Installation_Rate_ManEfforts").value*1*document.getElementById(nikmc+"Qty_ManEfforts").value;
-            if(nikmc==6){
-            continue; 
-        }
+           
             man_cos_t=man_cos_t*1+1*document.getElementById(nikmc+"Cost_Installation_Total_ManEfforts").value;
        
         }
@@ -2659,9 +2664,7 @@ continue;}
         for(var nikmc=2;nikmc<=6;nikmc++){
             document.getElementById(nikmc+"MRI_Rate_ManEfforts").value=efforts_data[0].Unit_Price;
             document.getElementById(nikmc+"MRI_Total_ManEfforts").value=document.getElementById(nikmc+"MRI_Rate_ManEfforts").value*1*document.getElementById(nikmc+"Qty_ManEfforts").value;
-            if(nikmc==6){
-            continue; 
-        }
+            
             man_cos_m=man_cos_m*1+1*document.getElementById(nikmc+"MRI_Total_ManEfforts").value;
        
         }
@@ -2672,15 +2675,15 @@ continue;}
         for(var nikmc=2;nikmc<=6;nikmc++){
             document.getElementById(nikmc+"Installation_Rate_ManEfforts").value=efforts_data[0].Unit_Price;
             document.getElementById(nikmc+"Installation_Total_ManEfforts").value=document.getElementById(nikmc+"Installation_Rate_ManEfforts").value*1*document.getElementById(nikmc+"Qty_ManEfforts").value;
-            if(nikmc==6){
-            continue; 
-        }
+            
             man_cos_i=man_cos_i*1+1*document.getElementById(nikmc+"Installation_Total_ManEfforts").value;
        
         }
         document.getElementById(1+"Installation_Total_ManEfforts").value=man_cos_i;
         man_cos_i=1*man_cos_i+1*document.getElementById(6+"Installation_Total_ManEfforts").value;
         document.getElementById("Sum_Installation_Total_ManEfforts").value=man_cos_i;
+        }
+        manchanges();
         function gotomargin() {
                         let temp = [];
                         let abcd = ["_General", "_Active", "_Fiber", "_Ethernet", "_Ddc", "_Bms_Sensor", "_Bms_Cabling", "_Piping", "_Bms_Trays", "_Third_Party", "_Trays1", "_ManEfforts"];
@@ -2881,6 +2884,7 @@ continue;}
                         samp_soft_array.push(sampobj)
                      }
                 }      
+                localStorage.setItem('installationtotal', parseInt(document.getElementById("Sum_Installation_Total_ManEfforts").value));
                 localStorage.setItem('hard_data_quot', JSON.stringify(samp_hard_array));
                 localStorage.setItem('soft_data_quot', JSON.stringify(samp_soft_array));
                 window.location.href = 'http://127.0.0.1:8000/admins/quotation/';
