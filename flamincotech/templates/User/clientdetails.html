@@ -9,95 +9,99 @@
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <title>Document</title>
     <style>
-        body{
-        background-image: url("/static/b1.png");
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-size: 100% 100%;
-      }
-        .navbar .nav-item a{
-      font-size: 17px;	
-      position: relative;
-      display: inline-block;
-      /* margin: 45px 25px; */
-      outline: none;
-      /* color: pink; */
-      text-decoration: none;
-      /* text-transform: uppercase; */
-      /* letter-spacing: 1px; */
-      /* font-weight: 400; */
-      text-shadow: 0 0 1px rgba(255,255,255,0.3);
-      /* font-size: 1.35em; */
+        body {
+            background-image: url("/static/b1.png");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+        }
 
-    }
+        .navbar .nav-item a {
+            font-size: 17px;
+            position: relative;
+            display: inline-block;
+            /* margin: 45px 25px; */
+            outline: none;
+            /* color: pink; */
+            text-decoration: none;
+            /* text-transform: uppercase; */
+            /* letter-spacing: 1px; */
+            /* font-weight: 400; */
+            text-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
+            /* font-size: 1.35em; */
 
-    .navbar .nav-item a:hover,
-    .navbar .nav-item a:focus {
-      outline: none;
-    }
+        }
 
-    /* .navbar .nav-item{
+        .navbar .nav-item a:hover,
+        .navbar .nav-item a:focus {
+            outline: none;
+        }
+
+        /* .navbar .nav-item{
 
     } */
 
-    /* .navbar .nav-item a {
+        /* .navbar .nav-item a {
     color: pink;
     text-shadow: none;
     padding: 10px 0;
   } */
 
-  .navbar .nav-item a::before {
-    color:  rgba(255,255,255,0.3);
-    text-shadow: 0 0 1px rgba(255,255,255,0.3);
-    content: attr(data-hover);
-    position: absolute;
-    -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
-    -moz-transition: -moz-transform 0.3s, opacity 0.3s;
-    transition: transform 0.3s, opacity 0.3s;
-    pointer-events: none;
-  }
+        .navbar .nav-item a::before {
+            color: rgba(255, 255, 255, 0.3);
+            text-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
+            content: attr(data-hover);
+            position: absolute;
+            -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+            -moz-transition: -moz-transform 0.3s, opacity 0.3s;
+            transition: transform 0.3s, opacity 0.3s;
+            pointer-events: none;
+        }
 
-  .navbar .nav-item a::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 2px;
-    background: #205690;
-    opacity: 0;
-    -webkit-transform: translateY(5px);
-    -moz-transform: translateY(5px);
-    transform: translateY(5px);
-    -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
-    -moz-transition: -moz-transform 0.3s, opacity 0.3s;
-    transition: transform 0.3s, opacity 0.3s;
-    pointer-events: none;
-  }
+        .navbar .nav-item a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 2px;
+            background: #205690;
+            opacity: 0;
+            -webkit-transform: translateY(5px);
+            -moz-transform: translateY(5px);
+            transform: translateY(5px);
+            -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+            -moz-transition: -moz-transform 0.3s, opacity 0.3s;
+            transition: transform 0.3s, opacity 0.3s;
+            pointer-events: none;
+        }
 
-  .navbar .nav-item a:hover::before,
-  .navbar .nav-item a:focus::before {
-    opacity: 0;
-    -webkit-transform: translateY(-2px);
-    -moz-transform: translateY(-2px);
-    transform: translateY(-2px);
-  }
+        .navbar .nav-item a:hover::before,
+        .navbar .nav-item a:focus::before {
+            opacity: 0;
+            -webkit-transform: translateY(-2px);
+            -moz-transform: translateY(-2px);
+            transform: translateY(-2px);
+        }
 
-  .navbar .nav-item a:hover::after,
-  .navbar .nav-item a:focus::after {
-    opacity: 1;
-    -webkit-transform: translateY(0px);
-    -moz-transform: translateY(0px);
-    transform: translateY(0px);
-  }
-        input[type="number"]::-webkit-outer-spin-button, 
-input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-input[type="number"] {
-    -moz-appearance: textfield;
-}
+        .navbar .nav-item a:hover::after,
+        .navbar .nav-item a:focus::after {
+            opacity: 1;
+            -webkit-transform: translateY(0px);
+            -moz-transform: translateY(0px);
+            transform: translateY(0px);
+        }
+
+        input[type="number"]::-webkit-outer-spin-button,
+        input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input[type="number"] {
+            -moz-appearance: textfield;
+        }
+
         .req::after {
             content: '*';
             font-size: 24px;
@@ -123,9 +127,10 @@ input[type="number"] {
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
             border: none;
         }
-        .navbar .nav-item a{
-          font-size: 17px;
-  
+
+        .navbar .nav-item a {
+            font-size: 17px;
+
         }
     </style>
 </head>
@@ -138,40 +143,31 @@ input[type="number"] {
           target="_blank"
           >FlamencoTech</a
         > -->
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
         </button>
-  
+
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li>
-              <a class="navbar-brand" href="https://www.flamencotech.com/" target="_blank" style="display: flex;align-items: center;
+            <ul class="navbar-nav mr-auto">
+                <li>
+                    <a class="navbar-brand" href="https://www.flamencotech.com/" target="_blank" style="display: flex;align-items: center;
               padding: 5px;">
-               <img src="/static/f1.png" alt="" width="200" height="40" >
-            </a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link text-primary" href="/admins/"
-                >Home<span class="sr-only">(current)</span></a
-              >
-            </li>
-          </ul>
-          <form class="form-inline my-2 my-lg-0">
-            
-              <a href="{% url 'signup' %}" class="btn btn-outline-danger my-2 my-sm-0" type="submit">
-                Logout
-              </a>
-          </form>
+                        <img src="/static/f1.png" alt="" width="200" height="40">
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link text-primary" href="/admins/">Home<span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+
+                <a href="{% url 'signup' %}" class="btn btn-outline-danger my-2 my-sm-0" type="submit">
+                    Logout
+                </a>
+            </form>
         </div>
-      </nav> 
+    </nav>
     <div hidden id="alertdiv" class="alert alert-danger alert-dismissible fade show" role="alert">
         <strong id="alertmsg"></strong>
     </div>
@@ -185,13 +181,13 @@ input[type="number"] {
                 <div class="form-group row">
                     <label required class="col-sm-4 col-form-label req">Company Name</label>
                     <div class="col-sm-8">
-                        <input id="c6" type="text"  required class="form-control" placeholder="Company Name">
+                        <input id="c6" type="text" required class="form-control" placeholder="Company Name">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-4 col-form-label req">Location</label>
                     <div class="col-sm-8">
-                        <input id="c2" type="text"  class="form-control" placeholder="City Name">
+                        <input id="c2" type="text" class="form-control" placeholder="City Name">
                     </div>
                 </div>
                 <div class="form-group row">
@@ -203,11 +199,12 @@ input[type="number"] {
                 <div class="form-group row">
                     <label required class="col-sm-4 col-form-label req">Contact Number</label>
                     <div class="col-sm-8">
-                        <input id="c1" type="number" onwheel="this.blur()" value=0 required class="form-control" placeholder="Company Number">
+                        <input id="c1" type="number" onwheel="this.blur()" value=0 required class="form-control"
+                            placeholder="Company Number">
                     </div>
                 </div>
-                
-                
+
+
                 <div class="form-group row">
                     <label class="col-sm-4 col-form-label req">E-mail</label>
                     <div class="col-sm-8">
@@ -239,7 +236,8 @@ input[type="number"] {
                     <button class="btns " id="activebtn2" value="2" style="width:100%">Spazio Solutions Details</button>
                 </div>
                 <div class="hometags" style="width:14.285%">
-                    <button class="btns " id="activebtn3" value="3" style="width:100%">Rest Room Solutions Details</button>
+                    <button class="btns " id="activebtn3" value="3" style="width:100%">Rest Room Solutions
+                        Details</button>
                 </div>
                 <div class="hometags" style="width:14.285%">
                     <button class="btns " id="activebtn4" value="4" style="width:100%">IAQ Solutions Details</button>
@@ -256,10 +254,12 @@ input[type="number"] {
 
             </div>
 
-            <div class="shadow p-3 mb-5 rounded" style="width: 800px;margin: 20px auto;padding: 50px;padding-right: 50px;background-color: rgb(241, 241, 241);">
-                
+            <div class="shadow p-3 mb-5 rounded"
+                style="width: 800px;margin: 20px auto;padding: 50px;padding-right: 50px;background-color: rgb(241, 241, 241);">
+
                 {% comment %} <div style="position:fixed;top:150px;right:100px">
-                    <button type="submit" onclick="saveautovalues(event)" class="btn btn-primary">Create Quotation</button>
+                    <button type="submit" onclick="saveautovalues(event)" class="btn btn-primary">Create
+                        Quotation</button>
                 </div> {% endcomment %}
 
                 <div id="maindivbar1" class="maindivbar">
@@ -278,8 +278,8 @@ input[type="number"] {
                     </div>
                     <div class="form-group row">
                         <label class="col req">Total Sq.ft. area of the workspace</label>
-                        <input onchange="wsnre()" value=0 id="d5" placeholder="in Sq ft" type="number" class="form-control col"
-                            rows="3"></input>
+                        <input onchange="wsnre()" value=0 id="d5" placeholder="in Sq ft" type="number"
+                            class="form-control col" rows="3"></input>
                     </div>
                     <div class="form-group row">
                         <label class="col" for="exampleFormControlTextarea1">Enter the Number of Mobile Users</label>
@@ -317,7 +317,7 @@ input[type="number"] {
                     <div class="form-group row">
                         <label class="col" for="exampleFormControlTextarea1">Enter the Number of Desks for Desk Booking
                             Requirement</label>
-                        <input  type="number" placeholder="Enter the desk count" class="form-control col" id="5"
+                        <input type="number" placeholder="Enter the desk count" class="form-control col" id="5"
                             onchange="myFunction(event)" rows="3"></input>
                     </div>
                     <div class="form-group row">
@@ -460,7 +460,7 @@ input[type="number"] {
                             <option value="1">Basic License</option>
                             <option value="2">Permium Licesne</option>
                         </select>
-                        
+
                     </div>
                     <div class="form-group row">
                         <label class="col" for="exampleFormControlTextarea1">Enter the Number of Point or KPI
@@ -470,16 +470,17 @@ input[type="number"] {
                     </div>
                 </div>
 
-                
-            </div> 
-                <div style="display:flex;justify-content: center">
-                
+
+            </div>
+            <div style="display:flex;justify-content: center">
+
                 <button id="but2" type="submit" disabled="true" class="btn btn-primary mx-3 mb-2 prev">Previous</button>
-                <button id="ijk2" type="submit" class="btn btn-primary mx-3 mb-2 after">Next</button></div>
-                <div style="display:flex;justify-content: center">
-                
+                <button id="ijk2" type="submit" class="btn btn-primary mx-3 mb-2 after">Next</button>
+            </div>
+            <div style="display:flex;justify-content: center">
+
                 <button type="submit" onclick="saveautovalues(event)" class="btn btn-primary">Create Quotation</button>
-                </div>
+            </div>
         </form>
 
         <form hidden class="shadow p-3 mb-5 rounded"
@@ -653,7 +654,7 @@ input[type="number"] {
         var softwaredetails = [{ "id": 1, "details": "Total Number of Kiosk Licenses", "quant": 0 }, { "id": 2, "details": "Total  Number of Mobile Users", "quant": 0 }, {
             "id": 3, "details": "Total Number of Desk for Space Planning Licenses", "quant": 0
         }, { "id": 4, "details": "Total Number of Space Utilization Licenses", "quant": 0 }, { "id": 5, "details": "Total Number of Desk Booking Licenses", "quant": 0 }, { "id": 6, "details": "Total Number of Meeting Room for Occupancy Licenses", "quant": 0 }, { "id": 7, "details": "Total Number of Meeting Room for People count Licenses", "quant": 0 }, { "id": 8, "details": "Total Number of Meeting Room Booking Licenses", "quant": 0 }, { "id": 9, "details": "> Wayfinding Point of Interest", "quant": 0 }, { "id": 10, "details": "Feedback Point of Interest", "quant": 0 }, { "id": 11, "details": "Restroom License(People Count)", "quant": 0 }, { "id": 12, "details": "", "Restroom License(Wet Floor Detection)quant": 0 }, { "id": 13, "details": "Restroom License(Odour)", "quant": 0 }, { "id": 14, "details": "Total IAQ Points", "quant": 0 }];
-        var divchange=1;
+        var divchange = 1;
         // D3,D4,7=1,10,16,17,18,24,26,28,21,31="auto2",33=d7,47=s14
         function myFunction(e) {
             var id = "s" + e.target.id;
@@ -879,13 +880,13 @@ input[type="number"] {
                 localStorage.setItem('automatedetails', JSON.stringify(automate));
                 localStorage.setItem('harddetails', JSON.stringify(hardwaredetails));
                 localStorage.setItem('softdetails', JSON.stringify(softwaredetails));
-                var clientdata={company_name:"",contact_person:"",email_id:"",mobile:"",subject:"",location:""};
-                clientdata.company_name=document.getElementById("c6").value;
-                clientdata.contact_person=document.getElementById("c3").value;
-                clientdata.email_id=document.getElementById("c4").value;
-                clientdata.mobile=document.getElementById("c1").value;
-                clientdata.subject=document.getElementById("c5").value;
-                clientdata.location=document.getElementById("c2").value;
+                var clientdata = { company_name: "", contact_person: "", email_id: "", mobile: "", subject: "", location: "" };
+                clientdata.company_name = document.getElementById("c6").value;
+                clientdata.contact_person = document.getElementById("c3").value;
+                clientdata.email_id = document.getElementById("c4").value;
+                clientdata.mobile = document.getElementById("c1").value;
+                clientdata.subject = document.getElementById("c5").value;
+                clientdata.location = document.getElementById("c2").value;
                 console.log(clientdata);
                 localStorage.setItem('clientdata', JSON.stringify(clientdata));
                 window.location.href = 'http://127.0.0.1:8000/admins/SpazioPriceCalculator/';
@@ -893,7 +894,7 @@ input[type="number"] {
             }
         }
         function wsnre() {
-            if (document.getElementById('d8').value === '2') {
+            if (document.getElementById('d8').value === "2") {
                 document.getElementById("h11").value = 0;
                 console.log("wjwjb");
                 var val = 0;
@@ -907,6 +908,7 @@ input[type="number"] {
                 var d21 = parseInt(document.getElementById('d21').value);
                 var d8 = parseInt(document.getElementById('d8').value);
                 var d5 = parseInt(document.getElementById('d5').value);
+                console.log("d5 value is",d5);
                 var d61 = parseInt(document.getElementById('h1').value);
                 var d62 = parseInt(document.getElementById('h2').value);
                 var d63 = parseInt(document.getElementById('h3').value);
@@ -1006,12 +1008,16 @@ input[type="number"] {
                 document.getElementById("h6").value = val3;
                 document.getElementById("h8").value = val5;
                 document.getElementById("h13").value = 0;
-            }
 
+
+            }
+         
 
             else if (document.getElementById('d8').value === '1') {
                 document.getElementById("h10").value = 0;
                 document.getElementById("h14").value = 0;
+                var d5 = parseInt(document.getElementById('d5').value);
+
                 var d13 = parseInt(document.getElementById('4').value);
                 var d14 = parseInt(document.getElementById('d14').value);
                 var d16 = parseInt(document.getElementById('d16').value);
@@ -1055,6 +1061,7 @@ input[type="number"] {
                 document.getElementById("h12").value = 0;
 
             }
+
             else if (document.getElementById('d8').value === '0') {
 
                 document.getElementById("h15").value = 0;
@@ -1065,30 +1072,82 @@ input[type="number"] {
                 document.getElementById("h10").value = 0;
 
             }
-            document.getElementById("s13").value = ((parseInt(document.getElementById("h10").value) + parseInt(document.getElementById("h11").value)) * 7) + ((parseInt(document.getElementById("h12").value) + parseInt(document.getElementById("h13").value)) * 5);
-            document.getElementById("s14").value = 250;
+            console.log("uuuud",document.getElementById("h10").value,document.getElementById("h11").value,document.getElementById("h12").value,document.getElementById("h13").value);
+            var tushar = ((parseInt(document.getElementById("h10").value) + parseInt(document.getElementById("h11").value)) * 7) + ((parseInt(document.getElementById("h12").value) + parseInt(document.getElementById("h13").value)) * 5);
+            console.log("value is S",tushar);
+            if (tushar > 50000) {
+                document.getElementById("s14").value = tushar;
 
+            }
+            else if (tushar > 40000) {
+                document.getElementById("s14").value = 50000;
+
+            }
+            else if (tushar > 20000) {
+                document.getElementById("s14").value = 40000;
+
+            }
+            else if (tushar > 10000) {
+                document.getElementById("s14").value = 20000;
+
+            }
+            else if (tushar > 5000) {
+                document.getElementById("s14").value = 10000;
+
+
+            }
+            else if (tushar > 2500) {
+                document.getElementById("s14").value = 5000;
+
+
+            }
+            else if (tushar > 1000) {
+                document.getElementById("s14").value = 2500;
+
+
+            }
+            else if (tushar > 500) {
+                document.getElementById("s14").value = 1000;
+
+
+            }
+            else if (tushar > 250) {
+                document.getElementById("s14").value = 500;
+
+
+            }
+            else if (tushar > 0) {
+                document.getElementById("s14").value = 250;
+
+
+            }
+            else {
+
+                document.getElementById("s14").value = 0;
+
+
+            }
         }
         document.querySelectorAll('.prev').forEach(item => {
             item.addEventListener('click', event => {
                 event.preventDefault();
-                divchange=divchange-1;
-                document.getElementById("maindivbar"+divchange).hidden=false;
-                document.getElementById("maindivbar"+(divchange+1)).hidden=true;
-                if(divchange==1){
-                    document.getElementById("but2").disabled=true;
+                divchange = divchange - 1;
+                document.getElementById("maindivbar" + divchange).hidden = false;
+                document.getElementById("maindivbar" + (divchange + 1)).hidden = true;
+                if (divchange == 1) {
+                    document.getElementById("but2").disabled = true;
                 }
-                else{
-                   document.getElementById("but2").disabled=false;
+                else {
+                    document.getElementById("but2").disabled = false;
                 }
-                document.getElementById("ijk2").disabled=false;
+                document.getElementById("ijk2").disabled = false;
                 const boxes = document.querySelectorAll('.btns');
 
                 boxes.forEach(box => {
                     box.classList.remove('activebtn');
                 });
-                document.getElementById("activebtn"+divchange).classList.add('activebtn');
-                
+                document.getElementById("activebtn" + divchange).classList.add('activebtn');
+
 
 
             })
@@ -1096,21 +1155,21 @@ input[type="number"] {
         document.querySelectorAll('.after').forEach(item => {
             item.addEventListener('click', event => {
                 event.preventDefault();
-                divchange=divchange+1;
-                document.getElementById("maindivbar"+divchange).hidden=false;
-                document.getElementById("maindivbar"+(divchange-1)).hidden=true;
-                document.getElementById("but2").disabled=false;
-                if(divchange==7){
-                    document.getElementById("ijk2").disabled=true;
+                divchange = divchange + 1;
+                document.getElementById("maindivbar" + divchange).hidden = false;
+                document.getElementById("maindivbar" + (divchange - 1)).hidden = true;
+                document.getElementById("but2").disabled = false;
+                if (divchange == 7) {
+                    document.getElementById("ijk2").disabled = true;
                 }
                 const boxes = document.querySelectorAll('.btns');
 
                 boxes.forEach(box => {
                     box.classList.remove('activebtn');
                 });
-                document.getElementById("activebtn"+divchange).classList.add('activebtn');
-               
-                
+                document.getElementById("activebtn" + divchange).classList.add('activebtn');
+
+
 
 
             })
@@ -1119,18 +1178,18 @@ input[type="number"] {
             item.addEventListener('click', event => {
                 event.preventDefault();
                 var abc = event.target.value;
-                divchange=parseInt(abc);
-                if(abc==1){
-                    document.getElementById("but2").disabled=true;  
+                divchange = parseInt(abc);
+                if (abc == 1) {
+                    document.getElementById("but2").disabled = true;
                 }
-                else{
-                  document.getElementById("but2").disabled=false;  
-               }
-                if(abc==7){
-                   document.getElementById("ijk2").disabled=true;
+                else {
+                    document.getElementById("but2").disabled = false;
                 }
-                else{
-                    document.getElementById("ijk2").disabled=false;
+                if (abc == 7) {
+                    document.getElementById("ijk2").disabled = true;
+                }
+                else {
+                    document.getElementById("ijk2").disabled = false;
                 }
                 var ids = "maindivbar" + abc;
                 document.querySelectorAll('.maindivbar').forEach(item2 => {
@@ -1149,7 +1208,7 @@ input[type="number"] {
                     box.classList.remove('activebtn');
                 });
                 event.target.classList.add('activebtn');
-               
+
 
 
             })
@@ -1168,21 +1227,21 @@ input[type="number"] {
                 console.log(eleme);
                 if (item.id == "but1") {
                     console.log(document.getElementById("c1").value)
-                    if ((document.getElementById("c6").value).length < 3 ) {
+                    if ((document.getElementById("c6").value).length < 3) {
                         alert("Please Enter a Proper Company Name");
                     }
-             //       else if ((parseInt(document.getElementById("c1").value) < 1000000000) || (parseInt(document.getElementById("c1").value) > 9999999999)) {
-             //           alert("Please Enter a Proper Number");
-             //       }
-              //      else if ((document.getElementById("c2").value).length < 3) {
-              //          alert("Please Enter a Proper Location");
-              //      }
-              //      else if ((document.getElementById("c3").value).length < 3) {
-             //           alert("Please Enter a Proper Name");
-             //       }
-             //       else if (!validateEmail(document.getElementById("c4").value)) {
-              //          alert("Please Enter a Valid Email");
-            //        }
+                    //       else if ((parseInt(document.getElementById("c1").value) < 1000000000) || (parseInt(document.getElementById("c1").value) > 9999999999)) {
+                    //           alert("Please Enter a Proper Number");
+                    //       }
+                    //      else if ((document.getElementById("c2").value).length < 3) {
+                    //          alert("Please Enter a Proper Location");
+                    //      }
+                    //      else if ((document.getElementById("c3").value).length < 3) {
+                    //           alert("Please Enter a Proper Name");
+                    //       }
+                    //       else if (!validateEmail(document.getElementById("c4").value)) {
+                    //          alert("Please Enter a Valid Email");
+                    //        }
                     else {
                         document.querySelectorAll('.maindiv').forEach(item2 => {
                             console.log(item2.id);
@@ -1214,7 +1273,7 @@ input[type="number"] {
 
             })
         })
-        
+
     </script>
 
 </body>

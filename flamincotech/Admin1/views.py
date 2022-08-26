@@ -1,14 +1,34 @@
 from django.shortcuts import render,redirect
 import json
 from django.http import HttpResponseRedirect,HttpResponse,JsonResponse
-from .models import Soft_Items_DB,margin,ManEffortsInstall,IandC,NewUser,Software_Revised_Extra,Automate_Pricing,InputConfiguration,vpss,HardWareGeneral,HardWareIpVariant,HardWareActive,HardWarePassive,HardWareEthernet,HardWareDdc,HardWareBmsSensors,HardWareThirdParty,HardWareBmsScabling,HardWarePiping,HardWareTrays,HardWareGeneralInstall,HardWareIpVariantInstall,HardWareActiveInstall,HardWarePassiveInstall,HardWareEthernetInstall,HardWareDdcInstall,HardWareBmsSensorsInstall,HardWareThirdPartyInstall,HardWareBmsScablingInstall,HardWarePipingInstall,HardWareTraysInstall,SpazioPriceCalculator,Desk_Booking_Solution,Desk_Utilization_Solution,Desk_Planning_Solution,Employee_One_Mobile_App,Rostering,Wayfinding,Feedback,Kiosk_License,Meeting_Room_License_Occupancy,Meeting_Room_License_People_Count,Meeting_Room_License_Booking,Restroom_License_People_Count,Restroom_License_Wet_floor_detection,Restroom_License_Odour ,Human_body_temperature_License
+from .models import Quotation,Soft_Items_DB,margin,ManEffortsInstall,IandC,NewUser,Software_Revised_Extra,Automate_Pricing,InputConfiguration,vpss,HardWareGeneral,HardWareIpVariant,HardWareActive,HardWarePassive,HardWareEthernet,HardWareDdc,HardWareBmsSensors,HardWareThirdParty,HardWareBmsScabling,HardWarePiping,HardWareTrays,HardWareGeneralInstall,HardWareIpVariantInstall,HardWareActiveInstall,HardWarePassiveInstall,HardWareEthernetInstall,HardWareDdcInstall,HardWareBmsSensorsInstall,HardWareThirdPartyInstall,HardWareBmsScablingInstall,HardWarePipingInstall,HardWareTraysInstall,SpazioPriceCalculator,Desk_Booking_Solution,Desk_Utilization_Solution,Desk_Planning_Solution,Employee_One_Mobile_App,Rostering,Wayfinding,Feedback,Kiosk_License,Meeting_Room_License_Occupancy,Meeting_Room_License_People_Count,Meeting_Room_License_Booking,Restroom_License_People_Count,Restroom_License_Wet_floor_detection,Restroom_License_Odour ,Human_body_temperature_License
 from User.models import Soft_Items,Bms_Trays,Bms_Piping,Bms_Cabling,Bms_Sensors,Ddc,Ethernet,Fiber,Active,General,Others,Third_Party
 import datetime
 from import_export import resources
 from django.shortcuts import get_object_or_404
 import tablib
 from tablib import Dataset
+
+
+#     company_name=models.CharField(max_length=100)
+
 #Bms_Trays,Bms_Piping,Bms_Cabling,Bms_Sensors,Ddc,Ethernet,Fiber,Active,General,Others,Third_Party
+def adddata(request):
+	print(request.POST.get('action'))
+	if request.POST.get('action') == 'post':
+		try:
+			created=Quotation.objects.update_or_create(ref_no=request.POST.get('ref_no'),pdf=request.FILES.get('pdf'),company_name=request.POST.get('company_name'),input_data=request.POST.get('input_data'),excel=request.FILES.get('excel'))
+		except:
+			try:
+				member = Quotation.objects.get(ref_no=request.POST.get('ref_no'))
+				member.pdf=request.FILES.get('pdf')
+				member.company_name=request.POST.get('company_name')
+				member.excel =request.FILES.get('excel')
+				member.input_data==request.POST.get('input_data')
+				member.save()
+			except:
+				print("mahaerror")
+	return JsonResponse({'result':'', })
 def detailed_boq(request):
 	Ddc1=Ddc.objects.all()
 	Bms_Trays1=Bms_Trays.objects.all()

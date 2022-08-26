@@ -176,6 +176,7 @@ urlpatterns = [
     path('margin/',views.margins,name='margin'),
     path('summary/',views.summarys,name='summary'),
     path('quotation/',views.quotations,name='quotation'),
+    path('adddata/',views.adddata,name='adddata'),
     
     
     

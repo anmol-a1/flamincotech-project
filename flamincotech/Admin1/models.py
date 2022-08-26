@@ -1001,3 +1001,14 @@ class Soft_Items_DB(models.Model):
     C_Total=models.IntegerField(default=0)
     Opex=models.IntegerField(default=0)
     O_Total=models.IntegerField(default=0)
+
+class Quotation(models.Model):
+    ref_no=models.CharField(max_length=100,primary_key=True)
+    pdf = models.FileField(upload_to ='pdfs/')
+    excel = models.FileField(upload_to ='excels/')
+    date=models.DateField(default=datetime.date.today())
+    company_name=models.CharField(max_length=100)
+    input_data=models.CharField(max_length=200)
+    
+    
+    

@@ -102,7 +102,7 @@
                                 type="number"></td>
                         <td><input style="border:none" readonly="true" id="19input" value="Customisation (No. of days) ( Not Discounted) - Open Weather System"
                                  type="text"></td>
-                        <td><input onchange="abcd4(event)" class="19" id="19Quantity"
+                        <td><input onchange="abcd4(event)" class="19" id="19Quantity" value=25
                                 style="width: 120px;border:none" type="number"></td>
                         <td><input id="19Rate" style="width: 180px;border:none" readonly="true"
                                 value="0" type="number"></td>
@@ -998,7 +998,7 @@
 
         }
         document.getElementById("1Quantity").value = (softdetails[0].quant).length > 0 ? softdetails[0].quant : 0;
-        document.getElementById("2Quantity").value = (softdetails[0].quant).length > 0 ? softdetails[1].quant : 0;
+        document.getElementById("2Quantity").value = (softdetails[1].quant).length > 0 ? softdetails[1].quant : 0;
         document.getElementById("15Quantity").value = (softdetails[13].quant).length > 0 ? softdetails[13].quant : 0;
 
         function abcd(e) {
@@ -1135,18 +1135,23 @@
         else if (inputQuantitymu > 250) {
             var extraval = inputQuantitymu - 250;
             var vals = document.getElementById("2RateEOMA").value;
-            totmu = extraval * vals;
+            totmu = extraval * vals; 
+            console.log(totmu);
             totmu = totmu + 1*document.getElementById("1Total_QuantityEOMA").value;
+            console.log(document.getElementById("1Total_QuantityEOMA").value);
+            console.log("errrored",totmu);
         }
         else {
             totmu = inputQuantitymu * document.getElementById("1RateEOMA").value;
         }
-        console.log("feedback tot is",totmu);
+        
         document.getElementById("1TotalEOMA").value = totmu;
 //i value
         ivalues[1]=parseInt(totmu);
+        console.log("errrored",ivalues[1]);
 //subtotol
         subtotals[1]=Math.ceil(parseInt(ivalues[1])*(1-parseFloat(configuration3.ft2)/100));
+        console.log("errrored",subtotals[1]);
         document.getElementById("2SubTotal").value=subtotals[1];
 //warranty cell
         document.getElementById("2Warranty").value = Math.ceil(subtotals[1]* parseInt(configuration9.ft2)/100);
@@ -2572,6 +2577,7 @@ console.log("holw is mc mc mc",subtotals[14]);
         discount_change();
         xyzabc();
 }
+abcd4();
 
 //endabcd4
         var totalss=0;
