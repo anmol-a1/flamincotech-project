@@ -978,6 +978,7 @@
         var automatedetails = JSON.parse(localStorage.getItem('automatedetails'));
         var d30=automatedetails[0];
         var d31=automatedetails[1];
+
        
         console.log("d30 iw",d30,d31);
         console.log(softdetails);
@@ -1000,7 +1001,9 @@
         document.getElementById("1Quantity").value = (softdetails[0].quant).length > 0 ? softdetails[0].quant : 0;
         document.getElementById("2Quantity").value = (softdetails[1].quant).length > 0 ? softdetails[1].quant : 0;
         document.getElementById("15Quantity").value = (softdetails[13].quant).length > 0 ? softdetails[13].quant : 0;
-
+        if(softdetails[14]==0){
+            document.getElementById("3Quantity").value=0;
+        }
         function abcd(e) {
             var sr_no = parseInt(e.target.className);
             var Quantity = document.getElementById(sr_no + "Quantity").value;

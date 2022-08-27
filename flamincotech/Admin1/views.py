@@ -8,8 +8,12 @@ from import_export import resources
 from django.shortcuts import get_object_or_404
 import tablib
 from tablib import Dataset
-
-
+import mimetypes
+# import os module
+import os
+from django.conf import settings
+from django.http import HttpResponse, Http404
+import mimetypes
 #     company_name=models.CharField(max_length=100)
 
 #Bms_Trays,Bms_Piping,Bms_Cabling,Bms_Sensors,Ddc,Ethernet,Fiber,Active,General,Others,Third_Party
@@ -17,7 +21,7 @@ def adddata(request):
 	print(request.POST.get('action'))
 	if request.POST.get('action') == 'post':
 		try:
-			created=Quotation.objects.update_or_create(ref_no=request.POST.get('ref_no'),pdf=request.FILES.get('pdf'),company_name=request.POST.get('company_name'),input_data=request.POST.get('input_data'),excel=request.FILES.get('excel'))
+			created=Quotation.objects.update_or_create(ref_no=request.POST.get('ref_no'),pdf=request.FILES.get('pdf'),company_name=request.POST.get('company_name'),input_data=request.POST.get('input_data'),excel=request.FILES.get('excel'),user_email=request.user.email)
 		except:
 			try:
 				member = Quotation.objects.get(ref_no=request.POST.get('ref_no'))
@@ -141,7 +145,34 @@ def export_userlist(request):
 	response['Content-Disposition'] = f'attachment; filename={fname}.xls'
 	return response
 def history(request):
-	return render(request,'Admin1/history.html')
+	
+	objs=Quotation.objects.filter(user_email=request.user.email)
+	context={'entries':objs}
+	return render(request,'Admin1/history.html',context)
+def download_pdf(request, filename=''):
+	if filename != '':
+		filename=f"{filename}.pdf"
+		filepath = 'media/pdfs/' + filename
+		path = open(filepath, 'rb')
+		mime_type, _ = mimetypes.guess_type(filepath)
+		response = HttpResponse(path, content_type=mime_type)
+		response['Content-Disposition'] = "attachment; filename=%s" % filename
+		# Return the response value
+		return response
+	else:
+		print("error")
+def download(request, path):
+	# get the download path
+	download_path = os.path.join(settings.MEDIA_ROOT, path)
+	if os.path.exists(download_path):
+		with open(download_path, 'rb') as fh:
+			response = HttpResponse(fh.read(), content_type="application/adminupload")
+			response['Content-Disposition'] = 'inline; filename=' + os.path.basename(download_path)
+			return response
+	raise Http404
+	
+	
+		
 # class HardWareGeneralResource(resources.ModelResource):
 # 	class Meta:
 # 		model = HardWareGeneral
@@ -1827,3 +1858,22 @@ def export_hardwareactive(request):
 					
 					
 # , ,
+from json import dumps
+def edit_quot_user(request,ref_no):
+	obj=Quotation.objects.get(ref_no=ref_no)
+	print(str(obj.input_data))
+	print(obj.input_data)
+	dataDictionary = {
+		'ref_no':obj.ref_no,
+		'company_name':obj.company_name,
+		'input_data':obj.input_data,
+		'user_email':obj.user_email,
+		'location':obj.location,
+		'contact_person':obj.contact_person,
+		'contact_number':obj.contact_number,
+		'email':obj.email,
+		'description':obj.description
+	}
+	dataJSON = dumps(dataDictionary)
+	return render(request, 'User/clientdetailsedit.html', {'data': dataJSON})
+

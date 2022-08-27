@@ -125,8 +125,8 @@ a {
         
 <form  method="post" enctype="multipart/form-data">
 {%csrf_token%}
-<input type="file" name="file" id="file">
-<input type="file" name="file" id="file1">
+<input type="file" name="file" accept=".pdf" id="file">
+<input type="file" name="file" accept=".xlsx" id="file1">
 <button class="btn btn-primary finalise" id="download">Finalized</button>
 </form>
 
@@ -468,6 +468,12 @@ a {
 <script src="https://cdn-na.infragistics.com/igniteui/latest/js/modules/infragistics.excel_serialization_openxml.js"></script>
 <script>
 var clientdata = JSON.parse(localStorage.getItem('clientdata'));
+var inputdata = JSON.parse(localStorage.getItem('inputdata'));
+var inpdata="";
+for (var key of Object.keys(inputdata)) {
+        inpdata= inpdata+ key+ "-"+inputdata[key] +"-";
+}
+console.log(inpdata);
 var pdfs;
             const de = new Date();
             const x = Math.random() * 100000;
@@ -821,7 +827,7 @@ document.getElementById("date").value = d.toUTCString();
             form_data.append("csrfmiddlewaretoken",$('input[name=csrfmiddlewaretoken]').val());
             form_data.append("ref_no",tempref)
             form_data.append("company_name",clientdata.company_name)
-            form_data.append("input_data","input_data")
+            form_data.append("input_data",inpdata)
             form_data.append("action","post")
             $.ajax({
                 type: 'POST',

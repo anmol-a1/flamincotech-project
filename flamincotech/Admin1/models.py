@@ -1008,7 +1008,13 @@ class Quotation(models.Model):
     excel = models.FileField(upload_to ='excels/')
     date=models.DateField(default=datetime.date.today())
     company_name=models.CharField(max_length=100)
-    input_data=models.CharField(max_length=200)
+    input_data=models.TextField(max_length=500)
+    user_email = models.EmailField()
+    location=models.CharField(max_length=100)
+    contact_person=models.CharField(max_length=100)
+    contact_number=models.IntegerField(default=0)
+    email=models.EmailField()
+    description=models.CharField(max_length=200)
     
     
     

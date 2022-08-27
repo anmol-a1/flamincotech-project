@@ -14,11 +14,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path,include
+from django.urls import path,include,re_path
 from django.views.generic import TemplateView
 from django.conf.urls.static import static
 from django.conf import settings
 from Admin1 import views
+from django.views.static import serve
 from django.contrib.auth import views as auth_views
 urlpatterns = [
     path('',views.index,name='adminshome'),
@@ -177,7 +178,8 @@ urlpatterns = [
     path('summary/',views.summarys,name='summary'),
     path('quotation/',views.quotations,name='quotation'),
     path('adddata/',views.adddata,name='adddata'),
-    
+    re_path('^download/(?P<path>.*)$',serve,{'document_root':settings.MEDIA_ROOT}),
+    path('edit_quot_user/<str:ref_no>', views.edit_quot_user, name='edit_quot_user')
     
     
 ]
