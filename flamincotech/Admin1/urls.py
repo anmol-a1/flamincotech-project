@@ -77,6 +77,7 @@ urlpatterns = [
     path('editconfiguration1',views.editconfiguration1,name='editconfiguration1'),
     path('vpss/',views.vpss1,name='vpss1'),
     path('iandc/',views.iandc,name='iandc'),
+    path('iandcedit/',views.iandcedit,name='iandcedit'),
     path('percentagechangesheet/',views.percentagechangesheet,name='percentagechangesheet'),
     path('export_vpss/',views.export_vpss1,name='export_vpss'),
     path('export_iandc/',views.export_iandc,name='export_iandc'),
@@ -92,6 +93,7 @@ urlpatterns = [
     path('iandcimport/',views.iandcimport,name='iandcimport'),
     path('percentagechangesheetimport/',views.percentagechangesheetimport,name='percentagechangesheetimport'),
     path('SpazioPriceCalculator/',views.SpazioPriceCalculators,name='SpazioPriceCalculator'),
+    path('SpazioPriceCalculatoredit/',views.SpazioPriceCalculatorsedit,name='SpazioPriceCalculatoredit'),
     path('userlist/',views.userlist,name='userlist'),
     path('export_SpazioPriceCalculator/',views.export_SpazioPriceCalculators,name='export_SpazioPriceCalculator'),
     path('export_userlist/',views.export_userlist,name='export_userlist'),
@@ -174,12 +176,14 @@ urlpatterns = [
     
     path('db_general/',views.db_general,name='db_general'),
     path('detailed_boq/',views.detailed_boq,name='detailed_boq'),
+    path('detailed_boqedit/',views.detailed_boqedit,name='detailed_boqedit'),
     path('margin/',views.margins,name='margin'),
     path('summary/',views.summarys,name='summary'),
     path('quotation/',views.quotations,name='quotation'),
+    path('quotationedit/',views.quotationsedit,name='quotationedit'),
     path('adddata/',views.adddata,name='adddata'),
     re_path('^download/(?P<path>.*)$',serve,{'document_root':settings.MEDIA_ROOT}),
-    path('edit_quot_user/<str:ref_no>', views.edit_quot_user, name='edit_quot_user')
+    path('edit_quot_admin/<str:ref_no>', views.edit_quot_admin, name='edit_quot_admin')
     
     
 ]

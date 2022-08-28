@@ -653,21 +653,15 @@
 
         var data = JSON.parse("{{data|escapejs}}");
         console.log(data);
-        document.getElementById("c6").value=data.company_name;
-        document.getElementById("c2").value=data.location;
-        document.getElementById("c1").value=data.contact_number;
-        document.getElementById("c3").value=data.contact_person;
-        document.getElementById("c4").value=data.email;
-        document.getElementById("c5").value=data.description;
+        localStorage.setItem('ref_no', JSON.stringify(data.ref_no));
         const myArray = (data.input_data).split("-");
         console.log(myArray);
         for(var nm=0;nm<(myArray.length-1);nm=nm+2){
           
-            if(myArray[nm]=="19input" || myArray[nm]=="20Common" ||myArray[nm]=="c1" ||myArray[nm]=="c2" || myArray[nm]=="c3" ||myArray[nm]=="c4" ||myArray[nm]=="c5" ||myArray[nm]=="c6"  ){
+            if(myArray[nm]=="19input" || myArray[nm]=="20Common"){
                 continue;
             }
-            console.log(myArray[nm]);
-            document.getElementById(myArray[nm]).value= parseInt(myArray[nm+1]);
+            document.getElementById(myArray[nm]).value= myArray[nm+1];
 
         }
 
@@ -921,12 +915,12 @@
                 clientdata.location = document.getElementById("c2").value;
                 console.log(clientdata);
                 localStorage.setItem('clientdata', JSON.stringify(clientdata));
-                var arr = { "c6": parseInt(document.getElementById("c6").value),"c2": parseInt(document.getElementById("c2").value),
- "c3":parseInt(document.getElementById("c3").value) , "c1":parseInt(document.getElementById("c1").value),
- "c4":parseInt(document.getElementById("c4").value), "c5":parseInt(document.getElementById("c5").value),
- "d3":parseInt(document.getElementById("d3").value), "d4":parseInt(document.getElementById("d4").value), 
+                var arr = { "c6": document.getElementById("c6").value,"c2": document.getElementById("c2").value,
+ "c3":document.getElementById("c3").value , "c1":document.getElementById("c1").value,
+ "c4":document.getElementById("c4").value, "c5":document.getElementById("c5").value,
+ "d3":parseInt(document.getElementById("d3").value), "d4":parseInt(document.getElementById("d4").value), "d5":parseInt(document.getElementById("d5").value), 
 "1":parseInt(document.getElementById("1").value), "d8":parseInt(document.getElementById("d8").value), 
-"d10":parseInt(document.getElementById("d10").value), "5":parseInt(document.getElementById("5").value),
+"d10":parseInt(document.getElementById("d10").value), "5":parseInt(document.getElementById("5").value),"2":parseInt(document.getElementById("2").value),
 "3":parseInt(document.getElementById("3").value), "4":parseInt(document.getElementById("4").value),
  "d14":parseInt(document.getElementById("d14").value), "d15":parseInt(document.getElementById("d15").value),
  "d16":parseInt(document.getElementById("d16").value), "d17":parseInt(document.getElementById("d17").value),
@@ -951,7 +945,7 @@
 "h15": parseInt(document.getElementById("h15").value),"20Common": "",
 "19input":"","rost": parseInt(document.getElementById("rost").value) }; 
                 localStorage.setItem('inputdata', JSON.stringify(arr));
-                window.location.href = 'http://127.0.0.1:8000/admins/SpazioPriceCalculator/';
+                window.location.href = 'http://127.0.0.1:8000/user/SpazioPriceCalculatoredit/';
                 //localStorage.setItem('requiredsoftwaredetails',JSON.stringify(requiredsoftwaredetails));
             }
         }

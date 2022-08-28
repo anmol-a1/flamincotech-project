@@ -24,4 +24,13 @@ urlpatterns = [
     path('',views.index,name='userhome'),
     path('createquotation/',views.createquotation,name='createquotation'),
     path('history/',views.history,name='history'),
+    path('quotation/',views.quotations,name='quotation'),
+    path('quotationedit/',views.quotationsedit,name='quotationedit'),
+    path('detailed_boq/',views.detailed_boq,name='detailed_boq'),
+    path('detailed_boqedit/',views.detailed_boqedit,name='detailed_boqedit'),
+    path('SpazioPriceCalculator/',views.SpazioPriceCalculators,name='SpazioPriceCalculator'),
+    path('SpazioPriceCalculatoredit/',views.SpazioPriceCalculatorsedit,name='SpazioPriceCalculatoredit'),
+    path('iandc/',views.iandc,name='iandc'),
+    path('iandcedit/',views.iandcedit,name='iandcedit'),
+    path('edit_quot_user/<str:ref_no>', views.edit_quot_user, name='edit_quot_user')
 ]

@@ -274,7 +274,7 @@
                     <div class="form-group row">
                         <label class="col req" for="exampleFormControlTextarea1">Total number of floors across
                             building</label>
-                        <input id="d4" value=0 type="number" class="form-control col" rows="3"></input>
+                        <input  value=0 id="d4" type="number" class="form-control col" rows="3"></input>
                     </div>
                     <div class="form-group row">
                         <label class="col req">Total Sq.ft. area of the workspace</label>
@@ -897,9 +897,9 @@
                 clientdata.location = document.getElementById("c2").value;
                 console.log(clientdata);
                 localStorage.setItem('clientdata', JSON.stringify(clientdata));
-                var arr = { "c6": parseInt(document.getElementById("c6").value),"c2": parseInt(document.getElementById("c2").value),
- "c3":parseInt(document.getElementById("c3").value) , "c1":parseInt(document.getElementById("c1").value),
- "c4":parseInt(document.getElementById("c4").value), "c5":parseInt(document.getElementById("c5").value),
+                var arr = { "c6": document.getElementById("c6").value,"c2": document.getElementById("c2").value,
+ "c3":document.getElementById("c3").value , "c1":document.getElementById("c1").value,
+ "c4":document.getElementById("c4").value, "c5":document.getElementById("c5").value,
  "d3":parseInt(document.getElementById("d3").value), "d4":parseInt(document.getElementById("d4").value), "d5":parseInt(document.getElementById("d5").value), 
 "1":parseInt(document.getElementById("1").value), "d8":parseInt(document.getElementById("d8").value), 
 "d10":parseInt(document.getElementById("d10").value), "5":parseInt(document.getElementById("5").value),
@@ -927,7 +927,7 @@
 "h15": parseInt(document.getElementById("h15").value),"20Common": "",
 "19input":"","rost": parseInt(document.getElementById("rost").value) }; 
                 localStorage.setItem('inputdata', JSON.stringify(arr));
-                window.location.href = 'http://127.0.0.1:8000/admins/SpazioPriceCalculator/';
+                window.location.href = 'http://127.0.0.1:8000/user/SpazioPriceCalculator/';
                 //localStorage.setItem('requiredsoftwaredetails',JSON.stringify(requiredsoftwaredetails));
             }
         }

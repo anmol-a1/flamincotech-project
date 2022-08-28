@@ -1,17 +1,20 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
-    <title>Flamencotech</title>
+    <title>Document</title>
     <style>
+      body{
+        background-image: url("/static/b1.png");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+      }
         .navbar .nav-item a{
       font-size: 17px;	
       position: relative;
@@ -61,7 +64,7 @@
     bottom: 0;
     width: 100%;
     height: 2px;
-    background: black;
+    background: #205690;
     opacity: 0;
     -webkit-transform: translateY(5px);
     -moz-transform: translateY(5px);
@@ -88,7 +91,7 @@
     transform: translateY(0px);
   }
         .navbar .nav-item a{
-          font-size: 19px;
+          font-size: 17px;
   
         }
       </style>
@@ -100,7 +103,7 @@
         class="navbar-brand"
         href="https://www.flamencotech.com/"
         target="_blank"
-        >Flamencotech</a
+        >FlamencoTech</a
       > -->
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
@@ -118,57 +121,40 @@
         </ul>
       </div>
     </nav>
-
-    <div style="width: 900px;background-color: rgb(241, 241, 241);margin: 20px auto;" class="container my-5 shadow p-3 mb-5 rounded">
+    <div style="width: 900px;background-color: rgb(241, 241, 241);" class="container my-5 shadow p-3 mb-5 rounded">
         <div style="text-align: center;" class="container my-5">
-            <h3><b><p>My History</p></b></h3>
+            <h3><b>Client History</b></h3>
         </div>
-        <table <div class="container my-5">
+        <table <div class="container my-5 ">
             <form class="my-5">
-                <table class="table table-secondary">
+                <table class="table table-secondary" border="1" style="border:2px solid rgb(0, 0, 0)">
                     <thead>
-                        <tr>
-                            <th scope="col">Sr No.</th>
-                            <th scope="col">Client Name</th>
+                        <tr style="background-color: #22508b;color:white">
                             <th scope="col">Date</th>
-                            <th scope="col">Version</th>
-                            <th scope="col">Value</th>
-                            <th scope="col">Action</th>
+                            <th scope="col">Company Name</th>
+                            <th scope="col">Reference Number</th>
+                            <th scope="col">Download Pdf</th>
+                            <th scope="col">Download Excel</th>
+                            <th scope="col">Edit</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody style="background-color:white;">
+                        {% for entry in entries %}
                         <tr>
-                            <th scope="row">1</th>
-                            <td>Siemens</td>
-                            <td>21/9/2022</td>
-                            <td>1</td>
-                            <td>75000</td>
-                            <td>
-                                <button type="submit" class="btn btn-success mb-2">Edit </button>
-                                </td>
-                            <td>
-                                <button type="submit" class="btn btn-primary mb-2">Download</button>
-                            </td>
+                            <th scope="row">{{entry.date}}</th>
+                            <td>{{entry.company_name}}</td>
+                            <td>{{entry.ref_no}}</td>
+                            <td><a href="{{entry.pdf.url}}" download="{{entry.pdf.url}}">Download</a>  </td>
+                            <td><a href="{{entry.excel.url}}" download="{{entry.excel.url}}">Download</a></td>
+                            <td><a href="{% url 'edit_quot_user' ref_no=entry.ref_no %}">Edit</a></td>
                         </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>KPIT</td>
-                            <td>22/9/2022</td>
-                            <td>1</td>
-                            <td>85000</td>
-
-                            <td>
-                                <button type="submit" class="btn btn-success mb-2">Edit</button>
-                            </td>
-                            <td>
-                                <button type="submit" class="btn btn-primary mb-2">Download</button>
-                            </td>
-                        </tr>
-
+                        {% endfor %}
+                       
                     </tbody>
                 </table>
-
+                
             </form>
+    </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -179,6 +165,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
+
 </body>
 
 </html>
