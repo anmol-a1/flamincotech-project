@@ -122,15 +122,17 @@ a {
 </head>
 
 <body>
-        
-<form  method="post" enctype="multipart/form-data">
+<div style="display:flex;margin-top:20px">
+<button onclick="gotohome()" disabled="true" style="margin-left: 160px;font-size:20px" id="home" class="btn btn-primary" >Home</button>
+<form style="margin-left: 500px;"  method="post" enctype="multipart/form-data">
 {%csrf_token%}
 <input type="file" name="file" accept=".pdf" id="file">
 <input type="file" name="file" accept=".xlsx" id="file1">
 <button class="btn btn-primary finalise" id="download">Finalized</button>
 </form>
+</div>
 
-    <div style="width: auto;" class="container d-flex justify-content-center mt-50 mb-50">
+    <div style="width: auto;" class="container d-flex justify-content-center mt-40 mb-50">
         <div class="row">
             <div class="col-md-12 text-right mb-3">
                 <button class="btn btn-primary" onclick="downloadpdf()" id="download">Download pdf</button>
@@ -467,6 +469,7 @@ a {
 <script src="https://cdn-na.infragistics.com/igniteui/latest/js/modules/infragistics.documents.core_openxml.js"></script>
 <script src="https://cdn-na.infragistics.com/igniteui/latest/js/modules/infragistics.excel_serialization_openxml.js"></script>
 <script>
+
 var clientdata = JSON.parse(localStorage.getItem('clientdata'));
 var inputdata = JSON.parse(localStorage.getItem('inputdata'));
 var tempref = JSON.parse(localStorage.getItem('ref_no'));
@@ -487,12 +490,12 @@ var pdfs;
                 border:"1px",
                 margin: 0.2,
                 filename: `${tempref}.pdf`,
-                image: { type: 'jpeg', quality: 1 },
-                html2canvas: { scale: 4 },
-                jsPDF: { unit: 'in', format: 'letter', orientation: 'landscape' }
+                image: { type: 'pdf', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
             };
-            pdfs=html2pdf().from(invoice).set(opt).save();
-            console.log(pdfs);
+            html2pdf().from(invoice).set(opt).save();
+            
         
 }
 
@@ -817,7 +820,17 @@ document.getElementById("date").value = d.toUTCString();
         }
         $(document).on('click', '.finalise', function (e) {
             e.preventDefault();
-            //pdf,excel,input_data,company_name,ref_no
+            if((document.getElementById("file").value=="")){
+                console.log("not");
+                alert("Files Not Upload");
+            }
+            else if((document.getElementById("file1").value=="")){
+                console.log("not");
+                alert("Files Not Upload");
+
+            }
+            else{
+                
             var form_data = new FormData();
             form_data.append("pdf",$("input[id^='file']")[0].files[0]);
             form_data.append("excel",$("input[id^='file1']")[0].files[0]);
@@ -838,13 +851,25 @@ document.getElementById("date").value = d.toUTCString();
                 url: '{% url "adddata" %}',
                 data: form_data,
                 success: function (json) {
-          
+                    document.getElementById("home").disabled=false;
+                    alert("data saved successfully , now you can exit")
+
                 },
                 error: function (xhr, errmsg, err) {
-          
+                    
                 }
             });
+
+            }
         })
+       
+    function gotohome(){
+
+        window.location.href = 'http://127.0.0.1:8000/admins/';
+
+
+    }
+    
 
 </script>
 </html>

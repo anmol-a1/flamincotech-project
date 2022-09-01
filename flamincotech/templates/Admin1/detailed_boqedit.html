@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
+                integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+                crossorigin="anonymous">
+        <title>VPSS</title>
+        <style>
+                .btns {
+                        border: none;
+                        height: 60px;
+                        cursor: pointer;
+                }
+
+                .btns:hover {
+                        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                }
+
+                .activebtn {
+
+                        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                        border: none;
+                }
+        </style>
+            <style>
+                .btn {
+                  background-color: #20558B;
+                  border: none;
+                  color: white;
+                  padding: 3px 5px;
+                  cursor: pointer;
+                  font-size: 18px;
+                }
+                
+                /* Darker background on mouse-over */
+                /* .btn:hover {
+                  background-color: rgb(0, 64, 255);
+                } */
+                input[type=file]::file-selector-button {
+                  margin-top: 2px;
+                  border: 2px solid #20558B;
+                  padding: .2em .4em;
+                  color: white;
+                  border-radius: .2em;
+                  background-color: #20558B;
+                  transition: 1s;
+                }
+                
+                /* input[type=file]::file-selector-button:hover {
+                  background-color: rgb(0, 64, 255);
+                  border: 2px solid rgb(0, 64, 255);
+                } */
+                </style>
+</head>
+<!-- Soft_Items,Bms_Trays,Bms_Piping,Bms_Cabling,Bms_Sensors,Ddc,Ethernet,Fiber,Active,General --> 
+
+<body>
+        {%csrf_token%}
+        <div class="container">
+                <div style="display:flex;align-items:center">
+                        <div class="hometags" style="width:14.285%">
+                                <button class="btn activebtn" value="1" style="width:100%">General</button>
+                        </div>
+                        <div class="hometags" style="width:14.285%">
+                                <button class="bt" value="2" style="width:100%">Active</button>
+                        </div>
+                        <div class="hometags" style="width:14.285%">
+                                <button class="btn" value="3" style="width:100%">Fiber</button>
+                        </div>
+                        <div class="hometags" style="width:14.285%">
+                                <button class="btn" value="4" style="width:100%">Ethernet</button>
+                        </div>
+                        <div class="hometags" style="width:14.285%">
+                                <button class="btn" value="5" style="width:100%">Ddc</button>
+                        </div>
+                        <div class="hometags" style="width:14.285%">
+                                <button class="btn" value="6" style="width:100%">Bms_Sensors</button>
+                        </div>
+                        <div class="hometags" style="width:14.285%">
+                                <button class="btn" value="7" style="width:100%">Bms_Cabling</button>
+                        </div>
+                        <div class="hometags" style="width:14.285%">
+                                <button class="btn" value="8" style="width:100%">Bms_Piping</button>
+                        </div>
+                        <div class="hometags" style="width:14.285%">
+                                <button class="btn" value="9" style="width:100%">Bms_Trays</button>
+                        </div>
+                        <div class="hometags" style="width:14.285%">
+                                <button class="btn" value="10" style="width:100%">Soft_Items</button>
+                        </div>
+
+                </div>
+
+        </div>
+        <div style="width:100%;background-color: rgb(241, 241, 241);" id="maindivbar1"  class="shadow mb-5 rounded maindivbar">
+                <form class="my-1">
+                        <table class="table" border="1" style="border:2px solid rgb(0, 0, 0)">
+                                <!-- <thead>
+                    <tr>
+                     sr_no
+                     Make
+                     Model
+                     Hardware_Items
+                     Qty
+                     Uom
+                     Cost_Supply_Rate
+                     Cost_Supply_Total
+                     Cost_Installation_Rate
+                     Cost_Installation_Total
+                     MRS_Rate
+                     MRS_Total
+                     MRI_Rate
+                     MRI_Total
+                     Supply_Rate
+                     Supply_Total
+                     Installation_Rate
+                     Installation_Total
+                     Remarks
+                     Minimum_Qty
+                     Minimum_Installation
+                    </tr>
+                </thead> -->
+                                <thead>
+                                        <tr style="background-color: #20558B;;color:white">
+                                                <th rowspan="2">
+                                                        <!-- <p style="padding-bottom: 10px;">sr_no</p> -->
+                                                Sr_No.
+                                                </th>
+                                                <th rowspan="2">Make </th>
+                                                <th rowspan="2"> Model</th>
+                                                <th rowspan="2">Hardware_Items </th>
+                                                <th rowspan="2"> Qty</th>
+                                                <th rowspan="2">Uom</th>
+                                                <th colspan="2"> Cost_Supply</th>                                                                                                                                                                                               
+                                                <th colspan="2"> Cost_Installation</th>
+                                                <th colspan="2"> MRS</th>
+                                                <th colspan="2"> MRI</th>
+                                                <th colspan="2"> Supply</th>
+                                                <th colspan="2"> Installation</th>
+
+                                        </tr>
+                                </thead>
+                                <tbody>
+                                        {% for entry in General %}
+                                        <tr style="background-color:white">
+                                                <td>{{entry.sr_no}}</td>
+                                                <td>{{entry.Make}}</td>
+                                                <td>{{entry.Model}}</td>
+                                                <td>{{entry.Hardware_Items}}</td>
+                                                <th><input  id="{{entry.sr_no}}Qty_General"
+                                                                style="width: 55px;border:none" value="{{entry.Qty}}"
+                                                                type="number"></th>
+                                                <th>{{entry.Uom}}</th>
+                                                <th><input id="{{entry.sr_no}}Cost_Supply_Rate_General"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Supply_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}Cost_Supply_Total_General"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Supply_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Cost_Installation_Rate_General"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Installation_Rate}}" type="number">
+                                                </th>
+                                                <th><input id="{{entry.sr_no}}Cost_Installation_Total_General"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Installation_Total}}" type="number">
+                                                </th>
+                                                <th><input id="{{entry.sr_no}}MRS_Rate_General"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRS_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRS_Total_General"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRS_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRI_Rate_General"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRI_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRI_Total_General"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRI_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Supply_Rate_General"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Supply_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Supply_Total_General"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Supply_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Installation_Rate_General"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Installation_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Installation_Total_General"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Installation_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Remarks_General"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Remarks}}" type="text"></th>
+                                                <th><input id="{{entry.sr_no}}Minimum_Qty_General"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Minimum_Qty}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Minimum_Installation_General"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Minimum_Installation}}" type="number">
+                                                </th>
+                                        </tr>
+                                        {% endfor %}
+
+                                </tbody>
+                        </table>
+
+                </form>
+
+        </div>
+        <div style="width:100%;background-color: rgb(241, 241, 241);" id="maindivbar2" hidden class="shadow mb-5 rounded maindivbar">
+                <form class="my-1">
+                        <table class="table" style="text-align: center;" border="1">
+                                
+                                <thead>
+                                        <tr>
+                                                <th rowspan="2">
+                                                        <p style="padding-bottom: 10px;">sr_no</p>
+                                                </th>
+                                                <th rowspan="2">Make </th>
+                                                <th rowspan="2"> Model</th>
+                                                <th rowspan="2">Hardware_Items </th>
+                                                <th rowspan="2"> Qty</th>
+                                                <th rowspan="2">Uom</th>
+                                                <th colspan="2"> Cost_Supply</th>
+                                                <th colspan="2"> Cost_Installation</th>
+                                                <th colspan="2"> MRS</th>
+                                                <th colspan="2"> MRI</th>
+                                                <th colspan="2"> Supply</th>
+                                                <th colspan="2"> Installation</th>
+
+                                        </tr>
+                                </thead>
+                                <tbody>
+                                        {% for entry in Active %}
+                                        <tr>
+                                                <td>{{entry.sr_no}}</td>
+                                                <td>{{entry.Make}}</td>
+                                                <td>{{entry.Model}}</td>
+                                                <td>{{entry.Hardware_Items}}</td>
+                                                <th><input onchange="abcd(event)" id="{{entry.sr_no}}Qty_Active"
+                                                                style="width: 55px;border:none" value="{{entry.Qty}}"
+                                                                type="number"></th>
+                                                <th>{{entry.Uom}}</th>
+                                                <th><input id="{{entry.sr_no}}Cost_Supply_Rate_Active"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Supply_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}Cost_Supply_Total_Active"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Supply_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Cost_Installation_Rate_Active"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Installation_Rate}}" type="number">
+                                                </th>
+                                                <th><input id="{{entry.sr_no}}Cost_Installation_Total_Active"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Installation_Total}}" type="number">
+                                                </th>
+                                                <th><input id="{{entry.sr_no}}MRS_Rate_Active"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRS_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRS_Total_Active"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRS_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRI_Rate_Active"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRI_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRI_Total_Active"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRI_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Supply_Rate_Active"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Supply_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Supply_Total_Active"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Supply_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Installation_Rate_Active"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Installation_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Installation_Total_Active"
+                                                                style="width: 55px;border:none"
+                                                           value="{{entry.Installation_Total}}" type="number"></th>
+                                
+                                                </th>
+                                        </tr>
+                                        {% endfor %}
+
+
+
+                                </tbody>
+                        </table>
+
+                </form>
+
+        </div>
+        <div style="width:100%;background-color: rgb(241, 241, 241);" id="maindivbar3" hidden class="shadow mb-5 rounded maindivbar">
+                <form class="my-1">
+                        <table class="table" style="text-align: center;" border="1">
+                                
+                                <thead>
+                                        <tr>
+                                                <th rowspan="2">
+                                                        <p style="padding-bottom: 10px;">sr_no</p>
+                                                </th>
+                                                <th rowspan="2">Make </th>
+                                                <th rowspan="2"> Model</th>
+                                                <th rowspan="2">Hardware_Items </th>
+                                                <th rowspan="2"> Qty</th>
+                                                <th rowspan="2">Uom</th>
+                                                <th colspan="2"> Cost_Supply</th>
+                                                <th colspan="2"> Cost_Installation</th>
+                                                <th colspan="2"> MRS</th>
+                                                <th colspan="2"> MRI</th>
+                                                <th colspan="2"> Supply</th>
+                                                <th colspan="2"> Installation</th>
+
+                                        </tr>
+                                </thead>
+                                <tbody>
+                                        {% for entry in Fiber %}
+                                        <tr>
+                                                <td>{{entry.sr_no}}</td>
+                                                <td>{{entry.Make}}</td>
+                                                <td>{{entry.Model}}</td>
+                                                <td>{{entry.Hardware_Items}}</td>
+                                                <th><input onchange="abcd(event)" id="{{entry.sr_no}}Qty_Fiber"
+                                                                style="width: 55px;border:none" value="{{entry.Qty}}"
+                                                                type="number"></th>
+                                                <th>{{entry.Uom}}</th>
+                                                <th><input id="{{entry.sr_no}}Cost_Supply_Rate_Fiber"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Supply_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}Cost_Supply_Total_Fiber"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Supply_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Cost_Installation_Rate_Fiber"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Installation_Rate}}" type="number">
+                                                </th>
+                                                <th><input id="{{entry.sr_no}}Cost_Installation_Total_Fiber"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Installation_Total}}" type="number">
+                                                </th>
+                                                <th><input id="{{entry.sr_no}}MRS_Rate_Fiber"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRS_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRS_Total_Fiber"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRS_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRI_Rate_Fiber"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRI_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRI_Total_Fiber"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRI_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Supply_Rate_Fiber"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Supply_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Supply_Total_Fiber"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Supply_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Installation_Rate_Fiber"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Installation_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Installation_Total_Fiber"
+                                                                style="width: 55px;border:none"
+                                                           value="{{entry.Installation_Total}}" type="number"></th>
+                                
+                                                </th>
+                                        </tr>
+                                        {% endfor %}
+
+
+
+
+
+                                </tbody>
+                        </table>
+
+                </form>
+
+        </div>
+        <div style="width:100%;background-color: rgb(241, 241, 241);" id="maindivbar4" hidden class="shadow mb-5 rounded maindivbar">
+                <form class="my-1">
+                        <table class="table" style="text-align: center;" border="1">
+                                
+                                <thead>
+                                        <tr>
+                                                <th rowspan="2">
+                                                        <p style="padding-bottom: 10px;">sr_no</p>
+                                                </th>
+                                                <th rowspan="2">Make </th>
+                                                <th rowspan="2"> Model</th>
+                                                <th rowspan="2">Hardware_Items </th>
+                                                <th rowspan="2"> Qty</th>
+                                                <th rowspan="2">Uom</th>
+                                                <th colspan="2"> Cost_Supply</th>
+                                                <th colspan="2"> Cost_Installation</th>
+                                                <th colspan="2"> MRS</th>
+                                                <th colspan="2"> MRI</th>
+                                                <th colspan="2"> Supply</th>
+                                                <th colspan="2"> Installation</th>
+
+                                        </tr>
+                                </thead>
+                                <tbody>
+                                        {% for entry in Ethernet %}
+                                        <tr>
+                                                <td>{{entry.sr_no}}</td>
+                                                <td>{{entry.Make}}</td>
+                                                <td>{{entry.Model}}</td>
+                                                <td>{{entry.Hardware_Items}}</td>
+                                                <th><input onchange="abcd(event)" id="{{entry.sr_no}}Qty_Ethernet"
+                                                                style="width: 55px;border:none" value="{{entry.Qty}}"
+                                                                type="number"></th>
+                                                <th>{{entry.Uom}}</th>
+                                                <th><input id="{{entry.sr_no}}Cost_Supply_Rate_Ethernet"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Supply_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}Cost_Supply_Total_Ethernet"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Supply_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Cost_Installation_Rate_Ethernet"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Installation_Rate}}" type="number">
+                                                </th>
+                                                <th><input id="{{entry.sr_no}}Cost_Installation_Total_Ethernet"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Installation_Total}}" type="number">
+                                                </th>
+                                                <th><input id="{{entry.sr_no}}MRS_Rate_Ethernet"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRS_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRS_Total_Ethernet"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRS_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRI_Rate_Ethernet"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRI_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRI_Total_Ethernet"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRI_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Supply_Rate_Ethernet"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Supply_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Supply_Total_Ethernet"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Supply_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Installation_Rate_Ethernet"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Installation_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Installation_Total_Ethernet"
+                                                                style="width: 55px;border:none"
+                                                           value="{{entry.Installation_Total}}" type="number"></th>
+                                
+                                                </th>
+                                        </tr>
+                                        {% endfor %}
+
+
+
+
+                                </tbody>
+                        </table>
+
+                </form>
+
+        </div>
+        <div style="width:100%;background-color: rgb(241, 241, 241);" id="maindivbar5" hidden class="shadow mb-5 rounded maindivbar">
+                <form class="my-1">
+                        <table class="table" style="text-align: center;" border="1">
+                                
+                                <thead>
+                                        <tr>
+                                                <th rowspan="2">
+                                                        <p style="padding-bottom: 10px;">sr_no</p>
+                                                </th>
+                                                <th rowspan="2">Make </th>
+                                                <th rowspan="2"> Model</th>
+                                                <th rowspan="2">Hardware_Items </th>
+                                                <th rowspan="2"> Qty</th>
+                                                <th rowspan="2">Uom</th>
+                                                <th colspan="2"> Cost_Supply</th>
+                                                <th colspan="2"> Cost_Installation</th>
+                                                <th colspan="2"> MRS</th>
+                                                <th colspan="2"> MRI</th>
+                                                <th colspan="2"> Supply</th>
+                                                <th colspan="2"> Installation</th>
+
+                                        </tr>
+                                </thead>
+                                <tbody>
+                                        {% for entry in Ddc %}
+                                        <tr>
+                                                <td>{{entry.sr_no}}</td>
+                                                <td>{{entry.Make}}</td>
+                                                <td>{{entry.Model}}</td>
+                                                <td>{{entry.Hardware_Items}}</td>
+                                                <th><input onchange="abcd(event)" id="{{entry.sr_no}}Qty_Ddc"
+                                                                style="width: 55px;border:none" value="{{entry.Qty}}"
+                                                                type="number"></th>
+                                                <th>{{entry.Uom}}</th>
+                                                <th><input id="{{entry.sr_no}}Cost_Supply_Rate_Ddc"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Supply_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}Cost_Supply_Total_Ddc"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Supply_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Cost_Installation_Rate_Ddc"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Installation_Rate}}" type="number">
+                                                </th>
+                                                <th><input id="{{entry.sr_no}}Cost_Installation_Total_Ddc"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Installation_Total}}" type="number">
+                                                </th>
+                                                <th><input id="{{entry.sr_no}}MRS_Rate_Ddc"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRS_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRS_Total_Ddc"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRS_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRI_Rate_Ddc"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRI_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRI_Total_Ddc"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRI_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Supply_Rate_Ddc"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Supply_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Supply_Total_Ddc"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Supply_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Installation_Rate_Ddc"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Installation_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Installation_Total_Ddc"
+                                                                style="width: 55px;border:none"
+                                                           value="{{entry.Installation_Total}}" type="number"></th>
+                                
+                                                </th>
+                                        </tr>
+                                        {% endfor %}
+
+
+
+
+                                </tbody>
+                        </table>
+
+                </form>
+
+        </div>
+        <div style="width:100%;background-color: rgb(241, 241, 241);" id="maindivbar6" hidden class="shadow mb-5 rounded maindivbar">
+                <form class="my-1">
+                        <table class="table" style="text-align: center;" border="1">
+                                
+                                <thead>
+                                        <tr>
+                                                <th rowspan="2">
+                                                        <p style="padding-bottom: 10px;">sr_no</p>
+                                                </th>
+                                                <th rowspan="2">Make </th>
+                                                <th rowspan="2"> Model</th>
+                                                <th rowspan="2">Hardware_Items </th>
+                                                <th rowspan="2"> Qty</th>
+                                                <th rowspan="2">Uom</th>
+                                                <th colspan="2"> Cost_Supply</th>
+                                                <th colspan="2"> Cost_Installation</th>
+                                                <th colspan="2"> MRS</th>
+                                                <th colspan="2"> MRI</th>
+                                                <th colspan="2"> Supply</th>
+                                                <th colspan="2"> Installation</th>
+
+                                        </tr>
+                                </thead>
+                                <tbody>
+                                        {% for entry in Bms_Sensors %}
+                                        <tr>
+                                                <td>{{entry.sr_no}}</td>
+                                                <td>{{entry.Make}}</td>
+                                                <td>{{entry.Model}}</td>
+                                                <td>{{entry.Hardware_Items}}</td>
+                                                <th><input onchange="abcd(event)" id="{{entry.sr_no}}Qty_Bms_Sensors"
+                                                                style="width: 55px;border:none" value="{{entry.Qty}}"
+                                                                type="number"></th>
+                                                <th>{{entry.Uom}}</th>
+                                                <th><input id="{{entry.sr_no}}Cost_Supply_Rate_Bms_Sensors"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Supply_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}Cost_Supply_Total_Bms_Sensors"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Supply_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Cost_Installation_Rate_Bms_Sensors"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Installation_Rate}}" type="number">
+                                                </th>
+                                                <th><input id="{{entry.sr_no}}Cost_Installation_Total_Bms_Sensors"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Installation_Total}}" type="number">
+                                                </th>
+                                                <th><input id="{{entry.sr_no}}MRS_Rate_Bms_Sensors"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRS_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRS_Total_Bms_Sensors"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRS_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRI_Rate_Bms_Sensors"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRI_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRI_Total_Bms_Sensors"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRI_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Supply_Rate_Bms_Sensors"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Supply_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Supply_Total_Bms_Sensors"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Supply_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Installation_Rate_Bms_Sensors"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Installation_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Installation_Total_Bms_Sensors"
+                                                                style="width: 55px;border:none"
+                                                           value="{{entry.Installation_Total}}" type="number"></th>
+                                
+                                                </th>
+                                        </tr>
+                                        {% endfor %}
+
+
+
+
+                                </tbody>
+                        </table>
+
+                </form>
+
+        </div>
+        <div style="width:100%;background-color: rgb(241, 241, 241);" id="maindivbar7" hidden class="shadow mb-5 rounded maindivbar">
+                <form class="my-1">
+                        <table class="table" style="text-align: center;" border="1">
+                                
+                                <thead>
+                                        <tr>
+                                                <th rowspan="2">
+                                                        <p style="padding-bottom: 10px;">sr_no</p>
+                                                </th>
+                                                <th rowspan="2">Make </th>
+                                                <th rowspan="2"> Model</th>
+                                                <th rowspan="2">Hardware_Items </th>
+                                                <th rowspan="2"> Qty</th>
+                                                <th rowspan="2">Uom</th>
+                                                <th colspan="2"> Cost_Supply</th>
+                                                <th colspan="2"> Cost_Installation</th>
+                                                <th colspan="2"> MRS</th>
+                                                <th colspan="2"> MRI</th>
+                                                <th colspan="2"> Supply</th>
+                                                <th colspan="2"> Installation</th>
+
+                                        </tr>
+                                </thead>
+                                <tbody>
+                                        {% for entry in Bms_Cabling %}
+                                        <tr>
+                                                <td>{{entry.sr_no}}</td>
+                                                <td>{{entry.Make}}</td>
+                                                <td>{{entry.Model}}</td>
+                                                <td>{{entry.Hardware_Items}}</td>
+                                                <th><input onchange="abcd(event)" id="{{entry.sr_no}}Qty_Bms_Cabling"
+                                                                style="width: 55px;border:none" value="{{entry.Qty}}"
+                                                                type="number"></th>
+                                                <th>{{entry.Uom}}</th>
+                                                <th><input id="{{entry.sr_no}}Cost_Supply_Rate_Bms_Cabling"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Supply_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}Cost_Supply_Total_Bms_Cabling"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Supply_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Cost_Installation_Rate_Bms_Cabling"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Installation_Rate}}" type="number">
+                                                </th>
+                                                <th><input id="{{entry.sr_no}}Cost_Installation_Total_Bms_Cabling"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Installation_Total}}" type="number">
+                                                </th>
+                                                <th><input id="{{entry.sr_no}}MRS_Rate_Bms_Cabling"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRS_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRS_Total_Bms_Cabling"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRS_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRI_Rate_Bms_Cabling"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRI_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRI_Total_Bms_Cabling"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRI_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Supply_Rate_Bms_Cabling"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Supply_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Supply_Total_Bms_Cabling"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Supply_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Installation_Rate_Bms_Cabling"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Installation_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Installation_Total_Bms_Cabling"
+                                                                style="width: 55px;border:none"
+                                                           value="{{entry.Installation_Total}}" type="number"></th>
+                                
+                                                </th>
+                                        </tr>
+                                        {% endfor %}
+
+
+
+
+                                </tbody>
+                        </table>
+
+                </form>
+
+        </div>
+
+        <div style="width:100%;background-color: rgb(241, 241, 241);" id="maindivbar8" hidden class="shadow mb-5 rounded maindivbar">
+                <form class="my-1">
+                        <table class="table" style="text-align: center;" border="1">
+                                
+                                <thead>
+                                        <tr>
+                                                <th rowspan="2">
+                                                        <p style="padding-bottom: 10px;">sr_no</p>
+                                                </th>
+                                                <th rowspan="2">Make </th>
+                                                <th rowspan="2"> Model</th>
+                                                <th rowspan="2">Hardware_Items </th>
+                                                <th rowspan="2"> Qty</th>
+                                                <th rowspan="2">Uom</th>
+                                                <th colspan="2"> Cost_Supply</th>
+                                                <th colspan="2"> Cost_Installation</th>
+                                                <th colspan="2"> MRS</th>
+                                                <th colspan="2"> MRI</th>
+                                                <th colspan="2"> Supply</th>
+                                                <th colspan="2"> Installation</th>
+
+                                        </tr>
+                                </thead>
+                                <tbody>
+                                        {% for entry in Bms_Piping %}
+                                        <tr>
+                                                <td>{{entry.sr_no}}</td>
+                                                <td>{{entry.Make}}</td>
+                                                <td>{{entry.Model}}</td>
+                                                <td>{{entry.Hardware_Items}}</td>
+                                                <th><input onchange="abcd(event)" id="{{entry.sr_no}}Qty_Bms_Piping"
+                                                                style="width: 55px;border:none" value="{{entry.Qty}}"
+                                                                type="number"></th>
+                                                <th>{{entry.Uom}}</th>
+                                                <th><input id="{{entry.sr_no}}Cost_Supply_Rate_Bms_Piping"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Supply_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}Cost_Supply_Total_Bms_Piping"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Supply_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Cost_Installation_Rate_Bms_Piping"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Installation_Rate}}" type="number">
+                                                </th>
+                                                <th><input id="{{entry.sr_no}}Cost_Installation_Total_Bms_Piping"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Installation_Total}}" type="number">
+                                                </th>
+                                                <th><input id="{{entry.sr_no}}MRS_Rate_Bms_Piping"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRS_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRS_Total_Bms_Piping"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRS_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRI_Rate_Bms_Piping"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRI_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRI_Total_Bms_Piping"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRI_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Supply_Rate_Bms_Piping"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Supply_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Supply_Total_Bms_Piping"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Supply_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Installation_Rate_Bms_Piping"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Installation_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Installation_Total_Bms_Piping"
+                                                                style="width: 55px;border:none"
+                                                           value="{{entry.Installation_Total}}" type="number"></th>
+                                
+                                                </th>
+                                        </tr>
+                                        {% endfor %}
+
+
+
+
+                                </tbody>
+                        </table>
+
+                </form>
+
+        </div>
+
+        <div style="width:100%;background-color: rgb(241, 241, 241);" id="maindivbar9" hidden class="shadow mb-5 rounded maindivbar">
+                <form class="my-1">
+                        <table class="table" style="text-align: center;" border="1">
+                                
+                                <thead>
+                                        <tr>
+                                                <th rowspan="2">
+                                                        <p style="padding-bottom: 10px;">sr_no</p>
+                                                </th>
+                                                <th rowspan="2">Make </th>
+                                                <th rowspan="2"> Model</th>
+                                                <th rowspan="2">Hardware_Items </th>
+                                                <th rowspan="2"> Qty</th>
+                                                <th rowspan="2">Uom</th>
+                                                <th colspan="2"> Cost_Supply</th>
+                                                <th colspan="2"> Cost_Installation</th>
+                                                <th colspan="2"> MRS</th>
+                                                <th colspan="2"> MRI</th>
+                                                <th colspan="2"> Supply</th>
+                                                <th colspan="2"> Installation</th>
+
+                                        </tr>
+                                </thead>
+                                <tbody>
+                                        {% for entry in Bms_Trays %}
+                                        <tr>
+                                                <td>{{entry.sr_no}}</td>
+                                                <td>{{entry.Make}}</td>
+                                                <td>{{entry.Model}}</td>
+                                                <td>{{entry.Hardware_Items}}</td>
+                                                <th><input onchange="abcd(event)" id="{{entry.sr_no}}Qty_Bms_Trays"
+                                                                style="width: 55px;border:none" value="{{entry.Qty}}"
+                                                                type="number"></th>
+                                                <th>{{entry.Uom}}</th>
+                                                <th><input id="{{entry.sr_no}}Cost_Supply_Rate_Bms_Trays"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Supply_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}Cost_Supply_Total_Bms_Trays"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Supply_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Cost_Installation_Rate_Bms_Trays"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Installation_Rate}}" type="number">
+                                                </th>
+                                                <th><input id="{{entry.sr_no}}Cost_Installation_Total_Bms_Trays"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Installation_Total}}" type="number">
+                                                </th>
+                                                <th><input id="{{entry.sr_no}}MRS_Rate_Bms_Trays"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRS_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRS_Total_Bms_Trays"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRS_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRI_Rate_Bms_Trays"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRI_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRI_Total_Bms_Trays"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRI_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Supply_Rate_Bms_Trays"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Supply_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Supply_Total_Bms_Trays"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Supply_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Installation_Rate_Bms_Trays"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Installation_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Installation_Total_Bms_Trays"
+                                                                style="width: 55px;border:none"
+                                                           value="{{entry.Installation_Total}}" type="number"></th>
+                                
+                                                </th>
+                                        </tr>
+                                        {% endfor %}
+
+
+
+
+                                </tbody>
+                        </table>
+
+                </form>
+
+        </div>
+
+        <div style="width:100%;background-color: rgb(241, 241, 241);" id="maindivbar10" hidden class="shadow mb-5 rounded maindivbar">
+                <form class="my-1">
+                        <table class="table" style="text-align: center;" border="1">
+                                
+                                <thead>
+                                        <tr>
+                                                <th rowspan="2">
+                                                        <p style="padding-bottom: 10px;">sr_no</p>
+                                                </th>
+                                                <th rowspan="2">Make </th>
+                                                <th rowspan="2"> Model</th>
+                                                <th rowspan="2">Hardware_Items </th>
+                                                <th rowspan="2"> Qty</th>
+                                                <th rowspan="2">Uom</th>
+                                                <th colspan="2"> Cost_Supply</th>
+                                                <th colspan="2"> Cost_Installation</th>
+                                                <th colspan="2"> MRS</th>
+                                                <th colspan="2"> MRI</th>
+                                                <th colspan="2"> Supply</th>
+                                                <th colspan="2"> Installation</th>
+
+                                        </tr>
+                                </thead>
+                                <tbody>
+                                        {% for entry in Soft_Items %}
+                                        <tr>
+                                                <td>{{entry.sr_no}}</td>
+                                                <td>{{entry.Make}}</td>
+                                                <td>{{entry.Model}}</td>
+                                                <td>{{entry.Hardware_Items}}</td>
+                                                <th><input onchange="abcd(event)" id="{{entry.sr_no}}Qty_Soft_Items"
+                                                                style="width: 55px;border:none" value="{{entry.Qty}}"
+                                                                type="number"></th>
+                                                <th>{{entry.Uom}}</th>
+                                                <th><input id="{{entry.sr_no}}Cost_Supply_Rate_Soft_Items"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Supply_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}Cost_Supply_Total_Soft_Items"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Supply_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Cost_Installation_Rate_Soft_Items"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Installation_Rate}}" type="number">
+                                                </th>
+                                                <th><input id="{{entry.sr_no}}Cost_Installation_Total_Soft_Items"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Cost_Installation_Total}}" type="number">
+                                                </th>
+                                                <th><input id="{{entry.sr_no}}MRS_Rate_Soft_Items"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRS_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRS_Total_Soft_Items"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRS_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRI_Rate_Soft_Items"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRI_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}MRI_Total_Soft_Items"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.MRI_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Supply_Rate_Soft_Items"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Supply_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Supply_Total_Soft_Items"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Supply_Total}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Installation_Rate_Soft_Items"
+                                                                style="width: 55px;border:none"
+                                                                value="{{entry.Installation_Rate}}" type="number"></th>
+                                                <th><input id="{{entry.sr_no}}Installation_Total_Soft_Items"
+                                                                style="width: 55px;border:none"
+                                                           value="{{entry.Installation_Total}}" type="number"></th>
+                                
+                                                </th>
+                                        </tr>
+                                        {% endfor %}
+
+
+
+
+                                </tbody>
+                        </table>
+
+                </form>
+
+        </div>
+
+
+
+
+
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+                integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
+                integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
+                integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+                crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script>
+
+
+        document.querySelectorAll('.btn').forEach(item => {
+            item.addEventListener('click', event => {
+                event.preventDefault();
+                var abc=event.target.value;
+                var ids="maindivbar"+abc;
+                document.querySelectorAll('.maindivbar').forEach(item2 => {
+                    if (item2.id === ids) {
+                        item2.hidden = false;
+
+                    }
+                    else {
+                        item2.hidden = true;
+                    }
+                })
+
+                const boxes = document.querySelectorAll('.btn');
+
+                boxes.forEach(box => {
+                    box.classList.remove('activebtn');
+                });
+                event.target.classList.add('activebtn');
+
+
+            })
+
+
+        })
+        </script>
+        <script>
+           var data = {{ HardwareGeneral| safe }};
+           console.log(data);
+           var harddetails = JSON.parse(localStorage.getItem('harddetails'));
+           for(var i=2;i<17;i++){
+                if(i==15){
+                    continue;
+                }
+                document.getElementById(i+"Qty_General").value=harddetails[i-2].quant;
+                document.getElementById(i+"Qty_General").readOnly = true;
+
+           }
+        
+        </script>
+
+</body>
+
+</html>

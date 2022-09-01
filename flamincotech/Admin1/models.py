@@ -1001,7 +1001,7 @@ class Soft_Items_DB(models.Model):
     C_Total=models.IntegerField(default=0)
     Opex=models.IntegerField(default=0)
     O_Total=models.IntegerField(default=0)
-
+#Soft_Items,Bms_Trays,Bms_Piping,Bms_Cabling,Bms_Sensors,Ddc,Ethernet,Fiber,Active,General,Others,Third_Party
 class Quotation(models.Model):
     ref_no=models.CharField(max_length=100,primary_key=True)
     pdf = models.FileField(upload_to ='pdfs/')
@@ -1009,7 +1009,18 @@ class Quotation(models.Model):
     date=models.DateField(default=datetime.date.today())
     company_name=models.CharField(max_length=100)
     input_data=models.TextField(max_length=500)
-    user_email = models.EmailField()
-    
+    user_name = models.CharField(max_length=50)
+    emp_name=models.CharField(max_length=50)
+    _Bms_Trays=models.CharField(max_length=200,blank=True)
+    _Bms_Piping=models.CharField(max_length=200,blank=True)
+    _Bms_Cabling=models.CharField(max_length=200,blank=True)
+    _Bms_Sensors=models.CharField(max_length=200,blank=True)
+    _Ddc=models.CharField(max_length=200,blank=True)
+    _Ethernet=models.CharField(max_length=200,blank=True)
+    _Fiber=models.CharField(max_length=200,blank=True)
+    _Active=models.CharField(max_length=200,blank=True)
+    _Efforts=models.CharField(max_length=200,blank=True)
+    _Others=models.CharField(max_length=200,blank=True)
+    _Third_Party=models.CharField(max_length=200,blank=True)
     
     

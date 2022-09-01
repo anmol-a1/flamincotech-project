@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect
 import json
+from django.db.models import Count
 from django.http import HttpResponseRedirect,HttpResponse,JsonResponse
 from .models import Quotation,Soft_Items_DB,margin,ManEffortsInstall,IandC,NewUser,Software_Revised_Extra,Automate_Pricing,InputConfiguration,vpss,HardWareGeneral,HardWareIpVariant,HardWareActive,HardWarePassive,HardWareEthernet,HardWareDdc,HardWareBmsSensors,HardWareThirdParty,HardWareBmsScabling,HardWarePiping,HardWareTrays,HardWareGeneralInstall,HardWareIpVariantInstall,HardWareActiveInstall,HardWarePassiveInstall,HardWareEthernetInstall,HardWareDdcInstall,HardWareBmsSensorsInstall,HardWareThirdPartyInstall,HardWareBmsScablingInstall,HardWarePipingInstall,HardWareTraysInstall,SpazioPriceCalculator,Desk_Booking_Solution,Desk_Utilization_Solution,Desk_Planning_Solution,Employee_One_Mobile_App,Rostering,Wayfinding,Feedback,Kiosk_License,Meeting_Room_License_Occupancy,Meeting_Room_License_People_Count,Meeting_Room_License_Booking,Restroom_License_People_Count,Restroom_License_Wet_floor_detection,Restroom_License_Odour ,Human_body_temperature_License
 from User.models import Soft_Items,Bms_Trays,Bms_Piping,Bms_Cabling,Bms_Sensors,Ddc,Ethernet,Fiber,Active,General,Others,Third_Party
@@ -21,7 +22,7 @@ def adddata(request):
 	print(request.POST.get('action'))
 	if request.POST.get('action') == 'post':
 		try:
-			created=Quotation.objects.update_or_create(ref_no=request.POST.get('ref_no'),pdf=request.FILES.get('pdf'),company_name=request.POST.get('company_name'),input_data=request.POST.get('input_data'),excel=request.FILES.get('excel'),user_email=request.user.email)
+			created=Quotation.objects.update_or_create(ref_no=request.POST.get('ref_no'),pdf=request.FILES.get('pdf'),company_name=request.POST.get('company_name'),input_data=request.POST.get('input_data'),excel=request.FILES.get('excel'),user_name=request.user.user_name,emp_name=request.user.first_name,_Bms_Trays=request.POST.get('Bms_Trays'),_Bms_Piping=request.POST.get('Bms_Piping'),_Bms_Cabling=request.POST.get('Bms_Cabling'),_Bms_Sensors=request.POST.get('Bms_Sensors'),_Ddc=request.POST.get('Ddc'),_Ethernet=request.POST.get('Ethernet'),_Fiber=request.POST.get('Fiber'),_Active=request.POST.get('Active'),_Efforts=request.POST.get('Efforts'),_Others=request.POST.get('Others'),_Third_Party=request.POST.get('Third_Party'))
 		except:
 			try:
 				member = Quotation.objects.get(ref_no=request.POST.get('ref_no'))
@@ -29,6 +30,17 @@ def adddata(request):
 				member.company_name=request.POST.get('company_name')
 				member.excel =request.FILES.get('excel')
 				member.input_data=request.POST.get('input_data')
+				member._Bms_Trays=request.POST.get('Bms_Trays')
+				member._Bms_Piping=request.POST.get('Bms_Piping')
+				member._Bms_Cabling=request.POST.get('Bms_Cabling')
+				member._Bms_Sensors=request.POST.get('Bms_Sensors')
+				member._Ddc=request.POST.get('Ddc')
+				member._Ethernet=request.POST.get('Ethernet')
+				member._Fiber=request.POST.get('Fiber')
+				member._Active=request.POST.get('Active')
+				member._Efforts=request.POST.get('Efforts')
+				member._Others=request.POST.get('Others')
+				member._Third_Party=request.POST.get('Third_Party')
 				#member.user_email=request.user.email
 				member.save()
 			except:
@@ -76,7 +88,7 @@ def detailed_boq(request):
 #  HardWareTrays,HardWareTraysInstall
 	context={'soft_data':list(soft_items.values()),'hard_data':list(abcd.values()),'Software_Items':soft_items,'ManEfforts': ManEffortsInstalls,'ManEffortsData':list(ManEffortsInstalls.values()),'vpssdata':list(vpsss.values()),'Trays1':entries1,'Trays2':entries2,'TraysDatas':list(HardWareTrayss.values()),'TraysDatasInstall': list(HardWareTrayssInstall.values()),'PipingDatas':list(HardWarePipings.values()),'PipingDatasInstall': list(HardWarePipingsInstall.values()),'BmsScablingDatas':list(HardWareBmsScablings.values()),'BmsScablingDatasInstall': list(HardWareBmsScablingsInstall.values()),'ThirdPartyDatas':list(HardWareThirdPartys.values()),'ThirdPartyDatasInstall': list(HardWareThirdPartysInstall.values()),'BmsSensorsDatas':list(HardWareBmsSensorss.values()),'BmsSensorsDatasInstall': list(HardWareBmsSensorssInstall.values()),'DdcDatas':list(HardWareDdcs.values()),'DdcDatasInstall': list(HardWareDdcsInstall.values()),'EthernetDatas':list(HardWareEthernets.values()),'EthernetDatasInstall': list(HardWareEthernetsInstall.values()),'PassiveDatas':list(HardWarePassives.values()),'PassiveDatasInstall': list(HardWarePassivesInstall.values()),'HardWareActives':list(HardWareActives.values()),'HardWareActivesInstall':list(HardWareActivesInstall.values()),'HardWareGeneralInstalls':list(HardWareGeneralInstalls.values()),'HardGeneral':list(HardWareGenerals.values()),'HardIP':list(HardWareIpVariants.values()),'Ddc':HardWareDdcs,'Bms_Trays':HardWareTrayss,'Bms_Piping':HardWarePipings,'Bms_Cabling':HardWareBmsScablings,'Bms_Sensor':HardWareBmsSensorss,'Ethernet':HardWareEthernets,'Fiber':HardWarePassives,'Active':HardWareActives,'General':abcd,'Others':Others1,'Third_Party':HardWareThirdPartys}
 	
-	return render(request,'User/detailed_boq/main.html',context)
+	return render(request,'Admin1/main.html',context)
 def detailed_boqedit(request):
 	Ddc1=Ddc.objects.all()
 	Bms_Trays1=Bms_Trays.objects.all()
@@ -119,7 +131,7 @@ def detailed_boqedit(request):
 #  HardWareTrays,HardWareTraysInstall
 	context={'soft_data':list(soft_items.values()),'hard_data':list(abcd.values()),'Software_Items':soft_items,'ManEfforts': ManEffortsInstalls,'ManEffortsData':list(ManEffortsInstalls.values()),'vpssdata':list(vpsss.values()),'Trays1':entries1,'Trays2':entries2,'TraysDatas':list(HardWareTrayss.values()),'TraysDatasInstall': list(HardWareTrayssInstall.values()),'PipingDatas':list(HardWarePipings.values()),'PipingDatasInstall': list(HardWarePipingsInstall.values()),'BmsScablingDatas':list(HardWareBmsScablings.values()),'BmsScablingDatasInstall': list(HardWareBmsScablingsInstall.values()),'ThirdPartyDatas':list(HardWareThirdPartys.values()),'ThirdPartyDatasInstall': list(HardWareThirdPartysInstall.values()),'BmsSensorsDatas':list(HardWareBmsSensorss.values()),'BmsSensorsDatasInstall': list(HardWareBmsSensorssInstall.values()),'DdcDatas':list(HardWareDdcs.values()),'DdcDatasInstall': list(HardWareDdcsInstall.values()),'EthernetDatas':list(HardWareEthernets.values()),'EthernetDatasInstall': list(HardWareEthernetsInstall.values()),'PassiveDatas':list(HardWarePassives.values()),'PassiveDatasInstall': list(HardWarePassivesInstall.values()),'HardWareActives':list(HardWareActives.values()),'HardWareActivesInstall':list(HardWareActivesInstall.values()),'HardWareGeneralInstalls':list(HardWareGeneralInstalls.values()),'HardGeneral':list(HardWareGenerals.values()),'HardIP':list(HardWareIpVariants.values()),'Ddc':HardWareDdcs,'Bms_Trays':HardWareTrayss,'Bms_Piping':HardWarePipings,'Bms_Cabling':HardWareBmsScablings,'Bms_Sensor':HardWareBmsSensorss,'Ethernet':HardWareEthernets,'Fiber':HardWarePassives,'Active':HardWareActives,'General':abcd,'Others':Others1,'Third_Party':HardWareThirdPartys}
 	
-	return render(request,'User/detailed_boq/mainedit.html',context)
+	return render(request,'Admin1/mainedit.html',context)
 def fetchdata():
 	context={}
 	InputConfigurations=InputConfiguration.objects.all()
@@ -199,8 +211,13 @@ def export_userlist(request):
 	response['Content-Disposition'] = f'attachment; filename={fname}.xls'
 	return response
 def history(request):
-	
-	objs=Quotation.objects.filter(user_email=request.user.email)
+	objs=Quotation.objects.filter(user_name=request.user.user_name)
+	print(request.user.user_name)
+	print(objs)
+	context={'entries':objs}
+	return render(request,'Admin1/history.html',context)
+def historycheck(request,user_name):
+	objs=Quotation.objects.filter(user_name=user_name)
 	context={'entries':objs}
 	return render(request,'Admin1/history.html',context)
 def download_pdf(request, filename=''):
@@ -238,7 +255,9 @@ def download(request, path):
 # 	response['Content-Disposition'] = f'attachment; filename={fname}.xls'
 # 	return response
 def trackp(request):
-	return render(request,'Admin1/trackp.html')
+	result = (Quotation.objects.values('user_name','emp_name').annotate(dcount=Count('user_name')).order_by())
+	context={'entries':result}
+	return render(request,'Admin1/trackp.html',context)
 # class HardWareGeneralResource(resources.ModelResource):
 # 	class Meta:
 # 		model = HardWareGeneral
@@ -1944,8 +1963,10 @@ def edit_quot_admin(request,ref_no):
 		'ref_no':obj.ref_no,
 		'company_name':obj.company_name,
 		'input_data':obj.input_data,
-		'user_email':obj.user_email
+		'user_name':obj.user_name
 	}
 	dataJSON = dumps(dataDictionary)
-	return render(request, 'User/clientdetailsedit.html', {'data': dataJSON})
+	return render(request, 'Admin1/clientdetailsedit.html', {'data': dataJSON})
+def createquotation(request):
+	return render(request,'Admin1/clientdetails.html')
 

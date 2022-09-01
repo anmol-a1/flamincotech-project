@@ -19,7 +19,7 @@ def index(request):
 def createquotation(request):
 	return render(request,'User/clientdetails.html')
 def history(request):
-	objs=Quotation.objects.filter(user_email=request.user.email)
+	objs=Quotation.objects.filter(user_name=request.user.user_name)
 	context={'entries':objs}
 	return render(request,'User/history.html',context)
 def SpazioPriceCalculators(request):
@@ -184,7 +184,7 @@ def edit_quot_user(request,ref_no):
 		'ref_no':obj.ref_no,
 		'company_name':obj.company_name,
 		'input_data':obj.input_data,
-		'user_email':obj.user_email
+		'user_name':obj.user_name
 	}
 	dataJSON = dumps(dataDictionary)
 	return render(request, 'User/clientdetailsedit.html', {'data': dataJSON})

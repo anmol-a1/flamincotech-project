@@ -15,7 +15,7 @@
         background-attachment: fixed;
         background-size: 100% 100%;
       }
-      .navbar .nav-item a{
+        .navbar .nav-item a{
       font-size: 17px;	
       position: relative;
       display: inline-block;
@@ -97,88 +97,53 @@
       </style>
 </head>
 
-<body> <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <!-- <a
-      class="navbar-brand"
-      href="https://www.flamencotech.com/"
-      target="_blank"
-      >FlamencoTech</a
-    > -->
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li>
-          <a class="navbar-brand" href="https://www.flamencotech.com/" target="_blank" style="display: flex;align-items: center;
-          padding: 5px;">
-           <img src="/static/f1.png" alt="" width="200" height="40">
-        </a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link text-primary" href="/admins/"
-            >Home<span class="sr-only">(current)</span></a
-          >
-        </li>
-      </ul>
-      <form class="form-inline my-2 my-lg-0">
-        
-          <a href="{% url 'signup' %}" class="btn btn-outline-danger my-2 my-sm-0" type="submit">
-            Logout
-          </a>
-      </form>
-    </div>
-  </nav> 
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <!-- <a
+        class="navbar-brand"
+        href="https://www.flamencotech.com/"
+        target="_blank"
+        >FlamencoTech</a
+      > -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li>
+                <a class="navbar-brand" href="https://www.flamencotech.com/" target="_blank" style="display: flex;align-items: center;
+                padding: 5px;">
+                 <img src="/static/f1.png" alt="" width="200" height="40" >
+              </a>
+              </li>
+          <li class="nav-item active">
+            <a class="nav-link text-primary" href="/admins/"
+              >Home<span class="sr-only">(current)</span></a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
     <div style="width: 900px;background-color: rgb(241, 241, 241);" class="container my-5 shadow p-3 mb-5 rounded">
         <div style="text-align: center;" class="container my-5">
-            <h3><b>Track Proposal</b></h3>
+            <h3><b>Employee History</b></h3>
         </div>
-        <table <div class="container my-5">
+        <table <div class="container my-5 ">
             <form class="my-5">
-                <table class="table table-secondary">
+                <table class="table table-secondary" border="1" style="border:2px solid rgb(0, 0, 0)">
                     <thead>
-                        <tr style="background-color: #22508b;color:white" >
-                            <th scope="col">Sr No</th>
+                        <tr style="background-color: #22508b;color:white">
+                            <th scope="col">Employee Id</th>
                             <th scope="col">Employee Name</th>
-                            <th scope="col">Employee ID</th>
-                            <th scope="col">No. Of Quotation</th>
-                            <!--th scope="col">Reference Employee</!--th>
-                            <th scope="col">Quotation Value</th>
-                            <th scope="col">Reference Number</th>
-                            <th scope="col">Version</th>
-                            <th-- scope="col">Date</th-->
+                            <th scope="col">Total Number Of Quotations</th>
+                            
                         </tr>
                     </thead>
                     <tbody style="background-color:white;">
+                        {% for entry in entries %}
                         <tr>
-                            
-                            <th scope="row">1</th>
-                            <td>Dheeraj</td>
-                            <td>FT01</td>
-                            <td>10</td>
-                            <!-- <td>
-                    <button type="submit" class="btn btn-primary mb-2">Edit </button></td>
-                            <td>
-                    <button type="submit" class="btn btn-primary mb-2">Download</button></td> -->
+                            <th scope="row"><a href="/admins/historycheck/{{entry.user_name}}">{{entry.user_name}}</a></th>
+                            <th scope="row">{{entry.emp_name}}</th>
+                            <th scope="row">{{entry.dcount}}</th>
                         </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Tushar</td>
-                            <td>FT102</td>
-                            <td>3</td>
-                            <!-- <td>
-                    <button type="submit" class="btn btn-primary mb-2">Edit</button></td><td>
-                    <button type="submit" class="btn btn-primary mb-2">Download</button></td> -->
-                        </tr>
+                        {% endfor %}
                        
                     </tbody>
                 </table>
