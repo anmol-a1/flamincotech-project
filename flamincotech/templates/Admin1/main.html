@@ -2898,6 +2898,7 @@ console.log(Bms_TraysData);
                      }
                 }      
                 var bms_trays_=[],bms_piping_=[],bms_cabling_=[],bms_sensors_=[],ddc_=[],ethernet_=[],fiber_=[],active_=[],general_=[],others_=[],third_party_=[],efforts_=[];
+                var bms_trays_1="",bms_piping_1="",bms_cabling_1="",bms_sensors_1="",ddc_1="",ethernet_1="",fiber_1="",active_1="",trays2_1="",others_1="",third_party_1="",efforts_1="";
                 
 //var Bms_TraysData = {{ TraysDatas | safe}};
          //       var Bms_TraysDataInstall = {{ TraysDatasInstall | safe}};
@@ -2909,7 +2910,8 @@ console.log(Bms_TraysData);
 
                      let sampobj={Hardware_Items: "Digital Blanket IOT Data Collector Machine ",Installation_Rate: 7500,Installation_Total: 0,Make: "Flamenco Tech",Model: "DB-IOT-DC",Qty: 0,Remarks: " ",Supply_Rate: 0,Supply_Total: 0,Uoms: "Per Device",sr_no: 1};
                      let qty= parseInt(document.getElementById(k+"Qty_Bms_Trays").value);
-                     
+                     bms_trays_1=bms_trays_1+qty+"-";
+                     console.log(bms_trays_1);
                      if(qty>0){
 
                         sampobj.Hardware_Items=Bms_TraysData[k-1].InstallationEquipments;
@@ -2930,6 +2932,7 @@ console.log(Bms_TraysData);
 
                      let sampobj={Hardware_Items: "Digital Blanket IOT Data Collector Machine ",Installation_Rate: 7500,Installation_Total: 0,Make: "Flamenco Tech",Model: "DB-IOT-DC",Qty: 0,Remarks: " ",Supply_Rate: 0,Supply_Total: 0,Uoms: "Per Device",sr_no: 1};
                      let qty= parseInt(document.getElementById(k+"Qty_Trays2").value);
+                     trays2_1=trays2_1+qty+"-";
                      if(qty>0){
 
                         sampobj.Hardware_Items=vpsdata[k+6].InstallationEquipments;
@@ -2951,11 +2954,14 @@ console.log(Bms_TraysData);
 //var PipingData = {{ PipingDatas | safe}};
                 //var PipingDataInstall = {{ PipingDatasInstall | safe}};
                 //var lbms_piping = {{ Bms_Piping | length }};
+//,bms_cabling_1="",bms_sensors_1="",ddc_1="",ethernet_1="",fiber_1="",active_1="",others_1="",third_party_1="",efforts_1="";
+
                 lmna=1;
                 for(var k=1;k<=lbms_piping;k++){
                      
                      let sampobj={Hardware_Items: "Digital Blanket IOT Data Collector Machine ",Installation_Rate: 7500,Installation_Total: 0,Make: "Flamenco Tech",Model: "DB-IOT-DC",Qty: 0,Remarks: " ",Supply_Rate: 0,Supply_Total: 0,Uoms: "Per Device",sr_no: 1};
                      let qty= parseInt(document.getElementById(k+"Qty_Piping").value);
+                     bms_piping_1=bms_piping_1+qty+"-";
                      if(qty>0){
 
                         sampobj.Hardware_Items=PipingData[k-1].InstallationEquipments;
@@ -2975,11 +2981,14 @@ console.log(Bms_TraysData);
 //var Bms_CablingData = {{ BmsScablingDatas | safe}};
   //              var Bms_CablingDataInstall = {{ BmsScablingDatasInstall | safe}};
    //             var lbms_cabling = {{ Bms_Cabling | length }};
+//,bms_sensors_1="",ddc_1="",ethernet_1="",fiber_1="",active_1="",others_1="",third_party_1="",efforts_1="";
+
                 lmna=1;
                 for(var k=1;k<=lbms_cabling;k++){
                      
                      let sampobj={Hardware_Items: "Digital Blanket IOT Data Collector Machine ",Installation_Rate: 7500,Installation_Total: 0,Make: "Flamenco Tech",Model: "DB-IOT-DC",Qty: 0,Remarks: " ",Supply_Rate: 0,Supply_Total: 0,Uoms: "Per Device",sr_no: 1};
                      let qty= parseInt(document.getElementById(k+"Qty_Bms_Cabling").value);
+                     bms_cabling_1=bms_cabling_1+qty+"-";
                      if(qty>0){
 
                         sampobj.Hardware_Items=Bms_CablingData[k-1].InstallationEquipments;
@@ -2996,12 +3005,14 @@ console.log(Bms_TraysData);
                         bms_cabling_.push(sampobj)
                      }
                 }      
-       
+//,ddc_1="",ethernet_1="",fiber_1="",active_1="",others_1="",third_party_1="",efforts_1="";
+
                 lmna=1;
                 for(var k=1;k<=lbms_sensor;k++){
                      
                      let sampobj={Hardware_Items: "Digital Blanket IOT Data Collector Machine ",Installation_Rate: 7500,Installation_Total: 0,Make: "Flamenco Tech",Model: "DB-IOT-DC",Qty: 0,Remarks: " ",Supply_Rate: 0,Supply_Total: 0,Uoms: "Per Device",sr_no: 1};
                      let qty= parseInt(document.getElementById(k+"Qty_Bms_Sensor").value);
+                     bms_sensors_1=bms_sensors_1+qty+"-";
                      if(qty>0){
 
                         sampobj.Hardware_Items=Bms_SensorData[k-1].InstallationEquipments;
@@ -3018,11 +3029,14 @@ console.log(Bms_TraysData);
                         bms_sensors_.push(sampobj)
                      }
                 }      
+//,,ethernet_1="",fiber_1="",active_1="",others_1="",third_party_1="",efforts_1="";
+
                 lmna=1;
                 for(var k=1;k<=lddc;k++){
                      
                      let sampobj={Hardware_Items: "Digital Blanket IOT Data Collector Machine ",Installation_Rate: 7500,Installation_Total: 0,Make: "Flamenco Tech",Model: "DB-IOT-DC",Qty: 0,Remarks: " ",Supply_Rate: 0,Supply_Total: 0,Uoms: "Per Device",sr_no: 1};
                      let qty= parseInt(document.getElementById(k+"Qty_Ddc").value);
+                     ddc_1=ddc_1+qty+"-";
                      if(qty>0){
 
                         sampobj.Hardware_Items=DdcData[k-1].InstallationEquipments;
@@ -3039,11 +3053,14 @@ console.log(Bms_TraysData);
                         ddc_.push(sampobj)
                      }
                 }      
+//,bms_cabling_1="",bms_sensors_1="",ddc_1="",ethernet_1="",fiber_1="",active_1="",others_1="",third_party_1="",efforts_1="";
+
                 lmna=1;
                 for(var k=1;k<=lethernet;k++){
                      
                      let sampobj={Hardware_Items: "Digital Blanket IOT Data Collector Machine ",Installation_Rate: 7500,Installation_Total: 0,Make: "Flamenco Tech",Model: "DB-IOT-DC",Qty: 0,Remarks: " ",Supply_Rate: 0,Supply_Total: 0,Uoms: "Per Device",sr_no: 1};
                      let qty= parseInt(document.getElementById(k+"Qty_Ethernet").value);
+                     ethernet_1=ethernet_1+qty+"-";
                      if(qty>0){
 
                         sampobj.Hardware_Items=EthernetData[k-1].InstallationEquipments;
@@ -3060,11 +3077,14 @@ console.log(Bms_TraysData);
                         ethernet_.push(sampobj)
                      }
                 }    
+//,bms_cabling_1="",bms_sensors_1="",ddc_1="",ethernet_1="",fiber_1="",active_1="",others_1="",third_party_1="",efforts_1="";
+
                 lmna=1;
                 for(var k=1;k<=lfiber;k++){
                      
                      let sampobj={Hardware_Items: "Digital Blanket IOT Data Collector Machine ",Installation_Rate: 7500,Installation_Total: 0,Make: "Flamenco Tech",Model: "DB-IOT-DC",Qty: 0,Remarks: " ",Supply_Rate: 0,Supply_Total: 0,Uoms: "Per Device",sr_no: 1};
                      let qty= parseInt(document.getElementById(k+"Qty_Fiber").value);
+                     fiber_1=fiber_1+qty+"-";
                      if(qty>0){
 
                         sampobj.Hardware_Items=FiberData[k-1].InstallationEquipments;
@@ -3081,11 +3101,14 @@ console.log(Bms_TraysData);
                         fiber_.push(sampobj)
                      }
                 }   
+//,="",others_1="",third_party_1="",efforts_1="";
+
                 lmna=1; 
                 for(var k=1;k<=lactive;k++){
                      
                      let sampobj={Hardware_Items: "Digital Blanket IOT Data Collector Machine ",Installation_Rate: 7500,Installation_Total: 0,Make: "Flamenco Tech",Model: "DB-IOT-DC",Qty: 0,Remarks: " ",Supply_Rate: 0,Supply_Total: 0,Uoms: "Per Device",sr_no: 1};
                      let qty= parseInt(document.getElementById(k+"Qty_Active").value);
+                     active_1=active_1+qty+"-";
                      if(qty>0){
 
                         sampobj.Hardware_Items=ActiveData[k-1].InstallationEquipments;
@@ -3102,11 +3125,14 @@ console.log(Bms_TraysData);
                         active_.push(sampobj)
                      }
                 }  
+//,others_1="",,efforts_1="";
+
                 lmna=1; 
                 for(var k=1;k<=lthird_party;k++){
                      
                      let sampobj={Hardware_Items: "Digital Blanket IOT Data Collector Machine ",Installation_Rate: 7500,Installation_Total: 0,Make: "Flamenco Tech",Model: "DB-IOT-DC",Qty: 0,Remarks: " ",Supply_Rate: 0,Supply_Total: 0,Uoms: "Per Device",sr_no: 1};
-                     let qty= parseInt(document.getElementById(k+"Qty_Active").value);
+                     let qty= parseInt(document.getElementById(k+"Qty_Third_Party").value);
+                     third_party_1=third_party_1+qty+"-";
                      if(qty>0){
 
                         sampobj.Hardware_Items=third_party_data[k-1].InstallationEquipments;
@@ -3116,18 +3142,21 @@ console.log(Bms_TraysData);
                         lmna=lmna+1;
                         sampobj.Model=third_party_data[k-1].Model;
                         sampobj.Uoms=third_party_data[k-1].UnitDescription;
-                        sampobj.Supply_Rate= parseInt(document.getElementById(k+"Supply_Rate_Active").value);
-                        sampobj.Supply_Total=parseInt(document.getElementById(k+"Supply_Total_Active").value);
-                        sampobj.Installation_Rate= parseInt(document.getElementById(k+"Installation_Rate_Active").value);
-                        sampobj.Installation_Total=parseInt(document.getElementById(k+"Installation_Total_Active").value);
+                        sampobj.Supply_Rate= parseInt(document.getElementById(k+"Supply_Rate_Third_Party").value);
+                        sampobj.Supply_Total=parseInt(document.getElementById(k+"Supply_Total_Third_Party").value);
+                        sampobj.Installation_Rate= parseInt(document.getElementById(k+"Installation_Rate_Third_Party").value);
+                        sampobj.Installation_Total=parseInt(document.getElementById(k+"Installation_Total_Third_Party").value);
                         third_party_.push(sampobj)
                      }
                 }  
+//,others_1="",,efforts_1="";
+
                 lmna=1; 
                 for(var k=2;k<=manefforts;k++){
                      
                      let sampobj={Hardware_Items: "Digital Blanket IOT Data Collector Machine ",Installation_Rate: 7500,Installation_Total: 0,Make: "Flamenco Tech",Model: "DB-IOT-DC",Qty: 0,Remarks: " ",Supply_Rate: 0,Supply_Total: 0,Uoms: "Per Device",sr_no: 1};
                      let qty= parseInt(document.getElementById(k+"Qty_Active").value);
+                     efforts_1=efforts_1+qty+"-";
                      if(qty>0){
 
                         sampobj.Hardware_Items=efforts_data[k-1].InstallationEquipments;
@@ -3144,11 +3173,14 @@ console.log(Bms_TraysData);
                         efforts_.push(sampobj)
                      }
                 }  
+//,bms_cabling_1="",bms_sensors_1="",ddc_1="",ethernet_1="",fiber_1="",active_1="",others_1="",third_party_1="",efforts_1="";
+
                 lmna=1; 
                 for(var k=1;k<=ltrays1;k++){
                      
                      let sampobj={Hardware_Items: "Digital Blanket IOT Data Collector Machine ",Installation_Rate: 7500,Installation_Total: 0,Make: "Flamenco Tech",Model: "DB-IOT-DC",Qty: 0,Remarks: " ",Supply_Rate: 0,Supply_Total: 0,Uoms: "Per Device",sr_no: 1};
                      let qty= parseInt(document.getElementById(k+"Qty_Trays1").value);
+                     others_1=others_1+qty+"-";
                      if(qty>0){
 
                         sampobj.Hardware_Items=vpsdata[k-1].InstallationEquipments;
@@ -3179,6 +3211,18 @@ console.log(Bms_TraysData);
                 localStorage.setItem('active_', JSON.stringify(active_));
                 localStorage.setItem('others_', JSON.stringify(others_));
                 localStorage.setItem('third_party_', JSON.stringify(third_party_));
+                localStorage.setItem('bms_trays_1', JSON.stringify(bms_trays_1));
+                localStorage.setItem('trays2_1', JSON.stringify(trays2_1));
+                localStorage.setItem('bms_piping_1', JSON.stringify(bms_piping_1));
+                localStorage.setItem('bms_cabling_1', JSON.stringify(bms_cabling_1));
+                localStorage.setItem('bms_sensors_1', JSON.stringify(bms_sensors_1));
+                localStorage.setItem('ddc_1', JSON.stringify(ddc_1));
+                localStorage.setItem('ethernet_1', JSON.stringify(ethernet_1));
+                localStorage.setItem('fiber_1', JSON.stringify(fiber_1));
+                localStorage.setItem('active_1', JSON.stringify(active_1));
+                localStorage.setItem('others_1', JSON.stringify(others_1));
+                localStorage.setItem('third_party_1', JSON.stringify(third_party_1));
+                localStorage.setItem('efforts_1', JSON.stringify(efforts_1));
                 window.location.href = 'http://127.0.0.1:8000/admins/quotation/';
 
         }

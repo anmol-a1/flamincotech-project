@@ -848,6 +848,19 @@ document.getElementById("date").value = d.toUTCString();
             form_data.append("ref_no",tempref)
             form_data.append("company_name",clientdata.company_name)
             form_data.append("input_data",inpdata)
+            form_data.append("Bms_Trays","" )
+            form_data.append("Trays2","" )
+            form_data.append("Bms_Piping","" )
+            form_data.append("Bms_Cabling","" )
+            form_data.append("Bms_Sensors","" )
+            form_data.append("Ddc","" )
+            form_data.append("Ethernet","" )
+            form_data.append("Fiber","" )
+            form_data.append("Active","" )
+            form_data.append("Others","" )
+            form_data.append("Third_Party","" )
+            form_data.append("Efforts","" )
+
             form_data.append("action","post")
             for (const value of form_data.values()) {
                 console.log(value);

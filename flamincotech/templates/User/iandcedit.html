@@ -966,8 +966,8 @@
       iand_data.push(vals);
     }
     localStorage.setItem('iandc_data', JSON.stringify(iand_data));
-    
-    window.location.href = 'http://127.0.0.1:8000/user/detailed_boqedit/';
+    let ref_no=JSON.parse(localStorage.getItem('ref_no'));
+    window.location.href = 'http://127.0.0.1:8000/user/detailed_boqedit/'+ref_no;
 //Wayfinding   
   </script>
   </body>
