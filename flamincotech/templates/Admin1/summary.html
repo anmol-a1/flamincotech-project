@@ -44,15 +44,15 @@
 <body>
     {%csrf_token%}
 
-    <div style="display:flex;align-items:flex-end">
-        
-        <a style="margin-left:auto ;" class="btnss" href="{% url 'export_vpss' %}">
-            <button class="btn mx-3"><i class="fa fa-download"></i> Download</button>
-        </a>
+    
+    <div class="row">
+    <div class="col-md-11 text-right mb-3 my-3">
+                <button class="btn btn-primary" onclick="downloadpdf()" id="download">Download pdf</button>
+                
     </div>
-
-    <h4 style="text-align: center;">Summary Sheet</h4>
-    <div style="width:auto;" class="mx-3 shadow my-2 p-3 mb-5 rounded">
+    </div>
+    <div id="summarymain" style="width:auto;" class="mx-3 shadow my-2 p-3 mb-5 rounded">
+        <h4 style="text-align: center;">Summary Sheet</h4>
 
         <form class="my-1">
             <table class="table" border='1' style="border:2px solid grey">
@@ -60,7 +60,7 @@
                     <tr style="background-color: #20558B;color:white">
                         <th>Sr No</th>
                         <th>Details</th>
-                        <th>Sell Price</th>
+                        <th>Sell Price  &nbsp; (&#8377;)</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -68,97 +68,97 @@
                         <td>1</td>
                         <td>FT Software</td>
                         <th><input width="auto" id="1" readonly="true" style="width: 95px;border:none" value=0
-                                type="number"></th>
+                                type="number" >&#8377;</th>
                     </tr>
                     <tr>
                         <td>2</td>
                         <td>Customisation Software Services - PSO</td>
                         <th><input width="auto" id="2" readonly="true" style="width: 95px;border:none" value=0
-                                type="number"></th>
+                                type="number">&#8377;</th>
                     </tr>
                     <tr>
                         <td>3</td>
                         <td>FT Hardware</td>
                         <th><input width="auto" id="3" readonly="true" style="width: 95px;border:none" value=0
-                                type="number"></th>
+                                type="number">&#8377;</th>
                     </tr>
                     <tr>
                         <td>4</td>
                         <td>Third party Hardware Non Active Passive (Sensors Controllers, Converters, Others)</td>
                         <th><input width="auto" id="4" readonly="true" style="width: 95px;border:none" value=0
-                                type="number"></th>
+                                type="number">&#8377;</th>
                     </tr>
                     <tr>
                         <td>5</td>
                         <td>Third party Software</td>
                         <th><input width="auto" id="5" readonly="true" style="width: 95px;border:none" value=0
-                                type="number"></th>
+                                type="number">&#8377;</th>
                     </tr>
                     <tr>
                         <td>6</td>
                         <td>Active Networking Supply</td>
                         <th><input width="auto" id="6" readonly="true" style="width: 95px;border:none" value=0
-                                type="number"></th>
+                                type="number">&#8377;</th>
                     </tr>
                     <tr>
                         <td>7</td>
                         <td>Passive Networking Supply</td>
                         <th><input width="auto" id="7" readonly="true" style="width: 95px;border:none" value=0
-                                type="number"></th>
+                                type="number">&#8377;</th>
                     </tr>
                     <tr>
                         <td>8</td>
                         <td>Active Networking Installation</td>
                         <th><input width="auto" id="8" readonly="true" style="width: 95px;border:none" value=0
-                                type="number"></th>
+                                type="number">&#8377;</th>
                     </tr>
                     <tr>
                         <td>9</td>
                         <td>Passive Networking Installation</td>
                         <th><input width="auto" id="9" readonly="true" style="width: 95px;border:none" value=0
-                                type="number"></th>
+                                type="number">&#8377;</th>
                     </tr>
                     <tr>
                         <td>10</td>
                         <td>FT Hardware Installation</td>
                         <th><input width="auto" id="10" readonly="true" style="width: 95px;border:none" value=0
-                                type="number"></th>
+                                type="number">&#8377;</th>
                     </tr>
                     <tr>
                         <td>11</td>
                         <td>FT Software Installation + Project Management</td>
                         <th><input width="auto" id="11" readonly="true" style="width: 95px;border:none" value=0
-                                type="number"></th>
+                                type="number">&#8377;</th>
                     </tr>
                     <tr>
                         <td>12</td>
                         <td>FT Project Management</td>
                         <th><input width="auto" id="12" readonly="true" style="width: 95px;border:none" value=0
-                                type="number"></th>
+                                type="number">&#8377;</th>
                     </tr>
                     <tr>
                         <td>13</td>
                         <td>Third party installation</td>
                         <th><input width="auto" id="13" readonly="true" style="width: 95px;border:none" value=0
-                                type="number"></th>
+                                type="number">&#8377;</th>
                     </tr>
                     <tr>
                         <td>14</td>
                         <td>Travel and Logistics</td>
                         <th><input width="auto" id="14" readonly="true" style="width: 95px;border:none" value=0
-                                type="number"></th>
+                                type="number">&#8377;</th>
                     </tr>
                     <tr>
                         <td>15</td>
                         <td>Misc Expense</td>
                         <th><input width="auto" id="15" readonly="true" style="width: 95px;border:none" value=0
-                                type="number"></th>
+                                type="number">&#8377;</th>
                     </tr>
                     <tr>
                         <td>-</td>
                         <td>Total Amount</td>
                         <th><input width="auto" id="total" readonly="true" style="width: 95px;border:none" value=0
-                                type="number"></th>
+                                type="number">&#8377;</th>
                     </tr>
                    
                 </tbody>
@@ -177,9 +177,29 @@
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://igniteui.com/js/external/FileSaver.js"></script>
+<script src="https://igniteui.com/js/external/Blob.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
     <script>
+ function downloadpdf() {
+        const invoice = this.document.getElementById("summarymain");
+        console.log(invoice);
+        console.log(window);
+
+        var opt = {
+            border: "1px",
+            margin: 0.2,
+            filename: `summary.pdf`,
+            image: { type: 'jpeg', quality: 1 },
+            html2canvas: { scale: 4 },
+            jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+        };
+        html2pdf().from(invoice).set(opt).save();
+        //console.log(pdfs);
+
+    }
 var detail_boq = JSON.parse(localStorage.getItem('detailed_boq'));
 var detailed_boq_p197=JSON.parse(localStorage.getItem('detailed_boq_p197'));
 var detailed_boq_p199=JSON.parse(localStorage.getItem('detailed_boq_p199'));

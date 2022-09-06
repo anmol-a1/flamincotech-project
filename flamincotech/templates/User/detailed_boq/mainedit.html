@@ -3271,7 +3271,8 @@ continue;}
                 localStorage.setItem('others_1', JSON.stringify(others_1));
                 localStorage.setItem('third_party_1', JSON.stringify(third_party_1));
                 localStorage.setItem('efforts_1', JSON.stringify(efforts_1));
-                window.location.href = 'http://127.0.0.1:8000/admins/quotationedit/';
+                localStorage.setItem('efforts_', JSON.stringify(efforts_));
+                window.location.href = 'http://127.0.0.1:8000/user/quotationedit/';
 
         }
         gotoquotation();

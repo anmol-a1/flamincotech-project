@@ -1023,5 +1023,18 @@ class Quotation(models.Model):
     _Efforts=models.CharField(max_length=200,default="")
     _Others=models.CharField(max_length=200,default="")
     _Third_Party=models.CharField(max_length=200,default="")
-    
+
+class IAQ(models.Model):
+    discription=models.CharField(max_length=200,default="")
+    minslab=models.IntegerField(default=0)
+    maxslab=models.IntegerField(default=0)
+    brate=models.IntegerField(default=0)
+    prate=models.IntegerField(default=0)
+    btotal=models.IntegerField(default=0)
+    ptotal=models.IntegerField(default=0)
+    platform=models.IntegerField(default=0)
+    perpoint=models.IntegerField(default=0)
+    basiccharges=models.IntegerField(default=0)
+    discountpercent=models.IntegerField(default=0)
+    discountrate=models.IntegerField(default=0)
     

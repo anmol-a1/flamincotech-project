@@ -36,37 +36,41 @@
                                 ITEMS</button>
                 </div>
                 <div class="hometags" style="width:14.285%">
-                        <button class="btns " id="activebtn2" value="2" style="width:100%">Active Components</button>
+                        <button class="btns" id="activebtn2" value="2" style="width:100%">SOFTWARE
+                                ITEMS</button>
                 </div>
                 <div class="hometags" style="width:14.285%">
-                        <button class="btns " id="activebtn3" value="3" style="width:100%">Fiber Components</button>
+                        <button class="btns " id="activebtn3" value="3" style="width:100%">Active Components</button>
                 </div>
                 <div class="hometags" style="width:14.285%">
-                        <button class="btns " id="activebtn4" value="4" style="width:100%">Ethernet Components</button>
+                        <button class="btns " id="activebtn4" value="4" style="width:100%">Fiber Components</button>
                 </div>
                 <div class="hometags" style="width:14.285%">
-                        <button class="btns " id="activebtn5" value="5" style="width:100%">DDC Controllers</button>
+                        <button class="btns " id="activebtn5" value="5" style="width:100%">Ethernet Components</button>
                 </div>
                 <div class="hometags" style="width:14.285%">
-                        <button class="btns " id="activebtn6" value="6" style="width:100%">BMS Sensors</button>
+                        <button class="btns " id="activebtn6" value="6" style="width:100%">DDC Controllers</button>
                 </div>
                 <div class="hometags" style="width:14.285%">
-                        <button class="btns " id="activebtn7" value="7" style="width:100%">BMS Cabling</button>
+                        <button class="btns " id="activebtn7" value="7" style="width:100%">BMS Sensors</button>
                 </div>
                 <div class="hometags" style="width:14.285%">
-                        <button class="btns " id="activebtn8" value="8" style="width:100%">Piping</button>
+                        <button class="btns " id="activebtn8" value="8" style="width:100%">BMS Cabling</button>
                 </div>
                 <div class="hometags" style="width:14.285%">
-                        <button class="btns " id="activebtn9" value="9" style="width:100%">Trays</button>
+                        <button class="btns " id="activebtn9" value="9" style="width:100%">Piping</button>
                 </div>
                 <div class="hometags" style="width:14.285%">
-                        <button class="btns " id="activebtn10" value="10" style="width:100%">Third Party</button>
+                        <button class="btns " id="activebtn10" value="10" style="width:100%">Trays</button>
                 </div>
                 <div class="hometags" style="width:14.285%">
-                        <button class="btns " id="activebtn11" value="11" style="width:100%">Others</button>
+                        <button class="btns " id="activebtn11" value="11" style="width:100%">Third Party</button>
                 </div>
                 <div class="hometags" style="width:14.285%">
-                        <button class="btns " id="activebtn12" value="12" style="width:100%">ManEfforts</button>
+                        <button class="btns " id="activebtn12" value="12" style="width:100%">Others</button>
+                </div>
+                <div class="hometags" style="width:14.285%">
+                        <button class="btns " id="activebtn13" value="13" style="width:100%">ManEfforts</button>
                 </div>
         </div>
         {%csrf_token%}
@@ -85,8 +89,8 @@
                                                         <th rowspan="1">Hardware_Items </th>
                                                         <th rowspan="1"> Qty</th>
                                                         <th rowspan="1">Uom</th>
-                                                        <!-- <th rowspan="1"> Cost_Supply_Rate</th> -->
-                                                        <!-- <th rowspan="1"> Cost_Supply_Total</th> -->
+                                                        <th rowspan="1"> Cost_Supply_Rate</th>
+                                                        <th rowspan="1"> Cost_Supply_Total</th>
                                                         <th rowspan="1"> Cost_Installation_Rate</th>
                                                         <th rowspan="1"> Cost_Installation_Total</th>
                                                         <th rowspan="1"> MRS_Rate</th>
@@ -111,11 +115,11 @@
                                                                         style="width: 55px;border:none" value=0
                                                                         type="number"></th>
                                                         <th id="{{entry.sr_no}}Uom_General">{{entry.Uom}}</th>
-                                                        <th hidden="true"><input id="{{entry.sr_no}}Cost_Supply_Rate_General"
+                                                        <th><input id="{{entry.sr_no}}Cost_Supply_Rate_General"
                                                                         style="width: 55px;border:none" value=0
                                                                         type="number"></th>
-                                                        <th hidden="true"><input id="{{entry.sr_no}}Cost_Supply_Total_General"
-                                                                        style="width: 55px;border:none" value=0 
+                                                        <th><input id="{{entry.sr_no}}Cost_Supply_Total_General"
+                                                                        style="width: 55px;border:none" value=0
                                                                         type="number"></th>
                                                         <th><input id="{{entry.sr_no}}Cost_Installation_Rate_General"
                                                                         style="width: 55px;border:none" value=0
@@ -160,8 +164,8 @@
                                                         <td>TOTAL FLAMENCOTECH HARDWARE</td>
                                                         <th>-</th>
                                                         <th>-</th>
-                                                        <th hidden="true">-</th>
-                                                        <th hidden="true"><input id="Sum_Cost_Supply_Total_General"
+                                                        <th>-</th>
+                                                        <th><input id="Sum_Cost_Supply_Total_General"
                                                                         style="width: 55px;border:none" value=0
                                                                         type="number"></th>
                                                         <th>-</th>
@@ -197,7 +201,7 @@
 
                 </div>
         </div>
-        <div id="maindivbar2" class="maindivbar" hidden>
+        <div id="maindivbar3" class="maindivbar" hidden>
                 <!-- <p>Active Components i.e. Server & Switches<p> -->
                 <div style="width:100%;background-color: rgb(241, 241, 241);" id="" class="shadow mb-5 rounded">
                         <form class="my-1">
@@ -323,7 +327,7 @@
 
                 </div>
         </div>
-        <div id="maindivbar3" hidden class="maindivbar">
+        <div id="maindivbar4" hidden class="maindivbar">
                 <!-- <p>Fiber Component<p> -->
                 <div style="width:100%;background-color: rgb(241, 241, 241);" id="" class="shadow mb-5 rounded">
                         <form class="my-1">
@@ -448,7 +452,7 @@
 
                 </div>
         </div>
-        <div id="maindivbar4" hidden class="maindivbar">
+        <div id="maindivbar5" hidden class="maindivbar">
                 <!-- <p>Ethernet Component<p> -->
                 <div style="width:100%;background-color: rgb(241, 241, 241);" id="" class="shadow mb-5 rounded">
                         <form class="my-1">
@@ -573,7 +577,7 @@
 
                 </div>
         </div>
-        <div id="maindivbar5" hidden class="maindivbar">
+        <div id="maindivbar6" hidden class="maindivbar">
                 <!-- <p>DDC Controllers<p> -->
                 <div style="width:100%;background-color: rgb(241, 241, 241);" id="" class="shadow mb-5 rounded">
                         <form class="my-1">
@@ -697,7 +701,7 @@
 
                 </div>
         </div>
-        <div id="maindivbar6" hidden class="maindivbar">
+        <div id="maindivbar7" hidden class="maindivbar">
                 <!-- <p>BMS Sensors <p> -->
                 <div style="width:100%;background-color: rgb(241, 241, 241);" id="" class="shadow mb-5 rounded">
                         <form class="my-1">
@@ -822,7 +826,7 @@
 
                 </div>
         </div>
-        <div id="maindivbar7" hidden class="maindivbar">
+        <div id="maindivbar8" hidden class="maindivbar">
                 <!-- <p>BMS Cabling<p> -->
                 <div style="width:100%;background-color: rgb(241, 241, 241);" id="" class="shadow mb-5 rounded">
                         <form class="my-1">
@@ -947,7 +951,7 @@
 
                 </div>
         </div>
-        <div id="maindivbar8" hidden class="maindivbar">
+        <div id="maindivbar9" hidden class="maindivbar">
                 <!-- <p>Piping<p> -->
                 <div style="width:100%;background-color: rgb(241, 241, 241);" id="" class="shadow mb-5 rounded">
                         <form class="my-1">
@@ -1072,7 +1076,7 @@
 
                 </div>
         </div>
-        <div id="maindivbar9" hidden class="maindivbar">
+        <div id="maindivbar10" hidden class="maindivbar">
                 <!-- <p>Trays<p> -->
                 <div style="width:100%;background-color: rgb(241, 241, 241);" id="" class="shadow mb-5 rounded">
                         <form class="my-1">
@@ -1251,7 +1255,7 @@
 
                 </div>
         </div>
-        <div id="maindivbar10" hidden class="maindivbar">
+        <div id="maindivbar11" hidden class="maindivbar">
                 <p>HARDWARE ITEMS
                 <p>
                 <div style="width:100%;background-color: rgb(241, 241, 241);" id="" class="shadow mb-5 rounded">
@@ -1355,7 +1359,7 @@
 
                 </div>
         </div>
-        <div id="maindivbar11" hidden class="maindivbar">
+        <div id="maindivbar12" hidden class="maindivbar">
                 <p>HARDWARE ITEMS
                 <p>
                 <div style="width:100%;background-color: rgb(241, 241, 241);" id="" class="shadow mb-5 rounded">
@@ -1454,7 +1458,7 @@
                 </div>
         </div>
         </div>
-        <div id="maindivbar12" hidden class="maindivbar">
+        <div id="maindivbar13" hidden class="maindivbar">
                 <p>Man Efforts Days
                 <p>
                 <div style="width:100%;background-color: rgb(241, 241, 241);" id="" class="shadow mb-5 rounded">
@@ -1582,7 +1586,7 @@
                         </form>
                 </div>
         </div>
-        <div>
+        <div id="maindivbar2" hidden class="maindivbar">
                 <p>Software Items
                 <p>
                 <div style="width:100%;background-color: rgb(241, 241, 241);" id="" class="shadow mb-5 rounded">
@@ -2548,7 +2552,7 @@ document.getElementById(abc + "Qty_ManEfforts").value=iandc_datas[abc-2];
                                 else {
                                         document.getElementById("but2").disabled = false;
                                 }
-                                if (abc == 12) {
+                                if (abc == 13) {
                                         document.getElementById("ijk2").disabled = true;
                                 }
                                 else {
@@ -2612,7 +2616,7 @@ document.getElementById(abc + "Qty_ManEfforts").value=iandc_datas[abc-2];
                                 document.getElementById("maindivbar" + divchange).hidden = false;
                                 document.getElementById("maindivbar" + (divchange - 1)).hidden = true;
                                 document.getElementById("but2").disabled = false;
-                                if (divchange == 12) {
+                                if (divchange == 13) {
                                         document.getElementById("ijk2").disabled = true;
                                 }
                                 const boxes = document.querySelectorAll('.btns');
