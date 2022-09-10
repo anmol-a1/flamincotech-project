@@ -147,101 +147,311 @@ a {
                      <h4 id="maintitle" style="display:inline-block;margin-top: 32px;margin-left:14vw;font-size:22px" class="card-title text-center" width="300" height="200"> Flamenco Tech Commercial Quotation </h4>
                     </div>
                     <div class="table-responsive">
-                        <table class="table table-lg " border="1">
+                        <table class="table" border="1">
                             <thead style="border: 1px;">
                                 <tr>
                                     <td style="font-weight:bold">Company: </td>
-                                    <td><input type="text" class="changefont" id="company_name"  style="border: none;height:30px"></td>
-                                    <td style="font-weight:bold">  </td>
+                                    <td><input type="text" class="changefont" id="company_name"
+                                            style="border: none;height:30px"></td>
+                                    <td style="font-weight:bold"> </td>
                                     <td rowspan="4" style="vertical-align : middle;"><b>FlamencoTech India Pvt Ltd</b>
                                         <br>#731, 1st Floor, 7th Cross, 3rd Block,
-                                        Koramangala, Bangalore, India - 560 034<br><br>+91 80 2563 3803<br>connect@flamencotech.com<br></td>
+                                        Koramangala, Bangalore, India - 560 034<br><br>+91 80 2563
+                                        3803<br>connect@flamencotech.com<br>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td style="font-weight:bold">Kind Attn: </td>
-                                    <td><input style="border: none;height:30px" type="text"  id="contact_person" ></td>
+                                    <td><input style="border: none;height:30px" type="text" id="contact_person"></td>
                                 </tr>
                                 <tr>
                                     <td style="font-weight:bold">Email ID: </td>
-                                    <td><input style="border: none;height:30px" type="text" id="email_id" ></td>
+                                    <td><input style="border: none;height:30px" type="text" id="email_id"></td>
                                 </tr>
                                 <tr>
                                     <td style="font-weight:bold">Mobile: </td>
-                                    <td><input style="border: none;height:30px" type="text" id="mobile" ></td>
+                                    <td><input style="border: none;height:30px" type="text" id="mobile"></td>
                                 </tr>
                                 <tr>
-                                    <td rowspan="2" style="vertical-align : middle;font-weight:bold" >Subject: </td>
-                                    <td rowspan="2" style="vertical-align : middle;" ><input type="text" style="border: none" id="subject" oninput="auto_height(this)" class="auto_height" value="Flamenco Tech Offer for IAQ & UV-Based Air Santization Devices" maxlength="100"></td>
+                                    <td rowspan="2" style="vertical-align : middle;font-weight:bold">Subject: </td>
+                                    <td rowspan="2" style="vertical-align : middle;"><input type="text"
+                                            style="border: none" id="subject" oninput="auto_height(this)"
+                                            class="auto_height"
+                                            value="Flamenco Tech Offer for IAQ & UV-Based Air Santization Devices"
+                                            maxlength="100"></td>
                                     <td style="font-weight:bold"> Ref No: </td>
-                                    <td ><input style="border: none;height:30px" id="refno" type="text" id="1" ></td>
+                                    <td><input style="border: none;height:30px" id="refno" type="text" id="1"></td>
                                 </tr>
                                 <tr>
                                     <td style="font-weight:bold"> Date: </td>
                                     <td><input type="text" id="date" style="border: none;height:30px"></td>
                                 </tr>
                             </thead>
-                            
+
                         </table>
 
                         <!-- Add your table here of products...... -->
-                        <div   class="table-responsive">
-                            <table class="table table-lg "  border="1">
+                        <div >
+                            <table  border="1">
 
                                 <tr>
-                                   <th colspan="6">-</th>
-                                   <th colspan="2">SUPPLY</th>
-                                   <th colspan="2">INSTALLATION</th>
-                                   
+                                    <th colspan="6">-</th>
+                                    <th colspan="2">SUPPLY</th>
+                                    <th colspan="2">INSTALLATION</th>
+
                                 </tr>
                                 <tr style="background-color: grey;">
-                                   <th>S.N.</th>
-                                   <th>MAKE</th>
-                                   <th>MODEL</th>
-                                   <th>ITEM DESCRIPTION</th>
-                                   <th style="width:50px">QTY</th>
-                                   <th>UOM</th>
-                                   <th>RATE</th>
-                                   <th>TOTAL</th>
-                                   <th>RATE</th>
-                                   <th>TOTAL</th>
+                                    <th>S.N.</th>
+                                    <th style="width:60px">MAKE</th>
+                                    <th>MODEL</th>
+                                    <th>ITEM DESCRIPTION</th>
+                                    <th style="width:60px">QTY</th>
+                                    <th>UOM</th>
+                                    <th>RATE</th>
+                                    <th>TOTAL</th>
+                                    <th>RATE</th>
+                                    <th>TOTAL</th>
                                 </tr>
-                                <tr id="hardwarerow" style="background-color: yellow;">
-                                   <th>A</th>
-                                   <th>FlamencoTech</th>
-                                   <th></th>
-                                   <th>HARDWARE</th>
-                                   <th style="width:50px"></th>
-                                   <th></th>
-                                   <th></th>
-                                   <th></th>
-                                   <th></th>
-                                   <th></th>
-                                   
-                                </tr>
-                                <tbody  id="maincontenthard">
+                                <div>
+                                    <tr hidden id="hardwares" style="background-color: yellow;">
+                                        <th id="srno1">A</th>
+                                        <th style="width:60px">FlamencoTech</th>
+                                        <th></th>
+                                        <th>HARDWARE</th>
+                                        <th style="width:60px"></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+
+                                    </tr>
+                                    <tbody id="hardwarecontenthard">
 
 
 
-                                </tbody>
-                    
-                                <tr id="installrow"  style="background-color: yellow;">
-                                    <th>C</th>
-                                    <th></th>
+                                    </tbody>
+                                </div>
+                                <div >
+                                    <tr hidden id="actives" style="background-color: yellow;">
+                                        <th id="srno2">B</th>
+                                        <th style="width:60px">FlamencoTech</th>
+                                        <th></th>
+                                        <th>ACTIVE HARDWARE</th>
+                                        <th style="width:60px"></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+
+                                    </tr>
+                                    <tbody id="activecontenthard">
+
+
+
+                                    </tbody>
+                                </div>
+                                <div >
+                                    <tr hidden id="fibers" style="background-color: yellow;">
+                                        <th id="srno3">C</th>
+                                        <th style="width:60px">FlamencoTech</th>
+                                        <th></th>
+                                        <th>FIBER HARDWARE</th>
+                                        <th style="width:60px"></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+
+                                    </tr>
+                                    <tbody id="fibercontenthard">
+
+
+
+                                    </tbody>
+                                </div>
+                                <div >
+                                    <tr hidden id="ethernets" style="background-color: yellow;">
+                                        <th id="srno4">C</th>
+                                        <th style="width:60px">FlamencoTech</th>
+                                        <th></th>
+                                        <th>ETHERNET HARDWARE</th>
+                                        <th style="width:60px"></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+
+                                    </tr>
+                                    <tbody id="ethernetcontenthard">
+
+
+
+                                    </tbody>
+                                </div>
+                                <div >
+                                    <tr id="ddcs" hidden style="background-color: yellow;">
+                                        <th id="srno5">C</th>
+                                        <th style="width:60px">FlamencoTech</th>
+                                        <th></th>
+                                        <th>DDC HARDWARE</th>
+                                        <th style="width:60px"></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+
+                                    </tr>
+                                    <tbody id="ddccontenthard">
+
+
+
+                                    </tbody>
+                                </div>
+                                <div >
+                                    <tr hidden id="bms_sensors" style="background-color: yellow;">
+                                        <th id="srno6">C</th>
+                                        <th style="width:60px">FlamencoTech</th>
+                                        <th></th>
+                                        <th>BMS SENSORS</th>
+                                        <th style="width:60px"></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+
+                                    </tr>
+                                    <tbody id="bms_sensorcontenthard">
+
+
+
+                                    </tbody>
+                                </div>
+                                <div >
+                                    <tr hidden id="bms_cablings" style="background-color: yellow;">
+                                        <th id="srno7">C</th>
+                                        <th style="width:60px">FlamencoTech</th>
+                                        <th></th>
+                                        <th>BMS CABLING</th>
+                                        <th style="width:60px"></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+
+                                    </tr>
+                                    <tbody id="bms_cablingcontenthard">
+
+
+
+                                    </tbody>
+                                </div>
+                                <div >
+                                    <tr hidden id="bms_pipings" style="background-color: yellow;">
+                                        <th id="srno8">C</th>
+                                        <th style="width:60px">FlamencoTech</th>
+                                        <th></th>
+                                        <th>BMS PIPING</th>
+                                        <th style="width:60px"></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+
+                                    </tr>
+                                    <tbody id="bms_pipingcontenthard">
+
+
+
+                                    </tbody>
+                                </div>
+                                <div >
+                                    <tr hidden id="bms_trays" style="background-color: yellow;">
+                                        <th id="srno9">C</th>
+                                        <th style="width:60px">FlamencoTech</th>
+                                        <th></th>
+                                        <th>BMS TRAYS</th>
+                                        <th style="width:60px"></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+
+                                    </tr>
+                                    <tbody id="bms_traycontenthard">
+
+
+
+                                    </tbody>
+                                </div>
+                                <div >
+                                    <tr hidden id="third_partys" style="background-color: yellow;">
+                                        <th id="srno10">C</th>
+                                        <th style="width:60px">FlamencoTech</th>
+                                        <th></th>
+                                        <th>THIRD PARTY</th>
+                                        <th style="width:60px"></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+
+                                    </tr>
+                                    <tbody id="third_partycontenthard">
+
+
+
+                                    </tbody>
+                                </div>
+                                <div >
+                                    <tr hidden id="others" style="background-color: yellow;">
+                                        <th id="srno11">C</th>
+                                        <th style="width:60px">FlamencoTech</th>
+                                        <th></th>
+                                        <th>OTHERS</th>
+                                        <th style="width:60px"></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+
+                                    </tr>
+                                    <tbody id="othercontenthard">
+
+
+
+                                    </tbody>
+                                </div>
+                                <tr id="installrow" style="background-color: yellow;">
+                                    <th id="srno12">C</th>
+                                    <th style="width:60px"> </th>
                                     <th></th>
                                     <th>FT INSTALLATION</th>
-                                    <th style="width:50px"></th>
+                                    <th style="width:60px"></th>
                                     <th></th>
                                     <th></th>
                                     <th></th>
                                     <th></th>
                                     <th></th>
-                                 </tr>
-                                <tbody  id="maincontentinstall">
+                                </tr>
+                                <tbody id="maincontentinstall">
                                     <th></th>
-                                    <th>Flamencotech</th>
+                                    <th style="width:60px">Flamencotech</th>
                                     <th>-</th>
-                                    <th>Installation, Commissioning, Testing, Training (Train the Trainer), Handover, Documentation & Project Management</th>
-                                    <th style="width:50px"><input style="border: none;height:30px;width:50px" onchange="installchange()" type="number"  value=1 id="installinput"></th>
+                                    <th>Installation, Commissioning, Testing, Training (Train the Trainer), Handover,
+                                        Documentation & Project Management</th>
+                                    <th style="width:60px"><input style="border: none;height:30px;width:60px"
+                                            onchange="installchange()" type="number" value=1 id="installinput"></th>
                                     <th>Lot</th>
                                     <th></th>
                                     <th></th>
@@ -249,192 +459,226 @@ a {
                                     <th id="installationinstalltotal"></th>
                                 </tbody>
                                 <tr>
-<th colspan="7">Total</th>
-<th id="rateinstall">0</th>
-<th></th>
-<th id="totalinstall">0</th>
-</tr>
-                                <tr  style="background-color: grey;">
-                                   <th>S.N.</th>
-                                   <th>MAKE</th>
-                                   <th>MODEL</th>
-                                   <th>MONTHLY RECURRING CHANGER</th>
-                                   <th style="width:50px">QTY</th>
-                                   <th>UOM</th>
-                                   <th>RATE</th>
-                                   <th>TOTAL PER MONTH</th>
-                                   <th></th>
-                                   <th></th>
+                                    <th colspan="7">Total</th>
+                                    <th id="rateinstall">0</th>
+                                    <th></th>
+                                    <th id="totalinstall">0</th>
                                 </tr>
-                               <tr id="softwarerow" style="background-color: yellow;">
-                                    <th>B</th>
-                                    <th>FlamencoTech</th>
-                                    <th></th>
-                                    <th>SOFTWARE</th>
-                                    <th style="width:50px"></th>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                    
-                                 </tr>
-                                <tbody id="maincontentsoft">
+                                <div >
+
+                                    <tr style="background-color: grey;">
+                                        <th>S.N.</th>
+                                        <th style="width:60px">MAKE</th>
+                                        <th>MODEL</th>
+                                        <th>MONTHLY RECURRING CHANGER</th>
+                                        <th style="width:60px">QTY</th>
+                                        <th>UOM</th>
+                                        <th>RATE</th>
+                                        <th>TOTAL PER MONTH</th>
+                                        <th></th>
+                                        <th></th>
+                                    <tr hidden id="softwares" style="background-color: yellow;">
+                                        <th id="srno13">B</th>
+                                        <th style="width:60px">FlamencoTech</th>
+                                        <th></th>
+                                        <th>SOFTWARE</th>
+                                        <th style="width:60px"></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+
+                                    </tr>
+                                    <tbody id="maincontentsoft">
 
 
 
-                                </tbody>
-                                <tr>
-<th colspan="6">Total Amount Per Month</th>
-<th></th>
-<th id="softtotal"></th>
-</tr>
+                                    </tbody>
+                                    <tr>
+                                        <th colspan="6">Total Amount Per Month</th>
+                                        <th></th>
+                                        <th id="softtotal"></th>
+                                    </tr>
+                                </div>
                             </table>
                         </div>
-                        
-                        
 
 
-                        <div  class="bg-dark text-white" >
+
+
+                        <div class="bg-dark text-white">
                             <h6 class="card-title text-center">Terms and Conditions : </h6>
                         </div>
-                        <div  class="table-responsive">
-                        <table class="table table-lg " border="1">
-                    
-                            <tr>
-                                <td > 1</td>
-                                <td >Payment Terms -</td>
-                            </tr>
-                            <tr>
-                                <td> </td>
-                                <td>I- Hardware - 100% Advance with PO<br>II- Monthly Charges - 100% Annual in advance <br>III- Installation - 50% Advance, 30% on completion & 20% on Sign off</td>
-                            </tr>
-                            <tr>
-                                <td> 2</td>
-                                <td >Hardware rates are Ex-works Bangalore & it does not include any Freight charges, transit insurance Import duties, clearance charges, etc.</td>
-                            </tr>
-                            <tr>
-                                <td> 3</td>
-                                <td >GST and Government taxes extra as applicable</td>
-                            </tr>
-                            <tr>
-                                <td> 4</td>
-                                <td >Offer valid for 30 days from the date of quotation</td>
-                            </tr>
-                            <tr>
-                                <td> 5</td>
-                                <td >Delivery Period for FlamencoTech hardware - 16 - 24 weeks<br>Delivery Period for Air Santization Device - 10-12 Week </td>
-                            </tr>
-                            <tr>
-                                <td> 6</td>
-                                <td >Only Remote Support services are considered</td>
-                            </tr>
-                            <tr>
-                                <td> 7</td>
-                                <td >Cloud server augementation may required based on the final scope of the solution.</td>
-                            </tr>
-                            <tr>
-                                <td> 8</td>
-                                <td >The contract period for monthly recurring charges will be 3 years</td>
-                            </tr>
-                            <tr>
-                                <td> 9</td>
-                                <td >All Flamenco Tech hardware are supplied with 13 month warranty from the date of supply or 12 month warranty from the date of installation, which ever is earlier.</td>
-                            </tr>
-                            <tr>
-                                <td> 10</td>
-                                <td >Air Santization Hardware - The product is warranted to be free from defects in material and workmanship for a period of 12 months from the date of supply with exclusion of servicing and cleaning.
-                                    Warranty Void - </td>
-                            </tr>
-                            <tr>
-                                <td> </td>
-                                <td > I- Does not cover consequential loss or damages.<br>II- Is Void if any repair are carried out by unauthorized person <br>III- Failure of equipment because of electrical fault or unstable power supply</td>
-                            </tr>
-                            <tr>
-                                <td> 11</td>
-                                <td >Any type of ladders, plumbing, scaffolding or other similar associated works related to False Ceiling, false ceiling access panels, ceiling wooden frames for grills and diffusers, painting or matching of wall texture after any work will be in customer scope.</td>
-                            </tr>
-                            <tr>
-                                <td> 12</td>
-                                <td >Protected storage for the tools and equipment or any theft from site will be buyers
-                                    Responsibility.</td>
-                            </tr>
-                            <tr>
-                                <td> 13</td>
-                                <td >Network Infrastructure like LAN Cabling, Network Active switches (POE or NPOE), Racks, etc.to be provided by customer </td>
-                            </tr>
-                            <tr>
-                                <td> 14</td>
-                                <td >Firewalls, Internet connection to be arranged by the customer for Gateway</td>
-                            </tr>
-                            <tr>
-                                <td> 15</td>
-                                <td >UPS power point to be provided by the customer as required</td>
-                            </tr>
-                            <tr>
-                                <td> 16</td>
-                                <td >Any Electrical, Carpentry Civil work and Repainting or cleaning of Attic spaces/Air conditioning system will be in client scope</td>
-                            </tr>
-                            <tr>
-                                <td> 17</td>
-                                <td >All hardware quantities are arrived based on the shared layouts. Final quantity can be arrived based on detailed site study.</td>
-                            </tr>
-                            <tr>
-                                <td> 18</td>
-                                <td >Travel, Stay, Per Diem charges will be extra at actuals</td>
-                            </tr>
-                            <tr>
-                                <td> 19</td>
-                                <td >5 Admin Logins will be available for reports & dashboards, additional users if required then it will be charged extra</td>
-                            </tr>
-                            <tr>
-                                <td> 20</td>
-                                <td >The charges does not include any Mobilization (Store & Site Office) , Other Expenses (Power, house keeping, BG, insurance, compliance etc.) </td>
-                            </tr>
-                            <tr>
-                                <td> 21</td>
-                                <td >Installation charges may vary based on project specific details, site condition & work timings</td>
-                            </tr>
-                            <tr>
-                                <td> 22</td>
-                                <td >Kiosk hardware charges will be extra.</td>
-                            </tr>
-                            
-                        </table>
-                        <div  class="bg-dark text-white" >
-                            <h6 class="card-title text-center">Assumptions : </h6>
-                        </div>
-                        <div  class="table-responsive">
-                            <table class="table table-lg " border="1">
-                        
+                        <div class="table-responsive">
+                            <table class="table " border="1">
+
                                 <tr>
-                                    <td >1</td>
-                                    <td >Integration with Third Party application is not part of the proposal, but it can be discussed and based on integration feasibility additional charges will be shared.</td>
+                                    <td> 1</td>
+                                    <td>Payment Terms -</td>
+                                </tr>
+                                <tr>
+                                    <td> </td>
+                                    <td>I- Hardware - 100% Advance with PO<br>II- Monthly Charges - 100% Annual in
+                                        advance <br>III- Installation - 50% Advance, 30% on completion & 20% on Sign off
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td> 2</td>
-                                    <td >Customization is not included, but can be discussed and based on feasibility additional charges will be shared</td>
+                                    <td>Hardware rates are Ex-works Bangalore & it does not include any Freight charges,
+                                        transit insurance Import duties, clearance charges, etc.</td>
                                 </tr>
                                 <tr>
                                     <td> 3</td>
-                                    <td >Application web link to be white listed by the customer to access the reports on their local machine</td>
+                                    <td>GST and Government taxes extra as applicable</td>
                                 </tr>
                                 <tr>
                                     <td> 4</td>
-                                    <td >Customer to provide the Data collector machine with below configuration<br><br>Intel I5 3.0 GHZ CPU, Quad Core processor  8 GB RAM, <br>500 GB  HDD, MS Windows 10 pro OS, 4 No.s X USB v2.0 and 2 X USB v3.0 <br>Full HD graphics, HDMI connectivity, Antivirus</td>
+                                    <td>Offer valid for 30 days from the date of quotation</td>
                                 </tr>
                                 <tr>
                                     <td> 5</td>
-                                    <td >Installation of Air Sanitization devices to be arranged by customer through their existing HVAC vendor partner</td>
+                                    <td>Delivery Period for FlamencoTech hardware - 16 - 24 weeks<br>Delivery Period for
+                                        Air Santization Device - 10-12 Week </td>
                                 </tr>
                                 <tr>
                                     <td> 6</td>
-                                    <td >Sharing of IAQ sensor data to the existing BMS system is possbile with an additional protocol hardware which will be charged extra </td>
+                                    <td>Only Remote Support services are considered</td>
                                 </tr>
+                                <tr>
+                                    <td> 7</td>
+                                    <td>Cloud server augementation may required based on the final scope of the
+                                        solution.</td>
+                                </tr>
+                                <tr>
+                                    <td> 8</td>
+                                    <td>The contract period for monthly recurring charges will be 3 years</td>
+                                </tr>
+                                <tr>
+                                    <td> 9</td>
+                                    <td>All Flamenco Tech hardware are supplied with 13 month warranty from the date of
+                                        supply or 12 month warranty from the date of installation, which ever is
+                                        earlier.</td>
+                                </tr>
+                                <tr>
+                                    <td> 10</td>
+                                    <td>Air Santization Hardware - The product is warranted to be free from defects in
+                                        material and workmanship for a period of 12 months from the date of supply with
+                                        exclusion of servicing and cleaning.
+                                        Warranty Void - </td>
+                                </tr>
+                                <tr>
+                                    <td> </td>
+                                    <td> I- Does not cover consequential loss or damages.<br>II- Is Void if any repair
+                                        are carried out by unauthorized person <br>III- Failure of equipment because of
+                                        electrical fault or unstable power supply</td>
+                                </tr>
+                                <tr>
+                                    <td> 11</td>
+                                    <td>Any type of ladders, plumbing, scaffolding or other similar associated works
+                                        related to False Ceiling, false ceiling access panels, ceiling wooden frames for
+                                        grills and diffusers, painting or matching of wall texture after any work will
+                                        be in customer scope.</td>
+                                </tr>
+                                <tr>
+                                    <td> 12</td>
+                                    <td>Protected storage for the tools and equipment or any theft from site will be
+                                        buyers
+                                        Responsibility.</td>
+                                </tr>
+                                <tr>
+                                    <td> 13</td>
+                                    <td>Network Infrastructure like LAN Cabling, Network Active switches (POE or NPOE),
+                                        Racks, etc.to be provided by customer </td>
+                                </tr>
+                                <tr>
+                                    <td> 14</td>
+                                    <td>Firewalls, Internet connection to be arranged by the customer for Gateway</td>
+                                </tr>
+                                <tr>
+                                    <td> 15</td>
+                                    <td>UPS power point to be provided by the customer as required</td>
+                                </tr>
+                                <tr>
+                                    <td> 16</td>
+                                    <td>Any Electrical, Carpentry Civil work and Repainting or cleaning of Attic
+                                        spaces/Air conditioning system will be in client scope</td>
+                                </tr>
+                                <tr>
+                                    <td> 17</td>
+                                    <td>All hardware quantities are arrived based on the shared layouts. Final quantity
+                                        can be arrived based on detailed site study.</td>
+                                </tr>
+                                <tr>
+                                    <td> 18</td>
+                                    <td>Travel, Stay, Per Diem charges will be extra at actuals</td>
+                                </tr>
+                                <tr>
+                                    <td> 19</td>
+                                    <td>5 Admin Logins will be available for reports & dashboards, additional users if
+                                        required then it will be charged extra</td>
+                                </tr>
+                                <tr>
+                                    <td> 20</td>
+                                    <td>The charges does not include any Mobilization (Store & Site Office) , Other
+                                        Expenses (Power, house keeping, BG, insurance, compliance etc.) </td>
+                                </tr>
+                                <tr>
+                                    <td> 21</td>
+                                    <td>Installation charges may vary based on project specific details, site condition
+                                        & work timings</td>
+                                </tr>
+                                <tr>
+                                    <td> 22</td>
+                                    <td>Kiosk hardware charges will be extra.</td>
+                                </tr>
+
                             </table>
+                            <div class="bg-dark text-white">
+                                <h6 class="card-title text-center">Assumptions : </h6>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-lg " border="1">
+
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Integration with Third Party application is not part of the proposal, but it
+                                            can be discussed and based on integration feasibility additional charges
+                                            will be shared.</td>
+                                    </tr>
+                                    <tr>
+                                        <td> 2</td>
+                                        <td>Customization is not included, but can be discussed and based on feasibility
+                                            additional charges will be shared</td>
+                                    </tr>
+                                    <tr>
+                                        <td> 3</td>
+                                        <td>Application web link to be white listed by the customer to access the
+                                            reports on their local machine</td>
+                                    </tr>
+                                    <tr>
+                                        <td> 4</td>
+                                        <td>Customer to provide the Data collector machine with below
+                                            configuration<br><br>Intel I5 3.0 GHZ CPU, Quad Core processor 8 GB RAM,
+                                            <br>500 GB HDD, MS Windows 10 pro OS, 4 No.s X USB v2.0 and 2 X USB v3.0
+                                            <br>Full HD graphics, HDMI connectivity, Antivirus</td>
+                                    </tr>
+                                    <tr>
+                                        <td> 5</td>
+                                        <td>Installation of Air Sanitization devices to be arranged by customer through
+                                            their existing HVAC vendor partner</td>
+                                    </tr>
+                                    <tr>
+                                        <td> 6</td>
+                                        <td>Sharing of IAQ sensor data to the existing BMS system is possbile with an
+                                            additional protocol hardware which will be charged extra </td>
+                                    </tr>
+                                </table>
+                            </div>
                         </div>
+                        <div class="card-footer"> <span class="text-muted">Please get in touch in case of any queries
+                                about the aforementioned quote</span> </div>
                     </div>
-                    <div class="card-footer"> <span class="text-muted">Please get in touch in case of any queries about the aforementioned quote</span> </div>
                 </div>
             </div>
         </div>
@@ -622,7 +866,7 @@ document.getElementById("date").value = d.toUTCString();
         imageShape1.bottomRightCornerCell(sheet.getCell('L12'));
         sheet.shapes().add(imageShape1);
         var imageShape2 = new $.ig.excel.WorksheetImage(logo3);
-        imageShape2.topLeftCornerCell(sheet.getCell('E1'));
+        imageShape2.topLeftCornerCell(sheet.getCell('D1'));
         imageShape2.bottomRightCornerCell(sheet.getCell('L5'));
         sheet.shapes().add(imageShape2);
           
@@ -656,12 +900,13 @@ document.getElementById("date").value = d.toUTCString();
 
             sheet.rows(14).height(350);
             sheet.rows(15).height(500);
-            mergedCellA1D3.value('Acme, Inc.');
+            console.log("3ff");
             mergedCellA1D4.value('Company');
             mergedCellA1D5.value('Kind Attendee');
             mergedCellA1D6.value('Email');
             mergedCellA1D7.value('Mobile');
             mergedCellA1D8.value('Subject');
+            console.log("4ff");
 //clientdata.contact_person;
 //document.getElementById("email_id").value=clientdata.email_id;
 //document.getElementById("mobile").value=clientdata.mobile;
@@ -680,6 +925,7 @@ document.getElementById("date").value = d.toUTCString();
             mergedCellA1D18.value(d.toUTCString());
            mergedCellA1D20.value('SUPPLY');
             mergedCellA1D21.value('INSTALLATION');
+            console.log("5ff");
           //  mergedCellA1D22.value('REMARKS');
             //mergedCellA1D3.cellFormat().alignment($.ig.excel.HorizontalCellAlignment.center);
             //mergedCellA1D3.cellFormat().alignment($.ig.excel.VerticalCellAlignment.center);
@@ -720,6 +966,7 @@ document.getElementById("date").value = d.toUTCString();
           //  }
 
             // Populate the sheet with data
+            console.log("6ff");
               sheet.getCell('A16').value('S.N');
               sheet.getCell('B16').value('MAKE');
               sheet.getCell('C16').value('MODEL');
@@ -744,9 +991,11 @@ document.getElementById("date").value = d.toUTCString();
 //        let sampobj={Uoms:"per device",Hardware_Items: "Digital Blanket IOT Data Collector Machine ",
 //Installation_Rate: 7500,Installation_Total: 0,Make: "Flamenco Tech",Model: "DB-IOT-DC",Qty: 0,Remarks: " ",
 //Supply_Rate: 0,Supply_Total: 0,sr_no: 1};
-
+console.log("7ff");
+            var niks=1;
             for(var i=init;i<(init+harddata.length);i++){
-              sheet.getCell('A'+i).value(harddata[i-init].sr_no);
+                sheet.getCell('A' + i).value(niks);
+            niks=niks+1;
               sheet.getCell('B'+i).value(harddata[i-init].Make);
               sheet.getCell('C'+i).value(harddata[i-init].Model);
               sheet.getCell('D'+i).value(harddata[i-init].Hardware_Items);
@@ -761,7 +1010,7 @@ document.getElementById("date").value = d.toUTCString();
 
 
              }
-
+             console.log("8ff");
             init=init+harddata.length;
             if(softdata.length>0){
                 let char = String.fromCharCode(caphead);
@@ -772,8 +1021,10 @@ document.getElementById("date").value = d.toUTCString();
                 init=init+1;
 
             }
+            niks=1;
             for(var i=init;i<(init+softdata.length);i++){
-              sheet.getCell('A'+i).value(softdata[i-init].sr_no);
+                sheet.getCell('A' + i).value(niks);
+            niks=niks+1;
               sheet.getCell('B'+i).value(softdata[i-init].Make);
               sheet.getCell('C'+i).value(softdata[i-init].Model);
               sheet.getCell('D'+i).value(softdata[i-init].Hardware_Items);
@@ -788,8 +1039,8 @@ document.getElementById("date").value = d.toUTCString();
 
 
             }
-            init=init+softdata;
-
+            init=init+softdata.length;
+            console.log("9ff");
             
          //   sheet.getCell('B3').value('Description');
          //   sheet.getCell('D3').value('Qty');
