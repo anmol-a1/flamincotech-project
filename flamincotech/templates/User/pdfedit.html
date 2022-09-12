@@ -1255,6 +1255,11 @@ var pdfs;
         // sheet.columns(4).setWidth(80, $.ig.excel.WorksheetColumnWidthUnit.pixel);
         //   sheet.columns(6).setWidth(96, $.ig.excel.WorksheetColumnWidthUnit.pixel);
 
+        sheet.columns(6).cellFormat().formatString('##0.0_,₹#');
+        sheet.columns(7).cellFormat().formatString('##0.0_,₹#');
+        sheet.columns(8).cellFormat().formatString('##0.0_,₹#');
+        sheet.columns(9).cellFormat().formatString('##0.0_,₹#');
+
         var imageShape = new $.ig.excel.WorksheetImage(logoBase64);
         imageShape.topLeftCornerCell(sheet.getCell('A1'));
         imageShape.bottomRightCornerCell(sheet.getCell('D5'));
@@ -1655,8 +1660,26 @@ var pdfs;
         sheet.getCell('J' + init).value(installationtotal);
         sheet.getCell('J' + init).applyFormula(`=E${init}*I${init}`);
         init = init + 1;
+        sheet.getCell('D' + init).value("Total Amount");
+        sheet.getCell('A'+ init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#9cc2e5'));
+        sheet.getCell('B'+ init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#9cc2e5'));
+        sheet.getCell('C'+ init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#9cc2e5'));
+        sheet.getCell('D'+ init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#9cc2e5'));
+        sheet.getCell('E'+ init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#9cc2e5'));
+        sheet.getCell('F'+ init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#9cc2e5'));
+        sheet.getCell('G'+ init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#9cc2e5'));
+        sheet.getCell('D'+init).cellFormat().alignment($.ig.excel.HorizontalCellAlignment.center);
+        sheet.getCell('D'+ init).cellFormat().font().bold(true);
+
         sheet.getCell('H' + init).applyFormula(`=SUM(H${18}:H${init - 1})`);
         sheet.getCell('J' + init).applyFormula(`=SUM(J${18}:J${init - 1})`);
+        sheet.getCell('H'+ init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#a9a9a9'));
+        sheet.getCell('J'+ init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#a9a9a9'));
+        sheet.getCell('I'+ init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#a9a9a9'));
+        //sheet.getCell('H'+init).cellFormat().font().colorInfo(new $.ig.excel.WorkbookColorInfo($.ig.excel.WorkbookThemeColorType.light1));
+        //sheet.getCell('J'+init).cellFormat().font().colorInfo(new $.ig.excel.WorkbookColorInfo($.ig.excel.WorkbookThemeColorType.light1));
+        sheet.getCell('H'+ init).cellFormat().font().bold(true);
+        sheet.getCell('J'+ init).cellFormat().font().bold(true);
         init = init + 1;
         if (softdata.length > 0) {
             let char = String.fromCharCode(caphead);
@@ -1687,8 +1710,28 @@ var pdfs;
 
         }
         init = init + soft_data.length;
+        sheet.getCell('D' + init).value("Total Per Month");
+
+        //sheet.getCell('D'+init).cellFormat().font().colorInfo(new $.ig.excel.WorkbookColorInfo($.ig.excel.WorkbookThemeColorType.light1));
+        sheet.getCell('A'+ init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#9cc2e5'));
+        sheet.getCell('B'+ init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#9cc2e5'));
+        sheet.getCell('C'+ init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#9cc2e5'));
+        sheet.getCell('D'+ init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#9cc2e5'));
+        sheet.getCell('E'+ init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#9cc2e5'));
+        sheet.getCell('F'+ init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#9cc2e5'));
+        sheet.getCell('G'+ init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#9cc2e5'));
+        sheet.getCell('D'+init).cellFormat().alignment($.ig.excel.HorizontalCellAlignment.center);
+        sheet.getCell('D'+ init).cellFormat().font().bold(true);
+
         sheet.getCell('H' + init).applyFormula(`=SUM(H${softinit}:H${init - 1})`);
         sheet.getCell('J' + init).applyFormula(`=SUM(J${softinit}:J${init - 1})`);
+        sheet.getCell('H'+ init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#a9a9a9'));
+        sheet.getCell('J'+ init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#a9a9a9'));
+        sheet.getCell('I'+ init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#a9a9a9'));
+        //sheet.getCell('H'+init).cellFormat().font().colorInfo(new $.ig.excel.WorkbookColorInfo($.ig.excel.WorkbookThemeColorType.light1));
+        //sheet.getCell('J'+init).cellFormat().font().colorInfo(new $.ig.excel.WorkbookColorInfo($.ig.excel.WorkbookThemeColorType.light1));
+        sheet.getCell('H'+ init).cellFormat().font().bold(true);
+        sheet.getCell('J'+ init).cellFormat().font().bold(true);
 
 
         //   sheet.getCell('B3').value('Description');

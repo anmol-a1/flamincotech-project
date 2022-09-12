@@ -853,6 +853,11 @@ document.getElementById("date").value = d.toUTCString();
             sheet.columns(10).setWidth(350, $.ig.excel.WorksheetColumnWidthUnit.pixel);
            // sheet.columns(4).setWidth(80, $.ig.excel.WorksheetColumnWidthUnit.pixel);
          //   sheet.columns(6).setWidth(96, $.ig.excel.WorksheetColumnWidthUnit.pixel);
+        sheet.columns(6).cellFormat().formatString('##0.0_,₹#');
+        sheet.columns(7).cellFormat().formatString('##0.0_,₹#');
+        sheet.columns(8).cellFormat().formatString('##0.0_,₹#');
+        sheet.columns(9).cellFormat().formatString('##0.0_,₹#');
+
 
             var imageShape = new $.ig.excel.WorksheetImage(logoBase64);
             imageShape.topLeftCornerCell(sheet.getCell('A1'));

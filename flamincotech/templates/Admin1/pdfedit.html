@@ -1264,6 +1264,15 @@ var workbook = new $.ig.excel.Workbook($.ig.excel.WorkbookFormat.excel2007);
         sheet.columns(7).cellFormat().formatString('##0.0_,₹#');
         sheet.columns(8).cellFormat().formatString('##0.0_,₹#');
         sheet.columns(9).cellFormat().formatString('##0.0_,₹#');
+        //sheet.columns(6).cellFormat().formatString('#₹,0.0_##');
+        // sheet.columns(6).cellFormat().formatString('#₹,##0.0_');
+        // sheet.columns(7).cellFormat().formatString('#₹,##0.0_');
+        // sheet.columns(8).cellFormat().formatString('#₹,##0.0_');
+        // sheet.columns(9).cellFormat().formatString('#₹,##0.0_');
+        // sheet.columns(6).cellFormat().formatString('₹#,##0.0_');
+        // sheet.columns(7).cellFormat().formatString('₹#,##0.0_');
+        // sheet.columns(8).cellFormat().formatString('₹#,##0.0_');
+        // sheet.columns(9).cellFormat().formatString('₹#,##0.0_');
 
 
 
@@ -1912,9 +1921,26 @@ var workbook = new $.ig.excel.Workbook($.ig.excel.WorkbookFormat.excel2007);
         sheet.getCell('J' + init).value(installationtotal);
         sheet.getCell('J' + init).applyFormula(`=E${init}*I${init}`);
         init = init + 1;
-        sheet.getCell('D' + init).value("Total");
+        sheet.getCell('D' + init).value("Total Amount");
+        sheet.getCell('A'+ init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#9cc2e5'));
+        sheet.getCell('B'+ init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#9cc2e5'));
+        sheet.getCell('C'+ init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#9cc2e5'));
+        sheet.getCell('D'+ init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#9cc2e5'));
+        sheet.getCell('E'+ init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#9cc2e5'));
+        sheet.getCell('F'+ init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#9cc2e5'));
+        sheet.getCell('G'+ init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#9cc2e5'));
+        sheet.getCell('D'+init).cellFormat().alignment($.ig.excel.HorizontalCellAlignment.center);
+        sheet.getCell('D'+ init).cellFormat().font().bold(true);
+
         sheet.getCell('H' + init).applyFormula(`=SUM(H${18}:H${init - 1})`);
         sheet.getCell('J' + init).applyFormula(`=SUM(J${18}:J${init - 1})`);
+        sheet.getCell('H'+ init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#a9a9a9'));
+        sheet.getCell('J'+ init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#a9a9a9'));
+        sheet.getCell('I'+ init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#a9a9a9'));
+        //sheet.getCell('H'+init).cellFormat().font().colorInfo(new $.ig.excel.WorkbookColorInfo($.ig.excel.WorkbookThemeColorType.light1));
+        //sheet.getCell('J'+init).cellFormat().font().colorInfo(new $.ig.excel.WorkbookColorInfo($.ig.excel.WorkbookThemeColorType.light1));
+        sheet.getCell('H'+ init).cellFormat().font().bold(true);
+        sheet.getCell('J'+ init).cellFormat().font().bold(true);
         init = init + 1;
         sheet.getCell('A'+init).value('S.N');
         sheet.getCell('B'+init).value('MAKE');
@@ -2018,8 +2044,27 @@ var workbook = new $.ig.excel.Workbook($.ig.excel.WorkbookFormat.excel2007);
         }
         init = init + soft_data.length;
         sheet.getCell('D' + init).value("Total Per Month");
+        //sheet.getCell('D'+init).cellFormat().font().colorInfo(new $.ig.excel.WorkbookColorInfo($.ig.excel.WorkbookThemeColorType.light1));
+        sheet.getCell('A'+ init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#9cc2e5'));
+        sheet.getCell('B'+ init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#9cc2e5'));
+        sheet.getCell('C'+ init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#9cc2e5'));
+        sheet.getCell('D'+ init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#9cc2e5'));
+        sheet.getCell('E'+ init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#9cc2e5'));
+        sheet.getCell('F'+ init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#9cc2e5'));
+        sheet.getCell('G'+ init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#9cc2e5'));
+        sheet.getCell('D'+init).cellFormat().alignment($.ig.excel.HorizontalCellAlignment.center);
+        sheet.getCell('D'+ init).cellFormat().font().bold(true);
+
         sheet.getCell('H' + init).applyFormula(`=SUM(H${softinit}:H${init - 1})`);
         sheet.getCell('J' + init).applyFormula(`=SUM(J${softinit}:J${init - 1})`);
+        sheet.getCell('H'+ init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#a9a9a9'));
+        sheet.getCell('J'+ init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#a9a9a9'));
+        sheet.getCell('I'+ init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#a9a9a9'));
+        //sheet.getCell('H'+init).cellFormat().font().colorInfo(new $.ig.excel.WorkbookColorInfo($.ig.excel.WorkbookThemeColorType.light1));
+        //sheet.getCell('J'+init).cellFormat().font().colorInfo(new $.ig.excel.WorkbookColorInfo($.ig.excel.WorkbookThemeColorType.light1));
+        sheet.getCell('H'+ init).cellFormat().font().bold(true);
+        sheet.getCell('J'+ init).cellFormat().font().bold(true);
+        
 
 
         //   sheet.getCell('B3').value('Description');
@@ -2033,16 +2078,6 @@ var workbook = new $.ig.excel.Workbook($.ig.excel.WorkbookFormat.excel2007);
         //  sheet.getCell('E4').value(1875);
         //sheet.getCell('G4').applyFormula('=D4*E4');
         //
-        // sheet.getCell('A5').value(new Date('12/22/2014'));
-        // sheet.getCell('B5').value('Trim');
-        // sheet.getCell('D5').value(3);
-        // sheet.getCell('E5').value(27.95);
-
-        //  sheet.getCell('A6').value(new Date('12/22/2014'));
-        //  sheet.getCell('B6').value('Install/Labor');
-        //  sheet.getCell('D6').value(8);
-        // sheet.getCell('E6').value(85);
-        //  sheet.getCell('G6').applyFormula('=D6*E6');
 
         // Add a grand total which is bold and larger than the rest of the text to call attention to it.
         // sheet.getCell('E17').value('GRAND TOTAL');
