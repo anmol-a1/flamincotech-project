@@ -205,7 +205,7 @@
                                     <th colspan="2">INSTALLATION</th>
 
                                 </tr>
-                                <tr style="background-color: grey;">
+                                <tr style="background-color: #44546A; color:white;">
                                     <th>S.N.</th>
                                     <th style="width:60px">MAKE</th>
                                     <th>MODEL</th>
@@ -471,11 +471,11 @@
                                 </tr>
                                 <div >
 
-                                    <tr style="background-color: grey;">
+                                    <tr style="background-color: #44546A; color:white;">
                                         <th>S.N.</th>
                                         <th style="width:60px">MAKE</th>
                                         <th>MODEL</th>
-                                        <th>MONTHLY RECURRING CHANGER</th>
+                                        <th>MONTHLY RECURRING CHARGES</th>
                                         <th style="width:60px">QTY</th>
                                         <th>UOM</th>
                                         <th>RATE</th>
@@ -490,6 +490,7 @@
                                         <th></th>
                                         <th></th>
                                         <th></th>
+                                        <th colspan="2"></th>
 
                                     </tr>
                                     <tbody id="maincontentsoft">
@@ -1247,8 +1248,8 @@
         sheet.columns(4).setWidth(60, $.ig.excel.WorksheetColumnWidthUnit.pixel);
         sheet.columns(5).setWidth(100, $.ig.excel.WorksheetColumnWidthUnit.pixel);
         sheet.columns(6).setWidth(90, $.ig.excel.WorksheetColumnWidthUnit.pixel);
-        sheet.columns(7).setWidth(110, $.ig.excel.WorksheetColumnWidthUnit.pixel);
-        sheet.columns(8).setWidth(90, $.ig.excel.WorksheetColumnWidthUnit.pixel);
+        sheet.columns(7).setWidth(150, $.ig.excel.WorksheetColumnWidthUnit.pixel);
+        sheet.columns(8).setWidth(150, $.ig.excel.WorksheetColumnWidthUnit.pixel);
         sheet.columns(9).setWidth(110, $.ig.excel.WorksheetColumnWidthUnit.pixel);
         sheet.columns(10).setWidth(350, $.ig.excel.WorksheetColumnWidthUnit.pixel);
         // sheet.columns(4).setWidth(80, $.ig.excel.WorksheetColumnWidthUnit.pixel);
@@ -1921,7 +1922,7 @@
         sheet.getCell('J' + init).value(installationtotal);
         sheet.getCell('J' + init).applyFormula(`=E${init}*I${init}`);
         init = init + 1;
-        sheet.getCell('D' + init).value("Total Amount");
+        sheet.getCell('D' + init).value("TOTAL AMOUNT");
         sheet.getCell('A'+ init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#9cc2e5'));
         sheet.getCell('B'+ init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#9cc2e5'));
         sheet.getCell('C'+ init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#9cc2e5'));
@@ -1987,6 +1988,7 @@
         sheet.getCell('G'+init).cellFormat().font().colorInfo(new $.ig.excel.WorkbookColorInfo($.ig.excel.WorkbookThemeColorType.light1));
         sheet.getCell('H'+init).cellFormat().font().colorInfo(new $.ig.excel.WorkbookColorInfo($.ig.excel.WorkbookThemeColorType.light1));
         sheet.getCell('K'+init).cellFormat().font().colorInfo(new $.ig.excel.WorkbookColorInfo($.ig.excel.WorkbookThemeColorType.light1));
+        sheet.getCell('I'+init).cellFormat().font().colorInfo(new $.ig.excel.WorkbookColorInfo($.ig.excel.WorkbookThemeColorType.light1));
 
         //CENTERING
         sheet.getCell('A'+init).cellFormat().alignment($.ig.excel.HorizontalCellAlignment.center);
@@ -1998,6 +2000,7 @@
         sheet.getCell('G'+init).cellFormat().alignment($.ig.excel.HorizontalCellAlignment.center);
         sheet.getCell('H'+init).cellFormat().alignment($.ig.excel.HorizontalCellAlignment.center);
         sheet.getCell('K'+init).cellFormat().alignment($.ig.excel.HorizontalCellAlignment.center);
+        sheet.getCell('I'+init).cellFormat().alignment($.ig.excel.HorizontalCellAlignment.center);
         init=init+1;
         if (softdata.length > 0) {
             let char = String.fromCharCode(caphead);
@@ -2045,7 +2048,7 @@
 
         }
         init = init + soft_data.length;
-        sheet.getCell('D' + init).value("Total");
+        sheet.getCell('D' + init).value("TOTAL");
         //sheet.getCell('D'+init).cellFormat().font().colorInfo(new $.ig.excel.WorkbookColorInfo($.ig.excel.WorkbookThemeColorType.light1));
         sheet.getCell('A'+ init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#9cc2e5'));
         sheet.getCell('B'+ init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#9cc2e5'));
@@ -2056,6 +2059,7 @@
         sheet.getCell('G'+ init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#9cc2e5'));
         sheet.getCell('D'+init).cellFormat().alignment($.ig.excel.HorizontalCellAlignment.center);
         sheet.getCell('D'+ init).cellFormat().font().bold(true);
+        sheet.getCell('I'+ init).cellFormat().font().bold(true);
 
         sheet.getCell('H' + init).applyFormula(`=SUM(H${softinit}:H${init - 1})`);
         sheet.getCell('I' + init).applyFormula(`=H${init}*12`);

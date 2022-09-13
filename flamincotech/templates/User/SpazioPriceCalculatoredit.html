@@ -1489,13 +1489,13 @@ console.log(totDPS);
             var extraval = inputQuantityDBS - 250;
             var vals = document.getElementById("3RateDBS").value;
             totDBS = extraval * vals;
-            totDBS = totfDBS + 1*document.getElementById("2Total_QuantityDBS").value;
+            totDBS = totDBS + 1*document.getElementById("2Total_QuantityDBS").value;
         }
         else if (inputQuantityDBS > 100) {
             var extraval = inputQuantityDBS - 100;
             var vals = document.getElementById("2RateDBS").value;
             totDBS = extraval * vals;
-            totDBS = totfDBS + 1*document.getElementById("1Total_QuantityDBS").value;
+            totDBS = totDBS + 1*document.getElementById("1Total_QuantityDBS").value;
         }
         else {
             totDBS = inputQuantityDBS * document.getElementById("1RateDBS").value;

@@ -204,7 +204,7 @@
                                     <th colspan="2">INSTALLATION</th>
 
                                 </tr>
-                                <tr style="background-color: grey;">
+                                <tr style="background-color: #44546A; color:white;">
                                     <th>S.N.</th>
                                     <th style="width:60px">MAKE</th>
                                     <th>MODEL</th>
@@ -219,15 +219,14 @@
                                 <div>
                                     <tr hidden id="hardwares" style="background-color: yellow;">
                                         <th id="srno1">A</th>
-                                        <th style="width:60px">FlamencoTech</th>
+                                        <th style="width:60px">Flamenco Tech</th>
                                         <th></th>
                                         <th>HARDWARE</th>
                                         <th style="width:60px"></th>
                                         <th></th>
                                         <th></th>
                                         <th></th>
-                                        <th></th>
-                                        <th></th>
+                                        <th colspan="2"></th>
 
                                     </tr>
                                     <tbody id="hardwarecontenthard">
@@ -470,11 +469,11 @@
                                 </tr>
                                 <div >
 
-                                    <tr style="background-color: grey;">
+                                    <tr style="background-color: #44546A; color:white;">
                                         <th>S.N.</th>
                                         <th style="width:60px">MAKE</th>
                                         <th>MODEL</th>
-                                        <th>MONTHLY RECURRING CHANGER</th>
+                                        <th>MONTHLY RECURRING CHARGES</th>
                                         <th style="width:60px">QTY</th>
                                         <th>UOM</th>
                                         <th>RATE</th>
@@ -1329,6 +1328,10 @@ var pdfs;
         mergedCellA1D18.value(d.toUTCString());
         mergedCellA1D20.value('SUPPLY');
         mergedCellA1D21.value('INSTALLATION');
+        mergedCellA1D15.cellFormat().font().bold(true);
+        mergedCellA1D16.cellFormat().font().bold(true);
+        mergedCellA1D20.cellFormat().font().bold(true);
+        mergedCellA1D21.cellFormat().font().bold(true);
         //  mergedCellA1D22.value('REMARKS');
         //mergedCellA1D3.cellFormat().alignment($.ig.excel.HorizontalCellAlignment.center);
         //mergedCellA1D3.cellFormat().alignment($.ig.excel.VerticalCellAlignment.center);
@@ -1367,6 +1370,110 @@ var pdfs;
         //  while (cells.moveNext()) {
         //      cells.current().cellFormat().fill(light1Fill);
         //  }
+                // mergedCellA1D4.cellFormat().alignment($.ig.excel.HorizontalCellAlignment.center);
+        // mergedCellA1D5.cellFormat().alignment($.ig.excel.HorizontalCellAlignment.center);
+        mergedCellA1D20.cellFormat().alignment($.ig.excel.HorizontalCellAlignment.center);
+        mergedCellA1D21.cellFormat().alignment($.ig.excel.HorizontalCellAlignment.center);
+        mergedCellA1D15.cellFormat().alignment($.ig.excel.HorizontalCellAlignment.center);
+        mergedCellA1D16.cellFormat().alignment($.ig.excel.HorizontalCellAlignment.center);
+        // mergedCellA1D8.cellFormat().alignment($.ig.excel.HorizontalCellAlignment.center);
+        //  mergedCellA1D22.value('REMARKS');
+        //mergedCellA1D3.cellFormat().alignment($.ig.excel.HorizontalCellAlignment.center);
+        //mergedCellA1D3.cellFormat().alignment($.ig.excel.VerticalCellAlignment.center);
+        //mergedCellA1D3.cellFormat().fill($.ig.excel.CellFill.createSolidFill('#343deb'));
+        //sheet.getCell('P1').value('Niklya');
+        //mergedCellA1D3.cellFormat().font().colorInfo(new $.ig.excel.WorkbookColorInfo($.ig.excel.WorkbookThemeColorType.light1));
+        //    var mergedCellE1G2 = worksheet.mergedCellsRegions().add(0, 4, 1, 6);
+          //  mergedCellA1D22.value('REMARKS');
+            //mergedCellA1D3.cellFormat().alignment($.ig.excel.HorizontalCellAlignment.center);
+            //mergedCellA1D3.cellFormat().alignment($.ig.excel.VerticalCellAlignment.center);
+            //mergedCellA1D8.cellFormat().fill($.ig.excel.CellFill.createSolidFill('#343deb'));
+            //sheet.getCell('P1').value('Niklya');
+            //mergedCellA1D3.cellFormat().font().colorInfo(new $.ig.excel.WorkbookColorInfo($.ig.excel.WorkbookThemeColorType.light1));
+        //    var mergedCellE1G2 = worksheet.mergedCellsRegions().add(0, 4, 1, 6);
+
+       
+            // COLOR THE CELLS
+        sheet.getCell('A16').cellFormat().fill($.ig.excel.CellFill.createSolidFill('#44546A'));
+        sheet.getCell('B16').cellFormat().fill($.ig.excel.CellFill.createSolidFill('#44546A'));
+        sheet.getCell('C16').cellFormat().fill($.ig.excel.CellFill.createSolidFill('#44546A'));
+        sheet.getCell('D16').cellFormat().fill($.ig.excel.CellFill.createSolidFill('#44546A'));
+        sheet.getCell('E16').cellFormat().fill($.ig.excel.CellFill.createSolidFill('#44546A'));
+        sheet.getCell('F16').cellFormat().fill($.ig.excel.CellFill.createSolidFill('#44546A'));
+        sheet.getCell('G16').cellFormat().fill($.ig.excel.CellFill.createSolidFill('#44546A'));
+        sheet.getCell('H16').cellFormat().fill($.ig.excel.CellFill.createSolidFill('#44546A'));
+        sheet.getCell('I16').cellFormat().fill($.ig.excel.CellFill.createSolidFill('#44546A'));
+        sheet.getCell('J16').cellFormat().fill($.ig.excel.CellFill.createSolidFill('#44546A'));
+        sheet.getCell('K16').cellFormat().fill($.ig.excel.CellFill.createSolidFill('#44546A'));
+
+        
+        sheet.getCell('A17').cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+        sheet.getCell('B17').cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+        sheet.getCell('C17').cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+        sheet.getCell('D17').cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+        sheet.getCell('E17').cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+        sheet.getCell('F17').cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+        sheet.getCell('G17').cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+        sheet.getCell('H17').cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+        sheet.getCell('I17').cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+        sheet.getCell('J17').cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+        sheet.getCell('K17').cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+
+        sheet.getCell('A16').cellFormat().font().colorInfo(new $.ig.excel.WorkbookColorInfo($.ig.excel.WorkbookThemeColorType.light1));
+        sheet.getCell('B16').cellFormat().font().colorInfo(new $.ig.excel.WorkbookColorInfo($.ig.excel.WorkbookThemeColorType.light1));
+        sheet.getCell('C16').cellFormat().font().colorInfo(new $.ig.excel.WorkbookColorInfo($.ig.excel.WorkbookThemeColorType.light1));
+        sheet.getCell('D16').cellFormat().font().colorInfo(new $.ig.excel.WorkbookColorInfo($.ig.excel.WorkbookThemeColorType.light1));
+        sheet.getCell('E16').cellFormat().font().colorInfo(new $.ig.excel.WorkbookColorInfo($.ig.excel.WorkbookThemeColorType.light1));
+        sheet.getCell('F16').cellFormat().font().colorInfo(new $.ig.excel.WorkbookColorInfo($.ig.excel.WorkbookThemeColorType.light1));
+        sheet.getCell('G16').cellFormat().font().colorInfo(new $.ig.excel.WorkbookColorInfo($.ig.excel.WorkbookThemeColorType.light1));
+        sheet.getCell('H16').cellFormat().font().colorInfo(new $.ig.excel.WorkbookColorInfo($.ig.excel.WorkbookThemeColorType.light1));
+        sheet.getCell('I16').cellFormat().font().colorInfo(new $.ig.excel.WorkbookColorInfo($.ig.excel.WorkbookThemeColorType.light1));
+        sheet.getCell('J16').cellFormat().font().colorInfo(new $.ig.excel.WorkbookColorInfo($.ig.excel.WorkbookThemeColorType.light1));
+        sheet.getCell('K16').cellFormat().font().colorInfo(new $.ig.excel.WorkbookColorInfo($.ig.excel.WorkbookThemeColorType.light1));
+        sheet.getCell('L16').cellFormat().font().colorInfo(new $.ig.excel.WorkbookColorInfo($.ig.excel.WorkbookThemeColorType.light1));
+
+   // CENTER ALIGNMENT 
+        sheet.getCell('A16').cellFormat().alignment($.ig.excel.HorizontalCellAlignment.center);
+        sheet.getCell('B16').cellFormat().alignment($.ig.excel.HorizontalCellAlignment.center);
+        sheet.getCell('C16').cellFormat().alignment($.ig.excel.HorizontalCellAlignment.center);
+        sheet.getCell('D16').cellFormat().alignment($.ig.excel.HorizontalCellAlignment.center);
+        sheet.getCell('E16').cellFormat().alignment($.ig.excel.HorizontalCellAlignment.center);
+        sheet.getCell('F16').cellFormat().alignment($.ig.excel.HorizontalCellAlignment.center);
+        sheet.getCell('G16').cellFormat().alignment($.ig.excel.HorizontalCellAlignment.center);
+        sheet.getCell('H16').cellFormat().alignment($.ig.excel.HorizontalCellAlignment.center);
+        sheet.getCell('I16').cellFormat().alignment($.ig.excel.HorizontalCellAlignment.center);
+        sheet.getCell('J16').cellFormat().alignment($.ig.excel.HorizontalCellAlignment.center);
+        sheet.getCell('K16').cellFormat().alignment($.ig.excel.HorizontalCellAlignment.center);
+        sheet.getCell('L16').cellFormat().alignment($.ig.excel.HorizontalCellAlignment.center);
+
+        // sheet.getCell('A16').cellFormat().alignment($.ig.excel.VerticalCellAlignment.center);
+        // sheet.getCell('B16').cellFormat().alignment($.ig.excel.VerticalCellAlignment.center);
+        // sheet.getCell('C16').cellFormat().alignment($.ig.excel.VerticalCellAlignment.center);
+        // sheet.getCell('D16').cellFormat().alignment($.ig.excel.VerticalCellAlignment.center);
+        // sheet.getCell('E16').cellFormat().alignment($.ig.excel.VerticalCellAlignment.center);
+        // sheet.getCell('F16').cellFormat().alignment($.ig.excel.VerticalCellAlignment.center);
+        // sheet.getCell('G16').cellFormat().alignment($.ig.excel.VerticalCellAlignment.center);
+        // sheet.getCell('H16').cellFormat().alignment($.ig.excel.VerticalCellAlignment.center);
+        // sheet.getCell('I16').cellFormat().alignment($.ig.excel.VerticalCellAlignment.center);
+        // sheet.getCell('J16').cellFormat().alignment($.ig.excel.VerticalCellAlignment.center);
+        // sheet.getCell('K16').cellFormat().alignment($.ig.excel.VerticalCellAlignment.center);
+
+        // BOLD THE content
+        sheet.getCell('A16').cellFormat().font().bold(true);
+        sheet.getCell('B16').cellFormat().font().bold(true);
+        sheet.getCell('C16').cellFormat().font().bold(true);
+        sheet.getCell('D16').cellFormat().font().bold(true);
+        sheet.getCell('E16').cellFormat().font().bold(true);
+        sheet.getCell('F16').cellFormat().font().bold(true);
+        sheet.getCell('G16').cellFormat().font().bold(true);
+        sheet.getCell('H16').cellFormat().font().bold(true);
+        sheet.getCell('I16').cellFormat().font().bold(true);
+        sheet.getCell('J16').cellFormat().font().bold(true);
+        sheet.getCell('K16').cellFormat().font().bold(true);
+        sheet.getCell('A17').cellFormat().font().bold(true);
+        sheet.getCell('B17').cellFormat().font().bold(true);
+        sheet.getCell('D17').cellFormat().font().bold(true);
+        sheet.getCell('L17').cellFormat().font().bold(true);
 
         // Populate the sheet with data
         sheet.getCell('A16').value('S.N');
@@ -1420,8 +1527,22 @@ var pdfs;
             let char = String.fromCharCode(caphead);
             caphead = caphead + 1;
             sheet.getCell('A' + init).value(char);
-            sheet.getCell('B' + init).value('FLAMENCOETCH');
+            sheet.getCell('B' + init).value('');
             sheet.getCell('D' + init).value('ACTIVE HARDWARE ');
+            sheet.getCell('A' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('B' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('C' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('D' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('E' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('F' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('G' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('H' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('I' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('J' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            //sheet.getCell('K' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('A' + init).cellFormat().font().bold(true);
+            sheet.getCell('B' + init).cellFormat().font().bold(true);
+            sheet.getCell('D' + init).cellFormat().font().bold(true);
             init = init + 1;
 
         }
@@ -1443,8 +1564,22 @@ var pdfs;
             let char = String.fromCharCode(caphead);
             caphead = caphead + 1;
             sheet.getCell('A' + init).value(char);
-            sheet.getCell('B' + init).value('FLAMENCOETCH');
+            sheet.getCell('B' + init).value('');
             sheet.getCell('D' + init).value('FIBER HARDWARE');
+            sheet.getCell('A' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('B' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('C' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('D' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('E' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('F' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('G' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('H' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('I' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('J' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            //sheet.getCell('K' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('A' + init).cellFormat().font().bold(true);
+            sheet.getCell('B' + init).cellFormat().font().bold(true);
+            sheet.getCell('D' + init).cellFormat().font().bold(true);
             init = init + 1;
 
         }
@@ -1466,8 +1601,22 @@ var pdfs;
             let char = String.fromCharCode(caphead);
             caphead = caphead + 1;
             sheet.getCell('A' + init).value(char);
-            sheet.getCell('B' + init).value('FLAMENCOETCH');
-            sheet.getCell('D' + init).value('FT SOFTWARE');
+            sheet.getCell('B' + init).value('');
+            sheet.getCell('D' + init).value('ETHERNET HARDWARE');
+            sheet.getCell('A' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('B' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('C' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('D' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('E' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('F' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('G' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('H' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('I' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('J' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            //sheet.getCell('K' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('A' + init).cellFormat().font().bold(true);
+            sheet.getCell('B' + init).cellFormat().font().bold(true);
+            sheet.getCell('D' + init).cellFormat().font().bold(true);
             init = init + 1;
 
         }
@@ -1489,8 +1638,22 @@ var pdfs;
             let char = String.fromCharCode(caphead);
             caphead = caphead + 1;
             sheet.getCell('A' + init).value(char);
-            sheet.getCell('B' + init).value('FLAMENCOETCH');
-            sheet.getCell('D' + init).value('FT SOFTWARE');
+            sheet.getCell('B' + init).value('');
+            sheet.getCell('D' + init).value('DDC CONTROLLER');
+            sheet.getCell('A' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('B' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('C' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('D' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('E' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('F' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('G' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('H' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('I' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('J' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            //sheet.getCell('K' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('A' + init).cellFormat().font().bold(true);
+            sheet.getCell('B' + init).cellFormat().font().bold(true);
+            sheet.getCell('D' + init).cellFormat().font().bold(true);
             init = init + 1;
 
         }
@@ -1512,8 +1675,22 @@ var pdfs;
             let char = String.fromCharCode(caphead);
             caphead = caphead + 1;
             sheet.getCell('A' + init).value(char);
-            sheet.getCell('B' + init).value('FLAMENCOETCH');
-            sheet.getCell('D' + init).value('FT SOFTWARE');
+            sheet.getCell('B' + init).value('');
+            sheet.getCell('D' + init).value('BMS SENSOR');
+            sheet.getCell('A' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('B' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('C' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('D' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('E' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('F' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('G' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('H' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('I' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('J' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            //sheet.getCell('K' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('A' + init).cellFormat().font().bold(true);
+            sheet.getCell('B' + init).cellFormat().font().bold(true);
+            sheet.getCell('D' + init).cellFormat().font().bold(true);
             init = init + 1;
 
         }
@@ -1535,8 +1712,22 @@ var pdfs;
             let char = String.fromCharCode(caphead);
             caphead = caphead + 1;
             sheet.getCell('A' + init).value(char);
-            sheet.getCell('B' + init).value('FLAMENCOETCH');
-            sheet.getCell('D' + init).value('FT SOFTWARE');
+            sheet.getCell('B' + init).value('');
+            sheet.getCell('D' + init).value('BMS CABLING');
+            sheet.getCell('A' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('B' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('C' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('D' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('E' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('F' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('G' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('H' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('I' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('J' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            //sheet.getCell('K' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('A' + init).cellFormat().font().bold(true);
+            sheet.getCell('B' + init).cellFormat().font().bold(true);
+            sheet.getCell('D' + init).cellFormat().font().bold(true);
             init = init + 1;
 
         }
@@ -1558,8 +1749,22 @@ var pdfs;
             let char = String.fromCharCode(caphead);
             caphead = caphead + 1;
             sheet.getCell('A' + init).value(char);
-            sheet.getCell('B' + init).value('FLAMENCOETCH');
-            sheet.getCell('D' + init).value('FT SOFTWARE');
+            sheet.getCell('B' + init).value('');
+            sheet.getCell('D' + init).value('BMS PIPING');
+            sheet.getCell('A' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('B' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('C' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('D' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('E' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('F' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('G' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('H' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('I' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('J' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            //sheet.getCell('K' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('A' + init).cellFormat().font().bold(true);
+            sheet.getCell('B' + init).cellFormat().font().bold(true);
+            sheet.getCell('D' + init).cellFormat().font().bold(true);
             init = init + 1;
 
         }
@@ -1582,8 +1787,22 @@ var pdfs;
             let char = String.fromCharCode(caphead);
             caphead = caphead + 1;
             sheet.getCell('A' + init).value(char);
-            sheet.getCell('B' + init).value('FLAMENCOETCH');
-            sheet.getCell('D' + init).value('FT SOFTWARE');
+            sheet.getCell('B' + init).value('');
+            sheet.getCell('D' + init).value('BMS TRAYS');
+            sheet.getCell('A' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('B' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('C' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('D' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('E' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('F' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('G' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('H' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('I' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('J' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            //sheet.getCell('K' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('A' + init).cellFormat().font().bold(true);
+            sheet.getCell('B' + init).cellFormat().font().bold(true);
+            sheet.getCell('D' + init).cellFormat().font().bold(true);
             init = init + 1;
 
         }
@@ -1605,8 +1824,22 @@ var pdfs;
             let char = String.fromCharCode(caphead);
             caphead = caphead + 1;
             sheet.getCell('A' + init).value(char);
-            sheet.getCell('B' + init).value('FLAMENCOETCH');
-            sheet.getCell('D' + init).value('FT SOFTWARE');
+            sheet.getCell('B' + init).value('');
+            sheet.getCell('D' + init).value('THIRD PARTY');
+            sheet.getCell('A' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('B' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('C' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('D' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('E' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('F' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('G' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('H' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('I' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('J' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            //sheet.getCell('K' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('A' + init).cellFormat().font().bold(true);
+            sheet.getCell('B' + init).cellFormat().font().bold(true);
+            sheet.getCell('D' + init).cellFormat().font().bold(true);
             init = init + 1;
 
         }
@@ -1628,8 +1861,22 @@ var pdfs;
             let char = String.fromCharCode(caphead);
             caphead = caphead + 1;
             sheet.getCell('A' + init).value(char);
-            sheet.getCell('B' + init).value('FLAMENCOETCH');
-            sheet.getCell('D' + init).value('FT SOFTWARE');
+            sheet.getCell('B' + init).value('');
+            sheet.getCell('D' + init).value('OTHERS');
+            sheet.getCell('A' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('B' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('C' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('D' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('E' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('F' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('G' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('H' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('I' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('J' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            //sheet.getCell('K' + init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('A' + init).cellFormat().font().bold(true);
+            sheet.getCell('B' + init).cellFormat().font().bold(true);
+            sheet.getCell('D' + init).cellFormat().font().bold(true);
             init = init + 1;
 
         }
@@ -1650,6 +1897,18 @@ var pdfs;
 
         sheet.getCell('D' + init).value('FT Installation ');
         sheet.getCell('K' + init).value('REMARKS');
+        sheet.getCell('D'+  init).cellFormat().font().bold(true);
+        sheet.getCell('K'+  init).cellFormat().font().bold(true);
+        sheet.getCell('A'+init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+        sheet.getCell('B'+init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+        sheet.getCell('C'+init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+        sheet.getCell('D'+init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+        sheet.getCell('E'+init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+        sheet.getCell('F'+init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+        sheet.getCell('G'+init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+        sheet.getCell('H'+init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+        sheet.getCell('I'+init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+        sheet.getCell('J'+init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
         init = init + 1;
         sheet.getCell('A' + init).value(String.fromCharCode(caphead));
         caphead = caphead + 1;
@@ -1692,13 +1951,74 @@ var pdfs;
         sheet.getCell('H'+init).value('TOTAL PER MONTH');
         sheet.getCell('I'+init).value('TOTAL PER YEAR');
         sheet.getCell('K'+init).value('REMARKS');
+        sheet.getCell('A'+init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#44546A'));
+        sheet.getCell('B'+init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#44546A'));
+        sheet.getCell('C'+init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#44546A'));
+        sheet.getCell('D'+init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#44546A'));
+        sheet.getCell('E'+init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#44546A'));
+        sheet.getCell('F'+init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#44546A'));
+        sheet.getCell('G'+init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#44546A'));
+        sheet.getCell('H'+init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#44546A'));
+        sheet.getCell('I'+init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#44546A'));
+        sheet.getCell('J'+init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#44546A'));
+        sheet.getCell('K'+init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#44546A'));
+
+        // BOLDING
+        sheet.getCell('A'+init).cellFormat().font().bold(true);
+        sheet.getCell('B'+init).cellFormat().font().bold(true);
+        sheet.getCell('C'+init).cellFormat().font().bold(true);
+        sheet.getCell('D'+init).cellFormat().font().bold(true);
+        sheet.getCell('E'+init).cellFormat().font().bold(true);
+        sheet.getCell('F'+init).cellFormat().font().bold(true);
+        sheet.getCell('G'+init).cellFormat().font().bold(true);
+        sheet.getCell('H'+init).cellFormat().font().bold(true);
+        sheet.getCell('I'+init).cellFormat().font().bold(true);
+        sheet.getCell('K'+init).cellFormat().font().bold(true);
+        // WHITE
+        sheet.getCell('A'+init).cellFormat().font().colorInfo(new $.ig.excel.WorkbookColorInfo($.ig.excel.WorkbookThemeColorType.light1));
+        sheet.getCell('B'+init).cellFormat().font().colorInfo(new $.ig.excel.WorkbookColorInfo($.ig.excel.WorkbookThemeColorType.light1));
+        sheet.getCell('C'+init).cellFormat().font().colorInfo(new $.ig.excel.WorkbookColorInfo($.ig.excel.WorkbookThemeColorType.light1));
+        sheet.getCell('D'+init).cellFormat().font().colorInfo(new $.ig.excel.WorkbookColorInfo($.ig.excel.WorkbookThemeColorType.light1));
+        sheet.getCell('E'+init).cellFormat().font().colorInfo(new $.ig.excel.WorkbookColorInfo($.ig.excel.WorkbookThemeColorType.light1));
+        sheet.getCell('F'+init).cellFormat().font().colorInfo(new $.ig.excel.WorkbookColorInfo($.ig.excel.WorkbookThemeColorType.light1));
+        sheet.getCell('G'+init).cellFormat().font().colorInfo(new $.ig.excel.WorkbookColorInfo($.ig.excel.WorkbookThemeColorType.light1));
+        sheet.getCell('H'+init).cellFormat().font().colorInfo(new $.ig.excel.WorkbookColorInfo($.ig.excel.WorkbookThemeColorType.light1));
+        sheet.getCell('K'+init).cellFormat().font().colorInfo(new $.ig.excel.WorkbookColorInfo($.ig.excel.WorkbookThemeColorType.light1));
+
+        //CENTERING
+        sheet.getCell('A'+init).cellFormat().alignment($.ig.excel.HorizontalCellAlignment.center);
+        sheet.getCell('B'+init).cellFormat().alignment($.ig.excel.HorizontalCellAlignment.center);
+        sheet.getCell('C'+init).cellFormat().alignment($.ig.excel.HorizontalCellAlignment.center);
+        sheet.getCell('D'+init).cellFormat().alignment($.ig.excel.HorizontalCellAlignment.center);
+        sheet.getCell('E'+init).cellFormat().alignment($.ig.excel.HorizontalCellAlignment.center);
+        sheet.getCell('F'+init).cellFormat().alignment($.ig.excel.HorizontalCellAlignment.center);
+        sheet.getCell('G'+init).cellFormat().alignment($.ig.excel.HorizontalCellAlignment.center);
+        sheet.getCell('H'+init).cellFormat().alignment($.ig.excel.HorizontalCellAlignment.center);
+        sheet.getCell('K'+init).cellFormat().alignment($.ig.excel.HorizontalCellAlignment.center);
         init = init + 1;
         if (softdata.length > 0) {
             let char = String.fromCharCode(caphead);
             caphead = caphead + 1;
             sheet.getCell('A' + init).value(char);
-            sheet.getCell('B' + init).value('FLAMENCOETCH');
+            sheet.getCell('B' + init).value('Flamenco Tech');
             sheet.getCell('D' + init).value('FT SOFTWARE');
+            // COLORING
+            sheet.getCell('A'+init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('B'+init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('C'+init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('D'+init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('E'+init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('F'+init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('G'+init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('H'+init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('I'+init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('J'+init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+            sheet.getCell('K'+init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
+
+            // BOLD
+            sheet.getCell('A'+init).cellFormat().font().bold(true);
+            sheet.getCell('B'+init).cellFormat().font().bold(true);
+            sheet.getCell('D'+init).cellFormat().font().bold(true);
             init = init + 1;
 
         }
