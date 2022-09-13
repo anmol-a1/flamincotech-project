@@ -282,14 +282,14 @@
                             class="form-control col" rows="3"></input>
                     </div>
                     <div class="form-group row">
-                        <label class="col" for="exampleFormControlTextarea1">Enter the Number of Mobile Users</label>
-                        <input onchange="myFunction(event)" id="2" placeholder="0" type="number"
+                        <label class="col req" for="exampleFormControlTextarea1">Enter the Number of Mobile Users</label>
+                        <input onchange="myFunction(event)" id="2" value=0 type="number"
                             class="form-control col" rows="3"></input>
                     </div>
                     <div class="form-group row">
-                        <label class="col" for="exampleFormControlTextarea1">Rostering Required</label>
+                        <label class="col req" for="exampleFormControlTextarea1">Rostering Required</label>
                         <select id="rost"  class="form-control col">
-                            <option value="0" selected>Select</option>
+                            <option value="-1" selected>Select</option>
                             <option value="0">No</option>
                             <option value="1">Yes</option>
                         </select>
@@ -487,7 +487,8 @@
             </div>
             <div style="display:flex;justify-content: center">
 
-                <button type="submit" onclick="saveautovalues(event)" class="btn btn-primary">Create Quotation</button>
+                <button id="crtquot"  hidden type="submit" onclick="saveautovalues(event)" class="btn btn-primary">Create Quotation</button>
+
             </div>
         </form>
 
@@ -811,6 +812,8 @@
         console.log((document.getElementById("d3").value).length);
         function saveautovalues(e) {
             e.preventDefault();
+            console.log(parseInt(document.getElementById("2").value));
+            console.log(parseInt(document.getElementById("rost").value));
             if (parseInt(document.getElementById("d3").value) < 1) {
                 e.preventDefault();
                 alert("Please Enter a  Number of Sites/Buildings");
@@ -822,6 +825,14 @@
             else if (parseInt(document.getElementById("d5").value) < 1) {
                 e.preventDefault();
                 alert("Please Enter a Square Feet Area");
+            }
+            else if (parseInt(document.getElementById("2").value) < 1) {
+                e.preventDefault();
+                alert("Please Enter a Mobile Users");
+            }
+            else if (parseInt(document.getElementById("rost").value) < 0) {
+                e.preventDefault();
+                alert("Please select a rostering option");
             }
             else {
                 e.preventDefault();
@@ -1177,9 +1188,13 @@
                 document.getElementById("maindivbar" + (divchange + 1)).hidden = true;
                 if (divchange == 1) {
                     document.getElementById("but2").disabled = true;
+                    
+                    document.getElementById("crtquot").hidden = true;
+                    
                 }
                 else {
                     document.getElementById("but2").disabled = false;
+                    document.getElementById("crtquot").hidden = false;
                 }
                 document.getElementById("ijk2").disabled = false;
                 const boxes = document.querySelectorAll('.btns');
@@ -1203,6 +1218,16 @@
                 if (divchange == 7) {
                     document.getElementById("ijk2").disabled = true;
                 }
+                if (divchange == 1) {
+                    
+                    
+                    document.getElementById("crtquot").hidden = true;
+                    
+                }
+                else {
+                    
+                    document.getElementById("crtquot").hidden = false;
+                }
                 const boxes = document.querySelectorAll('.btns');
 
                 boxes.forEach(box => {
@@ -1222,9 +1247,11 @@
                 divchange = parseInt(abc);
                 if (abc == 1) {
                     document.getElementById("but2").disabled = true;
+                    document.getElementById("crtquot").hidden = true;
                 }
                 else {
                     document.getElementById("but2").disabled = false;
+                    document.getElementById("crtquot").hidden = false;
                 }
                 if (abc == 7) {
                     document.getElementById("ijk2").disabled = true;
@@ -1256,6 +1283,7 @@
 
 
         })
+
 
         document.querySelectorAll('.next').forEach(item => {
             item.addEventListener('click', event => {

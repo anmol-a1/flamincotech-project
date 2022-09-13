@@ -234,10 +234,7 @@
                                                         <td>{{entry.MakeBrand}}</td>
                                                         <td>{{entry.Model}}</td>
                                                         <td>{{entry.InstallationEquipments}}</td>
-                                                        <th><input onchange="activechange()"
-                                                                        id="{{entry.sr_no}}Qty_Active"
-                                                                        style="width: 5px;border:none" value=0
-                                                                        type="number"></th>
+                                                        <th><input onchange="activechange()" id="{{entry.sr_no}}Qty_Active" style="width: 55px;border:none" value=0 type="number"></th>
                                                         <th>{{entry.UnitDescription}}</th>
                                                         <th><input id="{{entry.sr_no}}Cost_Supply_Rate_Active"
                                                                         style="width: 95px;border:none" value=0
@@ -2718,7 +2715,7 @@ document.getElementById(abc + "Qty_ManEfforts").value=iandc_datas[abc-2];
         console.log(soft_module_c);
         console.log(software_revised_d);
         document.getElementById("16Qty_Soft_Items").value= automate_data[1];
-        document.getElementById("17Qty_Soft_Items").value= 1;
+        document.getElementById("17Qty_Soft_Items").value= 0;
         for(var jk=1;jk<=14;jk++){
                 if(software_revised_d[jk-1] != null){
                 document.getElementById(jk+"Capex").value=software_revised_d[jk-1];

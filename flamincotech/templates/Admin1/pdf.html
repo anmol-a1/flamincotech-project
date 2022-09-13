@@ -480,16 +480,13 @@
                                         <th>UOM</th>
                                         <th>RATE</th>
                                         <th>TOTAL PER MONTH</th>
-                                        <th></th>
-                                        <th></th>
+                                        <th colspan="2">TOTAL PER YEAR</th>
                                     <tr hidden id="softwares" style="background-color: yellow;">
                                         <th id="srno13">B</th>
                                         <th style="width:60px">FlamencoTech</th>
                                         <th></th>
                                         <th>SOFTWARE</th>
                                         <th style="width:60px"></th>
-                                        <th></th>
-                                        <th></th>
                                         <th></th>
                                         <th></th>
                                         <th></th>
@@ -504,6 +501,7 @@
                                         <th colspan="6">Total Amount Per Month</th>
                                         <th></th>
                                         <th id="softtotal"></th>
+                                        <th colspan="2" id="softtotalperyear"></th>
                                     </tr>
                                 </div>
                             </table>
@@ -847,10 +845,10 @@
                                    <th>${hard_data[i].Hardware_Items}</th>
                                    <th style="width:60px">${hard_data[i].Qty}</th>
                                    <th>${hard_data[i].Uoms}</th>
-                                   <th>${hard_data[i].Supply_Rate}</th>
-                                   <th>${hard_data[i].Supply_Total}</th>
-                                   <th>${hard_data[i].Installation_Rate}</th>
-                                   <th>${hard_data[i].Installation_Total}</th>
+                                   <th>&#8377; ${hard_data[i].Supply_Rate}</th>
+                                   <th>&#8377; ${hard_data[i].Supply_Total}</th>
+                                   <th>&#8377; ${hard_data[i].Installation_Rate}</th>
+                                   <th>&#8377; ${hard_data[i].Installation_Total}</th>
                                 </tr>
     
     
@@ -877,10 +875,10 @@
                                    <th>${active_[i].Hardware_Items}</th>
                                    <th style="width:60px">${active_[i].Qty}</th>
                                    <th>${active_[i].Uoms}</th>
-                                   <th>${active_[i].Supply_Rate}</th>
-                                   <th>${active_[i].Supply_Total}</th>
-                                   <th>${active_[i].Installation_Rate}</th>
-                                   <th>${active_[i].Installation_Total}</th>
+                                   <th>&#8377; ${active_[i].Supply_Rate}</th>
+                                   <th>&#8377; ${active_[i].Supply_Total}</th>
+                                   <th>&#8377; ${active_[i].Installation_Rate}</th>
+                                   <th>&#8377; ${active_[i].Installation_Total}</th>
                                 </tr>
     
     
@@ -908,10 +906,10 @@
                                    <th>${fiber_[i].Hardware_Items}</th>
                                    <th style="width:60px">${fiber_[i].Qty}</th>
                                    <th>${fiber_[i].Uoms}</th>
-                                   <th>${fiber_[i].Supply_Rate}</th>
-                                   <th>${fiber_[i].Supply_Total}</th>
-                                   <th>${fiber_[i].Installation_Rate}</th>
-                                   <th>${fiber_[i].Installation_Total}</th>
+                                   <th>&#8377; ${fiber_[i].Supply_Rate}</th>
+                                   <th>&#8377; ${fiber_[i].Supply_Total}</th>
+                                   <th>&#8377; ${fiber_[i].Installation_Rate}</th>
+                                   <th>&#8377; ${fiber_[i].Installation_Total}</th>
                                 </tr>
     
     
@@ -937,10 +935,10 @@
                                    <th>${ethernet_[i].Hardware_Items}</th>
                                    <th style="width:60px">${ethernet_[i].Qty}</th>
                                    <th>${ethernet_[i].Uoms}</th>
-                                   <th>${ethernet_[i].Supply_Rate}</th>
-                                   <th>${ethernet_[i].Supply_Total}</th>
-                                   <th>${ethernet_[i].Installation_Rate}</th>
-                                   <th>${ethernet_[i].Installation_Total}</th>
+                                   <th>&#8377; ${ethernet_[i].Supply_Rate}</th>
+                                   <th>&#8377; ${ethernet_[i].Supply_Total}</th>
+                                   <th>&#8377; ${ethernet_[i].Installation_Rate}</th>
+                                   <th>&#8377; ${ethernet_[i].Installation_Total}</th>
                                 </tr>
     
     
@@ -970,10 +968,10 @@
                                    <th>${ddc_[i].Hardware_Items}</th>
                                    <th style="width:60px">${ddc_[i].Qty}</th>
                                    <th>${ddc_[i].Uoms}</th>
-                                   <th>${ddc_[i].Supply_Rate}</th>
-                                   <th>${ddc_[i].Supply_Total}</th>
-                                   <th>${ddc_[i].Installation_Rate}</th>
-                                   <th>${ddc_[i].Installation_Total}</th>
+                                   <th>&#8377; ${ddc_[i].Supply_Rate}</th>
+                                   <th>&#8377; ${ddc_[i].Supply_Total}</th>
+                                   <th>&#8377; ${ddc_[i].Installation_Rate}</th>
+                                   <th>&#8377; ${ddc_[i].Installation_Total}</th>
                                 </tr>
     
     
@@ -1003,10 +1001,10 @@
                                    <th>${bms_sensors_[i].Hardware_Items}</th>
                                    <th style="width:60px">${bms_sensors_[i].Qty}</th>
                                    <th>${bms_sensors_[i].Uoms}</th>
-                                   <th>${bms_sensors_[i].Supply_Rate}</th>
-                                   <th>${bms_sensors_[i].Supply_Total}</th>
-                                   <th>${bms_sensors_[i].Installation_Rate}</th>
-                                   <th>${bms_sensors_[i].Installation_Total}</th>
+                                   <th>&#8377; ${bms_sensors_[i].Supply_Rate}</th>
+                                   <th>&#8377; ${bms_sensors_[i].Supply_Total}</th>
+                                   <th>&#8377; ${bms_sensors_[i].Installation_Rate}</th>
+                                   <th>&#8377; ${bms_sensors_[i].Installation_Total}</th>
                                 </tr>
     
     
@@ -1035,10 +1033,10 @@
                                    <th>${bms_cabling_[i].Hardware_Items}</th>
                                    <th style="width:60px">${bms_cabling_[i].Qty}</th>
                                    <th>${bms_cabling_[i].Uoms}</th>
-                                   <th>${bms_cabling_[i].Supply_Rate}</th>
-                                   <th>${bms_cabling_[i].Supply_Total}</th>
-                                   <th>${bms_cabling_[i].Installation_Rate}</th>
-                                   <th>${bms_cabling_[i].Installation_Total}</th>
+                                   <th>&#8377; ${bms_cabling_[i].Supply_Rate}</th>
+                                   <th>&#8377; ${bms_cabling_[i].Supply_Total}</th>
+                                   <th>&#8377; ${bms_cabling_[i].Installation_Rate}</th>
+                                   <th>&#8377; ${bms_cabling_[i].Installation_Total}</th>
                                 </tr>
     
     
@@ -1067,10 +1065,10 @@
                                    <th>${bms_piping_[i].Hardware_Items}</th>
                                    <th style="width:60px">${bms_piping_[i].Qty}</th>
                                    <th>${bms_piping_[i].Uoms}</th>
-                                   <th>${bms_piping_[i].Supply_Rate}</th>
-                                   <th>${bms_piping_[i].Supply_Total}</th>
-                                   <th>${bms_piping_[i].Installation_Rate}</th>
-                                   <th>${bms_piping_[i].Installation_Total}</th>
+                                   <th>&#8377; ${bms_piping_[i].Supply_Rate}</th>
+                                   <th>&#8377; ${bms_piping_[i].Supply_Total}</th>
+                                   <th>&#8377; ${bms_piping_[i].Installation_Rate}</th>
+                                   <th>&#8377; ${bms_piping_[i].Installation_Total}</th>
                                 </tr>
     
     
@@ -1099,10 +1097,10 @@
                                    <th>${bms_trays_[i].Hardware_Items}</th>
                                    <th style="width:60px">${bms_trays_[i].Qty}</th>
                                    <th>${bms_trays_[i].Uoms}</th>
-                                   <th>${bms_trays_[i].Supply_Rate}</th>
-                                   <th>${bms_trays_[i].Supply_Total}</th>
-                                   <th>${bms_trays_[i].Installation_Rate}</th>
-                                   <th>${bms_trays_[i].Installation_Total}</th>
+                                   <th>&#8377; ${bms_trays_[i].Supply_Rate}</th>
+                                   <th>&#8377; ${bms_trays_[i].Supply_Total}</th>
+                                   <th>&#8377; ${bms_trays_[i].Installation_Rate}</th>
+                                   <th>&#8377; ${bms_trays_[i].Installation_Total}</th>
                                 </tr>
     
     
@@ -1131,10 +1129,10 @@
                                    <th>${third_party_[i].Hardware_Items}</th>
                                    <th style="width:60px">${third_party_[i].Qty}</th>
                                    <th>${third_party_[i].Uoms}</th>
-                                   <th>${third_party_[i].Supply_Rate}</th>
-                                   <th>${third_party_[i].Supply_Total}</th>
-                                   <th>${third_party_[i].Installation_Rate}</th>
-                                   <th>${third_party_[i].Installation_Total}</th>
+                                   <th>&#8377; ${third_party_[i].Supply_Rate}</th>
+                                   <th>&#8377; ${third_party_[i].Supply_Total}</th>
+                                   <th>&#8377; ${third_party_[i].Installation_Rate}</th>
+                                   <th>&#8377; ${third_party_[i].Installation_Total}</th>
                                 </tr>
     
     
@@ -1163,10 +1161,10 @@
                                    <th>${others_[i].Hardware_Items}</th>
                                    <th style="width:60px">${others_[i].Qty}</th>
                                    <th>${others_[i].Uoms}</th>
-                                   <th>${others_[i].Supply_Rate}</th>
-                                   <th>${others_[i].Supply_Total}</th>
-                                   <th>${others_[i].Installation_Rate}</th>
-                                   <th>${others_[i].Installation_Total}</th>
+                                   <th>&#8377; ${others_[i].Supply_Rate}</th>
+                                   <th>&#8377; ${others_[i].Supply_Total}</th>
+                                   <th>&#8377; ${others_[i].Installation_Rate}</th>
+                                   <th>&#8377; ${others_[i].Installation_Total}</th>
                                 </tr>
     
     
@@ -1198,10 +1196,10 @@
                                    <th>${soft_data[i].Hardware_Items}</th>
                                    <th style="width:60px">${soft_data[i].Qty}</th>
                                    <th>${soft_data[i].Uoms}</th>
-                                   <th>${soft_data[i].Installation_Rate}</th>
-                                   <th>${soft_data[i].Installation_Total}</th>
-                                   <th></th>
-                                   <th></th>
+                                   <th>&#8377; ${soft_data[i].Installation_Rate}</th>
+                                   <th>&#8377; ${soft_data[i].Installation_Total}</th>
+                                   <th colspan="2">&#8377; ${soft_data[i].Installation_Total*12}</th>
+
                                 </tr>
     
     
@@ -1212,18 +1210,19 @@
     var installationtotal = JSON.parse(localStorage.getItem('installationtotal'));
 
     total_sum = total_sum * 1 + 1 * installationtotal;
-    document.getElementById("installationinstallrate").innerText = installationtotal;
-    document.getElementById("installationinstalltotal").innerText = installationtotal;
+    document.getElementById("installationinstallrate").innerText = "₹"+ installationtotal;
+    document.getElementById("installationinstalltotal").innerText = "₹"+ installationtotal;
     function installchange() {
         var yt = parseInt(document.getElementById("installinput").value);
-        document.getElementById("installationinstalltotal").innerText = installationtotal * 1 * yt;
+        document.getElementById("installationinstalltotal").innerText = "₹"+ (1*yt*installationtotal);
         total_sum = total_sum * 1 + yt * installationtotal - installationtotal;
-        document.getElementById("totalinstall").innerText = total_sum;
+                document.getElementById("totalinstall").innerText ="₹"+ total_sum;
     }
     console.log(rate_sum, total_sum);
-    document.getElementById("rateinstall").innerText = rate_sum;
-    document.getElementById("totalinstall").innerText = total_sum;
-    document.getElementById("softtotal").innerText = soft_total_sum;
+    document.getElementById("rateinstall").innerText ="₹"+ rate_sum;
+    document.getElementById("totalinstall").innerText ="₹"+ total_sum;
+    document.getElementById("softtotal").innerText ="₹"+ soft_total_sum;
+    document.getElementById("softtotalperyear").innerText="₹"+soft_total_sum*12; 
     //var clientdata={company_name:"",contact_person:"",email_id:"",mobile:"",subject:"",location:""};
     document.getElementById("company_name").value = clientdata.company_name;
     document.getElementById("contact_person").value = clientdata.contact_person;
@@ -1952,6 +1951,7 @@
         sheet.getCell('F'+init).value('UOM');
         sheet.getCell('G'+init).value('RATE');
         sheet.getCell('H'+init).value('TOTAL PER MONTH');
+        sheet.getCell('I'+init).value('TOTAL PER YEAR');
         sheet.getCell('K'+init).value('REMARKS');
         //COLOROUING 
         sheet.getCell('A'+init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#44546A'));
@@ -2037,15 +2037,15 @@
             sheet.getCell('E' + i).value(softdata[i - init].Qty);
             sheet.getCell('F' + i).value(softdata[i - init].Uoms);
             sheet.getCell('G' + i).value(softdata[i - init].Installation_Rate);
-            //sheet.getCell('J' + i).value(softdata[i - init].Installation_Total);
             sheet.getCell('H' + i).applyFormula(`=E${i}*G${i}`);
+            sheet.getCell('I' + i).applyFormula(`=H${i}*12`);
             sheet.getCell('K' + i).value(softdata[i - init].Remarks);
 
 
 
         }
         init = init + soft_data.length;
-        sheet.getCell('D' + init).value("Total Per Month");
+        sheet.getCell('D' + init).value("Total");
         //sheet.getCell('D'+init).cellFormat().font().colorInfo(new $.ig.excel.WorkbookColorInfo($.ig.excel.WorkbookThemeColorType.light1));
         sheet.getCell('A'+ init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#9cc2e5'));
         sheet.getCell('B'+ init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#9cc2e5'));
@@ -2058,7 +2058,7 @@
         sheet.getCell('D'+ init).cellFormat().font().bold(true);
 
         sheet.getCell('H' + init).applyFormula(`=SUM(H${softinit}:H${init - 1})`);
-        sheet.getCell('J' + init).applyFormula(`=SUM(J${softinit}:J${init - 1})`);
+        sheet.getCell('I' + init).applyFormula(`=H${init}*12`);
         sheet.getCell('H'+ init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#a9a9a9'));
         sheet.getCell('J'+ init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#a9a9a9'));
         sheet.getCell('I'+ init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#a9a9a9'));
