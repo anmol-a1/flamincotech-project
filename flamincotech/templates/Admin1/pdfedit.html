@@ -1220,13 +1220,13 @@ var pdfs;
         var yt = parseInt(document.getElementById("installinput").value);
         document.getElementById("installationinstalltotal").innerText = "₹"+ (1*yt*installationtotal);
         total_sum = total_sum * 1 + yt * installationtotal - installationtotal;
-        document.getElementById("totalinstall").innerText = total_sum;
+                document.getElementById("totalinstall").innerText ="₹"+ total_sum;
     }
     console.log(rate_sum, total_sum);
-    document.getElementById("rateinstall").innerText = rate_sum;
-    document.getElementById("totalinstall").innerText = total_sum;
-    document.getElementById("softtotal").innerText = soft_total_sum;
-document.getElementById("softtotalperyear").innerText=soft_total_sum*12;  
+    document.getElementById("rateinstall").innerText ="₹"+ rate_sum;
+    document.getElementById("totalinstall").innerText ="₹"+ total_sum;
+    document.getElementById("softtotal").innerText ="₹"+ soft_total_sum;
+    document.getElementById("softtotalperyear").innerText="₹"+soft_total_sum*12; 
     //var clientdata={company_name:"",contact_person:"",email_id:"",mobile:"",subject:"",location:""};
     document.getElementById("company_name").value = clientdata.company_name;
     document.getElementById("contact_person").value = clientdata.contact_person;
