@@ -1511,18 +1511,8 @@
                                                         <th rowspan="1">Hardware_Items </th>
                                                         <th rowspan="1"> Qty</th>
                                                         <th rowspan="1">Uom</th>
-                                                        <th hidden rowspan="1"> Cost_Supply_Rate</th>
-                                                        <th hidden rowspan="1"> Cost_Supply_Total</th>
-                                                        <th hidden rowspan="1"> Cost_Installation_Rate</th>
-                                                        <th hidden rowspan="1"> Cost_Installation_Total</th>
-                                                        <th rowspan="1"> MRS_Rate</th>
-                                                        <th rowspan="1"> MRS_Total</th>
-                                                        <th rowspan="1"> MRI_Rate</th>
-                                                        <th rowspan="1"> MRI_Total</th>
-                                                        <th rowspan="1"> Supply_Rate</th>
-                                                        <th rowspan="1"> Supply_Total</th>
-                                                        <th hidden rowspan="1"> Installation_Rate</th>
-                                                        <th hidden rowspan="1"> Installation_Total</th>
+                                                        <th rowspan="1"> Installation_Rate</th>
+                                                        <th rowspan="1"> Installation_Total</th>
 
                                                 </tr>
                                                 <tr style="background-color:white">
@@ -1533,24 +1523,14 @@
                                                                 testing of solutions </td>
                                                         <th>1</th>
                                                         <th>Lot</th>
-                                                        <th hidden >-</th>
-                                                        <th hidden >-</th>
-                                                        <th hidden >-</th>
-                                                        <th hidden ><input id="1Cost_Installation_Total_ManEfforts"
-                                                                        style="width: 55px;border:none" value=0
-                                                                        type="number">
-                                                        </th>
-                                                        <th>-</th>
-                                                        <th>-</th>
-                                                        <th>-</th>
-                                                        <th><input id="1MRI_Total_ManEfforts"
-                                                                        style="width: 55px;border:none" value=0
+                                                        
+        
+                                                        <th><input id="Installation_Rate_ManEfforts"
+                                                                        style="width: 155px;border:none" value=0
                                                                         type="number"></th>
-                                                        <th>-</th>
-                                                        <th>-</th>
-                                                        <th hidden >-</th>
-                                                        <th hidden ><input id="1Installation_Total_ManEfforts"
-                                                                        style="width: 55px;border:none" value=0
+
+                                                        <th ><input id="1Installation_Total_ManEfforts"
+                                                                        style="width: 155px;border:none" value=0
                                                                         type="number"></th>
 
                                                         </th>
@@ -1565,45 +1545,14 @@
                                                                         style="width: 55px;border:none" value=0
                                                                         type="number"></th>
                                                         <th>{{entry.UnitDescription}}</th>
-                                                        <th hidden ><input id="{{entry.sr_no|add:"1"}}Cost_Supply_Rate_ManEfforts"
-                                                                        style="width: 55px;border:none" value=0
+                                                        
+                                                        <th><input id="{{entry.sr_no|add:"1"}}Installation_Rate_ManEfforts"
+                                                                        style="width: 155px;border:none" value=0
                                                                         type="number"></th>
-                                                        <th hidden ><input id="{{entry.sr_no|add:"1"}}Cost_Supply_Total_ManEfforts"
-                                                                        style="width: 55px;border:none" value=0
+                                                        <th><input id="{{entry.sr_no|add:"1"}}Installation_Total_ManEfforts"
+                                                                        style="width: 155px;border:none" value=0
                                                                         type="number"></th>
-                                                        <th hidden ><input id="{{entry.sr_no|add:"1"}}Cost_Installation_Rate_ManEfforts"
-                                                                        style="width: 55px;border:none" value=0
-                                                                        type="number">
-                                                        </th>
-                                                        <th hidden ><input id="{{entry.sr_no|add:"1"}}Cost_Installation_Total_ManEfforts"
-                                                                        style="width: 55px;border:none" value=0
-                                                                        type="number">
-                                                        </th>
-                                                        <th><input id="{{entry.sr_no|add:"1"}}MRS_Rate_ManEfforts"
-                                                                        style="width: 55px;border:none" value=0
-                                                                        type="number"></th>
-                                                        <th><input id="{{entry.sr_no|add:"1"}}MRS_Total_ManEfforts"
-                                                                        style="width: 55px;border:none" value=0
-                                                                        type="number"></th>
-                                                        <th><input id="{{entry.sr_no|add:"1"}}MRI_Rate_ManEfforts"
-                                                                        style="width: 55px;border:none" value=0
-                                                                        type="number"></th>
-                                                        <th><input id="{{entry.sr_no|add:"1"}}MRI_Total_ManEfforts"
-                                                                        style="width: 55px;border:none" value=0
-                                                                        type="number"></th>
-                                                        <th><input id="{{entry.sr_no|add:"1"}}Supply_Rate_ManEfforts"
-                                                                        style="width: 55px;border:none" value=0
-                                                                        type="number"></th>
-                                                        <th><input id="{{entry.sr_no|add:"1"}}Supply_Total_ManEfforts"
-                                                                        style="width: 55px;border:none" value=0
-                                                                        type="number"></th>
-                                                        <th hidden ><input id="{{entry.sr_no|add:"1"}}Installation_Rate_ManEfforts"
-                                                                        style="width: 55px;border:none" value=0
-                                                                        type="number"></th>
-                                                        <th hidden ><input id="{{entry.sr_no|add:"1"}}Installation_Total_ManEfforts"
-                                                                        style="width: 55px;border:none" value=0
-                                                                        type="number"></th>
-                                                        </th>
+                                                        
                                                 </tr>
                                                 {% endfor %}
                                                 <tr style="background-color:white">
@@ -1613,33 +1562,14 @@
                                                         <td>TOTAL FLAMENCOTECH HARDWARE</td>
                                                         <th>-</th>
                                                         <th>-</th>
-                                                        <th hidden >-</th>
-                                                        <th hidden ><input id="Sum_Cost_Supply_Total_ManEfforts"
-                                                                        style="width: 55px;border:none" value=0
-                                                                        type="number"></th>
-                                                        <th hidden >-</th>
-                                                        <th hidden ><input id="Sum_Cost_Installation_Total_ManEfforts"
-                                                                        style="width: 55px;border:none" value=0
-                                                                        type="number">
-                                                        </th>
+                                                        
                                                         <th>-</th>
-                                                        <th><input id="Sum_MRS_Total_ManEfforts"
-                                                                        style="width: 55px;border:none" value=0
-                                                                        type="number"></th>
-                                                        <th>-</th>
-                                                        <th><input id="Sum_MRI_Total_ManEfforts"
-                                                                        style="width: 55px;border:none" value=0
-                                                                        type="number"></th>
-                                                        <th>-</th>
-                                                        <th><input id="Sum_Supply_Total_ManEfforts"
-                                                                        style="width: 55px;border:none" value=0
-                                                                        type="number"></th>
-                                                        <th hidden >-</th>
-                                                        <th hidden ><input id="Sum_Installation_Total_ManEfforts"
-                                                                        style="width: 55px;border:none" value=0
+                                                        
+                                                        <th><input id="Sum_Installation_Total_ManEfforts"
+                                                                        style="width: 155px;border:none" value=0
                                                                         type="number"></th>
 
-                                                        </th>
+                                                        
                                                 </tr>
                                         </tbody>
                                 </table>
@@ -2581,34 +2511,24 @@
                 trays1change();
                 var efforts_data = {{ ManEffortsData | safe}};
                 var iandc_datas=JSON.parse(localStorage.getItem('iandc_data'));
+                console.log("efforts data",efforts_data);
                 for(var abc=2;abc<=5;abc++){
   
-document.getElementById(abc + "Qty_ManEfforts").value=iandc_datas[abc-2];
-}
+                        document.getElementById(abc + "Qty_ManEfforts").value=iandc_datas[abc-2];
+                }
                 var manefforts = {{ ManEfforts | length }};
                 function maneffortschange() {
-                        let cst = 0, cit = 0, msta = 0, mita = 0, sta = 0, ita = 0;
 
-                        for (var i = 2; i <= manefforts; i++) {
+                        for (var i = 2; i <= (manefforts+1); i++) {
                                 console.log("ff");
 
-                                document.getElementById(i + "Cost_Installation_Rate_ManEfforts").value = document.getElementById(i + "Qty_ManEfforts").value == ("0" || 0) ? 0 : efforts_data[i - 1].UnitCostInclusiveofContigency;
-                                document.getElementById(i + "Cost_Installation_Total_ManEfforts").value = document.getElementById(i + "Qty_ManEfforts").value * 1 * document.getElementById(i + "Cost_Installation_Rate_ManEfforts").value;
 
-                                document.getElementById(i + "MRI_Rate_ManEfforts").value = document.getElementById(i + "Qty_ManEfforts").value == ("0" || 0) ? 0 : efforts_data[i - 1].Unit_Price;
-                                document.getElementById(i + "MRI_Total_ManEfforts").value = document.getElementById(i + "Qty_Trays1").value * 1 * document.getElementById(i + "MRI_Rate_ManEfforts").value;
-
-                                document.getElementById(i + "Installation_Rate_ManEfforts").value = document.getElementById(i + "Qty_ManEfforts").value == ("0" || 0) ? 0 : efforts_data[i - 1].ListPricewithoutRoundup;
+                                document.getElementById(i + "Installation_Rate_ManEfforts").value = document.getElementById(i + "Qty_ManEfforts").value == ("0" || 0) ? 0 : efforts_data[i - 2].ListPricewithRoundedup;
                                 document.getElementById(i + "Installation_Total_ManEfforts").value = document.getElementById(i + "Qty_ManEfforts").value * 1 * document.getElementById(i + "Installation_Rate_ManEfforts").value;
 
-
-                                cit = parseInt(cit) + 1 * document.getElementById(i + "Cost_Installation_Total_ManEfforts").value;
-                                mita = parseInt(mita) + 1 * document.getElementById(i + "MRI_Total_ManEfforts").value;
-                                ita = parseInt(ita) + 1 * document.getElementById(i + "Installation_Total_ManEfforts").value;
                         }
-                        document.getElementById("Sum_Cost_Installation_Total_ManEfforts").value = cit;
-                        document.getElementById("Sum_MRI_Total_ManEfforts").value = mita;
-                        document.getElementById("Sum_Installation_Total_ManEfforts").value = ita;
+                        
+                
                         manchanges();
                 }
                 maneffortschange();
@@ -2787,38 +2707,16 @@ continue;}
         localStorage.setItem('detailed_boq_p199', JSON.stringify(document.getElementById("C_Total").value));
         function manchanges(){
         man_cos_t=0;
-        for(var nikmc=2;nikmc<=6;nikmc++){
-            document.getElementById(nikmc+"Cost_Installation_Rate_ManEfforts").value=efforts_data[0].UnitCostInclusiveofContigency;
-            document.getElementById(nikmc+"Cost_Installation_Total_ManEfforts").value=document.getElementById(nikmc+"Cost_Installation_Rate_ManEfforts").value*1*document.getElementById(nikmc+"Qty_ManEfforts").value;
-           
-            man_cos_t=man_cos_t*1+1*document.getElementById(nikmc+"Cost_Installation_Total_ManEfforts").value;
-       
-        }
-        document.getElementById(1+"Cost_Installation_Total_ManEfforts").value=man_cos_t;
-        man_cos_t=1*man_cos_t+1*document.getElementById(6+"Cost_Installation_Total_ManEfforts").value;
-        document.getElementById("Sum_Cost_Installation_Total_ManEfforts").value=man_cos_t;
-        man_cos_m=0;
-        for(var nikmc=2;nikmc<=6;nikmc++){
-            document.getElementById(nikmc+"MRI_Rate_ManEfforts").value=efforts_data[0].Unit_Price;
-            document.getElementById(nikmc+"MRI_Total_ManEfforts").value=document.getElementById(nikmc+"MRI_Rate_ManEfforts").value*1*document.getElementById(nikmc+"Qty_ManEfforts").value;
-            
-            man_cos_m=man_cos_m*1+1*document.getElementById(nikmc+"MRI_Total_ManEfforts").value;
-       
-        }
-        document.getElementById(1+"MRI_Total_ManEfforts").value=man_cos_m;
-        man_cos_m=1*man_cos_m+1*document.getElementById(6+"MRI_Total_ManEfforts").value;
-        document.getElementById("Sum_MRI_Total_ManEfforts").value=man_cos_m;
-        man_cos_i=0;
-        for(var nikmc=2;nikmc<=6;nikmc++){
-            document.getElementById(nikmc+"Installation_Rate_ManEfforts").value=efforts_data[0].Unit_Price;
+        for(var nikmc=2;nikmc<=5;nikmc++){
             document.getElementById(nikmc+"Installation_Total_ManEfforts").value=document.getElementById(nikmc+"Installation_Rate_ManEfforts").value*1*document.getElementById(nikmc+"Qty_ManEfforts").value;
-            
-            man_cos_i=man_cos_i*1+1*document.getElementById(nikmc+"Installation_Total_ManEfforts").value;
+           
+            man_cos_t=man_cos_t*1+1*document.getElementById(nikmc+"Installation_Total_ManEfforts").value;
        
         }
-        document.getElementById(1+"Installation_Total_ManEfforts").value=man_cos_i;
-        man_cos_i=1*man_cos_i+1*document.getElementById(6+"Installation_Total_ManEfforts").value;
-        document.getElementById("Sum_Installation_Total_ManEfforts").value=man_cos_i;
+        document.getElementById(1+"Installation_Total_ManEfforts").value=man_cos_t;
+        man_cos_t=1*man_cos_t+1*document.getElementById(6+"Installation_Total_ManEfforts").value;
+        document.getElementById("Sum_Installation_Total_ManEfforts").value=man_cos_t;
+        
         }
         manchanges();
         function gotomargin() {
@@ -2991,7 +2889,7 @@ continue;}
                         sampobj.Model=Hard_Data[k-1].Model;
                         console.log(document.getElementById(k+"Uom_General").innerText);
                         sampobj.Uoms=document.getElementById(k+"Uom_General").innerText;
-                        sampobj.Supply_Rate= parseInt(document.getElementById(k+"Supply_Rate_General").value);
+                        sampobj.Supply_Rate=parseInt(document.getElementById(k+"Supply_Rate_General").value);
                         sampobj.Supply_Total=parseInt(document.getElementById(k+"Supply_Total_General").value);
                         sampobj.Installation_Rate= parseInt(document.getElementById(k+"Installation_Rate_General").value);
                         sampobj.Installation_Total=parseInt(document.getElementById(k+"Installation_Total_General").value);
@@ -3014,7 +2912,7 @@ continue;}
                         lm=lm+1;
                         sampobj.Model=Soft_Data[k-1].Model;
                         sampobj.Uoms=document.getElementById(k+"Uom_Soft").innerText;
-                        sampobj.Supply_Rate= parseInt(document.getElementById(k+"Capex").value);
+                        sampobj.Supply_Rate=parseInt(document.getElementById(k+"Capex").value);
                         sampobj.Supply_Total=parseInt(document.getElementById(k+"C_Total").value);
                         sampobj.Installation_Rate= parseInt(document.getElementById(k+"Opex").value);
                         sampobj.Installation_Total=parseInt(document.getElementById(k+"O_Total").value);
@@ -3045,7 +2943,7 @@ continue;}
                         lmna=lmna+1;
                         sampobj.Model=Bms_TraysData[k-1].Model;
                         sampobj.Uoms=Bms_TraysData[k-1].UnitDescription;
-                        sampobj.Supply_Rate= parseInt(document.getElementById(k+"Supply_Rate_Bms_Trays").value);
+                        sampobj.Supply_Rate=parseInt(document.getElementById(k+"Supply_Rate_Bms_Trays").value);
                         sampobj.Supply_Total=parseInt(document.getElementById(k+"Supply_Total_Bms_Trays").value);
                         sampobj.Installation_Rate= parseInt(document.getElementById(k+"Installation_Rate_Bms_Trays").value);
                         sampobj.Installation_Total=parseInt(document.getElementById(k+"Installation_Total_Bms_Trays").value);
@@ -3066,7 +2964,7 @@ continue;}
                         lmna=lmna+1;
                         sampobj.Model=vpsdata[k+6].Model;
                         sampobj.Uoms=vpsdata[k+6].UnitDescription;
-                        sampobj.Supply_Rate= parseInt(document.getElementById(k+"Supply_Rate_Trays2").value);
+                        sampobj.Supply_Rate=parseInt(document.getElementById(k+"Supply_Rate_Trays2").value);
                         sampobj.Supply_Total=parseInt(document.getElementById(k+"Supply_Total_Trays2").value);
                         sampobj.Installation_Rate= parseInt(document.getElementById(k+"Installation_Rate_Trays2").value);
                         sampobj.Installation_Total=parseInt(document.getElementById(k+"Installation_Total_Trays2").value);
@@ -3095,7 +2993,7 @@ continue;}
                         lmna=lmna+1;
                         sampobj.Model=PipingData[k-1].Model;
                         sampobj.Uoms=PipingData[k-1].UnitDescription;
-                        sampobj.Supply_Rate= parseInt(document.getElementById(k+"Supply_Rate_Piping").value);
+                        sampobj.Supply_Rate=parseInt(document.getElementById(k+"Supply_Rate_Piping").value);
                         sampobj.Supply_Total=parseInt(document.getElementById(k+"Supply_Total_Piping").value);
                         sampobj.Installation_Rate= parseInt(document.getElementById(k+"Installation_Rate_Piping").value);
                         sampobj.Installation_Total=parseInt(document.getElementById(k+"Installation_Total_Piping").value);
@@ -3122,7 +3020,7 @@ continue;}
                         lmna=lmna+1;
                         sampobj.Model=Bms_CablingData[k-1].Model;
                         sampobj.Uoms=Bms_CablingData[k-1].UnitDescription;
-                        sampobj.Supply_Rate= parseInt(document.getElementById(k+"Supply_Rate_Bms_Cabling").value);
+                        sampobj.Supply_Rate=parseInt(document.getElementById(k+"Supply_Rate_Bms_Cabling").value);
                         sampobj.Supply_Total=parseInt(document.getElementById(k+"Supply_Total_Bms_Cabling").value);
                         sampobj.Installation_Rate= parseInt(document.getElementById(k+"Installation_Rate_Bms_Cabling").value);
                         sampobj.Installation_Total=parseInt(document.getElementById(k+"Installation_Total_Bms_Cabling").value);
@@ -3146,7 +3044,7 @@ continue;}
                         lmna=lmna+1;
                         sampobj.Model=Bms_SensorData[k-1].Model;
                         sampobj.Uoms=Bms_SensorData[k-1].UnitDescription;
-                        sampobj.Supply_Rate= parseInt(document.getElementById(k+"Supply_Rate_Bms_Sensor").value);
+                        sampobj.Supply_Rate=parseInt(document.getElementById(k+"Supply_Rate_Bms_Sensor").value);
                         sampobj.Supply_Total=parseInt(document.getElementById(k+"Supply_Total_Bms_Sensor").value);
                         sampobj.Installation_Rate= parseInt(document.getElementById(k+"Installation_Rate_Bms_Sensor").value);
                         sampobj.Installation_Total=parseInt(document.getElementById(k+"Installation_Total_Bms_Sensor").value);
@@ -3170,7 +3068,7 @@ continue;}
                         lmna=lmna+1;
                         sampobj.Model=DdcData[k-1].Model;
                         sampobj.Uoms=DdcData[k-1].UnitDescription;
-                        sampobj.Supply_Rate= parseInt(document.getElementById(k+"Supply_Rate_Ddc").value);
+                        sampobj.Supply_Rate=parseInt(document.getElementById(k+"Supply_Rate_Ddc").value);
                         sampobj.Supply_Total=parseInt(document.getElementById(k+"Supply_Total_Ddc").value);
                         sampobj.Installation_Rate= parseInt(document.getElementById(k+"Installation_Rate_Ddc").value);
                         sampobj.Installation_Total=parseInt(document.getElementById(k+"Installation_Total_Ddc").value);
@@ -3194,7 +3092,7 @@ continue;}
                         lmna=lmna+1;
                         sampobj.Model=EthernetData[k-1].Model;
                         sampobj.Uoms=EthernetData[k-1].UnitDescription;
-                        sampobj.Supply_Rate= parseInt(document.getElementById(k+"Supply_Rate_Ethernet").value);
+                        sampobj.Supply_Rate=parseInt(document.getElementById(k+"Supply_Rate_Ethernet").value);
                         sampobj.Supply_Total=parseInt(document.getElementById(k+"Supply_Total_Ethernet").value);
                         sampobj.Installation_Rate= parseInt(document.getElementById(k+"Installation_Rate_Ethernet").value);
                         sampobj.Installation_Total=parseInt(document.getElementById(k+"Installation_Total_Ethernet").value);
@@ -3218,7 +3116,7 @@ continue;}
                         lmna=lmna+1;
                         sampobj.Model=FiberData[k-1].Model;
                         sampobj.Uoms=FiberData[k-1].UnitDescription;
-                        sampobj.Supply_Rate= parseInt(document.getElementById(k+"Supply_Rate_Fiber").value);
+                        sampobj.Supply_Rate=parseInt(document.getElementById(k+"Supply_Rate_Fiber").value);
                         sampobj.Supply_Total=parseInt(document.getElementById(k+"Supply_Total_Fiber").value);
                         sampobj.Installation_Rate= parseInt(document.getElementById(k+"Installation_Rate_Fiber").value);
                         sampobj.Installation_Total=parseInt(document.getElementById(k+"Installation_Total_Fiber").value);
@@ -3242,7 +3140,7 @@ continue;}
                         lmna=lmna+1;
                         sampobj.Model=ActiveData[k-1].Model;
                         sampobj.Uoms=ActiveData[k-1].UnitDescription;
-                        sampobj.Supply_Rate= parseInt(document.getElementById(k+"Supply_Rate_Active").value);
+                        sampobj.Supply_Rate=parseInt(document.getElementById(k+"Supply_Rate_Active").value);
                         sampobj.Supply_Total=parseInt(document.getElementById(k+"Supply_Total_Active").value);
                         sampobj.Installation_Rate= parseInt(document.getElementById(k+"Installation_Rate_Active").value);
                         sampobj.Installation_Total=parseInt(document.getElementById(k+"Installation_Total_Active").value);
@@ -3266,7 +3164,7 @@ continue;}
                         lmna=lmna+1;
                         sampobj.Model=third_party_data[k-1].Model;
                         sampobj.Uoms=third_party_data[k-1].UnitDescription;
-                        sampobj.Supply_Rate= parseInt(document.getElementById(k+"Supply_Rate_Third_Party").value);
+                        sampobj.Supply_Rate=parseInt(document.getElementById(k+"Supply_Rate_Third_Party").value);
                         sampobj.Supply_Total=parseInt(document.getElementById(k+"Supply_Total_Third_Party").value);
                         sampobj.Installation_Rate= parseInt(document.getElementById(k+"Installation_Rate_Third_Party").value);
                         sampobj.Installation_Total=parseInt(document.getElementById(k+"Installation_Total_Third_Party").value);
@@ -3290,10 +3188,10 @@ continue;}
                         lmna=lmna+1;
                         sampobj.Model=efforts_data[k-1].Model;
                         sampobj.Uoms=efforts_data[k-1].UnitDescription;
-                        sampobj.Supply_Rate= parseInt(document.getElementById(k+"Supply_Rate_ManEfforts").value);
-                        sampobj.Supply_Total=parseInt(document.getElementById(k+"Supply_Total_ManEfforts").value);
-                        sampobj.Installation_Rate= parseInt(document.getElementById(k+"Installation_Rate_ManEfforts").value);
-                        sampobj.Installation_Total=parseInt(document.getElementById(k+"Installation_Total_ManEfforts").value);
+                        sampobj.Supply_Rate=0;
+                        sampobj.Supply_Total=0;
+                        sampobj.Installation_Rate= 0;
+                        sampobj.Installation_Total=0;
                         efforts_.push(sampobj)
                      }
                 }  
@@ -3314,7 +3212,7 @@ continue;}
                         lmna=lmna+1;
                         sampobj.Model=vpsdata[k-1].Model;
                         sampobj.Uoms=vpsdata[k-1].UnitDescription;
-                        sampobj.Supply_Rate= parseInt(document.getElementById(k+"Supply_Rate_Trays1").value);
+                        sampobj.Supply_Rate=parseInt(document.getElementById(k+"Supply_Rate_Trays1").value);
                         sampobj.Supply_Total=parseInt(document.getElementById(k+"Supply_Total_Trays1").value);
                         sampobj.Installation_Rate= parseInt(document.getElementById(k+"Installation_Rate_Trays1").value);
                         sampobj.Installation_Total=parseInt(document.getElementById(k+"Installation_Total_Trays1").value);

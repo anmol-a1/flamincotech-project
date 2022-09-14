@@ -153,8 +153,8 @@ a {
                                     <td style="font-weight:bold">Company: </td>
                                     <td><input type="text" class="changefont" id="company_name"
                                             style="border: none;height:30px"></td>
-                                    <td style="font-weight:bold"> </td>
-                                    <td rowspan="4" style="vertical-align : middle;"><b>FlamencoTech India Pvt Ltd</b>
+                            
+                                    <td rowspan="4" colspan="2" style="vertical-align : middle;"><b>FlamencoTech India Pvt Ltd</b>
                                         <br>#731, 1st Floor, 7th Cross, 3rd Block,
                                         Koramangala, Bangalore, India - 560 034<br><br>+91 80 2563
                                         3803<br>connect@flamencotech.com<br>
@@ -522,7 +522,7 @@ var pdfs;
             const x = Math.random() * 100000;
             const y = Math.random() * 100000;
             const sr=parseInt(Math.random()*x*y);
-            const tempref=de.toISOString().split('T')[0]+"-"+clientdata.company_name+"-"+sr;
+            const tempref=de.toLocaleString(undefined, {timeZone: 'Asia/Kolkata'})+"-"+clientdata.company_name+"-"+sr;
             document.getElementById("refno").value=tempref;
             
             function downloadpdf() {
@@ -656,10 +656,10 @@ document.getElementById("date").value = d.toUTCString();
             sheet.columns(10).setWidth(350, $.ig.excel.WorksheetColumnWidthUnit.pixel);
            // sheet.columns(4).setWidth(80, $.ig.excel.WorksheetColumnWidthUnit.pixel);
          //   sheet.columns(6).setWidth(96, $.ig.excel.WorksheetColumnWidthUnit.pixel);
-        sheet.columns(6).cellFormat().formatString('##0.0_,₹#');
-        sheet.columns(7).cellFormat().formatString('##0.0_,₹#');
-        sheet.columns(8).cellFormat().formatString('##0.0_,₹#');
-        sheet.columns(9).cellFormat().formatString('##0.0_,₹#');
+         sheet.columns(6).cellFormat().formatString('₹ ##0.0');
+         sheet.columns(7).cellFormat().formatString('₹ ##0.0');
+         sheet.columns(8).cellFormat().formatString('₹ ##0.0');
+         sheet.columns(9).cellFormat().formatString('₹ ##0.0');
 
 
             var imageShape = new $.ig.excel.WorksheetImage(logoBase64);
