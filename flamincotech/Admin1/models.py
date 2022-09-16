@@ -1037,4 +1037,23 @@ class IAQ(models.Model):
     basiccharges=models.IntegerField(default=0)
     discountpercent=models.IntegerField(default=0)
     discountrate=models.IntegerField(default=0)
+
+class Pm_Final(models.Model):
+    sr_no=models.IntegerField()
+    minslab=models.IntegerField(default=0)
+    maxslab=models.IntegerField(default=0)
+    rate=models.IntegerField(default=0)
+    total=models.IntegerField(default=0)
+class Pm_After_Margin(models.Model):
+    sr_no=models.IntegerField()
+    minslab=models.IntegerField(default=0)
+    maxslab=models.IntegerField(default=0)
+    rate=models.IntegerField(default=0)
+    total=models.IntegerField(default=0)
+class Pm_After_Cost(models.Model):
+    sr_no=models.IntegerField()
+    minslab=models.IntegerField(default=0)
+    maxslab=models.IntegerField(default=0)
+    rate=models.IntegerField(default=0)
+    total=models.IntegerField(default=0)
     

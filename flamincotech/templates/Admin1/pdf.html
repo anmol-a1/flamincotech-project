@@ -465,9 +465,9 @@
                                 </tbody>
                                 <tr>
                                     <th colspan="7" style="background-color: #9cc2e5; color:white; text-align:center;">TOTAL AMOUNT</th>
-                                    <th id="rateinstall">0</th>
-                                    <th></th>
-                                    <th id="totalinstall">0</th>
+                                    <th id="rateinstall" style="background-color:#a9a9a9; color:white;">0</th>
+                                    <th style="background-color:#a9a9a9"></th>
+                                    <th id="totalinstall" style="background-color:#a9a9a9; color:white;">0</th>
                                 </tr>
                                 <div >
 
@@ -480,7 +480,7 @@
                                         <th>UOM</th>
                                         <th>RATE</th>
                                         <th>TOTAL PER MONTH</th>
-                                        <th colspan="2">TOTAL PER ANUM</th>
+                                        <th colspan="2">TOTAL PER ANNUM</th>
                                     <tr hidden id="softwares" style="background-color: #FFC000;">
                                         <th id="srno13">B</th>
                                         <th style="width:60px">FlamencoTech</th>
@@ -499,10 +499,10 @@
 
                                     </tbody>
                                     <tr>
-                                        <th colspan="6" style="background-color: #9cc2e5; color:white; text-align:center;">TOTAL AMOUNT</th>
-                                        <th></th>
-                                        <th id="softtotal"></th>
-                                        <th colspan="2" id="softtotalperyear"></th>
+                                        <th colspan="7" style="background-color: #9cc2e5; color:white; text-align:center;">TOTAL AMOUNT</th>
+                                        
+                                        <th id="softtotal" style="background-color:#a9a9a9; color:white;"></th>
+                                        <th colspan="2" id="softtotalperyear" style="background-color:#a9a9a9; color:white;"></th>
                                     </tr>
                                 </div>
                             </table>
@@ -1952,7 +1952,7 @@
         sheet.getCell('F'+init).value('UOM');
         sheet.getCell('G'+init).value('RATE');
         sheet.getCell('H'+init).value('TOTAL PER MONTH');
-        sheet.getCell('I'+init).value('TOTAL PER ANUM');
+        sheet.getCell('I'+init).value('TOTAL PER ANNUM');
         sheet.getCell('K'+init).value('REMARKS');
         //COLOROUING 
         sheet.getCell('A'+init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#44546A'));

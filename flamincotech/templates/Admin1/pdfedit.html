@@ -202,7 +202,6 @@
                                     <th colspan="6">-</th>
                                     <th colspan="2">SUPPLY</th>
                                     <th colspan="2">INSTALLATION</th>
-
                                 </tr>
                                 <tr style="background-color: #44546A; color:white;">
                                     <th>S.N.</th>
@@ -217,9 +216,9 @@
                                     <th>TOTAL</th>
                                 </tr>
                                 <div>
-                                    <tr hidden id="hardwares" style="background-color: #FFC000;">
+                                    {% comment %} <tr hidden id="hardwares" style="background-color: #FFC000;">
                                         <th id="srno1">A</th>
-                                        <th style="width:60px">FlamencoTech</th>
+                                        <th style="width:60px">Flamenco Tech</th>
                                         <th></th>
                                         <th>HARDWARE</th>
                                         <th style="width:60px"></th>
@@ -229,6 +228,19 @@
                                         <th></th>
                                         <th></th>
                                         <th colspan="2"></th>
+
+                                    </tr> {% endcomment %}
+                                    <tr hidden id="hardwares" style="background-color: #FFC000;">
+                                        <th id="srno1">A</th>
+                                        <th style="width:60px">Flamenco Tech</th>
+                                        <th></th>
+                                        <th>HARDWARE</th>
+                                        <th style="width:60px"></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
 
                                     </tr>
                                     <tbody id="hardwarecontenthard">
@@ -441,7 +453,7 @@
                                     <th id="srno12">C</th>
                                     <th style="width:60px"> </th>
                                     <th></th>
-                                    <th>FT INSTALLATION</th>
+                                    <th>INSTALLATION</th>
                                     <th style="width:60px"></th>
                                     <th></th>
                                     <th></th>
@@ -465,9 +477,9 @@
                                 </tbody>
                                 <tr>
                                     <th colspan="7" style="background-color: #9cc2e5; color: white; text-align:center;">TOTAL AMOUNT</th>
-                                    <th id="rateinstall">0</th>
-                                    <th></th>
-                                    <th id="totalinstall">0</th>
+                                    <th id="rateinstall" style="background-color:#a9a9a9; color:white;">0</th>
+                                    <th style="background-color:#a9a9a9"></th>
+                                    <th id="totalinstall" style="background-color:#a9a9a9; color:white;">0</th>
                                 </tr>
                                 <div >
 
@@ -480,16 +492,17 @@
                                         <th>UOM</th>
                                         <th>RATE</th>
                                         <th>TOTAL PER MONTH</th>
-                                        <th colspan="2">TOTAL PER ANUM</th>
+                                        <th colspan="2">TOTAL PER ANNUM</th>
                                     <tr hidden id="softwares" style="background-color: #FFC000;">
                                         <th id="srno13">B</th>
-                                        <th style="width:60px">FlamencoTech</th>
+                                        <th style="width:60px">Flamenco Tech</th>
                                         <th></th>
                                         <th>SOFTWARE</th>
                                         <th style="width:60px"></th>
                                         <th></th>
                                         <th></th>
                                         <th></th>
+                                        <th colspan='2'></th>
 
                                     </tr>
                                     <tbody id="maincontentsoft">
@@ -500,8 +513,8 @@
                                     <tr>
                                         <th colspan="7" style="background-color: #9cc2e5; color: white; text-align:center;">TOTAL AMOUNT</th>
                                         
-                                        <th id="softtotal"></th>
-                                        <th colspan="2" id="softtotalperyear"></th>
+                                        <th id="softtotal" style="background-color:#a9a9a9; color:white;"></th>
+                                        <th colspan="2" id="softtotalperyear" style="background-color:#a9a9a9; color:white;"></th>
                                     </tr>
                                 </div>
                             </table>
@@ -1893,7 +1906,7 @@ var workbook = new $.ig.excel.Workbook($.ig.excel.WorkbookFormat.excel2007);
         }
         init = init + (others_.length);
 
-        sheet.getCell('D' + init).value('FT Installation ');
+        sheet.getCell('D' + init).value('INSTALLATION ');
         sheet.getCell('K' + init).value('REMARKS');
         //BOLD
         sheet.getCell('D'+  init).cellFormat().font().bold(true);
@@ -1949,7 +1962,7 @@ var workbook = new $.ig.excel.Workbook($.ig.excel.WorkbookFormat.excel2007);
         sheet.getCell('F'+init).value('UOM');
         sheet.getCell('G'+init).value('RATE');
         sheet.getCell('H'+init).value('TOTAL PER MONTH');
-        sheet.getCell('I'+init).value('TOTAL PER ANUM');
+        sheet.getCell('I'+init).value('TOTAL PER ANNUM');
         sheet.getCell('K'+init).value('REMARKS');
         //COLOROUING 
         sheet.getCell('A'+init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#44546A'));
@@ -2004,7 +2017,7 @@ var workbook = new $.ig.excel.Workbook($.ig.excel.WorkbookFormat.excel2007);
             caphead = caphead + 1;
             sheet.getCell('A' + init).value(char);
             sheet.getCell('B' + init).value('Flamenco Tech');
-            sheet.getCell('D' + init).value('FT SOFTWARE');
+            sheet.getCell('D' + init).value('SOFTWARE');
              // COLORING
              sheet.getCell('A'+init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
             sheet.getCell('B'+init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));

@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 import json
 from django.db.models import Count
 from django.http import HttpResponseRedirect,HttpResponse,JsonResponse
-from .models import Quotation,Soft_Items_DB,margin,ManEffortsInstall,IandC,NewUser,Software_Revised_Extra,Automate_Pricing,InputConfiguration,vpss,HardWareGeneral,HardWareIpVariant,HardWareActive,HardWarePassive,HardWareEthernet,HardWareDdc,HardWareBmsSensors,HardWareThirdParty,HardWareBmsScabling,HardWarePiping,HardWareTrays,HardWareGeneralInstall,HardWareIpVariantInstall,HardWareActiveInstall,HardWarePassiveInstall,HardWareEthernetInstall,HardWareDdcInstall,HardWareBmsSensorsInstall,HardWareThirdPartyInstall,HardWareBmsScablingInstall,HardWarePipingInstall,HardWareTraysInstall,SpazioPriceCalculator,Desk_Booking_Solution,Desk_Utilization_Solution,Desk_Planning_Solution,Employee_One_Mobile_App,Rostering,Wayfinding,Feedback,Kiosk_License,Meeting_Room_License_Occupancy,Meeting_Room_License_People_Count,Meeting_Room_License_Booking,Restroom_License_People_Count,Restroom_License_Wet_floor_detection,Restroom_License_Odour ,Human_body_temperature_License
+from .models import Pm_Final,Pm_After_Margin,Pm_After_Cost,Quotation,Soft_Items_DB,margin,ManEffortsInstall,IandC,NewUser,Software_Revised_Extra,Automate_Pricing,InputConfiguration,vpss,HardWareGeneral,HardWareIpVariant,HardWareActive,HardWarePassive,HardWareEthernet,HardWareDdc,HardWareBmsSensors,HardWareThirdParty,HardWareBmsScabling,HardWarePiping,HardWareTrays,HardWareGeneralInstall,HardWareIpVariantInstall,HardWareActiveInstall,HardWarePassiveInstall,HardWareEthernetInstall,HardWareDdcInstall,HardWareBmsSensorsInstall,HardWareThirdPartyInstall,HardWareBmsScablingInstall,HardWarePipingInstall,HardWareTraysInstall,SpazioPriceCalculator,Desk_Booking_Solution,Desk_Utilization_Solution,Desk_Planning_Solution,Employee_One_Mobile_App,Rostering,Wayfinding,Feedback,Kiosk_License,Meeting_Room_License_Occupancy,Meeting_Room_License_People_Count,Meeting_Room_License_Booking,Restroom_License_People_Count,Restroom_License_Wet_floor_detection,Restroom_License_Odour ,Human_body_temperature_License
 from User.models import Soft_Items,Bms_Trays,Bms_Piping,Bms_Cabling,Bms_Sensors,Ddc,Ethernet,Fiber,Active,General,Others,Third_Party
 import datetime
 from import_export import resources
@@ -1029,6 +1029,18 @@ def hardwaretrays(request):
 	context=fetchdata()
 	context['entries']=entries
 	return render(request,'Admin1/hardwaretrays.html',context)
+def iandctables(request):
+	Pm_Finals=Pm_Final.objects.all()
+	Pm_After_Margins=Pm_After_Margin.objects.all()
+	Pm_After_Costs=Pm_After_Cost.objects.all()
+	print(Pm_Finals)
+	print("gg")
+	print(Pm_After_Margins)
+	print("gg")
+	print(Pm_After_Costs)
+	print("gg")
+	context={'Pm_Finals':Pm_Finals,'Pm_After_Margins':Pm_After_Margins,'Pm_After_Costs':Pm_After_Costs}
+	return render(request,'Admin1/iandctables.html',context)
 class HardWareTraysResource(resources.ModelResource):
 	class Meta:
 		model = HardWareTrays
@@ -1962,7 +1974,35 @@ def export_hardwareactive(request):
 	response = HttpResponse(dataset.xls, content_type='application/vnd.ms-excel')
 	response['Content-Disposition'] = f'attachment; filename={fname}.xls'
 	return response
-			 
+#,,
+def editPm_Final(request):
+	sr_no=request.POST.get('sr_no')
+	t=Pm_Final.objects.get(sr_no=sr_no)
+	t.minslab=request.POST.get('minslab')
+	t.maxslab=request.POST.get('maxslab')
+	t.rate=request.POST.get('rate')
+	t.total=request.POST.get('total')
+	t.save()
+	return JsonResponse({'adg':'jyyj',}) 
+def editPm_Margin(request):
+	sr_no=request.POST.get('sr_no')
+	t=Pm_After_Margin.objects.get(sr_no=sr_no)
+	t.minslab=request.POST.get('minslab')
+	t.maxslab=request.POST.get('maxslab')
+	t.rate=request.POST.get('rate')
+	t.total=request.POST.get('total')
+	t.save()
+	return JsonResponse({'adg':'jyyj',}) 
+def editPm_Cost(request):
+	sr_no=request.POST.get('sr_no')
+	t=Pm_After_Cost.objects.get(sr_no=sr_no)
+	t.minslab=request.POST.get('minslab')
+	t.maxslab=request.POST.get('maxslab')
+	t.rate=request.POST.get('rate')
+	t.total=request.POST.get('total')
+	t.save()
+	return JsonResponse({'adg':'jyyj',}) 
+	 
 	
 	
 	

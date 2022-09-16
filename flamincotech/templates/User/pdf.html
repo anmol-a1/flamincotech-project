@@ -198,7 +198,6 @@ a {
                                     <th colspan="6">-</th>
                                     <th colspan="2">SUPPLY</th>
                                     <th colspan="2">INSTALLATION</th>
-
                                 </tr>
                                 <tr style="background-color: #44546A; color:white;">
                                     <th>S.N.</th>
@@ -213,7 +212,7 @@ a {
                                     <th>TOTAL</th>
                                 </tr>
                                 <div>
-                                    <tr  id="hardwares" style="background-color: yellow;">
+                                    <tr  id="hardwares" style="background-color: #FFC000;">
                                         <th id="srno1">A</th>
                                         <th style="width:60px">FlamencoTech</th>
                                         <th></th>
@@ -233,7 +232,7 @@ a {
                                     </tbody>
                                 </div>
 
-                                <tr id="installrow" style="background-color: yellow;">
+                                <tr id="installrow" style="background-color: #FFC000;">
                                     <th id="srno12">B</th>
                                     <th style="width:60px"> </th>
                                     <th></th>
@@ -260,10 +259,10 @@ a {
                                     <th id="installationinstalltotal"></th>
                                 </tbody>
                                 <tr>
-                                    <th colspan="7">Total</th>
-                                    <th id="rateinstall">0</th>
-                                    <th></th>
-                                    <th id="totalinstall">0</th>
+                                    <th colspan="7" style="background-color: #9cc2e5; color:white; text-align:center;">TOTAL AMOUNT</th>
+                                    <th id="rateinstall" style="background-color:#a9a9a9; color:white;">0</th>
+                                    <th style="background-color:#a9a9a9"></th>
+                                    <th id="totalinstall" style="background-color:#a9a9a9; color:white;">0</th>
                                 </tr>
                                 <div >
 
@@ -276,10 +275,10 @@ a {
                                         <th>UOM</th>
                                         <th>RATE</th>
                                         <th>TOTAL PER MONTH</th>
-                                        <th colspan="2">TOTAL PER YEAR</th>
+                                        <th colspan="2">TOTAL PER ANNUM</th>
                                         
                                     </tr>
-                                    <tr  id="softwares" style="background-color: yellow;">
+                                    <tr  id="softwares" style="background-color: #FFC000;">
                                         <th id="srno13">C</th>
                                         <th style="width:60px">FlamencoTech</th>
                                         <th></th>
@@ -297,10 +296,10 @@ a {
 
                                     </tbody>
                                     <tr>
-                                        <th colspan="6">Total Amount Per Month</th>
-                                        <th></th>
-                                        <th id="softtotal"></th>
-                                        <th colspan="2" id="softtotalperyear"></th>
+                                        <th colspan="7" style="background-color: #9cc2e5; color:white; text-align:center;">TOTAL AMOUNT</th>
+                                        
+                                        <th id="softtotal" style="background-color:#a9a9a9; color:white;"></th>
+                                        <th colspan="2" style="background-color:#a9a9a9; color:white;" id="softtotalperyear"></th>
                                     </tr>
                                 </div>
                             </table>
@@ -952,7 +951,7 @@ console.log("7ff");
         sheet.getCell('F'+init).value('UOM');
         sheet.getCell('G'+init).value('RATE');
         sheet.getCell('H'+init).value('TOTAL PER MONTH');
-        sheet.getCell('I'+init).value('TOTAL PER YEAR');
+        sheet.getCell('I'+init).value('TOTAL PER ANNUM');
         sheet.getCell('K'+init).value('REMARKS');
 //COLOROUING 
         sheet.getCell('A'+init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#44546A'));
