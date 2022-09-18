@@ -274,6 +274,7 @@ document.getElementById("5Margin").value=10
         $(document).on('click', '.save', function (e) {
             e.preventDefault();
             let sr_no=$(this).val();
+            console.log(sr_no);
             $.ajax({
                 type: 'POST',
                 url: '{% url "editmaneffortsinstall" %}',

@@ -542,6 +542,13 @@
 
       document.getElementById("6Spazio_Software").value = darray[3] * 3;
       document.getElementById("7Spazio_Software").value = darray[3] * 3;
+      
+
+    }
+    if(darray[10]==0){
+      document.getElementById("16Spazio_Software").value = 0;
+    }
+    else if(darray[10]>=1){
       document.getElementById("16Spazio_Software").value = darray[4] * 1.5;
 
     }
@@ -752,7 +759,7 @@
 
     }
 
-    //18 line
+    //18 lineDARRAY[]
     if (darray[10] == 0) {
       document.getElementById("18Spazio_Software").value = 0;
     }
@@ -946,11 +953,11 @@
     }
     document.getElementById("PM" + "Total").value = parseInt(document.getElementById("PM" + "Common").value) + parseInt(document.getElementById("PM" + "Spazio").value) + parseInt(document.getElementById("PM" + "MRB").value) + parseInt(document.getElementById("PM" + "MRP").value) + parseInt(document.getElementById("PM" + "RestRoom").value) + parseInt(document.getElementById("PM" + "IAQ").value) + parseInt(document.getElementById("PM" + "WF").value) + parseInt(document.getElementById("PM" + "FB").value);
     //window.location.href = 'http://127.0.0.1:8000/admins/detail_boq/'; 
-    document.getElementById("1TMD").value = parseInt(document.getElementById("L1Total").value) - parseInt(document.getElementById("16Spazio_Software").value) - parseInt(document.getElementById("17Spazio_Software").value) - parseInt(document.getElementById("17Wayfinding").value) - parseInt(document.getElementById("16Wayfinding").value) - parseInt(document.getElementById("16Meeting_Room_Booking").value) - parseInt(document.getElementById("17Meeting_Room_Booking").value) - parseInt(document.getElementById("16Meeting_Room_People_count_occupancy").value) - parseInt(document.getElementById("17Meeting_Room_People_count_occupancy").value);
-    document.getElementById("2TMD").value = parseInt(document.getElementById("16Spazio_Software").value) + parseInt(document.getElementById("17Spazio_Software").value) + parseInt(document.getElementById("17Wayfinding").value) + parseInt(document.getElementById("16Wayfinding").value) + parseInt(document.getElementById("16Meeting_Room_Booking").value) + parseInt(document.getElementById("17Meeting_Room_Booking").value) + parseInt(document.getElementById("16Meeting_Room_People_count_occupancy").value) + parseInt(document.getElementById("17Meeting_Room_People_count_occupancy").value);
-    document.getElementById("3TMD").value = parseInt(document.getElementById("L2Total").value);
-    document.getElementById("4TMD").value = parseInt(document.getElementById("L3Total").value);
-    document.getElementById("5TMD").value = parseInt(document.getElementById("PMTotal").value);
+    document.getElementById("1TMD").value = 1*(document.getElementById("L1Total").value) - 1*(document.getElementById("16Spazio_Software").value) - 1*(document.getElementById("17Spazio_Software").value) - 1*(document.getElementById("17Wayfinding").value) - 1*(document.getElementById("16Wayfinding").value) - 1*(document.getElementById("16Meeting_Room_Booking").value) - 1*(document.getElementById("17Meeting_Room_Booking").value) - 1*(document.getElementById("16Meeting_Room_People_count_occupancy").value) - 1*(document.getElementById("17Meeting_Room_People_count_occupancy").value);
+    document.getElementById("2TMD").value = 1*(document.getElementById("16Spazio_Software").value) + 1*(document.getElementById("17Spazio_Software").value) + 1*(document.getElementById("17Wayfinding").value) + 1*(document.getElementById("16Wayfinding").value) + 1*(document.getElementById("16Meeting_Room_Booking").value) + 1*(document.getElementById("17Meeting_Room_Booking").value) + 1*(document.getElementById("16Meeting_Room_People_count_occupancy").value) + 1*(document.getElementById("17Meeting_Room_People_count_occupancy").value);
+    document.getElementById("3TMD").value = 1*(document.getElementById("L2Total").value);
+    document.getElementById("4TMD").value = 1*(document.getElementById("L3Total").value);
+    document.getElementById("5TMD").value = 1*(document.getElementById("PMTotal").value);
     for (var i = 1; i <= 5; i++) {
       document.getElementById(i + "TMH").value = parseInt(document.getElementById(i + "TMD").value) * parseInt(document.getElementById(i + "PDR").value);
     }
@@ -962,7 +969,7 @@
     var iand_data = [];
     for (var sm = 1; sm <= 4; sm++) {
 
-      let vals = parseInt(document.getElementById(sm + "TMD").value);
+      let vals = 1*(document.getElementById(sm + "TMD").value);
       iand_data.push(vals);
     }
     localStorage.setItem('iandc_data', JSON.stringify(iand_data));

@@ -303,6 +303,12 @@
                           {% render_field AddMemberForm.password class="form-control" type="password" placeholder="Password" %}
                       </div>
                   </div>
+                  <div class="form-group row">
+                      <label for="inputPassword" class="col-sm-4 col-form-label">Admin</label>
+                      <div class="col-sm-8">
+                          {% render_field AddMemberForm.is_superuser  class="form-control"  %}
+                      </div>
+                  </div>
                   <div class="my-5">
                       <button type="submit" class="btn btn-primary mb-2">Save</button>
                   </div>

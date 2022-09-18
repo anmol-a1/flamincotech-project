@@ -788,7 +788,9 @@
     const x = Math.random() * 100000;
     const y = Math.random() * 100000;
     const sr = parseInt(Math.random() * x * y);
-    const tempref=de.toLocaleString(undefined, {timeZone: 'Asia/Kolkata'})+"-"+clientdata.company_name+"-"+sr;
+    var tempref=de.toLocaleString(undefined, {timeZone: 'Asia/Kolkata'})+"-"+clientdata.company_name+"-"+sr;
+    tempref=tempref.replaceAll("/","_");
+    tempref=tempref.replaceAll(" ","_");
     document.getElementById("refno").value = tempref;
     function downloadpdf() {
         const invoice = this.document.getElementById("invoice");
