@@ -136,7 +136,7 @@ a {
     <div style="width: auto;" class="container d-flex justify-content-center mt-50 mb-50">
         <div class="row">
             <div class="col-md-12 text-right mb-3">
-                <button class="btn btn-primary" onclick="downloadpdf()" id="download">Download pdf</button>
+                <button class="btn btn-primary" onclick="downloadpdf()" id="download">Download Pdf</button>
                 <button class="btn btn-primary" id="exportButton" onclick="createFormattingWorkbook(event)">Download Excel</button>
             </div>
             <div class="col-md-12">
@@ -154,7 +154,7 @@ a {
                                     <td><input type="text" class="changefont" id="company_name"
                                             style="border: none;height:30px"></td>
                             
-                                    <td rowspan="4" colspan="2" style="vertical-align : middle;"><b>FlamencoTech India Pvt Ltd</b>
+                                    <td rowspan="4" colspan="2" style="vertical-align : middle;"><b>Flamenco Tech India Pvt Ltd</b>
                                         <br>#731, 1st Floor, 7th Cross, 3rd Block,
                                         Koramangala, Bangalore, India - 560 034<br><br>+91 80 2563
                                         3803<br>connect@flamencotech.com<br>
@@ -214,9 +214,9 @@ a {
                                 <div>
                                     <tr  id="hardwares" style="background-color: #FFC000;">
                                         <th id="srno1">A</th>
-                                        <th style="width:60px">FlamencoTech</th>
+                                        <th style="width:60px">Flamenco Tech</th>
                                         <th></th>
-                                        <th>HARDWARE</th>
+                                        <th>FT HARDWARE</th>
                                         <th style="width:60px"></th>
                                         <th></th>
                                         <th></th>
@@ -236,7 +236,7 @@ a {
                                     <th id="srno12">B</th>
                                     <th style="width:60px"> </th>
                                     <th></th>
-                                    <th>FT INSTALLATION</th>
+                                    <th>INSTALLATION</th>
                                     <th style="width:60px"></th>
                                     <th></th>
                                     <th></th>
@@ -246,7 +246,7 @@ a {
                                 </tr>
                                 <tbody id="maincontentinstall">
                                     <th></th>
-                                    <th style="width:60px">Flamencotech</th>
+                                    <th style="width:60px">Flamenco Tech</th>
                                     <th>-</th>
                                     <th>Installation, Commissioning, Testing, Training (Train the Trainer), Handover,
                                         Documentation & Project Management</th>
@@ -260,9 +260,9 @@ a {
                                 </tbody>
                                 <tr>
                                     <th colspan="7" style="background-color: #9cc2e5; color:white; text-align:center;">TOTAL AMOUNT</th>
-                                    <th id="rateinstall" style="background-color:#a9a9a9; color:white;">0</th>
+                                    <th id="rateinstall" style="background-color:#a9a9a9; ">0</th>
                                     <th style="background-color:#a9a9a9"></th>
-                                    <th id="totalinstall" style="background-color:#a9a9a9; color:white;">0</th>
+                                    <th id="totalinstall" style="background-color:#a9a9a9; ">0</th>
                                 </tr>
                                 <div >
 
@@ -280,7 +280,7 @@ a {
                                     </tr>
                                     <tr  id="softwares" style="background-color: #FFC000;">
                                         <th id="srno13">C</th>
-                                        <th style="width:60px">FlamencoTech</th>
+                                        <th style="width:60px">Flamenco Tech</th>
                                         <th></th>
                                         <th>SOFTWARE</th>
                                         <th style="width:60px"></th>
@@ -298,8 +298,8 @@ a {
                                     <tr>
                                         <th colspan="7" style="background-color: #9cc2e5; color:white; text-align:center;">TOTAL AMOUNT</th>
                                         
-                                        <th id="softtotal" style="background-color:#a9a9a9; color:white;"></th>
-                                        <th colspan="2" style="background-color:#a9a9a9; color:white;" id="softtotalperyear"></th>
+                                        <th id="softtotal" style="background-color:#a9a9a9; "></th>
+                                        <th colspan="2" style="background-color:#a9a9a9; " id="softtotalperyear"></th>
                                     </tr>
                                 </div>
                             </table>
@@ -649,16 +649,16 @@ document.getElementById("date").value = d.toUTCString();
             sheet.columns(4).setWidth(60, $.ig.excel.WorksheetColumnWidthUnit.pixel);
             sheet.columns(5).setWidth(100, $.ig.excel.WorksheetColumnWidthUnit.pixel);
             sheet.columns(6).setWidth(90, $.ig.excel.WorksheetColumnWidthUnit.pixel);
-            sheet.columns(7).setWidth(110, $.ig.excel.WorksheetColumnWidthUnit.pixel);
-            sheet.columns(8).setWidth(90, $.ig.excel.WorksheetColumnWidthUnit.pixel);
-            sheet.columns(9).setWidth(110, $.ig.excel.WorksheetColumnWidthUnit.pixel);
+            sheet.columns(7).setWidth(150, $.ig.excel.WorksheetColumnWidthUnit.pixel);
+            sheet.columns(8).setWidth(150, $.ig.excel.WorksheetColumnWidthUnit.pixel);
+            sheet.columns(9).setWidth(150, $.ig.excel.WorksheetColumnWidthUnit.pixel);
             sheet.columns(10).setWidth(350, $.ig.excel.WorksheetColumnWidthUnit.pixel);
            // sheet.columns(4).setWidth(80, $.ig.excel.WorksheetColumnWidthUnit.pixel);
          //   sheet.columns(6).setWidth(96, $.ig.excel.WorksheetColumnWidthUnit.pixel);
-         sheet.columns(6).cellFormat().formatString('₹ ##0.0');
-         sheet.columns(7).cellFormat().formatString('₹ ##0.0');
-         sheet.columns(8).cellFormat().formatString('₹ ##0.0');
-         sheet.columns(9).cellFormat().formatString('₹ ##0.0');
+         sheet.columns(6).cellFormat().formatString('₹#,##0.0_);[Red](₹#,##0.0)');
+         sheet.columns(7).cellFormat().formatString('₹#,##0.0_);[Red](₹#,##0.0)');
+         sheet.columns(8).cellFormat().formatString('₹#,##0.0_);[Red](₹#,##0.0)');
+         sheet.columns(9).cellFormat().formatString('₹#,##0.0_);[Red](₹#,##0.0)');
 
 
             var imageShape = new $.ig.excel.WorksheetImage(logoBase64);
@@ -708,11 +708,11 @@ document.getElementById("date").value = d.toUTCString();
             sheet.rows(14).height(350);
             sheet.rows(15).height(500);
             console.log("3ff");
-            mergedCellA1D4.value('Company');
-            mergedCellA1D5.value('Kind Attendee');
-            mergedCellA1D6.value('Email');
-            mergedCellA1D7.value('Mobile');
-            mergedCellA1D8.value('Subject');
+            mergedCellA1D4.value('Company:');
+            mergedCellA1D5.value('Kind Attendee:');
+            mergedCellA1D6.value('Email:');
+            mergedCellA1D7.value('Mobile:');
+            mergedCellA1D8.value('Subject:');
         mergedCellA1D4.cellFormat().font().bold(true);
         mergedCellA1D5.cellFormat().font().bold(true);
         mergedCellA1D6.cellFormat().font().bold(true);
@@ -731,8 +731,8 @@ document.getElementById("date").value = d.toUTCString();
             mergedCellA1D12.value(clientdata.mobile);
             mergedCellA1D13.value(clientdata.subject);
             mergedCellA1D14.value('r');
-            mergedCellA1D15.value('Ref No.');
-            mergedCellA1D16.value('Date');
+            mergedCellA1D15.value('Ref No:');
+            mergedCellA1D16.value('Date:');
             mergedCellA1D17.value(tempref);
             mergedCellA1D18.value(d.toUTCString());
            mergedCellA1D20.value('SUPPLY');
@@ -868,8 +868,8 @@ document.getElementById("date").value = d.toUTCString();
               let char = String.fromCharCode(caphead);
               caphead=caphead+1;
               sheet.getCell('A'+init).value(char);
-              sheet.getCell('B'+init).value('FLAMENCOETCH');
-              sheet.getCell('D'+init).value('FT HARDWARE');
+              sheet.getCell('B'+init).value('Flamenco Tech');
+              sheet.getCell('D'+init).value(' FT HARDWARE');
               init=init+1;
             }
 //        let sampobj={Uoms:"per device",Hardware_Items: "Digital Blanket IOT Data Collector Machine ",
@@ -896,7 +896,7 @@ console.log("7ff");
              }
              console.log("8ff");
             init=init+harddata.length;
-            sheet.getCell('D' + init).value('FT Installation ');
+            sheet.getCell('D' + init).value('INSTALLATION');
             sheet.getCell('K' + init).value('');
   //BOLD
         sheet.getCell('D'+  init).cellFormat().font().bold(true);
@@ -916,14 +916,14 @@ console.log("7ff");
             sheet.getCell('A' + init).value("B");
             caphead=caphead+1;
         
-            sheet.getCell('B' + init).value('FlamencoTech');
+            sheet.getCell('B' + init).value('Flamenco Tech');
             sheet.getCell('D' + init).value('Installation, Commissioning, Testing, Training (Train the Trainer), Handover, Documentation & Project Management');
             sheet.getCell('E' + init).value(1);
             sheet.getCell('F' + init).value('Lot');
             sheet.getCell('I' + init).value(installationtotal);
             sheet.getCell('J' + init).applyFormula(`=E${init}*I${init}`);
             init = init + 1;
-            sheet.getCell('D' + init).value("Total Amount");
+            sheet.getCell('D' + init).value("TOTAL AMOUNT");
         sheet.getCell('A'+ init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#9cc2e5'));
         sheet.getCell('B'+ init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#9cc2e5'));
         sheet.getCell('C'+ init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#9cc2e5'));
@@ -1005,8 +1005,8 @@ console.log("7ff");
                 let char = String.fromCharCode(caphead);
                 caphead=caphead+1;
                 sheet.getCell('A'+init).value(char);
-                sheet.getCell('B'+init).value('FLAMENCOETCH');
-                sheet.getCell('D'+init).value('FT SOFTWARE');
+                sheet.getCell('B'+init).value('Flamenco Tech');
+                sheet.getCell('D'+init).value('SOFTWARE');
 // COLORING
             sheet.getCell('A'+init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
             sheet.getCell('B'+init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#FFC000'));
@@ -1047,7 +1047,7 @@ console.log("7ff");
 
             }
             init=init+softdata.length;
-            sheet.getCell('D' + init).value("Total");
+            sheet.getCell('D' + init).value("TOTAL AMOUNT");
         sheet.getCell('A'+ init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#9cc2e5'));
         sheet.getCell('B'+ init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#9cc2e5'));
         sheet.getCell('C'+ init).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#9cc2e5'));
@@ -1066,6 +1066,7 @@ console.log("7ff");
         //sheet.getCell('J'+init).cellFormat().font().colorInfo(new $.ig.excel.WorkbookColorInfo($.ig.excel.WorkbookThemeColorType.light1));
         sheet.getCell('H'+ init).cellFormat().font().bold(true);
         sheet.getCell('J'+ init).cellFormat().font().bold(true);
+        sheet.getCell('I'+ init).cellFormat().font().bold(true);
             console.log("9ff");
             
          //   sheet.getCell('B3').value('Description');
@@ -1090,7 +1091,9 @@ console.log("7ff");
             // Save the workbook
         init=init+1;
         var TandC1 = sheet.mergedCellsRegions().add(init, 0, init, 10);
-        TandC1.value('Terms and Conditions');
+        TandC1.value('Terms and Conditions :');
+        sheet.getCell('A'+(init+1)).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#a9a9a9'));
+        sheet.getCell('A'+(init+1)).cellFormat().font().bold(true);
         init=init+1;
 
 //
@@ -1263,7 +1266,9 @@ sheet.getCell('A'+(init+1)).value(22);
 //
 
  TandC2 = sheet.mergedCellsRegions().add(init, 0, init, 10);
-        TandC2.value('Assumptions');
+        TandC2.value('Assumptions :');
+        sheet.getCell('A'+(init+1)).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#a9a9a9'));
+        sheet.getCell('A'+(init+1)).cellFormat().font().bold(true);
         init=init+1;
 
 //

@@ -139,7 +139,7 @@
     <div style="width: auto;" class="container d-flex justify-content-center mt-50 mb-50">
         <div class="row">
             <div class="col-md-12 text-right mb-3">
-                <button class="btn btn-primary" onclick="downloadpdf()" id="download">Download pdf</button>
+                <button class="btn btn-primary" onclick="downloadpdf()" id="download">Download Pdf</button>
                 <button class="btn btn-primary" id="exportButton" onclick="createFormattingWorkbook(event)">Download
                     Excel</button>
             </div>
@@ -154,41 +154,41 @@
                         <table class="table" border="1">
                             <thead style="border: 1px;">
                                 <tr>
-                                    <td style="font-weight:bold">Company: </td>
+                                    <td style="font-weight:bold;font-size: 15px;">Company: </td>
                                     <td><input type="text" class="changefont" id="company_name"
-                                            style="border: none;height:30px"></td>
+                                            style="border: none;height:30px; font-size: medium;"></td>
                                     
-                                    <td rowspan="4" colspan="2" style="vertical-align : middle;"><b>FlamencoTech India Pvt Ltd</b>
+                                    <td rowspan="4" colspan="2" style="vertical-align : middle; "><b>Flamenco Tech India Pvt Ltd</b>
                                         <br>#731, 1st Floor, 7th Cross, 3rd Block,
                                         Koramangala, Bangalore, India - 560 034<br><br>+91 80 2563
                                         3803<br>connect@flamencotech.com<br>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td style="font-weight:bold">Kind Attn: </td>
-                                    <td><input style="border: none;height:30px" type="text" id="contact_person"></td>
+                                    <td style="font-weight:bold; font-size: 15px;">Kind Attn: </td>
+                                    <td><input style="border: none;height:30px; font-size: medium;" type="text" id="contact_person"></td>
                                 </tr>
                                 <tr>
-                                    <td style="font-weight:bold">Email ID: </td>
+                                    <td style="font-weight:bold; font-size: 15px;">Email ID: </td>
                                     <td><input style="border: none;height:30px" type="text" id="email_id"></td>
                                 </tr>
                                 <tr>
-                                    <td style="font-weight:bold">Mobile: </td>
-                                    <td><input style="border: none;height:30px" type="text" id="mobile"></td>
+                                    <td style="font-weight:bold; font-size: 15px;">Mobile: </td>
+                                    <td><input style="border: none;height:30px;font-size: medium;" oninput="auto_width(this)" class="auto_height" type="text" id="mobile"></td>
                                 </tr>
                                 <tr>
-                                    <td rowspan="2" style="vertical-align : middle;font-weight:bold">Subject: </td>
+                                    <td rowspan="2" style="vertical-align : middle;font-weight:bold; font-size: medium;">Subject: </td>
                                     <td rowspan="2" style="vertical-align : middle;"><input type="text"
-                                            style="border: none" id="subject" oninput="auto_height(this)"
-                                            class="auto_height"
+                                            style="border: none; height:30px;font-size: medium;" id="subject" 
                                             value="Flamenco Tech Offer for IAQ & UV-Based Air Santization Devices"
                                             maxlength="100"></td>
-                                    <td style="font-weight:bold"> Ref No: </td>
-                                    <td><input style="border: none;height:30px" id="refno" type="text" id="1"></td>
+                                    <td style="font-weight:bold; font-size: 15px;"> Ref No: </td>
+                                    <td><input style="border: none;height:30px;font-size: 15px;" id="refno"  oninput="auto_width(this)"
+                                        class="auto_height" type="text" id="1"></td>
                                 </tr>
                                 <tr>
-                                    <td style="font-weight:bold"> Date: </td>
-                                    <td><input type="text" id="date" style="border: none;height:30px"></td>
+                                    <td style="font-weight:bold; font-size: 15px;"> Date: </td>
+                                    <td><input type="text" id="date" style="border: none;height:30px;font-size: 15px;" oninput="auto_width(this)" class="auto_height"></td>
                                 </tr>
                             </thead>
 
@@ -199,7 +199,7 @@
                             <table  border="1">
 
                                 <tr>
-                                    <th colspan="6">-</th>
+                                    <th colspan="6"></th>
                                     <th colspan="2">SUPPLY</th>
                                     <th colspan="2">INSTALLATION</th>
                                 </tr>
@@ -220,7 +220,7 @@
                                         <th id="srno1">A</th>
                                         <th style="width:60px">Flamenco Tech</th>
                                         <th></th>
-                                        <th>HARDWARE</th>
+                                        <th>FT HARDWARE</th>
                                         <th style="width:60px"></th>
                                         <th></th>
                                         <th></th>
@@ -234,7 +234,7 @@
                                         <th id="srno1">A</th>
                                         <th style="width:60px">Flamenco Tech</th>
                                         <th></th>
-                                        <th>HARDWARE</th>
+                                        <th>FT HARDWARE</th>
                                         <th style="width:60px"></th>
                                         <th></th>
                                         <th></th>
@@ -252,7 +252,7 @@
                                 <div >
                                     <tr hidden id="actives" style="background-color: #FFC000;">
                                         <th id="srno2">B</th>
-                                        <th style="width:60px">FlamencoTech</th>
+                                        <th style="width:60px"></th>
                                         <th></th>
                                         <th>ACTIVE HARDWARE</th>
                                         <th style="width:60px"></th>
@@ -272,7 +272,7 @@
                                 <div >
                                     <tr hidden id="fibers" style="background-color: #FFC000;">
                                         <th id="srno3">C</th>
-                                        <th style="width:60px">FlamencoTech</th>
+                                        <th style="width:60px"></th>
                                         <th></th>
                                         <th>FIBER HARDWARE</th>
                                         <th style="width:60px"></th>
@@ -292,7 +292,7 @@
                                 <div >
                                     <tr hidden id="ethernets" style="background-color: #FFC000;">
                                         <th id="srno4">C</th>
-                                        <th style="width:60px">FlamencoTech</th>
+                                        <th style="width:60px"></th>
                                         <th></th>
                                         <th>ETHERNET HARDWARE</th>
                                         <th style="width:60px"></th>
@@ -312,7 +312,7 @@
                                 <div >
                                     <tr id="ddcs" hidden style="background-color: #FFC000;">
                                         <th id="srno5">C</th>
-                                        <th style="width:60px">FlamencoTech</th>
+                                        <th style="width:60px"></th>
                                         <th></th>
                                         <th>DDC HARDWARE</th>
                                         <th style="width:60px"></th>
@@ -332,7 +332,7 @@
                                 <div >
                                     <tr hidden id="bms_sensors" style="background-color: #FFC000;">
                                         <th id="srno6">C</th>
-                                        <th style="width:60px">FlamencoTech</th>
+                                        <th style="width:60px"></th>
                                         <th></th>
                                         <th>BMS SENSORS</th>
                                         <th style="width:60px"></th>
@@ -352,7 +352,7 @@
                                 <div >
                                     <tr hidden id="bms_cablings" style="background-color: #FFC000;">
                                         <th id="srno7">C</th>
-                                        <th style="width:60px">FlamencoTech</th>
+                                        <th style="width:60px"></th>
                                         <th></th>
                                         <th>BMS CABLING</th>
                                         <th style="width:60px"></th>
@@ -372,7 +372,7 @@
                                 <div >
                                     <tr hidden id="bms_pipings" style="background-color: #FFC000;">
                                         <th id="srno8">C</th>
-                                        <th style="width:60px">FlamencoTech</th>
+                                        <th style="width:60px"></th>
                                         <th></th>
                                         <th>BMS PIPING</th>
                                         <th style="width:60px"></th>
@@ -392,7 +392,7 @@
                                 <div >
                                     <tr hidden id="bms_trays" style="background-color: #FFC000;">
                                         <th id="srno9">C</th>
-                                        <th style="width:60px">FlamencoTech</th>
+                                        <th style="width:60px"></th>
                                         <th></th>
                                         <th>BMS TRAYS</th>
                                         <th style="width:60px"></th>
@@ -412,7 +412,7 @@
                                 <div >
                                     <tr hidden id="third_partys" style="background-color: #FFC000;">
                                         <th id="srno10">C</th>
-                                        <th style="width:60px">FlamencoTech</th>
+                                        <th style="width:60px"></th>
                                         <th></th>
                                         <th>THIRD PARTY</th>
                                         <th style="width:60px"></th>
@@ -432,7 +432,7 @@
                                 <div >
                                     <tr hidden id="others" style="background-color: #FFC000;">
                                         <th id="srno11">C</th>
-                                        <th style="width:60px">FlamencoTech</th>
+                                        <th style="width:60px"></th>
                                         <th></th>
                                         <th>OTHERS</th>
                                         <th style="width:60px"></th>
@@ -477,9 +477,9 @@
                                 </tbody>
                                 <tr>
                                     <th colspan="7" style="background-color: #9cc2e5; color: white; text-align:center;">TOTAL AMOUNT</th>
-                                    <th id="rateinstall" style="background-color:#a9a9a9; color:white;">0</th>
+                                    <th id="rateinstall" style="background-color:#a9a9a9; ">0</th>
                                     <th style="background-color:#a9a9a9"></th>
-                                    <th id="totalinstall" style="background-color:#a9a9a9; color:white;">0</th>
+                                    <th id="totalinstall" style="background-color:#a9a9a9; ">0</th>
                                 </tr>
                                 <div >
 
@@ -513,8 +513,8 @@
                                     <tr>
                                         <th colspan="7" style="background-color: #9cc2e5; color: white; text-align:center;">TOTAL AMOUNT</th>
                                         
-                                        <th id="softtotal" style="background-color:#a9a9a9; color:white;"></th>
-                                        <th colspan="2" id="softtotalperyear" style="background-color:#a9a9a9; color:white;"></th>
+                                        <th id="softtotal" style="background-color:#a9a9a9; "></th>
+                                        <th colspan="2" id="softtotalperyear" style="background-color:#a9a9a9; "></th>
                                     </tr>
                                 </div>
                             </table>
@@ -554,7 +554,7 @@
                                 </tr>
                                 <tr>
                                     <td> 5</td>
-                                    <td>Delivery Period for FlamencoTech hardware - 16 - 24 weeks<br>Delivery Period for
+                                    <td>Delivery Period for Flamenco Tech hardware - 16 - 24 weeks<br>Delivery Period for
                                         Air Santization Device - 10-12 Week </td>
                                 </tr>
                                 <tr>
@@ -1266,7 +1266,7 @@ var workbook = new $.ig.excel.Workbook($.ig.excel.WorkbookFormat.excel2007);
         sheet.columns(6).setWidth(90, $.ig.excel.WorksheetColumnWidthUnit.pixel);
         sheet.columns(7).setWidth(150, $.ig.excel.WorksheetColumnWidthUnit.pixel);
         sheet.columns(8).setWidth(150, $.ig.excel.WorksheetColumnWidthUnit.pixel);
-        sheet.columns(9).setWidth(110, $.ig.excel.WorksheetColumnWidthUnit.pixel);
+        sheet.columns(9).setWidth(150, $.ig.excel.WorksheetColumnWidthUnit.pixel);
         sheet.columns(10).setWidth(350, $.ig.excel.WorksheetColumnWidthUnit.pixel);
         // sheet.columns(4).setWidth(80, $.ig.excel.WorksheetColumnWidthUnit.pixel);
         //   sheet.columns(6).setWidth(96, $.ig.excel.WorksheetColumnWidthUnit.pixel);
@@ -1277,10 +1277,15 @@ var workbook = new $.ig.excel.Workbook($.ig.excel.WorkbookFormat.excel2007);
       //  sheet.columns(8).cellFormat().formatString('##0.0_,₹#');
      //   sheet.columns(9).cellFormat().formatString('##0.0_,₹#');
         //sheet.columns(6).cellFormat().formatString('#₹,0.0_##');
-         sheet.columns(6).cellFormat().formatString('₹ ##0.0');
-         sheet.columns(7).cellFormat().formatString('₹ ##0.0');
-         sheet.columns(8).cellFormat().formatString('₹ ##0.0');
-         sheet.columns(9).cellFormat().formatString('₹ ##0.0');
+        //  sheet.columns(6).cellFormat().formatString('₹ ##0.0');
+        //  sheet.columns(7).cellFormat().formatString('₹ ##0.0');
+        //  sheet.columns(8).cellFormat().formatString('₹ ##0.0');
+        //  sheet.columns(9).cellFormat().formatString('₹ ##0.0');
+         sheet.columns(6).cellFormat().formatString('₹#,##0.0_);[Red](₹#,##0.0)');
+         sheet.columns(7).cellFormat().formatString('₹#,##0.0_);[Red](₹#,##0.0)');
+         sheet.columns(8).cellFormat().formatString('₹#,##0.0_);[Red](₹#,##0.0)');
+         sheet.columns(9).cellFormat().formatString('₹#,##0.0_);[Red](₹#,##0.0)');
+        
         // sheet.columns(6).cellFormat().formatString('₹#,##0.0_');
         // sheet.columns(7).cellFormat().formatString('₹#,##0.0_');
         // sheet.columns(8).cellFormat().formatString('₹#,##0.0_');
@@ -1907,7 +1912,7 @@ var workbook = new $.ig.excel.Workbook($.ig.excel.WorkbookFormat.excel2007);
         init = init + (others_.length);
 
         sheet.getCell('D' + init).value('INSTALLATION ');
-        sheet.getCell('K' + init).value('REMARKS');
+        sheet.getCell('K' + init).value('');
         //BOLD
         sheet.getCell('D'+  init).cellFormat().font().bold(true);
         sheet.getCell('K'+  init).cellFormat().font().bold(true);
@@ -1925,7 +1930,7 @@ var workbook = new $.ig.excel.Workbook($.ig.excel.WorkbookFormat.excel2007);
         init = init + 1;
         sheet.getCell('A' + init).value(String.fromCharCode(caphead));
         caphead = caphead + 1;
-        sheet.getCell('B' + init).value('FlamencoTech');
+        sheet.getCell('B' + init).value('Flamenco Tech');
         sheet.getCell('D' + init).value('Installation, Commissioning, Testing, Training (Train the Trainer), Handover, Documentation & Project Management');
         sheet.getCell('E' + init).value(1);
         sheet.getCell('F' + init).value('Lot');
@@ -2090,7 +2095,9 @@ var workbook = new $.ig.excel.Workbook($.ig.excel.WorkbookFormat.excel2007);
         // Save the workbook
         init=init+1;
         var TandC1 = sheet.mergedCellsRegions().add(init, 0, init, 10);
-        TandC1.value('Terms and Conditions');
+        TandC1.value('Terms and Conditions :');
+        sheet.getCell('A'+(init+1)).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#a9a9a9'));
+        sheet.getCell('A'+(init+1)).cellFormat().font().bold(true);
         init=init+1;
 
 //
@@ -2140,7 +2147,7 @@ var workbook = new $.ig.excel.Workbook($.ig.excel.WorkbookFormat.excel2007);
 //
         sheet.getCell('A'+(init+1)).value(5);
         TandC2 = sheet.mergedCellsRegions().add(init, 1, init, 10);
-        TandC2.value('Delivery Period for FlamencoTech hardware - 16 - 24 weeks ')
+        TandC2.value('Delivery Period for Flamenco Tech hardware - 16 - 24 weeks ')
         init=init+1;
 //
 //sr no takaicha nasel tar
@@ -2263,7 +2270,9 @@ sheet.getCell('A'+(init+1)).value(22);
 //
 
  TandC2 = sheet.mergedCellsRegions().add(init, 0, init, 10);
-        TandC2.value('Assumptions');
+        TandC2.value('Assumptions :');
+        sheet.getCell('A'+(init+1)).cellFormat().fill($.ig.excel.CellFill.createSolidFill('#a9a9a9'));
+        sheet.getCell('A'+(init+1)).cellFormat().font().bold(true);
         init=init+1;
 
 //
