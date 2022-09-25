@@ -23,7 +23,7 @@ def adddata(request):
 	print(request.POST.get('action'))
 	if request.POST.get('action') == 'post':
 		try:
-			created=Quotation.objects.update_or_create(ref_no=request.POST.get('ref_no'),pdf=request.FILES.get('pdf'),company_name=request.POST.get('company_name'),input_data=request.POST.get('input_data'),excel=request.FILES.get('excel'),user_name=request.user.user_name,emp_name=request.user.first_name,_Bms_Trays=request.POST.get('Bms_Trays'),_Bms_Piping=request.POST.get('Bms_Piping'),_Bms_Cabling=request.POST.get('Bms_Cabling'),_Bms_Sensors=request.POST.get('Bms_Sensors'),_Ddc=request.POST.get('Ddc'),_Ethernet=request.POST.get('Ethernet'),_Fiber=request.POST.get('Fiber'),_Active=request.POST.get('Active'),_Efforts=request.POST.get('Efforts'),_Others=request.POST.get('Others'),_Third_Party=request.POST.get('Third_Party'),_Trays2=request.POST.get('Trays2'))
+			created=Quotation.objects.update_or_create(ref_no=request.POST.get('ref_no'),pdf=request.FILES.get('pdf'),company_name=request.POST.get('company_name'),input_data=request.POST.get('input_data'),excel=request.FILES.get('excel'),user_name=request.user.user_name,emp_name=request.user.first_name,_Bms_Trays=request.POST.get('Bms_Trays'),_Bms_Piping=request.POST.get('Bms_Piping'),_Bms_Cabling=request.POST.get('Bms_Cabling'),_Bms_Sensors=request.POST.get('Bms_Sensors'),_Ddc=request.POST.get('Ddc'),_Ethernet=request.POST.get('Ethernet'),_Fiber=request.POST.get('Fiber'),_Active=request.POST.get('Active'),_Efforts=request.POST.get('Efforts'),_Others=request.POST.get('Others'),_Third_Party=request.POST.get('Third_Party'),_Trays2=request.POST.get('Trays2'),description=request.POST.get('description'))
 		except:
 			try:
 				member = Quotation.objects.get(ref_no=request.POST.get('ref_no'))
@@ -43,6 +43,7 @@ def adddata(request):
 				member._Efforts=request.POST.get('Efforts')
 				member._Others=request.POST.get('Others')
 				member._Third_Party=request.POST.get('Third_Party')
+				member.description=request.POST.get('description')
 				#member.user_email=request.user.email
 				member.save()
 			except:
@@ -83,12 +84,15 @@ def detailed_boq(request):
 	HardWareTrayss=HardWareTrays.objects.all()
 	HardWareTrayssInstall=HardWareTraysInstall.objects.all()
 	ManEffortsInstalls=ManEffortsInstall.objects.all()
+	Pm_Finals=Pm_Final.objects.all()
+	Pm_After_Margins=Pm_After_Margin.objects.all()
+	Pm_After_Costs=Pm_After_Cost.objects.all()
 	vpsss=vpss.objects.all()
 	entries1=vpsss[0:7]
 	entries2=vpsss[7:]
 	soft_items=Soft_Items_DB.objects.all()
 #  HardWareTrays,HardWareTraysInstall
-	context={'soft_data':list(soft_items.values()),'hard_data':list(abcd.values()),'Software_Items':soft_items,'ManEfforts': ManEffortsInstalls,'ManEffortsData':list(ManEffortsInstalls.values()),'vpssdata':list(vpsss.values()),'Trays1':entries1,'Trays2':entries2,'TraysDatas':list(HardWareTrayss.values()),'TraysDatasInstall': list(HardWareTrayssInstall.values()),'PipingDatas':list(HardWarePipings.values()),'PipingDatasInstall': list(HardWarePipingsInstall.values()),'BmsScablingDatas':list(HardWareBmsScablings.values()),'BmsScablingDatasInstall': list(HardWareBmsScablingsInstall.values()),'ThirdPartyDatas':list(HardWareThirdPartys.values()),'ThirdPartyDatasInstall': list(HardWareThirdPartysInstall.values()),'BmsSensorsDatas':list(HardWareBmsSensorss.values()),'BmsSensorsDatasInstall': list(HardWareBmsSensorssInstall.values()),'DdcDatas':list(HardWareDdcs.values()),'DdcDatasInstall': list(HardWareDdcsInstall.values()),'EthernetDatas':list(HardWareEthernets.values()),'EthernetDatasInstall': list(HardWareEthernetsInstall.values()),'PassiveDatas':list(HardWarePassives.values()),'PassiveDatasInstall': list(HardWarePassivesInstall.values()),'HardWareActives':list(HardWareActives.values()),'HardWareActivesInstall':list(HardWareActivesInstall.values()),'HardWareGeneralInstalls':list(HardWareGeneralInstalls.values()),'HardGeneral':list(HardWareGenerals.values()),'HardIP':list(HardWareIpVariants.values()),'Ddc':HardWareDdcs,'Bms_Trays':HardWareTrayss,'Bms_Piping':HardWarePipings,'Bms_Cabling':HardWareBmsScablings,'Bms_Sensor':HardWareBmsSensorss,'Ethernet':HardWareEthernets,'Fiber':HardWarePassives,'Active':HardWareActives,'General':abcd,'Others':Others1,'Third_Party':HardWareThirdPartys}
+	context={'Pm_Finals':list(Pm_Finals.values()),'Pm_After_Margins':list(Pm_After_Margins.values()),'Pm_After_Costs':list(Pm_After_Costs.values()),'soft_data':list(soft_items.values()),'hard_data':list(abcd.values()),'Software_Items':soft_items,'ManEfforts': ManEffortsInstalls,'ManEffortsData':list(ManEffortsInstalls.values()),'vpssdata':list(vpsss.values()),'Trays1':entries1,'Trays2':entries2,'TraysDatas':list(HardWareTrayss.values()),'TraysDatasInstall': list(HardWareTrayssInstall.values()),'PipingDatas':list(HardWarePipings.values()),'PipingDatasInstall': list(HardWarePipingsInstall.values()),'BmsScablingDatas':list(HardWareBmsScablings.values()),'BmsScablingDatasInstall': list(HardWareBmsScablingsInstall.values()),'ThirdPartyDatas':list(HardWareThirdPartys.values()),'ThirdPartyDatasInstall': list(HardWareThirdPartysInstall.values()),'BmsSensorsDatas':list(HardWareBmsSensorss.values()),'BmsSensorsDatasInstall': list(HardWareBmsSensorssInstall.values()),'DdcDatas':list(HardWareDdcs.values()),'DdcDatasInstall': list(HardWareDdcsInstall.values()),'EthernetDatas':list(HardWareEthernets.values()),'EthernetDatasInstall': list(HardWareEthernetsInstall.values()),'PassiveDatas':list(HardWarePassives.values()),'PassiveDatasInstall': list(HardWarePassivesInstall.values()),'HardWareActives':list(HardWareActives.values()),'HardWareActivesInstall':list(HardWareActivesInstall.values()),'HardWareGeneralInstalls':list(HardWareGeneralInstalls.values()),'HardGeneral':list(HardWareGenerals.values()),'HardIP':list(HardWareIpVariants.values()),'Ddc':HardWareDdcs,'Bms_Trays':HardWareTrayss,'Bms_Piping':HardWarePipings,'Bms_Cabling':HardWareBmsScablings,'Bms_Sensor':HardWareBmsSensorss,'Ethernet':HardWareEthernets,'Fiber':HardWarePassives,'Active':HardWareActives,'General':abcd,'Others':Others1,'Third_Party':HardWareThirdPartys}
 	
 	return render(request,'Admin1/main.html',context)
 def detailed_boqedit(request,ref_no):

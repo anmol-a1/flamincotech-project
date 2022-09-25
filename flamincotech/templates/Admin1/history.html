@@ -121,7 +121,7 @@
         </ul>
       </div>
     </nav>
-    <div style="width: 900px;background-color: rgb(241, 241, 241);" class="container my-5 shadow p-3 mb-5 rounded">
+    <div style="width: 1200px;background-color: rgb(241, 241, 241);" class="container my-5 shadow p-3 mb-5 rounded">
         <div style="text-align: center;" >
             <h3><b>Client History</b></h3>
         </div>
@@ -133,6 +133,7 @@
                             <th scope="col">Date</th>
                             <th scope="col">Company Name</th>
                             <th scope="col">Reference Number</th>
+                            <th scope="col">Description</th>
                             <th scope="col">Download Pdf</th>
                             <th scope="col">Download Excel</th>
                             <th scope="col">Edit</th>
@@ -144,7 +145,13 @@
                             <th scope="row">{{entry.date}}</th>
                             <td>{{entry.company_name}}</td>
                             <td>{{entry.ref_no}}</td>
+                            <td>{{entry.description}}</td>
+                            {% if entry.pdf %}
                             <td><a href="{{entry.pdf.url}}" download="{{entry.pdf.url}}">Download</a>  </td>
+                            {% else %}
+                            <td>-</td>
+
+                            {% endif %}
                             <td><a href="{{entry.excel.url}}" download="{{entry.excel.url}}">Download</a></td>
                             <td><a href="{% url 'edit_quot_admin' ref_no=entry.ref_no %}">Edit</a></td>
                         </tr>

@@ -28,8 +28,8 @@
         Submit
       </button>
     </form>
-    <div style="width: auto; background-color: rgb(241, 241, 241)" class="shadow
-      p-3 mb-5 rounded">
+    <div style="width: auto; backgceil-color: rgb(241, 241, 241)" class="shadow
+      p-3 mb-5 ceiled">
       <form class="my-1">
         <table class="table" border="1">
           <thead style="text-align: center">
@@ -352,7 +352,7 @@
             <th>Level of Engineer</th>
             <th>Per Day Rate</th>
             <th>Per Hour</th>
-            <th>Rounded Per Hour Rates</th>
+            <th>ceiled Per Hour Rates</th>
             <th>Total Man Days</th>
             <th>Total Man Hours</th>
           </tr>
@@ -363,7 +363,7 @@
 
             <td>
               <input id="1PDR" style="width: 60px; border: none"
-                value="{{hardeffortman1.ListPricewithRoundedup}}"
+                value="{{hardeffortman1.ListPricewithceiledup}}"
                 readonly="true" type="number" />
             </td>
             <td>
@@ -412,7 +412,7 @@
 
             <td>
               <input id="3PDR" style="width: 60px; border: none"
-                value="{{hardeffortman2.ListPricewithRoundedup}}"
+                value="{{hardeffortman2.ListPricewithceiledup}}"
                 readonly="true" type="number" />
             </td>
             <td>
@@ -437,7 +437,7 @@
 
             <td>
               <input id="4PDR" style="width: 60px; border: none"
-                value="{{hardeffortman3.ListPricewithRoundedup}}"
+                value="{{hardeffortman3.ListPricewithceiledup}}"
                 readonly="true" type="number" />
             </td>
             <td>
@@ -462,7 +462,7 @@
 
             <td>
               <input id="5PDR" style="width: 60px; border: none"
-                value="{{hardeffortman4.ListPricewithRoundedup}}"
+                value="{{hardeffortman4.ListPricewithceiledup}}"
                 readonly="true" type="number" />
             </td>
             <td>
@@ -514,6 +514,7 @@
     document.getElementById("PM" + "Total").value = 1*(document.getElementById("PM" + "Common").value) + 1*(document.getElementById("PM" + "Spazio").value) + 1*(document.getElementById("PM" + "MRB").value) + 1*(document.getElementById("PM" + "MRP").value) + 1*(document.getElementById("PM" + "RestRoom").value) + 1*(document.getElementById("PM" + "IAQ").value) + 1*(document.getElementById("PM" + "WF").value) + 1*(document.getElementById("PM" + "FB").value);
     const arrs = []
     var darray = JSON.parse(localStorage.getItem('darray'));
+    var harddetails = JSON.parse(localStorage.getItem('harddetails'));
     document.getElementById("1Common").value = darray[3];
     document.getElementById("20Common").value = 6;
     if (darray[36] == 0) {
@@ -579,8 +580,8 @@ if(darray[10]==0){
       document.getElementById("12Wayfinding").value = 0;
     }
     else {
-      document.getElementById("7Wayfinding").value = Math.round(darray[26] * 5 / 60 / 8);
-      document.getElementById("12Wayfinding").value = Math.round(darray[26] * 10 / 60 / 8);
+      document.getElementById("7Wayfinding").value = Math.ceil(darray[26] * 5 / 60 / 8);
+      document.getElementById("12Wayfinding").value = Math.ceil(darray[26] * 10 / 60 / 8);
 
     }
 
@@ -590,46 +591,48 @@ if(darray[10]==0){
       document.getElementById("12Feedback").value = 0;
     }
     else {
-      document.getElementById("7Feedback").value = Math.round(10 * 15 / 60 / 8);
-      document.getElementById("12Feedback").value = Math.round(10 * 15 / 60 / 8);
+      document.getElementById("7Feedback").value = Math.ceil(10 * 15 / 60 / 8);
+      document.getElementById("12Feedback").value = Math.ceil(10 * 15 / 60 / 8);
 
     }
-    document.getElementById("6Feedback").value = Math.round(darray[28] / 400);
-    document.getElementById("11Feedback").value = Math.round(darray[28] / 400);
+    document.getElementById("6Feedback").value = Math.ceil(darray[28] / 400);
+    document.getElementById("11Feedback").value = Math.ceil(darray[28] / 400);
 
     if (darray[17] == 0) {
       document.getElementById("7Meeting_Room_Booking").value = 0;
       document.getElementById("16Meeting_Room_Booking").value = 0;
     }
     else if (darray[17] == 1) {
-      document.getElementById("7Meeting_Room_Booking").value = Math.round(darray[16] / 50);
+      document.getElementById("7Meeting_Room_Booking").value = Math.ceil(darray[16] / 50);
     }
     else {
       console.log("df");
     }
-    if (darray[17] == 0) {
+    if (darray[18] == 0) {
       document.getElementById("7Meeting_Room_People_count_occupancy").value = 0;
     }
 
     else {
-      document.getElementById("7Meeting_Room_People_count_occupancy").value = Math.round(darray[16] / 50);
+      document.getElementById("7Meeting_Room_People_count_occupancy").value = Math.ceil(darray[16] / 50);
 
     }
-    var d64 = darray[18] == 1 ? darray[16] : 0;
+    var d64 = parseInt(harddetails[3].quant);
     if (darray[8] == 0 || darray[8] == 1) {
+      console.log("i am king here1");
       document.getElementById("9Common").value = 0;
       document.getElementById("10Common").value = 0;
     }
     else {
 
       if (d64 == 0) {
-
+        console.log("i am king here2");
         document.getElementById("9Common").value = 0;
         document.getElementById("10Common").value = 0;
       }
       else {
-        document.getElementById("9Common").value = Math.round(d64 * 6 / 8);
-        document.getElementById("10Common").value = Math.round(d64 * 1.2 / 8);
+        console.log("i am king here");
+        document.getElementById("9Common").value = d64 * 6 / 8;
+        document.getElementById("10Common").value =Math.ceil(d64 * 1.2 / 8);
       }
     }
 
@@ -646,9 +649,9 @@ if(darray[10]==0){
       document.getElementById("12Meeting_Room_Booking").value = 0;
     }
 
-    if (darray[17] == 1) {
-      document.getElementById("11Meeting_Room_Booking").value = Math.round(darray[4] * 10 / 60 / 8);
-      document.getElementById("12Meeting_Room_Booking").value = Math.round(darray[4] * 10 / 60 / 8);
+    else{
+      document.getElementById("11Meeting_Room_Booking").value = Math.ceil(darray[4] * 10 / 60 / 8);
+      document.getElementById("12Meeting_Room_Booking").value = Math.ceil(darray[4] * 10 / 60 / 8);
     }
 
     if (darray[18] == 0) {
@@ -657,18 +660,10 @@ if(darray[10]==0){
     }
 
     else {
-      document.getElementById("11Meeting_Room_People_count_occupancy").value = Math.round(darray[16] * 5 / 60 / 8);
-      document.getElementById("12Meeting_Room_People_count_occupancy").value = Math.round(darray[16] * 5 / 60 / 8);
+      document.getElementById("11Meeting_Room_People_count_occupancy").value = Math.ceil(darray[16] * 5 / 60 / 8);
+      document.getElementById("12Meeting_Room_People_count_occupancy").value = Math.ceil(darray[16] * 5 / 60 / 8);
     }
-    if (darray[3] == 0) {
-      document.getElementById("11Meeting_Room_People_count_occupancy").value = 0;
-      document.getElementById("12Meeting_Room_People_count_occupancy").value = 0;
-    }
-
-    else {
-      document.getElementById("11Meeting_Room_People_count_occupancy").value = Math.round(darray[16] * 5 / 60 / 8);
-      document.getElementById("12Meeting_Room_People_count_occupancy").value = Math.round(darray[16] * 5 / 60 / 8);
-    }
+    
     if (darray[17] >= 1) {
       if (document.getElementById("16Spazio_Software").value > 0) {
         document.getElementById("16Meeting_Room_Booking").value = 0;
@@ -741,6 +736,16 @@ if(darray[10]==0){
       }
 
     }
+    if(darray[11]==0){
+document.getElementById("8Spazio_Software").value = 0;
+
+
+    }
+    else{
+document.getElementById("8Spazio_Software").value = 3*darray[19]/60/8;
+
+
+    }
     if (darray[26] == 0) {
       document.getElementById("17Wayfinding").value = 0;
     }
@@ -763,7 +768,7 @@ if(darray[10]==0){
       document.getElementById("18Spazio_Software").value = 0;
     }
     else {
-      document.getElementById("18Spazio_Software").value = Math.round(darray[33] / 4);
+      document.getElementById("18Spazio_Software").value = Math.ceil(darray[33] / 4);
     }
     //
     if (darray[18] == 0) {
@@ -774,7 +779,7 @@ if(darray[10]==0){
         document.getElementById("18Meeting_Room_Booking").value = 0;
       }
       else {
-        document.getElementById("18Meeting_Room_Booking").value = Math.round(darray[33] / 4);
+        document.getElementById("18Meeting_Room_Booking").value = Math.ceil(darray[33] / 4);
       }
     }
     //
@@ -786,7 +791,7 @@ if(darray[10]==0){
         document.getElementById("18Meeting_Room_People_count_occupancy").value = 0;
       }
       else {
-        document.getElementById("18Meeting_Room_People_count_occupancy").value = Math.round(darray[33] / 4);
+        document.getElementById("18Meeting_Room_People_count_occupancy").value = Math.ceil(darray[33] / 4);
       }
     }
     //      
@@ -798,7 +803,7 @@ if(darray[10]==0){
         document.getElementById("18IAQ_Automate").value = 0;
       }
       else {
-        document.getElementById("18IAQ_Automate").value = Math.round(darray[33] / 4);
+        document.getElementById("18IAQ_Automate").value = Math.ceil(darray[33] / 4);
       }
     }
     //
@@ -810,7 +815,7 @@ if(darray[10]==0){
         document.getElementById("18Wayfinding").value = 0;
       }
       else {
-        document.getElementById("18Wayfinding").value = Math.round(darray[33] / 4);
+        document.getElementById("18Wayfinding").value = Math.ceil(darray[33] / 4);
       }
     }
 
@@ -820,14 +825,14 @@ if(darray[10]==0){
       tot_common = 1 * tot_common + 1*(document.getElementById(i + "Common").value);
       console.log(tot_common);
     }
-    document.getElementById("19Common").value = Math.ceil(tot_common * 2 / 7);
+    document.getElementById("19Common").value = Math.round(tot_common * 2 / 7);
     document.getElementById("21Common").value = Math.ceil(tot_common) + 1*(document.getElementById("20Common").value) + 1*(document.getElementById("19Common").value);
     function abcds() {
       var tot_common = 0;
       for (var i = 1; i <= 18; i++) {
         tot_common = tot_common + 1*(document.getElementById(i + "Common").value);
       }
-      document.getElementById("19Common").value = Math.ceil(tot_common * 2 / 7);
+      document.getElementById("19Common").value = Math.round(tot_common * 2 / 7);
       document.getElementById("21Common").value = Math.ceil(tot_common) + 1*(document.getElementById("20Common").value) + 1*(document.getElementById("19Common").value);
 
     }
@@ -835,43 +840,43 @@ if(darray[10]==0){
     for (var i = 1; i <= 18; i++) {
       tot_common = tot_common + 1*(document.getElementById(i + "Spazio_Software").value);
     }
-    document.getElementById("19Spazio_Software").value = Math.ceil(tot_common * 2 / 7);
+    document.getElementById("19Spazio_Software").value = Math.round(tot_common * 2 / 7);
     document.getElementById("21Spazio_Software").value = Math.ceil(tot_common) + 1*(document.getElementById("19Spazio_Software").value);
     var tot_common = 0;
     for (var i = 1; i <= 18; i++) {
       tot_common = tot_common + 1*(document.getElementById(i + "Meeting_Room_Booking").value);
     }
-    document.getElementById("19Meeting_Room_Booking").value = Math.ceil(tot_common * 2 / 7);
+    document.getElementById("19Meeting_Room_Booking").value = Math.round(tot_common * 2 / 7);
     document.getElementById("21Meeting_Room_Booking").value = Math.ceil(tot_common) + 1*(document.getElementById("19Meeting_Room_Booking").value);
     var tot_common = 0;
     for (var i = 1; i <= 18; i++) {
       tot_common = tot_common + 1*(document.getElementById(i + "Meeting_Room_People_count_occupancy").value);
     }
-    document.getElementById("19Meeting_Room_People_count_occupancy").value = Math.ceil(tot_common * 2 / 7);
+    document.getElementById("19Meeting_Room_People_count_occupancy").value = Math.round(tot_common * 2 / 7);
     document.getElementById("21Meeting_Room_People_count_occupancy").value = Math.ceil(tot_common) + 1*(document.getElementById("19Meeting_Room_People_count_occupancy").value);
     var tot_common = 0;
     for (var i = 1; i <= 18; i++) {
       tot_common = tot_common + 1*(document.getElementById(i + "Restroom_Hygiene").value);
     }
-    document.getElementById("19Restroom_Hygiene").value = Math.ceil(tot_common * 2 / 7);
+    document.getElementById("19Restroom_Hygiene").value = Math.round(tot_common * 2 / 7);
     document.getElementById("21Restroom_Hygiene").value = Math.ceil(tot_common) + 1*(document.getElementById("19Restroom_Hygiene").value);
     var tot_common = 0;
     for (var i = 1; i <= 18; i++) {
       tot_common = tot_common + 1*(document.getElementById(i + "IAQ_Automate").value);
     }
-    document.getElementById("19IAQ_Automate").value = Math.ceil(tot_common * 2 / 7);
+    document.getElementById("19IAQ_Automate").value = Math.round(tot_common * 2 / 7);
     document.getElementById("21IAQ_Automate").value = Math.ceil(tot_common) + 1*(document.getElementById("19IAQ_Automate").value);
     var tot_common = 0;
     for (var i = 1; i <= 18; i++) {
       tot_common = tot_common + 1*(document.getElementById(i + "Wayfinding").value);
     }
-    document.getElementById("19Wayfinding").value = Math.ceil(tot_common * 2 / 7);
+    document.getElementById("19Wayfinding").value = Math.round(tot_common * 2 / 7);
     document.getElementById("21Wayfinding").value = Math.ceil(tot_common) + 1*(document.getElementById("19Wayfinding").value);
     var tot_common = 0;
     for (var i = 1; i <= 18; i++) {
       tot_common = tot_common + 1*(document.getElementById(i + "Feedback").value);
     }
-    document.getElementById("19Feedback").value = Math.ceil(tot_common * 2 / 7);
+    document.getElementById("19Feedback").value = Math.round(tot_common * 2 / 7);
     document.getElementById("21Feedback").value = Math.ceil(tot_common) + 1*(document.getElementById("19Feedback").value);
     var commontotalL1 = 6, mrbtotalL1 = 0, spaziototalL1 = 0, mrptotalL1 = 0, resttotalL1 = 0, iaqtotalL1 = 0, wftotalL1 = 0, fbtotalL1 = 0, totaltotalL1 = 0;
     var commontotalL2 = 0, mrbtotalL2 = 0, spaziototalL2 = 0, mrptotalL2 = 0, resttotalL2 = 0, iaqtotalL2 = 0, wftotalL2 = 0, fbtotalL2 = 0, totaltotalL2 = 0;
@@ -973,7 +978,8 @@ if(darray[10]==0){
     }
     localStorage.setItem('iandc_data', JSON.stringify(iand_data));
     let ref_no=JSON.parse(localStorage.getItem('ref_no'));
-    window.location.href = 'http://127.0.0.1:8000/admins/detailed_boqedit/'+ref_no;
+
+   window.location.href = 'http://127.0.0.1:8000/admins/detailed_boqedit/'+ref_no;
 //Wayfinding   
   </script>
   </body>

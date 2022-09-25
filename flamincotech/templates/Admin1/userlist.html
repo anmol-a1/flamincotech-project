@@ -231,6 +231,7 @@ input[type=file]::file-selector-button:hover {
       >
         <thead>
           <tr style="background-color: #22508b;color:white" >
+            <th scope="col">Role</th>
             <th scope="col">Name</th>
             <th scope="col">Employee Id</th>
             <th scope="col">Email</th>
@@ -240,6 +241,8 @@ input[type=file]::file-selector-button:hover {
         <tbody id="tbody" border='2'>
           {% for user in users %}
           <tr id="{{user.user_name}}" style="background-color:white;color:black">
+
+            {% if user.is_superuser %} <td>Admin</td> {% else %}<td>User</td>{%endif%}
             <td>{{user.first_name}}</td>
             <td>{{user.user_name}}</td>
             <td>{{user.email}}</td>

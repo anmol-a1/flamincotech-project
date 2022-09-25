@@ -784,11 +784,18 @@
     console.log(bms_trays, bms_piping, bms_cabling, bms_sensors, ddc, ethernet, fiber, active, efforts, others, third_party);
 
     var pdfs;
-    const de = new Date();
+    var  today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+    console.log(yyyy);
+    yyyy=yyyy.toString();
+    yyyy=yyyy.substring(2,4);
+    today = mm + '_' + dd + '_' + yyyy;
     const x = Math.random() * 100000;
     const y = Math.random() * 100000;
     const sr = parseInt(Math.random() * x * y);
-    var tempref=de.toLocaleString(undefined, {timeZone: 'Asia/Kolkata'})+"-"+clientdata.company_name+"-"+sr;
+    var tempref="FT_"+clientdata.company_name+"_FY-"+yyyy+"-"+(yyyy*1+1)+"-"+sr;
     tempref=tempref.replaceAll("/","_");
     tempref=tempref.replaceAll(" ","_");
     document.getElementById("refno").value = tempref;
@@ -805,7 +812,7 @@
                 filename: `${tempref}.pdf`,
                 image: { type: 'jpeg', quality: 1 },
                 html2canvas: { scale: 4 },
-                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'landscape' }
             };
             pdfs=html2pdf().from(invoice).set(opt).save();
             console.log(pdfs);
@@ -1233,7 +1240,7 @@
     document.getElementById("mobile").value = clientdata.mobile;
     document.getElementById("subject").value = clientdata.subject;
     const d = new Date();
-    document.getElementById("date").value = d.toUTCString();
+    document.getElementById("date").value = d.toLocaleString(undefined, {timeZone: 'Asia/Kolkata'});
     var harddata = hard_data;
     var softdata = soft_data;
 
@@ -2323,11 +2330,7 @@ sheet.getCell('A'+(init+1)).value(6);
     }
     $(document).on('click', '.finalise', function (e) {
         e.preventDefault();
-        if ((document.getElementById("file").value == "")) {
-            console.log("not");
-            alert("Files Not Upload");
-        }
-        else if ((document.getElementById("file1").value == "")) {
+        if ((document.getElementById("file1").value == "")) {
             console.log("not");
             alert("Files Not Upload");
 
@@ -2342,6 +2345,7 @@ sheet.getCell('A'+(init+1)).value(6);
             form_data.append("ref_no", tempref)
             console.log(bms_trays_1);
             form_data.append("company_name", clientdata.company_name)
+            form_data.append("description", clientdata.subject)
             form_data.append("input_data", inpdata)
             form_data.append("Bms_Trays", bms_trays_1)
             form_data.append("Trays2", trays2_1)

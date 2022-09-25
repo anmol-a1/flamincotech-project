@@ -1004,7 +1004,7 @@ class Soft_Items_DB(models.Model):
 #Soft_Items,Bms_Trays,Bms_Piping,Bms_Cabling,Bms_Sensors,Ddc,Ethernet,Fiber,Active,General,Others,Third_Party
 class Quotation(models.Model):
     ref_no=models.CharField(max_length=100,primary_key=True)
-    pdf = models.FileField(upload_to ='pdfs/')
+    pdf = models.FileField(upload_to ='pdfs/',blank=True)
     excel = models.FileField(upload_to ='excels/')
     date=models.DateField(default=datetime.date.today())
     company_name=models.CharField(max_length=100)
@@ -1023,6 +1023,7 @@ class Quotation(models.Model):
     _Efforts=models.CharField(max_length=200,default="")
     _Others=models.CharField(max_length=200,default="")
     _Third_Party=models.CharField(max_length=200,default="")
+    description=models.CharField(max_length=200,default="")
 
 class IAQ(models.Model):
     discription=models.CharField(max_length=200,default="")
