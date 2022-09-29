@@ -110,7 +110,7 @@
             <li>
                 <a class="navbar-brand" href="https://www.flamencotech.com/" target="_blank" style="display: flex;align-items: center;
                 padding: 5px;">
-                 <img src="/static/f1.png" alt="" width="200" height="40" >
+                 <img src="/static/logo.png" alt="" width="200" height="40" >
               </a>
               </li>
           <li class="nav-item active">
@@ -146,7 +146,12 @@
                             <td>{{entry.company_name}}</td>
                             <td>{{entry.ref_no}}</td>
                             <td>{{entry.description}}</td>
+                            {% if entry.pdf %}
                             <td><a href="{{entry.pdf.url}}" download="{{entry.pdf.url}}">Download</a>  </td>
+                            {% else %}
+                            <td>-</td>
+
+                            {% endif %}
                             <td><a href="{{entry.excel.url}}" download="{{entry.excel.url}}">Download</a></td>
                             <td><a href="{% url 'edit_quot_user' ref_no=entry.ref_no %}">Edit</a></td>
                         </tr>

@@ -1022,6 +1022,7 @@ class Quotation(models.Model):
     _Active=models.CharField(max_length=200,default="")
     _Efforts=models.CharField(max_length=200,default="")
     _Others=models.CharField(max_length=200,default="")
+    _hard=models.CharField(max_length=200,default="")
     _Third_Party=models.CharField(max_length=200,default="")
     description=models.CharField(max_length=200,default="")
 

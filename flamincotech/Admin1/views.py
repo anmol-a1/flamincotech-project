@@ -10,6 +10,7 @@ from django.shortcuts import get_object_or_404
 import tablib
 from tablib import Dataset
 import mimetypes
+import math
 # import os module
 from json import dumps
 import os
@@ -23,7 +24,7 @@ def adddata(request):
 	print(request.POST.get('action'))
 	if request.POST.get('action') == 'post':
 		try:
-			created=Quotation.objects.update_or_create(ref_no=request.POST.get('ref_no'),pdf=request.FILES.get('pdf'),company_name=request.POST.get('company_name'),input_data=request.POST.get('input_data'),excel=request.FILES.get('excel'),user_name=request.user.user_name,emp_name=request.user.first_name,_Bms_Trays=request.POST.get('Bms_Trays'),_Bms_Piping=request.POST.get('Bms_Piping'),_Bms_Cabling=request.POST.get('Bms_Cabling'),_Bms_Sensors=request.POST.get('Bms_Sensors'),_Ddc=request.POST.get('Ddc'),_Ethernet=request.POST.get('Ethernet'),_Fiber=request.POST.get('Fiber'),_Active=request.POST.get('Active'),_Efforts=request.POST.get('Efforts'),_Others=request.POST.get('Others'),_Third_Party=request.POST.get('Third_Party'),_Trays2=request.POST.get('Trays2'),description=request.POST.get('description'))
+			created=Quotation.objects.update_or_create(ref_no=request.POST.get('ref_no'),pdf=request.FILES.get('pdf'),company_name=request.POST.get('company_name'),input_data=request.POST.get('input_data'),excel=request.FILES.get('excel'),user_name=request.user.user_name,emp_name=request.user.first_name,_Bms_Trays=request.POST.get('Bms_Trays'),_Bms_Piping=request.POST.get('Bms_Piping'),_Bms_Cabling=request.POST.get('Bms_Cabling'),_Bms_Sensors=request.POST.get('Bms_Sensors'),_Ddc=request.POST.get('Ddc'),_Ethernet=request.POST.get('Ethernet'),_Fiber=request.POST.get('Fiber'),_Active=request.POST.get('Active'),_Efforts=request.POST.get('Efforts'),_Others=request.POST.get('Others'),_Third_Party=request.POST.get('Third_Party'),_Trays2=request.POST.get('Trays2'),description=request.POST.get('description'),_hard=request.POST.get('_hard'))
 		except:
 			try:
 				member = Quotation.objects.get(ref_no=request.POST.get('ref_no'))
@@ -42,6 +43,7 @@ def adddata(request):
 				member._Active=request.POST.get('Active')
 				member._Efforts=request.POST.get('Efforts')
 				member._Others=request.POST.get('Others')
+				member._hard=request.POST.get('_hard')
 				member._Third_Party=request.POST.get('Third_Party')
 				member.description=request.POST.get('description')
 				#member.user_email=request.user.email
@@ -92,7 +94,7 @@ def detailed_boq(request):
 	entries2=vpsss[7:]
 	soft_items=Soft_Items_DB.objects.all()
 #  HardWareTrays,HardWareTraysInstall
-	context={'Pm_Finals':list(Pm_Finals.values()),'Pm_After_Margins':list(Pm_After_Margins.values()),'Pm_After_Costs':list(Pm_After_Costs.values()),'soft_data':list(soft_items.values()),'hard_data':list(abcd.values()),'Software_Items':soft_items,'ManEfforts': ManEffortsInstalls,'ManEffortsData':list(ManEffortsInstalls.values()),'vpssdata':list(vpsss.values()),'Trays1':entries1,'Trays2':entries2,'TraysDatas':list(HardWareTrayss.values()),'TraysDatasInstall': list(HardWareTrayssInstall.values()),'PipingDatas':list(HardWarePipings.values()),'PipingDatasInstall': list(HardWarePipingsInstall.values()),'BmsScablingDatas':list(HardWareBmsScablings.values()),'BmsScablingDatasInstall': list(HardWareBmsScablingsInstall.values()),'ThirdPartyDatas':list(HardWareThirdPartys.values()),'ThirdPartyDatasInstall': list(HardWareThirdPartysInstall.values()),'BmsSensorsDatas':list(HardWareBmsSensorss.values()),'BmsSensorsDatasInstall': list(HardWareBmsSensorssInstall.values()),'DdcDatas':list(HardWareDdcs.values()),'DdcDatasInstall': list(HardWareDdcsInstall.values()),'EthernetDatas':list(HardWareEthernets.values()),'EthernetDatasInstall': list(HardWareEthernetsInstall.values()),'PassiveDatas':list(HardWarePassives.values()),'PassiveDatasInstall': list(HardWarePassivesInstall.values()),'HardWareActives':list(HardWareActives.values()),'HardWareActivesInstall':list(HardWareActivesInstall.values()),'HardWareGeneralInstalls':list(HardWareGeneralInstalls.values()),'HardGeneral':list(HardWareGenerals.values()),'HardIP':list(HardWareIpVariants.values()),'Ddc':HardWareDdcs,'Bms_Trays':HardWareTrayss,'Bms_Piping':HardWarePipings,'Bms_Cabling':HardWareBmsScablings,'Bms_Sensor':HardWareBmsSensorss,'Ethernet':HardWareEthernets,'Fiber':HardWarePassives,'Active':HardWareActives,'General':abcd,'Others':Others1,'Third_Party':HardWareThirdPartys}
+	context={'generaldata':list(General1.values()),'Pm_Finals':list(Pm_Finals.values()),'Pm_After_Margins':list(Pm_After_Margins.values()),'Pm_After_Costs':list(Pm_After_Costs.values()),'soft_data':list(soft_items.values()),'hard_data':list(abcd.values()),'Software_Items':soft_items,'ManEfforts': ManEffortsInstalls,'ManEffortsData':list(ManEffortsInstalls.values()),'vpssdata':list(vpsss.values()),'Trays1':entries1,'Trays2':entries2,'TraysDatas':list(HardWareTrayss.values()),'TraysDatasInstall': list(HardWareTrayssInstall.values()),'PipingDatas':list(HardWarePipings.values()),'PipingDatasInstall': list(HardWarePipingsInstall.values()),'BmsScablingDatas':list(HardWareBmsScablings.values()),'BmsScablingDatasInstall': list(HardWareBmsScablingsInstall.values()),'ThirdPartyDatas':list(HardWareThirdPartys.values()),'ThirdPartyDatasInstall': list(HardWareThirdPartysInstall.values()),'BmsSensorsDatas':list(HardWareBmsSensorss.values()),'BmsSensorsDatasInstall': list(HardWareBmsSensorssInstall.values()),'DdcDatas':list(HardWareDdcs.values()),'DdcDatasInstall': list(HardWareDdcsInstall.values()),'EthernetDatas':list(HardWareEthernets.values()),'EthernetDatasInstall': list(HardWareEthernetsInstall.values()),'PassiveDatas':list(HardWarePassives.values()),'PassiveDatasInstall': list(HardWarePassivesInstall.values()),'HardWareActives':list(HardWareActives.values()),'HardWareActivesInstall':list(HardWareActivesInstall.values()),'HardWareGeneralInstalls':list(HardWareGeneralInstalls.values()),'HardGeneral':list(HardWareGenerals.values()),'HardIP':list(HardWareIpVariants.values()),'Ddc':HardWareDdcs,'Bms_Trays':HardWareTrayss,'Bms_Piping':HardWarePipings,'Bms_Cabling':HardWareBmsScablings,'Bms_Sensor':HardWareBmsSensorss,'Ethernet':HardWareEthernets,'Fiber':HardWarePassives,'Active':HardWareActives,'General':abcd,'Others':Others1,'Third_Party':HardWareThirdPartys}
 	
 	return render(request,'Admin1/main.html',context)
 def detailed_boqedit(request,ref_no):
@@ -152,13 +154,14 @@ def detailed_boqedit(request,ref_no):
 		'active':obj._Active,
 		'efforts':obj._Efforts,
 		'others':obj._Others,
+		'hards':obj._hard,
 		'third_party':obj._Third_Party,
 		'trays2':obj._Trays2
 		
 	}
 	dataJSON = dumps(dataDictionary)
 #  HardWareTrays,HardWareTraysInstall
-	context={'Pm_Finals':list(Pm_Finals.values()),'Pm_After_Margins':list(Pm_After_Margins.values()),'Pm_After_Costs':list(Pm_After_Costs.values()),'data':dataJSON,'soft_data':list(soft_items.values()),'hard_data':list(abcd.values()),'Software_Items':soft_items,'ManEfforts': ManEffortsInstalls,'ManEffortsData':list(ManEffortsInstalls.values()),'vpssdata':list(vpsss.values()),'Trays1':entries1,'Trays2':entries2,'TraysDatas':list(HardWareTrayss.values()),'TraysDatasInstall': list(HardWareTrayssInstall.values()),'PipingDatas':list(HardWarePipings.values()),'PipingDatasInstall': list(HardWarePipingsInstall.values()),'BmsScablingDatas':list(HardWareBmsScablings.values()),'BmsScablingDatasInstall': list(HardWareBmsScablingsInstall.values()),'ThirdPartyDatas':list(HardWareThirdPartys.values()),'ThirdPartyDatasInstall': list(HardWareThirdPartysInstall.values()),'BmsSensorsDatas':list(HardWareBmsSensorss.values()),'BmsSensorsDatasInstall': list(HardWareBmsSensorssInstall.values()),'DdcDatas':list(HardWareDdcs.values()),'DdcDatasInstall': list(HardWareDdcsInstall.values()),'EthernetDatas':list(HardWareEthernets.values()),'EthernetDatasInstall': list(HardWareEthernetsInstall.values()),'PassiveDatas':list(HardWarePassives.values()),'PassiveDatasInstall': list(HardWarePassivesInstall.values()),'HardWareActives':list(HardWareActives.values()),'HardWareActivesInstall':list(HardWareActivesInstall.values()),'HardWareGeneralInstalls':list(HardWareGeneralInstalls.values()),'HardGeneral':list(HardWareGenerals.values()),'HardIP':list(HardWareIpVariants.values()),'Ddc':HardWareDdcs,'Bms_Trays':HardWareTrayss,'Bms_Piping':HardWarePipings,'Bms_Cabling':HardWareBmsScablings,'Bms_Sensor':HardWareBmsSensorss,'Ethernet':HardWareEthernets,'Fiber':HardWarePassives,'Active':HardWareActives,'General':abcd,'Others':Others1,'Third_Party':HardWareThirdPartys}
+	context={'generaldata':list(General1.values()),'Pm_Finals':list(Pm_Finals.values()),'Pm_After_Margins':list(Pm_After_Margins.values()),'Pm_After_Costs':list(Pm_After_Costs.values()),'data':dataJSON,'soft_data':list(soft_items.values()),'hard_data':list(abcd.values()),'Software_Items':soft_items,'ManEfforts': ManEffortsInstalls,'ManEffortsData':list(ManEffortsInstalls.values()),'vpssdata':list(vpsss.values()),'Trays1':entries1,'Trays2':entries2,'TraysDatas':list(HardWareTrayss.values()),'TraysDatasInstall': list(HardWareTrayssInstall.values()),'PipingDatas':list(HardWarePipings.values()),'PipingDatasInstall': list(HardWarePipingsInstall.values()),'BmsScablingDatas':list(HardWareBmsScablings.values()),'BmsScablingDatasInstall': list(HardWareBmsScablingsInstall.values()),'ThirdPartyDatas':list(HardWareThirdPartys.values()),'ThirdPartyDatasInstall': list(HardWareThirdPartysInstall.values()),'BmsSensorsDatas':list(HardWareBmsSensorss.values()),'BmsSensorsDatasInstall': list(HardWareBmsSensorssInstall.values()),'DdcDatas':list(HardWareDdcs.values()),'DdcDatasInstall': list(HardWareDdcsInstall.values()),'EthernetDatas':list(HardWareEthernets.values()),'EthernetDatasInstall': list(HardWareEthernetsInstall.values()),'PassiveDatas':list(HardWarePassives.values()),'PassiveDatasInstall': list(HardWarePassivesInstall.values()),'HardWareActives':list(HardWareActives.values()),'HardWareActivesInstall':list(HardWareActivesInstall.values()),'HardWareGeneralInstalls':list(HardWareGeneralInstalls.values()),'HardGeneral':list(HardWareGenerals.values()),'HardIP':list(HardWareIpVariants.values()),'Ddc':HardWareDdcs,'Bms_Trays':HardWareTrayss,'Bms_Piping':HardWarePipings,'Bms_Cabling':HardWareBmsScablings,'Bms_Sensor':HardWareBmsSensorss,'Ethernet':HardWareEthernets,'Fiber':HardWarePassives,'Active':HardWareActives,'General':abcd,'Others':Others1,'Third_Party':HardWareThirdPartys}
 	
 	return render(request,'Admin1/mainedit.html',context)
 def fetchdata():
@@ -488,7 +491,7 @@ def editsoftwareextra(request):
 	t.Info=request.POST.get('Info')
 	t.save()
 	return JsonResponse({'adg':'jyyj',})
-def editconfiguration(request):
+def editconfiguration1(request):
 	sr_no=request.POST.get('sr_no')
 	sr_no1=sr_no
 	sr_no=(int(sr_no))//10
@@ -499,9 +502,366 @@ def editconfiguration(request):
 	t.ft_hardware=request.POST.get('ft_hardware')
 	t.cabpiptray=request.POST.get('cabpiptray')
 	t.thirdparty=request.POST.get('thirdparty')
+ #ftmandayeffort,othersmicffort,ft2,ft3,ft4
+	t.ftmandayeffort=request.POST.get('ftmandayeffort')
+	t.othersmicffort=request.POST.get('othersmicffort')
+	t.ft2=request.POST.get('ft2')
+	t.ft3=request.POST.get('ft3')
+	t.tft4=request.POST.get('ft4')
+
 	t.save()
+	temp=InputConfiguration.objects.all()
+#,,,,,,,,,,
+	generalobjs=HardWareGeneralInstall.objects.all()
+	bmscabobjs=HardWareBmsScablingInstall.objects.all()
+	pipobjs=HardWarePipingInstall.objects.all()
+	traysobjs=HardWareTraysInstall.objects.all()
+	activeobjs=HardWareActiveInstall.objects.all()
+	passiveobjs=HardWarePassiveInstall.objects.all()
+	ddcobjs=HardWareDdcInstall.objects.all()
+	etherobjs=HardWareEthernetInstall.objects.all()
+	thirdpartyobjs=HardWareThirdPartyInstall.objects.all()
+	bmssensorobjs=HardWareBmsSensorsInstall.objects.all()
+	maneffortobjs=ManEffortsInstall.objects.all()
+	vpsss=vpss.objects.all()
+	othersobjs=vpsss[0:7]
+	trays1objs=vpsss[7:18]
+	generalobjs1=generalobjs[0:1]
+	generalobjs2=generalobjs[1:6]
+	generalobjs3=generalobjs[6:10]
+	generalobjs4=generalobjs[10:]
+	for obj in generalobjs1:
+		obj.Discount=temp[0].ft_hardware1
+		obj.DiscountedPrice=math.ceil(obj.InputPrice-(obj.InputPrice * (temp[0].ft_hardware1)/100))
+		obj.Freight=temp[1].ft_hardware1
+		obj.InputCostInclusiveoffreight=math.ceil(obj.DiscountedPrice+(obj.DiscountedPrice * (temp[1].ft_hardware1)/100))
+		obj.InterestCOM=temp[2].ft_hardware1
+		obj.UnitCost=math.ceil(obj.InputCostInclusiveoffreight+(obj.InputCostInclusiveoffreight * (temp[2].ft_hardware1)/100))
+		obj.InwardTax=temp[3].ft_hardware1
+		obj.UnitCostInclusiveofRisk=math.ceil(obj.UnitCost+(obj.UnitCost * (temp[3].ft_hardware1)/100))
+		obj.ContigencyPercentage=temp[4].ft_hardware1
+		obj.UnitCostInclusiveofContigency=math.ceil(obj.UnitCostInclusiveofRisk+(obj.UnitCostInclusiveofRisk* (temp[4].ft_hardware1)/100))
+		obj.Margin=temp[5].ft_hardware1
+		obj.Unit_Price=math.ceil(((100*obj.UnitCostInclusiveofContigency)/(100-temp[5].ft_hardware1)))
+		obj.WarrantyCharges=temp[6].ft_hardware1
+		obj.UnitPrice=math.ceil(obj.Unit_Price+(obj.Unit_Price * (temp[6].ft_hardware1)/100))
+		obj.InsuranceCharges=temp[7].ft_hardware1
+		obj.ListPricewithoutRoundup= math.ceil(obj.UnitPrice+ (obj.UnitPrice* temp[7].ft_hardware1/100))
+		obj.ListPricewithRoundedup= math.ceil((obj.ListPricewithoutRoundup/500)*500)
+		obj.save()
+	for obj in generalobjs2:
+		obj.Discount=temp[0].ft_hardware1
+		obj.DiscountedPrice=math.ceil(obj.InputPrice-(obj.InputPrice * (temp[0].ft_hardware1)/100))
+		obj.Freight=temp[1].ft_hardware1
+		obj.InputCostInclusiveoffreight=math.ceil(obj.DiscountedPrice+(obj.DiscountedPrice * (temp[1].ft_hardware1)/100))
+		obj.InterestCOM=temp[2].ft_hardware1
+		obj.UnitCost=math.ceil(obj.InputCostInclusiveoffreight+(obj.InputCostInclusiveoffreight * (temp[2].ft_hardware1)/100))
+		obj.InwardTax=temp[3].ft_hardware1
+		obj.UnitCostInclusiveofRisk=math.ceil(obj.UnitCost+(obj.UnitCost * (temp[3].ft_hardware1)/100))
+		obj.ContigencyPercentage=temp[4].ft_hardware1
+		obj.UnitCostInclusiveofContigency=math.ceil(obj.UnitCostInclusiveofRisk+(obj.UnitCostInclusiveofRisk* (temp[4].ft_hardware1)/100))
+		obj.Margin=temp[5].ft_hardware1
+		obj.Unit_Price=math.ceil(((100*obj.UnitCostInclusiveofContigency)/(100-temp[5].ft_hardware1)))
+		obj.WarrantyCharges=temp[6].ft_hardware1
+		obj.UnitPrice=math.ceil(obj.Unit_Price+(obj.Unit_Price * (temp[6].ft_hardware1)/100))
+		obj.InsuranceCharges=temp[7].ft_hardware1
+		obj.ListPricewithoutRoundup= math.ceil(obj.UnitPrice+ (obj.UnitPrice* temp[7].ft_hardware1/100))
+		obj.ListPricewithRoundedup= math.ceil((obj.ListPricewithoutRoundup/50)*50)
+		obj.save()
+	for obj in generalobjs3:
+		obj.Discount=temp[0].ft_hardware1
+		obj.DiscountedPrice=math.ceil(obj.InputPrice-(obj.InputPrice * (temp[0].ft_hardware1)/100))
+		obj.Freight=temp[1].ft_hardware1
+		obj.InputCostInclusiveoffreight=math.ceil(obj.DiscountedPrice+(obj.DiscountedPrice * (temp[1].ft_hardware1)/100))
+		obj.InterestCOM=temp[2].ft_hardware1
+		obj.UnitCost=math.ceil(obj.InputCostInclusiveoffreight+(obj.InputCostInclusiveoffreight * (temp[2].ft_hardware1)/100))
+		obj.InwardTax=temp[3].ft_hardware1
+		obj.UnitCostInclusiveofRisk=math.ceil(obj.UnitCost+(obj.UnitCost * (temp[3].ft_hardware1)/100))
+		obj.ContigencyPercentage=temp[4].ft_hardware1
+		obj.UnitCostInclusiveofContigency=math.ceil(obj.UnitCostInclusiveofRisk+(obj.UnitCostInclusiveofRisk* (temp[4].ft_hardware1)/100))
+		obj.Margin=temp[5].ft_hardware1
+		obj.Unit_Price=math.ceil(((100*obj.UnitCostInclusiveofContigency)/(100-temp[5].ft_hardware1)))
+		obj.WarrantyCharges=temp[6].ft_hardware1
+		obj.UnitPrice=math.ceil(obj.Unit_Price+(obj.Unit_Price * (temp[6].ft_hardware1)/100))
+		obj.InsuranceCharges=temp[7].ft_hardware1
+		obj.ListPricewithoutRoundup= math.ceil(obj.UnitPrice+ (obj.UnitPrice* temp[7].ft_hardware1/100))
+		obj.ListPricewithRoundedup= math.ceil((obj.ListPricewithoutRoundup/500)*500)
+	for obj in generalobjs4:
+		obj.Discount=temp[0].ft_hardware1
+		obj.DiscountedPrice=math.ceil(obj.InputPrice-(obj.InputPrice * (temp[0].ft_hardware1)/100))
+		obj.Freight=temp[1].ft_hardware1
+		obj.InputCostInclusiveoffreight=math.ceil(obj.DiscountedPrice+(obj.DiscountedPrice * (temp[1].ft_hardware1)/100))
+		obj.InterestCOM=temp[2].ft_hardware1
+		obj.UnitCost=math.ceil(obj.InputCostInclusiveoffreight+(obj.InputCostInclusiveoffreight * (temp[2].ft_hardware1)/100))
+		obj.InwardTax=temp[3].ft_hardware1
+		obj.UnitCostInclusiveofRisk=math.ceil(obj.UnitCost+(obj.UnitCost * (temp[3].ft_hardware1)/100))
+		obj.ContigencyPercentage=temp[4].ft_hardware1
+		obj.UnitCostInclusiveofContigency=math.ceil(obj.UnitCostInclusiveofRisk+(obj.UnitCostInclusiveofRisk* (temp[4].ft_hardware1)/100))
+		obj.Margin=temp[5].ft_hardware1
+		obj.Unit_Price=math.ceil(((100*obj.UnitCostInclusiveofContigency)/(100-temp[5].ft_hardware1)))
+		obj.WarrantyCharges=temp[6].ft_hardware1
+		obj.UnitPrice=math.ceil(obj.Unit_Price+(obj.Unit_Price * (temp[6].ft_hardware1)/100))
+		obj.InsuranceCharges=temp[7].ft_hardware1
+		obj.ListPricewithoutRoundup= math.ceil(obj.UnitPrice+ (obj.UnitPrice* temp[7].ft_hardware1/100))
+		obj.ListPricewithRoundedup= math.ceil((obj.ListPricewithoutRoundup/100)*100)
+		obj.save()
+	
+	for obj in activeobjs:
+		obj.Discount=temp[0].active1
+		obj.DiscountedPrice=math.ceil(obj.InputPrice-(obj.InputPrice * (temp[0].active1)/100))
+		obj.Freight=temp[1].active1
+		obj.InputCostInclusiveoffreight=math.ceil(obj.DiscountedPrice+(obj.DiscountedPrice * (temp[1].active1)/100))
+		obj.InterestCOM=temp[2].active1
+		obj.UnitCost=math.ceil(obj.InputCostInclusiveoffreight+(obj.InputCostInclusiveoffreight * (temp[2].active1)/100))
+		obj.InwardTax=temp[3].active1
+		obj.UnitCostInclusiveofRisk=math.ceil(obj.UnitCost+(obj.UnitCost * (temp[3].active1)/100))
+		obj.ContigencyPercentage=temp[4].active1
+		obj.UnitCostInclusiveofContigency=math.ceil(obj.UnitCostInclusiveofRisk+(obj.UnitCostInclusiveofRisk* (temp[4].active1)/100))
+		obj.Margin=temp[5].active1
+		obj.Unit_Price=math.ceil(((100*obj.UnitCostInclusiveofContigency)/(100-temp[5].active1)))
+		obj.WarrantyCharges=temp[6].active1
+		obj.UnitPrice=math.ceil(obj.Unit_Price+(obj.Unit_Price * (temp[6].active1)/100))
+		obj.InsuranceCharges=temp[7].active1
+		obj.ListPricewithoutRoundup= math.ceil(obj.UnitPrice+ (obj.UnitPrice* temp[7].active1/100))
+		obj.ListPricewithRoundedup= math.ceil((obj.ListPricewithoutRoundup/50)*50)
+		obj.save()
+
+
+	for obj in passiveobjs:
+		obj.Discount=temp[0].passive1
+		obj.DiscountedPrice=math.ceil(obj.InputPrice-(obj.InputPrice * (temp[0].passive1)/100))
+		obj.Freight=temp[1].passive1
+		obj.InputCostInclusiveoffreight=math.ceil(obj.DiscountedPrice+(obj.DiscountedPrice * (temp[1].passive1)/100))
+		obj.InterestCOM=temp[2].passive1
+		obj.UnitCost=math.ceil(obj.InputCostInclusiveoffreight+(obj.InputCostInclusiveoffreight * (temp[2].passive1)/100))
+		obj.InwardTax=temp[3].passive1
+		obj.UnitCostInclusiveofRisk=math.ceil(obj.UnitCost+(obj.UnitCost * (temp[3].passive1)/100))
+		obj.ContigencyPercentage=temp[4].passive1
+		obj.UnitCostInclusiveofContigency=math.ceil(obj.UnitCostInclusiveofRisk+(obj.UnitCostInclusiveofRisk* (temp[4].passive1)/100))
+		obj.Margin=temp[5].passive1
+		obj.Unit_Price=math.ceil(((100*obj.UnitCostInclusiveofContigency)/(100-temp[5].passive1)))
+		obj.WarrantyCharges=temp[6].passive1
+		obj.UnitPrice=math.ceil(obj.Unit_Price+(obj.Unit_Price * (temp[6].passive1)/100))
+		obj.InsuranceCharges=temp[7].passive1
+		obj.ListPricewithoutRoundup= math.ceil(obj.UnitPrice+ (obj.UnitPrice* temp[7].passive1/100))
+		obj.ListPricewithRoundedup= math.ceil((obj.ListPricewithoutRoundup/50)*50)
+		obj.save()
+
+
+	for obj in etherobjs:
+		obj.Discount=temp[0].passive1
+		obj.DiscountedPrice=math.ceil(obj.InputPrice-(obj.InputPrice * (temp[0].passive1)/100))
+		obj.Freight=temp[1].passive1
+		obj.InputCostInclusiveoffreight=math.ceil(obj.DiscountedPrice+(obj.DiscountedPrice * (temp[1].passive1)/100))
+		obj.InterestCOM=temp[2].passive1
+		obj.UnitCost=math.ceil(obj.InputCostInclusiveoffreight+(obj.InputCostInclusiveoffreight * (temp[2].passive1)/100))
+		obj.InwardTax=temp[3].passive1
+		obj.UnitCostInclusiveofRisk=math.ceil(obj.UnitCost+(obj.UnitCost * (temp[3].passive1)/100))
+		obj.ContigencyPercentage=temp[4].passive1
+		obj.UnitCostInclusiveofContigency=math.ceil(obj.UnitCostInclusiveofRisk+(obj.UnitCostInclusiveofRisk* (temp[4].passive1)/100))
+		obj.Margin=temp[5].passive1
+		obj.Unit_Price=math.ceil(((100*obj.UnitCostInclusiveofContigency)/(100-temp[5].passive1)))
+		obj.WarrantyCharges=temp[6].passive1
+		obj.UnitPrice=math.ceil(obj.Unit_Price+(obj.Unit_Price * (temp[6].passive1)/100))
+		obj.InsuranceCharges=temp[7].passive1
+		obj.ListPricewithoutRoundup= math.ceil(obj.UnitPrice+ (obj.UnitPrice* temp[7].passive1/100))
+		obj.ListPricewithRoundedup= math.ceil((obj.ListPricewithoutRoundup/50)*50)
+		obj.save()
+
+
+	for obj in ddcobjs:
+		obj.Discount=temp[0].ddcsensor1
+		obj.DiscountedPrice=math.ceil(obj.InputPrice-(obj.InputPrice * (temp[0].ddcsensor1)/100))
+		obj.Freight=temp[1].ddcsensor1
+		obj.InputCostInclusiveoffreight=math.ceil(obj.DiscountedPrice+(obj.DiscountedPrice * (temp[1].ddcsensor1)/100))
+		obj.InterestCOM=temp[2].ddcsensor1
+		obj.UnitCost=math.ceil(obj.InputCostInclusiveoffreight+(obj.InputCostInclusiveoffreight * (temp[2].ddcsensor1)/100))
+		obj.InwardTax=temp[3].ddcsensor1
+		obj.UnitCostInclusiveofRisk=math.ceil(obj.UnitCost+(obj.UnitCost * (temp[3].ddcsensor1)/100))
+		obj.ContigencyPercentage=temp[4].ddcsensor1
+		obj.UnitCostInclusiveofContigency=math.ceil(obj.UnitCostInclusiveofRisk+(obj.UnitCostInclusiveofRisk* (temp[4].ddcsensor1)/100))
+		obj.Margin=temp[5].ddcsensor1
+		obj.Unit_Price=math.ceil(((100*obj.UnitCostInclusiveofContigency)/(100-temp[5].ddcsensor1)))
+		obj.WarrantyCharges=temp[6].ddcsensor1
+		obj.UnitPrice=math.ceil(obj.Unit_Price+(obj.Unit_Price * (temp[6].ddcsensor1)/100))
+		obj.InsuranceCharges=temp[7].ddcsensor1
+		obj.ListPricewithoutRoundup= math.ceil(obj.UnitPrice+ (obj.UnitPrice* temp[7].ddcsensor1/100))
+		obj.ListPricewithRoundedup= math.ceil((obj.ListPricewithoutRoundup/50)*50)
+		obj.save()
+	for obj in bmssensorobjs:
+		obj.Discount=temp[0].ddcsensor1
+		obj.DiscountedPrice=math.ceil(obj.InputPrice-(obj.InputPrice * (temp[0].ddcsensor1)/100))
+		obj.Freight=temp[1].ddcsensor1
+		obj.InputCostInclusiveoffreight=math.ceil(obj.DiscountedPrice+(obj.DiscountedPrice * (temp[1].ddcsensor1)/100))
+		obj.InterestCOM=temp[2].ddcsensor1
+		obj.UnitCost=math.ceil(obj.InputCostInclusiveoffreight+(obj.InputCostInclusiveoffreight * (temp[2].ddcsensor1)/100))
+		obj.InwardTax=temp[3].ddcsensor1
+		obj.UnitCostInclusiveofRisk=math.ceil(obj.UnitCost+(obj.UnitCost * (temp[3].ddcsensor1)/100))
+		obj.ContigencyPercentage=temp[4].ddcsensor1
+		obj.UnitCostInclusiveofContigency=math.ceil(obj.UnitCostInclusiveofRisk+(obj.UnitCostInclusiveofRisk* (temp[4].ddcsensor1)/100))
+		obj.Margin=temp[5].ddcsensor1
+		obj.Unit_Price=math.ceil(((100*obj.UnitCostInclusiveofContigency)/(100-temp[5].ddcsensor1)))
+		obj.WarrantyCharges=temp[6].ddcsensor1
+		obj.UnitPrice=math.ceil(obj.Unit_Price+(obj.Unit_Price * (temp[6].ddcsensor1)/100))
+		obj.InsuranceCharges=temp[7].ddcsensor1
+		obj.ListPricewithoutRoundup= math.ceil(obj.UnitPrice+ (obj.UnitPrice* temp[7].ddcsensor1/100))
+		obj.ListPricewithRoundedup= math.ceil((obj.ListPricewithoutRoundup/50)*50)
+		obj.save()
+
+
+	for obj in thirdpartyobjs:
+		obj.Discount=temp[0].thirdparty1
+		obj.DiscountedPrice=math.ceil(obj.InputPrice-(obj.InputPrice * (temp[0].thirdparty1)/100))
+		obj.Freight=temp[1].thirdparty1
+		obj.InputCostInclusiveoffreight=math.ceil(obj.DiscountedPrice+(obj.DiscountedPrice * (temp[1].thirdparty1)/100))
+		obj.InterestCOM=temp[2].thirdparty1
+		obj.UnitCost=math.ceil(obj.InputCostInclusiveoffreight+(obj.InputCostInclusiveoffreight * (temp[2].thirdparty1)/100))
+		obj.InwardTax=temp[3].thirdparty1
+		obj.UnitCostInclusiveofRisk=math.ceil(obj.UnitCost+(obj.UnitCost * (temp[3].thirdparty1)/100))
+		obj.ContigencyPercentage=temp[4].thirdparty1
+		obj.UnitCostInclusiveofContigency=math.ceil(obj.UnitCostInclusiveofRisk+(obj.UnitCostInclusiveofRisk* (temp[4].thirdparty1)/100))
+		obj.Margin=temp[5].thirdparty1
+		obj.Unit_Price=math.ceil(((100*obj.UnitCostInclusiveofContigency)/(100-temp[5].thirdparty1)))
+		obj.WarrantyCharges=temp[6].thirdparty1
+		obj.UnitPrice=math.ceil(obj.Unit_Price+(obj.Unit_Price * (temp[6].thirdparty1)/100))
+		obj.InsuranceCharges=temp[7].thirdparty1
+		obj.ListPricewithoutRoundup= math.ceil(obj.UnitPrice+ (obj.UnitPrice* temp[7].thirdparty1/100))
+		obj.ListPricewithRoundedup= math.ceil((obj.ListPricewithoutRoundup/50)*50)
+		obj.save()
+
+
+#bmscabobjs,pipobjs,traysobjs
+
+	for obj in bmscabobjs:
+		obj.Discount=temp[0].cabpiptray1
+		obj.DiscountedPrice=math.ceil(obj.InputPrice-(obj.InputPrice * (temp[0].cabpiptray1)/100))
+		obj.Freight=temp[1].cabpiptray1
+		obj.InputCostInclusiveoffreight=math.ceil(obj.DiscountedPrice+(obj.DiscountedPrice * (temp[1].cabpiptray1)/100))
+		obj.InterestCOM=temp[2].cabpiptray1
+		obj.UnitCost=math.ceil(obj.InputCostInclusiveoffreight+(obj.InputCostInclusiveoffreight * (temp[2].cabpiptray1)/100))
+		obj.InwardTax=temp[3].cabpiptray1
+		obj.UnitCostInclusiveofRisk=math.ceil(obj.UnitCost+(obj.UnitCost * (temp[3].cabpiptray1)/100))
+		obj.ContigencyPercentage=temp[4].cabpiptray1
+		obj.UnitCostInclusiveofContigency=math.ceil(obj.UnitCostInclusiveofRisk+(obj.UnitCostInclusiveofRisk* (temp[4].cabpiptray1)/100))
+		obj.Margin=temp[5].cabpiptray1
+		obj.Unit_Price=math.ceil(((100*obj.UnitCostInclusiveofContigency)/(100-temp[5].cabpiptray1)))
+		obj.WarrantyCharges=temp[6].cabpiptray1
+		obj.UnitPrice=math.ceil(obj.Unit_Price+(obj.Unit_Price * (temp[6].cabpiptray1)/100))
+		obj.InsuranceCharges=temp[7].cabpiptray1
+		obj.ListPricewithoutRoundup= math.ceil(obj.UnitPrice+ (obj.UnitPrice* temp[7].cabpiptray1/100))
+		obj.ListPricewithRoundedup= math.ceil((obj.ListPricewithoutRoundup/50)*50)
+		obj.save()
+
+
+	for obj in pipobjs:
+		obj.Discount=temp[0].cabpiptray1
+		obj.DiscountedPrice=math.ceil(obj.InputPrice-(obj.InputPrice * (temp[0].cabpiptray1)/100))
+		obj.Freight=temp[1].cabpiptray1
+		obj.InputCostInclusiveoffreight=math.ceil(obj.DiscountedPrice+(obj.DiscountedPrice * (temp[1].cabpiptray1)/100))
+		obj.InterestCOM=temp[2].cabpiptray1
+		obj.UnitCost=math.ceil(obj.InputCostInclusiveoffreight+(obj.InputCostInclusiveoffreight * (temp[2].cabpiptray1)/100))
+		obj.InwardTax=temp[3].cabpiptray1
+		obj.UnitCostInclusiveofRisk=math.ceil(obj.UnitCost+(obj.UnitCost * (temp[3].cabpiptray1)/100))
+		obj.ContigencyPercentage=temp[4].cabpiptray1
+		obj.UnitCostInclusiveofContigency=math.ceil(obj.UnitCostInclusiveofRisk+(obj.UnitCostInclusiveofRisk* (temp[4].cabpiptray1)/100))
+		obj.Margin=temp[5].cabpiptray1
+		obj.Unit_Price=math.ceil(((100*obj.UnitCostInclusiveofContigency)/(100-temp[5].cabpiptray1)))
+		obj.WarrantyCharges=temp[6].cabpiptray1
+		obj.UnitPrice=math.ceil(obj.Unit_Price+(obj.Unit_Price * (temp[6].cabpiptray1)/100))
+		obj.InsuranceCharges=temp[7].cabpiptray1
+		obj.ListPricewithoutRoundup= math.ceil(obj.UnitPrice+ (obj.UnitPrice* temp[7].cabpiptray1/100))
+		obj.ListPricewithRoundedup= math.ceil((obj.ListPricewithoutRoundup/50)*50)
+		obj.save()
+
+
+	for obj in traysobjs:
+		obj.Discount=temp[0].cabpiptray
+		obj.DiscountedPrice=math.ceil(obj.InputPrice-(obj.InputPrice * (temp[0].cabpiptray)/100))
+		obj.Freight=temp[1].cabpiptray
+		obj.InputCostInclusiveoffreight=math.ceil(obj.DiscountedPrice+(obj.DiscountedPrice * (temp[1].cabpiptray)/100))
+		obj.InterestCOM=temp[2].cabpiptray
+		obj.UnitCost=math.ceil(obj.InputCostInclusiveoffreight+(obj.InputCostInclusiveoffreight * (temp[2].cabpiptray)/100))
+		obj.InwardTax=temp[3].cabpiptray
+		obj.UnitCostInclusiveofRisk=math.ceil(obj.UnitCost+(obj.UnitCost * (temp[3].cabpiptray)/100))
+		obj.ContigencyPercentage=temp[4].cabpiptray
+		obj.UnitCostInclusiveofContigency=math.ceil(obj.UnitCostInclusiveofRisk+(obj.UnitCostInclusiveofRisk* (temp[4].cabpiptray)/100))
+		obj.Margin=temp[5].cabpiptray
+		obj.Unit_Price=math.ceil(((100*obj.UnitCostInclusiveofContigency)/(100-temp[5].cabpiptray)))
+		obj.WarrantyCharges=temp[6].cabpiptray
+		obj.UnitPrice=math.ceil(obj.Unit_Price+(obj.Unit_Price * (temp[6].cabpiptray)/100))
+		obj.InsuranceCharges=temp[7].cabpiptray
+		obj.ListPricewithoutRoundup= math.ceil(obj.UnitPrice+ (obj.UnitPrice* temp[7].cabpiptray/100))
+		obj.ListPricewithRoundedup= math.ceil((obj.ListPricewithoutRoundup/50)*50)
+		obj.save()
+	for obj in maneffortobjs:
+		obj.Discount=temp[0].ftmandayeffort
+		obj.DiscountedPrice=math.ceil(obj.InputPrice-(obj.InputPrice * (temp[0].ftmandayeffort)/100))
+		obj.Freight=temp[1].ftmandayeffort
+		obj.InputCostInclusiveoffreight=math.ceil(obj.DiscountedPrice+(obj.DiscountedPrice * (temp[1].ftmandayeffort)/100))
+		obj.InterestCOM=temp[2].ftmandayeffort
+		obj.UnitCost=math.ceil(obj.InputCostInclusiveoffreight+(obj.InputCostInclusiveoffreight * (temp[2].ftmandayeffort)/100))
+		obj.InwardTax=temp[3].ftmandayeffort
+		obj.UnitCostInclusiveofRisk=math.ceil(obj.UnitCost+(obj.UnitCost * (temp[3].ftmandayeffort)/100))
+		obj.ContigencyPercentage=temp[4].ftmandayeffort
+		obj.UnitCostInclusiveofContigency=math.ceil(obj.UnitCostInclusiveofRisk+(obj.UnitCostInclusiveofRisk* (temp[4].ftmandayeffort)/100))
+		obj.Margin=temp[5].ftmandayeffort
+		obj.Unit_Price=math.ceil(((100*obj.UnitCostInclusiveofContigency)/(100-temp[5].ftmandayeffort)))
+		obj.WarrantyCharges=temp[6].ftmandayeffort
+		obj.UnitPrice=math.ceil(obj.Unit_Price+(obj.Unit_Price * (temp[6].ftmandayeffort)/100))
+		obj.InsuranceCharges=temp[7].ftmandayeffort
+		obj.ListPricewithoutRoundup= math.ceil(obj.UnitPrice+ (obj.UnitPrice* temp[7].ftmandayeffort/100))
+		obj.ListPricewithRoundedup= math.ceil((obj.ListPricewithoutRoundup/50)*50)
+		obj.save()
+	for obj in trays1objs:
+		obj.Discount=temp[0].ddcsensor
+		obj.DiscountedPrice=math.ceil(obj.InputPrice-(obj.InputPrice * (temp[0].ddcsensor)/100))
+		obj.Freight=temp[1].ddcsensor
+		obj.InputCostInclusiveoffreight=math.ceil(obj.DiscountedPrice+(obj.DiscountedPrice * (temp[1].ddcsensor)/100))
+		obj.InterestCOM=temp[2].ddcsensor
+		obj.UnitCost=math.ceil(obj.InputCostInclusiveoffreight+(obj.InputCostInclusiveoffreight * (temp[2].ddcsensor)/100))
+		obj.InwardTax=temp[3].ddcsensor
+		obj.UnitCostInclusiveofRisk=math.ceil(obj.UnitCost+(obj.UnitCost * (temp[3].ddcsensor)/100))
+		obj.ContigencyPercentage=temp[4].ddcsensor
+		obj.UnitCostInclusiveofContigency=math.ceil(obj.UnitCostInclusiveofRisk+(obj.UnitCostInclusiveofRisk* (temp[4].ddcsensor)/100))
+		obj.Margin=temp[5].ddcsensor
+		obj.Unit_Price=math.ceil(((100*obj.UnitCostInclusiveofContigency)/(100-temp[5].ddcsensor)))
+		obj.WarrantyCharges=temp[6].ddcsensor
+		obj.UnitPrice=math.ceil(obj.Unit_Price+(obj.Unit_Price * (temp[6].ddcsensor)/100))
+		obj.InsuranceCharges=temp[7].ddcsensor
+		obj.ListPricewithoutRoundup= math.ceil(obj.UnitPrice+ (obj.UnitPrice* temp[7].ddcsensor/100))
+		obj.ListPricewithRoundedup= math.ceil((obj.ListPricewithoutRoundup/50)*50)
+		obj.save()
+	for obj in othersobjs:
+		obj.Discount=temp[0].othersmicffort
+		obj.DiscountedPrice=math.ceil(obj.InputPrice-(obj.InputPrice * (temp[0].othersmicffort)/100))
+		obj.Freight=temp[1].othersmicffort
+		obj.InputCostInclusiveoffreight=math.ceil(obj.DiscountedPrice+(obj.DiscountedPrice * (temp[1].othersmicffort)/100))
+		obj.InterestCOM=temp[2].othersmicffort
+		obj.UnitCost=math.ceil(obj.InputCostInclusiveoffreight+(obj.InputCostInclusiveoffreight * (temp[2].othersmicffort)/100))
+		obj.InwardTax=temp[3].othersmicffort
+		obj.UnitCostInclusiveofRisk=math.ceil(obj.UnitCost+(obj.UnitCost * (temp[3].othersmicffort)/100))
+		obj.ContigencyPercentage=temp[4].othersmicffort
+		obj.UnitCostInclusiveofContigency=math.ceil(obj.UnitCostInclusiveofRisk+(obj.UnitCostInclusiveofRisk* (temp[4].othersmicffort)/100))
+		obj.Margin=temp[5].othersmicffort
+		obj.Unit_Price=math.ceil(((100*obj.UnitCostInclusiveofContigency)/(100-temp[5].othersmicffort)))
+		obj.WarrantyCharges=temp[6].othersmicffort
+		obj.UnitPrice=math.ceil(obj.Unit_Price+(obj.Unit_Price * (temp[6].othersmicffort)/100))
+		obj.InsuranceCharges=temp[7].othersmicffort
+		obj.ListPricewithoutRoundup= math.ceil(obj.UnitPrice+ (obj.UnitPrice* temp[7].othersmicffort/100))
+		obj.ListPricewithRoundedup= math.ceil((obj.ListPricewithoutRoundup/50)*50)
+		obj.save()
+
+##
+
+
+
+
+
+
+
+	
 	return JsonResponse({'adg':'jyyj','sr_no':sr_no1})
-def editconfiguration1(request):
+def editconfiguration(request):
 	sr_no=request.POST.get('sr_no')
 	sr_no1=sr_no
 	sr_no=(int(sr_no))//10
@@ -518,6 +878,232 @@ def editconfiguration1(request):
 	t.ft3=request.POST.get('ft3')
 	t.ft4=request.POST.get('ft4')
 	t.save()
+	temp=InputConfiguration.objects.all()
+	
+	generalobjs=HardWareGeneral.objects.all()
+	ipobjs=HardWareIpVariant.objects.all()
+
+	bmscabobjs=HardWareBmsScabling.objects.all()
+	pipobjs=HardWarePiping.objects.all()
+	traysobjs=HardWareTrays.objects.all()
+	activeobjs=HardWareActive.objects.all()
+	passiveobjs=HardWarePassive.objects.all()
+	ddcobjs=HardWareDdc.objects.all()
+	etherobjs=HardWareEthernet.objects.all()
+	thirdpartyobjs=HardWareThirdParty.objects.all()
+	bmssensorobjs=HardWareBmsSensors.objects.all()
+	for obj in generalobjs:
+		obj.Discount=temp[0].ft_hardware
+		obj.DiscountedPrice=math.ceil(obj.InputPrice-(obj.InputPrice * (temp[0].ft_hardware)/100))
+		obj.Freight=temp[1].ft_hardware
+		obj.InputCostInclusiveoffreight=math.ceil(obj.DiscountedPrice+(obj.DiscountedPrice * (temp[1].ft_hardware)/100))
+		obj.InterestCOM=temp[2].ft_hardware
+		obj.UnitCost=math.ceil(obj.InputCostInclusiveoffreight+(obj.InputCostInclusiveoffreight * (temp[2].ft_hardware)/100))
+		obj.InwardTax=temp[3].ft_hardware
+		obj.UnitCostInclusiveofRisk=math.ceil(obj.UnitCost+(obj.UnitCost * (temp[3].ft_hardware)/100))
+		obj.ContigencyPercentage=temp[4].ft_hardware
+		obj.UnitCostInclusiveofContigency=math.ceil(obj.UnitCostInclusiveofRisk+(obj.UnitCostInclusiveofRisk* (temp[4].ft_hardware)/100))
+		obj.Margin=temp[5].ft_hardware
+		obj.Unit_Price=math.ceil(((100*obj.UnitCostInclusiveofContigency)/(100-temp[5].ft_hardware)))
+		obj.WarrantyCharges=temp[6].ft_hardware
+		obj.UnitPrice=math.ceil(obj.Unit_Price+(obj.Unit_Price * (temp[6].ft_hardware)/100))
+		obj.InsuranceCharges=temp[7].ft_hardware
+		obj.ListPricewithoutRoundup= math.ceil(obj.UnitPrice+ (obj.UnitPrice* temp[7].ft_hardware/100))
+		obj.ListPricewithRoundedup= math.ceil((obj.ListPricewithoutRoundup/50)*50)
+		obj.save()
+	for obj in ipobjs:
+		obj.Discount=temp[0].ft_hardware
+		obj.DiscountedPrice=math.ceil(obj.InputPrice-(obj.InputPrice * (temp[0].ft_hardware)/100))
+		obj.Freight=temp[1].ft_hardware
+		obj.InputCostInclusiveoffreight=math.ceil(obj.DiscountedPrice+(obj.DiscountedPrice * (temp[1].ft_hardware)/100))
+		obj.InterestCOM=temp[2].ft_hardware
+		obj.UnitCost=math.ceil(obj.InputCostInclusiveoffreight+(obj.InputCostInclusiveoffreight * (temp[2].ft_hardware)/100))
+		obj.InwardTax=temp[3].ft_hardware
+		obj.UnitCostInclusiveofRisk=math.ceil(obj.UnitCost+(obj.UnitCost * (temp[3].ft_hardware)/100))
+		obj.ContigencyPercentage=temp[4].ft_hardware
+		obj.UnitCostInclusiveofContigency=math.ceil(obj.UnitCostInclusiveofRisk+(obj.UnitCostInclusiveofRisk* (temp[4].ft_hardware)/100))
+		obj.Margin=temp[5].ft_hardware
+		obj.Unit_Price=math.ceil(((100*obj.UnitCostInclusiveofContigency)/(100-temp[5].ft_hardware)))
+		obj.WarrantyCharges=temp[6].ft_hardware
+		obj.UnitPrice=math.ceil(obj.Unit_Price+(obj.Unit_Price * (temp[6].ft_hardware)/100))
+		obj.InsuranceCharges=temp[7].ft_hardware
+		obj.ListPricewithoutRoundup= math.ceil(obj.UnitPrice+ (obj.UnitPrice* temp[7].ft_hardware/100))
+		obj.ListPricewithRoundedup= math.ceil((obj.ListPricewithoutRoundup/50)*50)
+		obj.save()
+	for obj in activeobjs:
+		obj.Discount=temp[0].active
+		obj.DiscountedPrice=math.ceil(obj.InputPrice-(obj.InputPrice * (temp[0].active)/100))
+		obj.Freight=temp[1].active
+		obj.InputCostInclusiveoffreight=math.ceil(obj.DiscountedPrice+(obj.DiscountedPrice * (temp[1].active)/100))
+		obj.InterestCOM=temp[2].active
+		obj.UnitCost=math.ceil(obj.InputCostInclusiveoffreight+(obj.InputCostInclusiveoffreight * (temp[2].active)/100))
+		obj.InwardTax=temp[3].active
+		obj.UnitCostInclusiveofRisk=math.ceil(obj.UnitCost+(obj.UnitCost * (temp[3].active)/100))
+		obj.ContigencyPercentage=temp[4].active
+		obj.UnitCostInclusiveofContigency=math.ceil(obj.UnitCostInclusiveofRisk+(obj.UnitCostInclusiveofRisk* (temp[4].active)/100))
+		obj.Margin=temp[5].active
+		obj.Unit_Price=math.ceil(((100*obj.UnitCostInclusiveofContigency)/(100-temp[5].active)))
+		obj.WarrantyCharges=temp[6].active
+		obj.UnitPrice=math.ceil(obj.Unit_Price+(obj.Unit_Price * (temp[6].active)/100))
+		obj.InsuranceCharges=temp[7].active
+		obj.ListPricewithoutRoundup= math.ceil(obj.UnitPrice+ (obj.UnitPrice* temp[7].active/100))
+		obj.ListPricewithRoundedup= math.ceil((obj.ListPricewithoutRoundup/50)*50)
+		obj.save()
+	for obj in passiveobjs:
+		obj.Discount=temp[0].passive
+		obj.DiscountedPrice=math.ceil(obj.InputPrice-(obj.InputPrice * (temp[0].passive)/100))
+		obj.Freight=temp[1].passive
+		obj.InputCostInclusiveoffreight=math.ceil(obj.DiscountedPrice+(obj.DiscountedPrice * (temp[1].passive)/100))
+		obj.InterestCOM=temp[2].passive
+		obj.UnitCost=math.ceil(obj.InputCostInclusiveoffreight+(obj.InputCostInclusiveoffreight * (temp[2].passive)/100))
+		obj.InwardTax=temp[3].passive
+		obj.UnitCostInclusiveofRisk=math.ceil(obj.UnitCost+(obj.UnitCost * (temp[3].passive)/100))
+		obj.ContigencyPercentage=temp[4].passive
+		obj.UnitCostInclusiveofContigency=math.ceil(obj.UnitCostInclusiveofRisk+(obj.UnitCostInclusiveofRisk* (temp[4].passive)/100))
+		obj.Margin=temp[5].passive
+		obj.Unit_Price=math.ceil(((100*obj.UnitCostInclusiveofContigency)/(100-temp[5].passive)))
+		obj.WarrantyCharges=temp[6].passive
+		obj.UnitPrice=math.ceil(obj.Unit_Price+(obj.Unit_Price * (temp[6].passive)/100))
+		obj.InsuranceCharges=temp[7].passive
+		obj.ListPricewithoutRoundup= math.ceil(obj.UnitPrice+ (obj.UnitPrice* temp[7].passive/100))
+		obj.ListPricewithRoundedup= math.ceil((obj.ListPricewithoutRoundup/50)*50)
+		obj.save()
+	for obj in etherobjs:
+		obj.Discount=temp[0].passive
+		obj.DiscountedPrice=math.ceil(obj.InputPrice-(obj.InputPrice * (temp[0].passive)/100))
+		obj.Freight=temp[1].passive
+		obj.InputCostInclusiveoffreight=math.ceil(obj.DiscountedPrice+(obj.DiscountedPrice * (temp[1].passive)/100))
+		obj.InterestCOM=temp[2].passive
+		obj.UnitCost=math.ceil(obj.InputCostInclusiveoffreight+(obj.InputCostInclusiveoffreight * (temp[2].passive)/100))
+		obj.InwardTax=temp[3].passive
+		obj.UnitCostInclusiveofRisk=math.ceil(obj.UnitCost+(obj.UnitCost * (temp[3].passive)/100))
+		obj.ContigencyPercentage=temp[4].passive
+		obj.UnitCostInclusiveofContigency=math.ceil(obj.UnitCostInclusiveofRisk+(obj.UnitCostInclusiveofRisk* (temp[4].passive)/100))
+		obj.Margin=temp[5].passive
+		obj.Unit_Price=math.ceil(((100*obj.UnitCostInclusiveofContigency)/(100-temp[5].passive)))
+		obj.WarrantyCharges=temp[6].passive
+		obj.UnitPrice=math.ceil(obj.Unit_Price+(obj.Unit_Price * (temp[6].passive)/100))
+		obj.InsuranceCharges=temp[7].passive
+		obj.ListPricewithoutRoundup= math.ceil(obj.UnitPrice+ (obj.UnitPrice* temp[7].passive/100))
+		obj.ListPricewithRoundedup= math.ceil((obj.ListPricewithoutRoundup/50)*50)
+		obj.save()
+	for obj in ddcobjs:
+		obj.Discount=temp[0].ddcsensor
+		obj.DiscountedPrice=math.ceil(obj.InputPrice-(obj.InputPrice * (temp[0].ddcsensor)/100))
+		obj.Freight=temp[1].ddcsensor
+		obj.InputCostInclusiveoffreight=math.ceil(obj.DiscountedPrice+(obj.DiscountedPrice * (temp[1].ddcsensor)/100))
+		obj.InterestCOM=temp[2].ddcsensor
+		obj.UnitCost=math.ceil(obj.InputCostInclusiveoffreight+(obj.InputCostInclusiveoffreight * (temp[2].ddcsensor)/100))
+		obj.InwardTax=temp[3].ddcsensor
+		obj.UnitCostInclusiveofRisk=math.ceil(obj.UnitCost+(obj.UnitCost * (temp[3].ddcsensor)/100))
+		obj.ContigencyPercentage=temp[4].ddcsensor
+		obj.UnitCostInclusiveofContigency=math.ceil(obj.UnitCostInclusiveofRisk+(obj.UnitCostInclusiveofRisk* (temp[4].ddcsensor)/100))
+		obj.Margin=temp[5].ddcsensor
+		obj.Unit_Price=math.ceil(((100*obj.UnitCostInclusiveofContigency)/(100-temp[5].ddcsensor)))
+		obj.WarrantyCharges=temp[6].ddcsensor
+		obj.UnitPrice=math.ceil(obj.Unit_Price+(obj.Unit_Price * (temp[6].ddcsensor)/100))
+		obj.InsuranceCharges=temp[7].ddcsensor
+		obj.ListPricewithoutRoundup= math.ceil(obj.UnitPrice+ (obj.UnitPrice* temp[7].ddcsensor/100))
+		obj.ListPricewithRoundedup= math.ceil((obj.ListPricewithoutRoundup/50)*50)
+		obj.save()
+	for obj in bmssensorobjs:
+		obj.Discount=temp[0].ddcsensor
+		obj.DiscountedPrice=math.ceil(obj.InputPrice-(obj.InputPrice * (temp[0].ddcsensor)/100))
+		obj.Freight=temp[1].ddcsensor
+		obj.InputCostInclusiveoffreight=math.ceil(obj.DiscountedPrice+(obj.DiscountedPrice * (temp[1].ddcsensor)/100))
+		obj.InterestCOM=temp[2].ddcsensor
+		obj.UnitCost=math.ceil(obj.InputCostInclusiveoffreight+(obj.InputCostInclusiveoffreight * (temp[2].ddcsensor)/100))
+		obj.InwardTax=temp[3].ddcsensor
+		obj.UnitCostInclusiveofRisk=math.ceil(obj.UnitCost+(obj.UnitCost * (temp[3].ddcsensor)/100))
+		obj.ContigencyPercentage=temp[4].ddcsensor
+		obj.UnitCostInclusiveofContigency=math.ceil(obj.UnitCostInclusiveofRisk+(obj.UnitCostInclusiveofRisk* (temp[4].ddcsensor)/100))
+		obj.Margin=temp[5].ddcsensor
+		obj.Unit_Price=math.ceil(((100*obj.UnitCostInclusiveofContigency)/(100-temp[5].ddcsensor)))
+		obj.WarrantyCharges=temp[6].ddcsensor
+		obj.UnitPrice=math.ceil(obj.Unit_Price+(obj.Unit_Price * (temp[6].ddcsensor)/100))
+		obj.InsuranceCharges=temp[7].ddcsensor
+		obj.ListPricewithoutRoundup= math.ceil(obj.UnitPrice+ (obj.UnitPrice* temp[7].ddcsensor/100))
+		obj.ListPricewithRoundedup= math.ceil((obj.ListPricewithoutRoundup/50)*50)
+		obj.save()
+	for obj in thirdpartyobjs:
+		obj.Discount=temp[0].thirdparty
+		obj.DiscountedPrice=math.ceil(obj.InputPrice-(obj.InputPrice * (temp[0].thirdparty)/100))
+		obj.Freight=temp[1].thirdparty
+		obj.InputCostInclusiveoffreight=math.ceil(obj.DiscountedPrice+(obj.DiscountedPrice * (temp[1].thirdparty)/100))
+		obj.InterestCOM=temp[2].thirdparty
+		obj.UnitCost=math.ceil(obj.InputCostInclusiveoffreight+(obj.InputCostInclusiveoffreight * (temp[2].thirdparty)/100))
+		obj.InwardTax=temp[3].thirdparty
+		obj.UnitCostInclusiveofRisk=math.ceil(obj.UnitCost+(obj.UnitCost * (temp[3].thirdparty)/100))
+		obj.ContigencyPercentage=temp[4].thirdparty
+		obj.UnitCostInclusiveofContigency=math.ceil(obj.UnitCostInclusiveofRisk+(obj.UnitCostInclusiveofRisk* (temp[4].thirdparty)/100))
+		obj.Margin=temp[5].thirdparty
+		obj.Unit_Price=math.ceil(((100*obj.UnitCostInclusiveofContigency)/(100-temp[5].thirdparty)))
+		obj.WarrantyCharges=temp[6].thirdparty
+		obj.UnitPrice=math.ceil(obj.Unit_Price+(obj.Unit_Price * (temp[6].thirdparty)/100))
+		obj.InsuranceCharges=temp[7].thirdparty
+		obj.ListPricewithoutRoundup= math.ceil(obj.UnitPrice+ (obj.UnitPrice* temp[7].thirdparty/100))
+		obj.ListPricewithRoundedup= math.ceil((obj.ListPricewithoutRoundup/50)*50)
+		obj.save()
+#bmscabobjs,pipobjs,traysobjs
+
+	for obj in bmscabobjs:
+		obj.Discount=temp[0].cabpiptray
+		obj.DiscountedPrice=math.ceil(obj.InputPrice-(obj.InputPrice * (temp[0].cabpiptray)/100))
+		obj.Freight=temp[1].cabpiptray
+		obj.InputCostInclusiveoffreight=math.ceil(obj.DiscountedPrice+(obj.DiscountedPrice * (temp[1].cabpiptray)/100))
+		obj.InterestCOM=temp[2].cabpiptray
+		obj.UnitCost=math.ceil(obj.InputCostInclusiveoffreight+(obj.InputCostInclusiveoffreight * (temp[2].cabpiptray)/100))
+		obj.InwardTax=temp[3].cabpiptray
+		obj.UnitCostInclusiveofRisk=math.ceil(obj.UnitCost+(obj.UnitCost * (temp[3].cabpiptray)/100))
+		obj.ContigencyPercentage=temp[4].cabpiptray
+		obj.UnitCostInclusiveofContigency=math.ceil(obj.UnitCostInclusiveofRisk+(obj.UnitCostInclusiveofRisk* (temp[4].cabpiptray)/100))
+		obj.Margin=temp[5].cabpiptray
+		obj.Unit_Price=math.ceil(((100*obj.UnitCostInclusiveofContigency)/(100-temp[5].cabpiptray)))
+		obj.WarrantyCharges=temp[6].cabpiptray
+		obj.UnitPrice=math.ceil(obj.Unit_Price+(obj.Unit_Price * (temp[6].cabpiptray)/100))
+		obj.InsuranceCharges=temp[7].cabpiptray
+		obj.ListPricewithoutRoundup= math.ceil(obj.UnitPrice+ (obj.UnitPrice* temp[7].cabpiptray/100))
+		obj.ListPricewithRoundedup= math.ceil((obj.ListPricewithoutRoundup/50)*50)
+		obj.save()
+	for obj in pipobjs:
+		obj.Discount=temp[0].cabpiptray
+		obj.DiscountedPrice=math.ceil(obj.InputPrice-(obj.InputPrice * (temp[0].cabpiptray)/100))
+		obj.Freight=temp[1].cabpiptray
+		obj.InputCostInclusiveoffreight=math.ceil(obj.DiscountedPrice+(obj.DiscountedPrice * (temp[1].cabpiptray)/100))
+		obj.InterestCOM=temp[2].cabpiptray
+		obj.UnitCost=math.ceil(obj.InputCostInclusiveoffreight+(obj.InputCostInclusiveoffreight * (temp[2].cabpiptray)/100))
+		obj.InwardTax=temp[3].cabpiptray
+		obj.UnitCostInclusiveofRisk=math.ceil(obj.UnitCost+(obj.UnitCost * (temp[3].cabpiptray)/100))
+		obj.ContigencyPercentage=temp[4].cabpiptray
+		obj.UnitCostInclusiveofContigency=math.ceil(obj.UnitCostInclusiveofRisk+(obj.UnitCostInclusiveofRisk* (temp[4].cabpiptray)/100))
+		obj.Margin=temp[5].cabpiptray
+		obj.Unit_Price=math.ceil(((100*obj.UnitCostInclusiveofContigency)/(100-temp[5].cabpiptray)))
+		obj.WarrantyCharges=temp[6].cabpiptray
+		obj.UnitPrice=math.ceil(obj.Unit_Price+(obj.Unit_Price * (temp[6].cabpiptray)/100))
+		obj.InsuranceCharges=temp[7].cabpiptray
+		obj.ListPricewithoutRoundup= math.ceil(obj.UnitPrice+ (obj.UnitPrice* temp[7].cabpiptray/100))
+		obj.ListPricewithRoundedup= math.ceil((obj.ListPricewithoutRoundup/50)*50)
+		obj.save()
+	for obj in traysobjs:
+		obj.Discount=temp[0].cabpiptray
+		obj.DiscountedPrice=math.ceil(obj.InputPrice-(obj.InputPrice * (temp[0].cabpiptray)/100))
+		obj.Freight=temp[1].cabpiptray
+		obj.InputCostInclusiveoffreight=math.ceil(obj.DiscountedPrice+(obj.DiscountedPrice * (temp[1].cabpiptray)/100))
+		obj.InterestCOM=temp[2].cabpiptray
+		obj.UnitCost=math.ceil(obj.InputCostInclusiveoffreight+(obj.InputCostInclusiveoffreight * (temp[2].cabpiptray)/100))
+		obj.InwardTax=temp[3].cabpiptray
+		obj.UnitCostInclusiveofRisk=math.ceil(obj.UnitCost+(obj.UnitCost * (temp[3].cabpiptray)/100))
+		obj.ContigencyPercentage=temp[4].cabpiptray
+		obj.UnitCostInclusiveofContigency=math.ceil(obj.UnitCostInclusiveofRisk+(obj.UnitCostInclusiveofRisk* (temp[4].cabpiptray)/100))
+		obj.Margin=temp[5].cabpiptray
+		obj.Unit_Price=math.ceil(((100*obj.UnitCostInclusiveofContigency)/(100-temp[5].cabpiptray)))
+		obj.WarrantyCharges=temp[6].cabpiptray
+		obj.UnitPrice=math.ceil(obj.Unit_Price+(obj.Unit_Price * (temp[6].cabpiptray)/100))
+		obj.InsuranceCharges=temp[7].cabpiptray
+		obj.ListPricewithoutRoundup= math.ceil(obj.UnitPrice+ (obj.UnitPrice* temp[7].cabpiptray/100))
+		obj.ListPricewithRoundedup= math.ceil((obj.ListPricewithoutRoundup/50)*50)
+		obj.save()
+
 	return JsonResponse({'adg':'jyyj','sr_no':sr_no1})
 
 def editvpss(request):

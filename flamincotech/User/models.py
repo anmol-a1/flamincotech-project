@@ -1,7 +1,7 @@
 from django.db import models
 #General,Active,Fiber,Ethernet,Ddc,Bms_Sensors,Bms_Cabling,Bms_Piping,Bms_Trays,Third_Party,Others
 class General(models.Model):
-    sr_no=models.AutoField(primary_key=True)
+    sr_no=models.IntegerField(primary_key=True)
     Make=models.CharField(max_length=300,default=" ")
     Model=models.CharField(max_length=300,default=" ")
     Hardware_Items=models.CharField(max_length=300,default=" ")

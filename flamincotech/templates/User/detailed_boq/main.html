@@ -151,6 +151,9 @@
                                                                         type="number"></th>
 
                                                         </th>
+                                                        <th ><input id="{{entry.sr_no}}Minimum_Qty"
+                                                                   value={{entry.Minimum_Qty}}     style="width: 55px;border:none" value=0
+                                                                        type="number"></th>
                                                 </tr>
                                                 {% endfor %}
                                                  <tr style="background-color:white">
@@ -1654,7 +1657,7 @@
         <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
         <script>
                 var harddetails = JSON.parse(localStorage.getItem('harddetails'));
-                for (var i = 2; i <= 16; i++) {
+                for (var i = 2; i <= 18; i++) {
                         document.getElementById(i + "Qty_General").value = parseInt(harddetails[i - 2].quant);
                 }
                 let person = { quant: 0 };
@@ -1662,7 +1665,6 @@
                 General_Data.unshift(person, person);
                 General_Data.push(person, person);
                 var IP_Data = {{ HardIP| safe }};
-                General_Data = General_Data.concat(IP_Data);
                 var HardGenData = {{ HardWareGeneralInstalls | safe}};
                 var ActiveData = {{ HardWareActives | safe}};
                 console.log(HardGenData);
@@ -1674,9 +1676,9 @@
                         document.getElementById("1MRS_Rate_General").value = document.getElementById("1Qty_General").value == ("0" || 0) ? 0 : General_Data[2].Unit_Price;
                         document.getElementById("2MRS_Rate_General").value = document.getElementById("2Qty_General").value == ("0" || 0) ? 0 : General_Data[3].Unit_Price;
                         document.getElementById("3MRS_Rate_General").value = document.getElementById("3Qty_General").value == ("0" || 0) ? 0 : General_Data[4].Unit_Price;
-                        document.getElementById("1Supply_Rate_General").value = document.getElementById("1Qty_General").value == ("0" || 0) ? 0 : General_Data[2].ListPricewithoutRoundup;
-                        document.getElementById("2Supply_Rate_General").value = document.getElementById("2Qty_General").value == ("0" || 0) ? 0 : General_Data[3].ListPricewithoutRoundup;
-                        document.getElementById("3Supply_Rate_General").value = document.getElementById("3Qty_General").value == ("0" || 0) ? 0 : General_Data[4].ListPricewithoutRoundup;
+                        document.getElementById("1Supply_Rate_General").value = document.getElementById("1Qty_General").value == ("0" || 0) ? 0 : General_Data[2].ListPricewithRoundedup;
+                        document.getElementById("2Supply_Rate_General").value = document.getElementById("2Qty_General").value == ("0" || 0) ? 0 : General_Data[3].ListPricewithRoundedup;
+                        document.getElementById("3Supply_Rate_General").value = document.getElementById("3Qty_General").value == ("0" || 0) ? 0 : General_Data[4].ListPricewithRoundedup;
                         var valss = parseInt(document.getElementById("4Qty_General").value);
                         if (valss == (0 || "0")) {
                                 document.getElementById("4Cost_Supply_Rate_General").value = 0;
@@ -1687,20 +1689,20 @@
                         else if (valss <= 100) {
                                 document.getElementById("4Cost_Supply_Rate_General").value = General_Data[5].UnitCostInclusiveofContigency;
                                 document.getElementById("4MRS_Rate_General").value = General_Data[5].Unit_Price;
-                                document.getElementById("4Supply_Rate_General").value = General_Data[5].ListPricewithoutRoundup;
+                                document.getElementById("4Supply_Rate_General").value = General_Data[5].ListPricewithRoundedup;
 
                         }
                         else if (valss <= 500) {
                                 document.getElementById("4Cost_Supply_Rate_General").value = General_Data[6].UnitCostInclusiveofContigency;
                                 document.getElementById("4MRS_Rate_General").value = General_Data[6].Unit_Price;
-                                document.getElementById("4Supply_Rate_General").value = General_Data[6].ListPricewithoutRoundup;
+                                document.getElementById("4Supply_Rate_General").value = General_Data[6].ListPricewithRoundedup;
 
                         }
 
                         else {
                                 document.getElementById("4Cost_Supply_Rate_General").value = General_Data[7].UnitCostInclusiveofContigency;
                                 document.getElementById("4MRS_Rate_General").value = General_Data[7].Unit_Price;
-                                document.getElementById("4Supply_Rate_General").value = General_Data[7].ListPricewithoutRoundup;
+                                document.getElementById("4Supply_Rate_General").value = General_Data[7].ListPricewithRoundedup;
 
                         }
                         valss = parseInt(document.getElementById("5Qty_General").value);
@@ -1713,20 +1715,20 @@
                         else if (valss <= 100) {
                                 document.getElementById("5Cost_Supply_Rate_General").value = General_Data[8].UnitCostInclusiveofContigency;
                                 document.getElementById("5MRS_Rate_General").value = General_Data[8].Unit_Price;
-                                document.getElementById("5Supply_Rate_General").value = General_Data[8].ListPricewithoutRoundup;
+                                document.getElementById("5Supply_Rate_General").value = General_Data[8].ListPricewithRoundedup;
 
                         }
                         else if (valss <= 500) {
                                 document.getElementById("5Cost_Supply_Rate_General").value = General_Data[9].UnitCostInclusiveofContigency;
                                 document.getElementById("5MRS_Rate_General").value = General_Data[9].Unit_Price;
-                                document.getElementById("5Supply_Rate_General").value = General_Data[9].ListPricewithoutRoundup;
+                                document.getElementById("5Supply_Rate_General").value = General_Data[9].ListPricewithRoundedup;
 
                         }
 
                         else {
                                 document.getElementById("5Cost_Supply_Rate_General").value = General_Data[10].UnitCostInclusiveofContigency;
                                 document.getElementById("5MRS_Rate_General").value = General_Data[10].Unit_Price;
-                                document.getElementById("5Supply_Rate_General").value = General_Data[10].ListPricewithoutRoundup;
+                                document.getElementById("5Supply_Rate_General").value = General_Data[10].ListPricewithRoundedup;
 
                         }
                         valss = parseInt(document.getElementById("6Qty_General").value);
@@ -1739,20 +1741,20 @@
                         else if (valss <= 100) {
                                 document.getElementById("6Cost_Supply_Rate_General").value = General_Data[11].UnitCostInclusiveofContigency;
                                 document.getElementById("6MRS_Rate_General").value = General_Data[11].Unit_Price;
-                                document.getElementById("6Supply_Rate_General").value = General_Data[11].ListPricewithoutRoundup;
+                                document.getElementById("6Supply_Rate_General").value = General_Data[11].ListPricewithRoundedup;
 
                         }
                         else if (valss <= 500) {
                                 document.getElementById("6Cost_Supply_Rate_General").value = General_Data[12].UnitCostInclusiveofContigency;
                                 document.getElementById("6MRS_Rate_General").value = General_Data[12].Unit_Price;
-                                document.getElementById("6Supply_Rate_General").value = General_Data[12].ListPricewithoutRoundup;
+                                document.getElementById("6Supply_Rate_General").value = General_Data[12].ListPricewithRoundedup;
 
                         }
 
                         else {
                                 document.getElementById("6Cost_Supply_Rate_General").value = General_Data[13].UnitCostInclusiveofContigency;
                                 document.getElementById("6MRS_Rate_General").value = General_Data[13].Unit_Price;
-                                document.getElementById("6Supply_Rate_General").value = General_Data[13].ListPricewithoutRoundup;
+                                document.getElementById("6Supply_Rate_General").value = General_Data[13].ListPricewithRoundedup;
 
                         }
                         valss = parseInt(document.getElementById("7Qty_General").value);
@@ -1765,20 +1767,20 @@
                         else if (valss <= 100) {
                                 document.getElementById("7Cost_Supply_Rate_General").value = General_Data[14].UnitCostInclusiveofContigency;
                                 document.getElementById("7MRS_Rate_General").value = General_Data[14].Unit_Price;
-                                document.getElementById("7Supply_Rate_General").value = General_Data[14].ListPricewithoutRoundup;
+                                document.getElementById("7Supply_Rate_General").value = General_Data[14].ListPricewithRoundedup;
 
                         }
                         else if (valss <= 500) {
                                 document.getElementById("7Cost_Supply_Rate_General").value = General_Data[15].UnitCostInclusiveofContigency;
                                 document.getElementById("7MRS_Rate_General").value = General_Data[15].Unit_Price;
-                                document.getElementById("7Supply_Rate_General").value = General_Data[15].ListPricewithoutRoundup;
+                                document.getElementById("7Supply_Rate_General").value = General_Data[15].ListPricewithRoundedup;
 
                         }
 
                         else {
                                 document.getElementById("7Cost_Supply_Rate_General").value = General_Data[16].UnitCostInclusiveofContigency;
                                 document.getElementById("7MRS_Rate_General").value = General_Data[16].Unit_Price;
-                                document.getElementById("7Supply_Rate_General").value = General_Data[16].ListPricewithoutRoundup;
+                                document.getElementById("7Supply_Rate_General").value = General_Data[16].ListPricewithRoundedup;
 
                         }
                         valss = parseInt(document.getElementById("8Qty_General").value);
@@ -1789,23 +1791,23 @@
 
                         }
                         else if (valss <= 100) {
-                                document.getElementById("8Cost_Supply_Rate_General").value = General_Data[31].UnitCostInclusiveofContigency;
-                                document.getElementById("8MRS_Rate_General").value = General_Data[31].Unit_Price;
-                                document.getElementById("8Supply_Rate_General").value = General_Data[31].ListPricewithoutRoundup;
+                                document.getElementById("8Cost_Supply_Rate_General").value = IP_Data[0].UnitCostInclusiveofContigency;
+                                document.getElementById("8MRS_Rate_General").value = IP_Data[0].Unit_Price;
+                                document.getElementById("8Supply_Rate_General").value = IP_Data[0].ListPricewithRoundedup;
 
                         }
                         else if (valss <= 500) {
-                                document.getElementById("8Cost_Supply_Rate_General").value = General_Data[32].UnitCostInclusiveofContigency;
-                                document.getElementById("8MRS_Rate_General").value = General_Data[32].Unit_Price;
-                                document.getElementById("8Supply_Rate_General").value = General_Data[32].ListPricewithoutRoundup;
+                                document.getElementById("8Cost_Supply_Rate_General").value = IP_Data[1].UnitCostInclusiveofContigency;
+                                document.getElementById("8MRS_Rate_General").value = IP_Data[1].Unit_Price;
+                                document.getElementById("8Supply_Rate_General").value = IP_Data[1].ListPricewithRoundedup;
 
                         }
 
 
                         else {
-                                document.getElementById("8Cost_Supply_Rate_General").value = General_Data[33].UnitCostInclusiveofContigency;
-                                document.getElementById("8MRS_Rate_General").value = General_Data[33].Unit_Price;
-                                document.getElementById("8Supply_Rate_General").value = General_Data[33].ListPricewithoutRoundup;
+                                document.getElementById("8Cost_Supply_Rate_General").value = IP_Data[2].UnitCostInclusiveofContigency;
+                                document.getElementById("8MRS_Rate_General").value = IP_Data[2].Unit_Price;
+                                document.getElementById("8Supply_Rate_General").value = IP_Data[2].ListPricewithRoundedup;
 
                         }
                         valss = parseInt(document.getElementById("9Qty_General").value);
@@ -1818,20 +1820,20 @@
                         else if (valss <= 100) {
                                 document.getElementById("9Cost_Supply_Rate_General").value = General_Data[17].UnitCostInclusiveofContigency;
                                 document.getElementById("9MRS_Rate_General").value = General_Data[17].Unit_Price;
-                                document.getElementById("9Supply_Rate_General").value = General_Data[17].ListPricewithoutRoundup;
+                                document.getElementById("9Supply_Rate_General").value = General_Data[17].ListPricewithRoundedup;
 
                         }
                         else if (valss <= 500) {
                                 document.getElementById("9Cost_Supply_Rate_General").value = General_Data[18].UnitCostInclusiveofContigency;
                                 document.getElementById("9MRS_Rate_General").value = General_Data[18].Unit_Price;
-                                document.getElementById("9Supply_Rate_General").value = General_Data[18].ListPricewithoutRoundup;
+                                document.getElementById("9Supply_Rate_General").value = General_Data[18].ListPricewithRoundedup;
 
                         }
 
                         else {
                                 document.getElementById("9Cost_Supply_Rate_General").value = General_Data[19].UnitCostInclusiveofContigency;
                                 document.getElementById("9MRS_Rate_General").value = General_Data[19].Unit_Price;
-                                document.getElementById("9Supply_Rate_General").value = General_Data[19].ListPricewithoutRoundup;
+                                document.getElementById("9Supply_Rate_General").value = General_Data[19].ListPricewithRoundedup;
 
                         }
                         valss = parseInt(document.getElementById("10Qty_General").value);
@@ -1842,22 +1844,22 @@
 
                         }
                         else if (valss <= 100) {
-                                document.getElementById("10Cost_Supply_Rate_General").value = General_Data[34].UnitCostInclusiveofContigency;
-                                document.getElementById("10MRS_Rate_General").value = General_Data[34].Unit_Price;
-                                document.getElementById("10Supply_Rate_General").value = General_Data[34].ListPricewithoutRoundup;
+                                document.getElementById("10Cost_Supply_Rate_General").value = IP_Data[3].UnitCostInclusiveofContigency;
+                                document.getElementById("10MRS_Rate_General").value = IP_Data[3].Unit_Price;
+                                document.getElementById("10Supply_Rate_General").value = IP_Data[3].ListPricewithRoundedup;
 
                         }
                         else if (valss <= 500) {
-                                document.getElementById("10Cost_Supply_Rate_General").value = General_Data[35].UnitCostInclusiveofContigency;
-                                document.getElementById("10MRS_Rate_General").value = General_Data[35].Unit_Price;
-                                document.getElementById("10Supply_Rate_General").value = General_Data[35].ListPricewithoutRoundup;
+                                document.getElementById("10Cost_Supply_Rate_General").value = IP_Data[4].UnitCostInclusiveofContigency;
+                                document.getElementById("10MRS_Rate_General").value = IP_Data[4].Unit_Price;
+                                document.getElementById("10Supply_Rate_General").value = IP_Data[4].ListPricewithRoundedup;
 
                         }
 
                         else {
-                                document.getElementById("10Cost_Supply_Rate_General").value = General_Data[36].UnitCostInclusiveofContigency;
-                                document.getElementById("10MRS_Rate_General").value = General_Data[36].Unit_Price;
-                                document.getElementById("10Supply_Rate_General").value = General_Data[36].ListPricewithoutRoundup;
+                                document.getElementById("10Cost_Supply_Rate_General").value = IP_Data[5].UnitCostInclusiveofContigency;
+                                document.getElementById("10MRS_Rate_General").value = IP_Data[5].Unit_Price;
+                                document.getElementById("10Supply_Rate_General").value = IP_Data[5].ListPricewithRoundedup;
 
                         }
                         valss = parseInt(document.getElementById("11Qty_General").value);
@@ -1870,20 +1872,20 @@
                         else if (valss <= 100) {
                                 document.getElementById("11Cost_Supply_Rate_General").value = General_Data[20].UnitCostInclusiveofContigency;
                                 document.getElementById("11MRS_Rate_General").value = General_Data[20].Unit_Price;
-                                document.getElementById("11Supply_Rate_General").value = General_Data[20].ListPricewithoutRoundup;
+                                document.getElementById("11Supply_Rate_General").value = General_Data[20].ListPricewithRoundedup;
 
                         }
                         else if (valss <= 500) {
                                 document.getElementById("11Cost_Supply_Rate_General").value = General_Data[21].UnitCostInclusiveofContigency;
                                 document.getElementById("11MRS_Rate_General").value = General_Data[21].Unit_Price;
-                                document.getElementById("11Supply_Rate_General").value = General_Data[21].ListPricewithoutRoundup;
+                                document.getElementById("11Supply_Rate_General").value = General_Data[21].ListPricewithRoundedup;
 
                         }
 
                         else {
                                 document.getElementById("11Cost_Supply_Rate_General").value = General_Data[22].UnitCostInclusiveofContigency;
                                 document.getElementById("11MRS_Rate_General").value = General_Data[22].Unit_Price;
-                                document.getElementById("11Supply_Rate_General").value = General_Data[22].ListPricewithoutRoundup;
+                                document.getElementById("11Supply_Rate_General").value = General_Data[22].ListPricewithRoundedup;
 
                         }
                         valss = parseInt(document.getElementById("12Qty_General").value);
@@ -1894,22 +1896,22 @@
 
                         }
                         else if (valss <= 100) {
-                                document.getElementById("12Cost_Supply_Rate_General").value = General_Data[37].UnitCostInclusiveofContigency;
-                                document.getElementById("12MRS_Rate_General").value = General_Data[37].Unit_Price;
-                                document.getElementById("12Supply_Rate_General").value = General_Data[37].ListPricewithoutRoundup;
+                                document.getElementById("12Cost_Supply_Rate_General").value = IP_Data[6].UnitCostInclusiveofContigency;
+                                document.getElementById("12MRS_Rate_General").value = IP_Data[6].Unit_Price;
+                                document.getElementById("12Supply_Rate_General").value = IP_Data[6].ListPricewithRoundedup;
 
                         }
                         else if (valss <= 500) {
-                                document.getElementById("12Cost_Supply_Rate_General").value = General_Data[38].UnitCostInclusiveofContigency;
-                                document.getElementById("12MRS_Rate_General").value = General_Data[38].Unit_Price;
-                                document.getElementById("12Supply_Rate_General").value = General_Data[38].ListPricewithoutRoundup;
+                                document.getElementById("12Cost_Supply_Rate_General").value = IP_Data[7].UnitCostInclusiveofContigency;
+                                document.getElementById("12MRS_Rate_General").value = IP_Data[7].Unit_Price;
+                                document.getElementById("12Supply_Rate_General").value = IP_Data[7].ListPricewithRoundedup;
 
                         }
 
                         else {
-                                document.getElementById("12Cost_Supply_Rate_General").value = General_Data[39].UnitCostInclusiveofContigency;
-                                document.getElementById("12MRS_Rate_General").value = General_Data[39].Unit_Price;
-                                document.getElementById("12Supply_Rate_General").value = General_Data[39].ListPricewithoutRoundup;
+                                document.getElementById("12Cost_Supply_Rate_General").value = IP_Data[8].UnitCostInclusiveofContigency;
+                                document.getElementById("12MRS_Rate_General").value = IP_Data[8].Unit_Price;
+                                document.getElementById("12Supply_Rate_General").value = IP_Data[8].ListPricewithRoundedup;
 
                         }
                         valss = parseInt(document.getElementById("13Qty_General").value);
@@ -1922,20 +1924,20 @@
                         else if (valss <= 100) {
                                 document.getElementById("13Cost_Supply_Rate_General").value = General_Data[23].UnitCostInclusiveofContigency;
                                 document.getElementById("13MRS_Rate_General").value = General_Data[23].Unit_Price;
-                                document.getElementById("13Supply_Rate_General").value = General_Data[23].ListPricewithoutRoundup;
+                                document.getElementById("13Supply_Rate_General").value = General_Data[23].ListPricewithRoundedup;
 
                         }
                         else if (valss <= 500) {
                                 document.getElementById("13Cost_Supply_Rate_General").value = General_Data[24].UnitCostInclusiveofContigency;
                                 document.getElementById("13MRS_Rate_General").value = General_Data[24].Unit_Price;
-                                document.getElementById("13Supply_Rate_General").value = General_Data[24].ListPricewithoutRoundup;
+                                document.getElementById("13Supply_Rate_General").value = General_Data[24].ListPricewithRoundedup;
 
                         }
 
                         else {
                                 document.getElementById("13Cost_Supply_Rate_General").value = General_Data[25].UnitCostInclusiveofContigency;
                                 document.getElementById("13MRS_Rate_General").value = General_Data[25].Unit_Price;
-                                document.getElementById("13Supply_Rate_General").value = General_Data[25].ListPricewithoutRoundup;
+                                document.getElementById("13Supply_Rate_General").value = General_Data[25].ListPricewithRoundedup;
 
                         }
 
@@ -1947,22 +1949,22 @@
 
                         }
                         else if (valss <= 100) {
-                                document.getElementById("14Cost_Supply_Rate_General").value = General_Data[40].UnitCostInclusiveofContigency;
-                                document.getElementById("14MRS_Rate_General").value = General_Data[40].Unit_Price;
-                                document.getElementById("14Supply_Rate_General").value = General_Data[40].ListPricewithoutRoundup;
+                                document.getElementById("14Cost_Supply_Rate_General").value = IP_Data[9].UnitCostInclusiveofContigency;
+                                document.getElementById("14MRS_Rate_General").value = IP_Data[9].Unit_Price;
+                                document.getElementById("14Supply_Rate_General").value = IP_Data[9].ListPricewithRoundedup;
 
                         }
                         else if (valss <= 500) {
-                                document.getElementById("14Cost_Supply_Rate_General").value = General_Data[41].UnitCostInclusiveofContigency;
-                                document.getElementById("14MRS_Rate_General").value = General_Data[41].Unit_Price;
-                                document.getElementById("14Supply_Rate_General").value = General_Data[41].ListPricewithoutRoundup;
+                                document.getElementById("14Cost_Supply_Rate_General").value = IP_Data[10].UnitCostInclusiveofContigency;
+                                document.getElementById("14MRS_Rate_General").value = IP_Data[10].Unit_Price;
+                                document.getElementById("14Supply_Rate_General").value = IP_Data[10].ListPricewithRoundedup;
 
                         }
 
                         else {
-                                document.getElementById("14Cost_Supply_Rate_General").value = General_Data[42].UnitCostInclusiveofContigency;
-                                document.getElementById("14MRS_Rate_General").value = General_Data[42].Unit_Price;
-                                document.getElementById("14Supply_Rate_General").value = General_Data[42].ListPricewithoutRoundup;
+                                document.getElementById("14Cost_Supply_Rate_General").value = IP_Data[11].UnitCostInclusiveofContigency;
+                                document.getElementById("14MRS_Rate_General").value = IP_Data[11].Unit_Price;
+                                document.getElementById("14Supply_Rate_General").value = IP_Data[11].ListPricewithRoundedup;
 
                         }
                         valss = parseInt(document.getElementById("15Qty_General").value);
@@ -1975,20 +1977,20 @@
                         else if (valss <= 100) {
                                 document.getElementById("15Cost_Supply_Rate_General").value = General_Data[26].UnitCostInclusiveofContigency;
                                 document.getElementById("15MRS_Rate_General").value = General_Data[26].Unit_Price;
-                                document.getElementById("15Supply_Rate_General").value = General_Data[26].ListPricewithoutRoundup;
+                                document.getElementById("15Supply_Rate_General").value = General_Data[26].ListPricewithRoundedup;
 
                         }
                         else if (valss <= 500) {
                                 document.getElementById("15Cost_Supply_Rate_General").value = General_Data[27].UnitCostInclusiveofContigency;
                                 document.getElementById("15MRS_Rate_General").value = General_Data[27].Unit_Price;
-                                document.getElementById("15Supply_Rate_General").value = General_Data[27].ListPricewithoutRoundup;
+                                document.getElementById("15Supply_Rate_General").value = General_Data[27].ListPricewithRoundedup;
 
                         }
 
                         else {
                                 document.getElementById("15Cost_Supply_Rate_General").value = General_Data[28].UnitCostInclusiveofContigency;
                                 document.getElementById("15MRS_Rate_General").value = General_Data[28].Unit_Price;
-                                document.getElementById("15Supply_Rate_General").value = General_Data[28].ListPricewithoutRoundup;
+                                document.getElementById("15Supply_Rate_General").value = General_Data[28].ListPricewithRoundedup;
 
                         }
                         valss = parseInt(document.getElementById("16Qty_General").value);
@@ -1999,41 +2001,103 @@
 
                         }
                         else if (valss <= 100) {
-                                document.getElementById("16Cost_Supply_Rate_General").value = General_Data[43].UnitCostInclusiveofContigency;
-                                document.getElementById("16MRS_Rate_General").value = General_Data[43].Unit_Price;
-                                document.getElementById("16Supply_Rate_General").value = General_Data[43].ListPricewithoutRoundup;
+                                document.getElementById("16Cost_Supply_Rate_General").value = IP_Data[12].UnitCostInclusiveofContigency;
+                                document.getElementById("16MRS_Rate_General").value = IP_Data[12].Unit_Price;
+                                document.getElementById("16Supply_Rate_General").value = IP_Data[12].ListPricewithRoundedup;
 
                         }
                         else if (valss <= 500) {
-                                document.getElementById("16Cost_Supply_Rate_General").value = General_Data[44].UnitCostInclusiveofContigency;
-                                document.getElementById("16MRS_Rate_General").value = General_Data[44].Unit_Price;
-                                document.getElementById("16Supply_Rate_General").value = General_Data[44].ListPricewithoutRoundup;
+                                document.getElementById("16Cost_Supply_Rate_General").value = IP_Data[13].UnitCostInclusiveofContigency;
+                                document.getElementById("16MRS_Rate_General").value = IP_Data[13].Unit_Price;
+                                document.getElementById("16Supply_Rate_General").value = IP_Data[13].ListPricewithRoundedup;
 
                         }
 
                         else {
-                                document.getElementById("16Cost_Supply_Rate_General").value = General_Data[45].UnitCostInclusiveofContigency;
-                                document.getElementById("16MRS_Rate_General").value = General_Data[45].Unit_Price;
-                                document.getElementById("16Supply_Rate_General").value = General_Data[45].ListPricewithoutRoundup;
+                                document.getElementById("16Cost_Supply_Rate_General").value = IP_Data[14].UnitCostInclusiveofContigency;
+                                document.getElementById("16MRS_Rate_General").value = IP_Data[14].Unit_Price;
+                                document.getElementById("16Supply_Rate_General").value = IP_Data[14].ListPricewithRoundedup;
+
+                        }
+                        valss = parseInt(document.getElementById("17Qty_General").value);
+                        if (valss == (0 || "0")) {
+                                document.getElementById("17Cost_Supply_Rate_General").value = 0;
+                                document.getElementById("17MRS_Rate_General").value = 0;
+                                document.getElementById("17Supply_Rate_General").value = 0;
+
+                        }
+                        else if (valss <= 100) {
+                                document.getElementById("17Cost_Supply_Rate_General").value = General_Data[29].UnitCostInclusiveofContigency;
+                                document.getElementById("17MRS_Rate_General").value = General_Data[29].Unit_Price;
+                                document.getElementById("17Supply_Rate_General").value = General_Data[29].ListPricewithRoundedup;
+
+                        }
+                        else if (valss <= 500) {
+                                document.getElementById("17Cost_Supply_Rate_General").value = General_Data[30].UnitCostInclusiveofContigency;
+                                document.getElementById("17MRS_Rate_General").value = General_Data[30].Unit_Price;
+                                document.getElementById("17Supply_Rate_General").value = General_Data[30].ListPricewithRoundedup;
+
+                        }
+
+                        else {
+                                document.getElementById("17Cost_Supply_Rate_General").value = General_Data[31].UnitCostInclusiveofContigency;
+                                document.getElementById("17MRS_Rate_General").value = General_Data[31].Unit_Price;
+                                document.getElementById("17Supply_Rate_General").value = General_Data[31].ListPricewithRoundedup;
+
+                        }
+                        valss = parseInt(document.getElementById("18Qty_General").value);
+                        if (valss == (0 || "0")) {
+                                document.getElementById("18Cost_Supply_Rate_General").value = 0;
+                                document.getElementById("18MRS_Rate_General").value = 0;
+                                document.getElementById("18Supply_Rate_General").value = 0;
+
+                        }
+                        else if (valss <= 100) {
+                                document.getElementById("18Cost_Supply_Rate_General").value = IP_Data[15].UnitCostInclusiveofContigency;
+                                document.getElementById("18MRS_Rate_General").value = IP_Data[15].Unit_Price;
+                                document.getElementById("18Supply_Rate_General").value = IP_Data[15].ListPricewithRoundedup;8
+                        }
+                        else if (valss <= 500) {
+                                document.getElementById("18Cost_Supply_Rate_General").value = IP_Data[16].UnitCostInclusiveofContigency;
+                                document.getElementById("18MRS_Rate_General").value = IP_Data[16].Unit_Price;
+                                document.getElementById("18Supply_Rate_General").value = IP_Data[16].ListPricewithRoundedup;
+
+                        }
+
+                        else {
+                                document.getElementById("18Cost_Supply_Rate_General").value = IP_Data[17].UnitCostInclusiveofContigency;
+                                document.getElementById("18MRS_Rate_General").value = IP_Data[17].Unit_Price;
+                                document.getElementById("18Supply_Rate_General").value = IP_Data[17].ListPricewithRoundedup;
 
                         }
                         let cst=0,cit=0,msta=0,mita=0,sta=0,ita=0;
-                        for (var i = 1; i <= 16; i++) {
-
+                        for (var i = 1; i <= 18; i++) {
+                                qtytemp=parseInt(document.getElementById(i + "Qty_General").value);
+                                mintemp=parseInt(document.getElementById(i + "Minimum_Qty").value);
+                                
+          
                                 document.getElementById(i + "Cost_Supply_Total_General").value = document.getElementById(i + "Qty_General").value * 1 * document.getElementById(i + "Cost_Supply_Rate_General").value;
                                 document.getElementById(i + "Cost_Installation_Rate_General").value = document.getElementById(i + "Qty_General").value == ("0" || 0) ? 0 : HardGenData[i - 1].UnitCostInclusiveofContigency;
                                 document.getElementById(i + "Cost_Installation_Total_General").value = document.getElementById(i + "Qty_General").value * 1 * document.getElementById(i + "Cost_Installation_Rate_General").value;
                                 document.getElementById(i + "MRS_Total_General").value = document.getElementById(i + "Qty_General").value * 1 * document.getElementById(i + "MRS_Rate_General").value;
                                 document.getElementById(i + "MRI_Rate_General").value = document.getElementById(i + "Qty_General").value == ("0" || 0) ? 0 : HardGenData[i - 1].Unit_Price;
                                 document.getElementById(i + "MRI_Total_General").value = document.getElementById(i + "Qty_General").value * 1 * document.getElementById(i + "MRI_Rate_General").value;
-                                document.getElementById(i + "Installation_Rate_General").value = document.getElementById(i + "Qty_General").value == ("0" || 0) ? 0 : HardGenData[i - 1].ListPricewithoutRoundup;
+                                document.getElementById(i + "Installation_Rate_General").value = document.getElementById(i + "Qty_General").value == ("0" || 0) ? 0 : HardGenData[i - 1].ListPricewithRoundedup;
+                                document.getElementById(i + "Supply_Total_General").value = document.getElementById(i + "Qty_General").value * 1 * document.getElementById(i + "Supply_Rate_General").value;
+                                if(qtytemp<=mintemp){
+                                document.getElementById(i + "Installation_Total_General").value = mintemp * 1 * document.getElementById(i + "Installation_Rate_General").value;
+
+                                }
+                                else{
                                 document.getElementById(i + "Installation_Total_General").value = document.getElementById(i + "Qty_General").value * 1 * document.getElementById(i + "Installation_Rate_General").value;
+
+                                }
                                 cst=parseInt(cst)+1*document.getElementById(i + "Cost_Supply_Total_General").value;
                                 cit=parseInt(cit)+1*document.getElementById(i + "Cost_Installation_Total_General").value;
                                 msta=parseInt(msta)+1*document.getElementById(i + "MRS_Total_General").value;
                                 mita=parseInt(mita)+1*document.getElementById(i + "MRI_Total_General").value;
                                 sta=parseInt(sta)+1*document.getElementById(i + "Supply_Total_General").value;
-                                ita=parseInt(ita)+1*document.getElementById(i + "Installation_Total_General").value;                              document.getElementById(i + "Supply_Total_General").value = document.getElementById(i + "Qty_General").value * 1 * document.getElementById(i + "Supply_Rate_General").value;
+                                ita=parseInt(ita)+1*document.getElementById(i + "Installation_Total_General").value;                              
 
                         }
                         document.getElementById("Sum_Cost_Supply_Total_General").value=cst;
@@ -2042,6 +2106,7 @@
                         document.getElementById("Sum_MRI_Total_General").value=mita;
                         document.getElementById("Sum_Supply_Total_General").value=sta;
                         document.getElementById("Sum_Installation_Total_General").value=ita;
+                        changehandler();
 
                 }
                 generalchange();
@@ -2064,9 +2129,9 @@
                                 document.getElementById(i + "MRS_Total_Active").value = document.getElementById(i + "Qty_Active").value * 1 * document.getElementById(i + "MRS_Rate_Active").value;
                                 document.getElementById(i + "MRI_Rate_Active").value = document.getElementById(i + "Qty_Active").value == ("0" || 0) ? 0 : ActiveInstall[i - 1].Unit_Price;
                                 document.getElementById(i + "MRI_Total_Active").value = document.getElementById(i + "Qty_Active").value * 1 * document.getElementById(i + "MRI_Rate_Active").value;
-                                document.getElementById(i + "Supply_Rate_Active").value = document.getElementById(i + "Qty_Active").value == ("0" || 0) ? 0 : ActiveData[i - 1].ListPricewithoutRoundup;
+                                document.getElementById(i + "Supply_Rate_Active").value = document.getElementById(i + "Qty_Active").value == ("0" || 0) ? 0 : ActiveData[i - 1].ListPricewithRoundedup;
                                 document.getElementById(i + "Supply_Total_Active").value = document.getElementById(i + "Qty_Active").value * 1 * document.getElementById(i + "Supply_Rate_Active").value;
-                                document.getElementById(i + "Installation_Rate_Active").value = document.getElementById(i + "Qty_Active").value == ("0" || 0) ? 0 : ActiveInstall[i - 1].ListPricewithoutRoundup;
+                                document.getElementById(i + "Installation_Rate_Active").value = document.getElementById(i + "Qty_Active").value == ("0" || 0) ? 0 : ActiveInstall[i - 1].ListPricewithRoundedup;
                                 document.getElementById(i + "Installation_Total_Active").value = document.getElementById(i + "Qty_Active").value * 1 * document.getElementById(i + "Installation_Rate_Active").value;
                                 cst=parseInt(cst)+1*document.getElementById(i + "Cost_Supply_Total_Active").value;
                                 cit=parseInt(cit)+1*document.getElementById(i + "Cost_Installation_Total_Active").value;
@@ -2081,6 +2146,7 @@
                         document.getElementById("Sum_MRI_Total_Active").value=mita;
                         document.getElementById("Sum_Supply_Total_Active").value=sta;
                         document.getElementById("Sum_Installation_Total_Active").value=ita;
+                        changehandler();
                 }
                 activechange();
                 ///////////
@@ -2117,6 +2183,7 @@
                         document.getElementById("Sum_MRI_Total_Fiber").value=mita;
                         document.getElementById("Sum_Supply_Total_Fiber").value=sta;
                         document.getElementById("Sum_Installation_Total_Fiber").value=ita;
+                        changehandler();
                 }
                 fiberchange();
                 ///////////
@@ -2156,6 +2223,7 @@
                         document.getElementById("Sum_MRI_Total_Ethernet").value=mita;
                         document.getElementById("Sum_Supply_Total_Ethernet").value=sta;
                         document.getElementById("Sum_Installation_Total_Ethernet").value=ita;
+                        changehandler();
                 }
                 ethernetchange();
                 ///////////
@@ -2178,9 +2246,9 @@
                                 document.getElementById(i + "MRS_Total_Ddc").value = document.getElementById(i + "Qty_Ddc").value * 1 * document.getElementById(i + "MRS_Rate_Ddc").value;
                                 document.getElementById(i + "MRI_Rate_Ddc").value = document.getElementById(i + "Qty_Ddc").value == ("0" || 0) ? 0 : DdcDataInstall[i - 1].Unit_Price;
                                 document.getElementById(i + "MRI_Total_Ddc").value = document.getElementById(i + "Qty_Ddc").value * 1 * document.getElementById(i + "MRI_Rate_Ddc").value;
-                                document.getElementById(i + "Supply_Rate_Ddc").value = document.getElementById(i + "Qty_Ddc").value == ("0" || 0) ? 0 : DdcData[i - 1].ListPricewithoutRoundup;
+                                document.getElementById(i + "Supply_Rate_Ddc").value = document.getElementById(i + "Qty_Ddc").value == ("0" || 0) ? 0 : DdcData[i - 1].ListPricewithRoundedup;
                                 document.getElementById(i + "Supply_Total_Ddc").value = document.getElementById(i + "Qty_Ddc").value * 1 * document.getElementById(i + "Supply_Rate_Ddc").value;
-                                document.getElementById(i + "Installation_Rate_Ddc").value = document.getElementById(i + "Qty_Ddc").value == ("0" || 0) ? 0 : DdcDataInstall[i - 1].ListPricewithoutRoundup;
+                                document.getElementById(i + "Installation_Rate_Ddc").value = document.getElementById(i + "Qty_Ddc").value == ("0" || 0) ? 0 : DdcDataInstall[i - 1].ListPricewithRoundedup;
                                 document.getElementById(i + "Installation_Total_Ddc").value = document.getElementById(i + "Qty_Ddc").value * 1 * document.getElementById(i + "Installation_Rate_Ddc").value;
                                 cst=parseInt(cst)+1*document.getElementById(i + "Cost_Supply_Total_Ddc").value;
                                 cit=parseInt(cit)+1*document.getElementById(i + "Cost_Installation_Total_Ddc").value;
@@ -2195,6 +2263,7 @@
                         document.getElementById("Sum_MRI_Total_Ddc").value=mita;
                         document.getElementById("Sum_Supply_Total_Ddc").value=sta;
                         document.getElementById("Sum_Installation_Total_Ddc").value=ita;
+                        changehandler();
                 }
                 ddcchange();
                 ///////////
@@ -2234,6 +2303,7 @@
                         document.getElementById("Sum_MRI_Total_Bms_Sensor").value=mita;
                         document.getElementById("Sum_Supply_Total_Bms_Sensor").value=sta;
                         document.getElementById("Sum_Installation_Total_Bms_Sensor").value=ita;
+                        changehandler();
                 }
                 bms_sensorchange();
                 ///////////
@@ -2273,6 +2343,7 @@
                         document.getElementById("Sum_MRI_Total_Bms_Cabling").value=mita;
                         document.getElementById("Sum_Supply_Total_Bms_Cabling").value=sta;
                         document.getElementById("Sum_Installation_Total_Bms_Cabling").value=ita;
+                        changehandler();
                 }
                 cablingchange();
                 ///////////
@@ -2311,20 +2382,22 @@
                         document.getElementById("Sum_MRI_Total_Piping").value=mita;
                         document.getElementById("Sum_Supply_Total_Piping").value=sta;
                         document.getElementById("Sum_Installation_Total_Piping").value=ita;
+                        changehandler();
                 }
                 
                 pipingchange();
                 ///////////
                 /////
-                var Bms_TraysData = {{ TraysDatas | safe}};
-                var Bms_TraysDataInstall = {{ TraysDatasInstall | safe}};
-                var lbms_trays = {{ Bms_Trays | length }};
-                var vpsdata={{vpssdata|safe}};
-                var lbms_trays2 = {{ Trays2 | length }};
+                const Bms_TraysData = {{ TraysDatas | safe}};
+                const Bms_TraysDataInstall = {{ TraysDatasInstall | safe}};
+                const lbms_trays = {{ Bms_Trays | length }};
+                const vpsdata={{vpssdata|safe}};
+                const lbms_trays2 = {{ Trays2 | length }};
                 ///////////
+
                 function bms_trayschange() {
                         let cst=0,cit=0,msta=0,mita=0,sta=0,ita=0,cst1=0,msta1=0,sta1=0;;
-
+                        
                         for (var i = 1; i <= lbms_trays; i++) {
                                 console.log("ff");
                                 document.getElementById(i + "Cost_Supply_Rate_Bms_Trays").value = document.getElementById(i + "Qty_Bms_Trays").value == ("0" || 0) ? 0 : Bms_TraysData[i - 1].UnitCostInclusiveofContigency;
@@ -2370,6 +2443,7 @@
                         document.getElementById("Sum_MRI_Total_Bms_Trays").value=mita;
                         document.getElementById("Sum_Supply_Total_Bms_Trays").value=sta;
                         document.getElementById("Sum_Installation_Total_Bms_Trays").value=ita;
+                        changehandler();
                 }
                 bms_trayschange();
                 var abc = 1;
@@ -2416,6 +2490,7 @@
                         document.getElementById("Sum_MRI_Total_Third_Party").value=mita;
                         document.getElementById("Sum_Supply_Total_Third_Party").value=sta;
                         document.getElementById("Sum_Installation_Total_Third_Party").value=ita;
+                        changehandler();
                 }
                 thirdpartychange();
                 
@@ -2432,7 +2507,7 @@
                                 document.getElementById(i + "MRI_Rate_Trays1").value = document.getElementById(i + "Qty_Trays1").value == ("0" || 0) ? 0 : vpsdata[i - 1].Unit_Price;
                                 document.getElementById(i + "MRI_Total_Trays1").value = document.getElementById(i + "Qty_Trays1").value * 1 * document.getElementById(i + "MRI_Rate_Trays1").value;
                                 
-                                document.getElementById(i + "Installation_Rate_Trays1").value = document.getElementById(i + "Qty_Trays1").value == ("0" || 0) ? 0 : vpsdata[i - 1].ListPricewithoutRoundup;
+                                document.getElementById(i + "Installation_Rate_Trays1").value = document.getElementById(i + "Qty_Trays1").value == ("0" || 0) ? 0 : vpsdata[i - 1].ListPricewithRoundedup;
                                 document.getElementById(i + "Installation_Total_Trays1").value = document.getElementById(i + "Qty_Trays1").value * 1 * document.getElementById(i + "Installation_Rate_Trays1").value;
 
                                 
@@ -2446,6 +2521,7 @@
                         document.getElementById("Sum_MRI_Total_Trays1").value=mita;
             
                         document.getElementById("Sum_Installation_Total_Trays1").value=ita;
+                        changehandler();
                 }
                 trays1change();
                 var efforts_data = {{ ManEffortsData | safe}};
@@ -2491,6 +2567,7 @@ document.getElementById(abc + "Qty_ManEfforts").value=iandc_datas[abc-2];
                         document.getElementById("Sum_MRI_Total_ManEfforts").value = mita;
                         document.getElementById("Sum_Installation_Total_ManEfforts").value = ita;
                         manchanges();
+                        changehandler();
                 }
                 maneffortschange();
                 document.querySelectorAll('.btns').forEach(item => {
@@ -2692,7 +2769,7 @@ continue;}
         function gotoquotation(){
                 
                 var samp_hard_array=[];
-                for(var k=1;k<=16;k++){
+                for(var k=1;k<=18;k++){
 
                      let sampobj={Uoms:"ff",Hardware_Items: "Digital Blanket IOT Data Collector Machine ",Installation_Rate: 7500,Installation_Total: 0,Make: "Flamenco Tech",Model: "DB-IOT-DC",Qty: 0,Remarks: " ",Supply_Rate: 0,Supply_Total: 0,sr_no: 1};
                      let qty= parseInt(document.getElementById(k+"Qty_General").value);
@@ -2740,7 +2817,7 @@ continue;}
                 localStorage.setItem('installationtotal', parseInt(document.getElementById("Sum_Installation_Total_ManEfforts").value));
                 localStorage.setItem('hard_data_quot', JSON.stringify(samp_hard_array));
                 localStorage.setItem('soft_data_quot', JSON.stringify(samp_soft_array));
-               // window.location.href = 'http://127.0.0.1:8000/user/quotation/';
+                window.location.href = 'http://127.0.0.1:8000/user/quotation/';
 
 
         }
@@ -2923,8 +3000,8 @@ continue;}
             
         var UnitPrice=Math.ceil(1*(Unit_Price)+1*(Unit_Price * (efforts_data[4].WarrantyCharges)/100));
            
-        var ListPricewithoutRoundup=Math.ceil(1*(UnitPrice)+1*(UnitPrice*efforts_data[4].InsuranceCharges/100));
-        preinstallationtotal=(Math.ceil(ListPricewithoutRoundup/50))*50;
+        var ListPricewithRoundedup=Math.ceil(1*(UnitPrice)+1*(UnitPrice*efforts_data[4].InsuranceCharges/100));
+        preinstallationtotal=(Math.ceil(ListPricewithRoundedup/50))*50;
         document.getElementById("6Installation_Total_ManEfforts").value=preinstallationtotal;
         manchanges();
        
