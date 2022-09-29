@@ -496,12 +496,12 @@ def editconfiguration1(request):
 	sr_no1=sr_no
 	sr_no=(int(sr_no))//10
 	t=InputConfiguration.objects.get(sr_no=sr_no)
-	t.active=request.POST.get('active')
-	t.passive=request.POST.get('passive')
-	t.ddcsensor=request.POST.get('ddcsensor')
-	t.ft_hardware=request.POST.get('ft_hardware')
+	t.active1=request.POST.get('active')
+	t.passive1=request.POST.get('passive')
+	t.ddcsensor1=request.POST.get('ddcsensor')
+	t.ft_hardware1=request.POST.get('ft_hardware')
 	t.cabpiptray=request.POST.get('cabpiptray')
-	t.thirdparty=request.POST.get('thirdparty')
+	t.thirdparty1=request.POST.get('thirdparty')
  #ftmandayeffort,othersmicffort,ft2,ft3,ft4
 	t.ftmandayeffort=request.POST.get('ftmandayeffort')
 	t.othersmicffort=request.POST.get('othersmicffort')
@@ -866,17 +866,12 @@ def editconfiguration(request):
 	sr_no1=sr_no
 	sr_no=(int(sr_no))//10
 	t=InputConfiguration.objects.get(sr_no=sr_no)
-	t.active1=request.POST.get('active')
-	t.passive1=request.POST.get('passive')
-	t.ddcsensor1=request.POST.get('ddcsensor')
-	t.ft_hardware1=request.POST.get('ft_hardware')
-	t.cabpiptray1=request.POST.get('cabpiptray')
-	t.thirdparty1=request.POST.get('thirdparty')
-	t.ftmandayeffort=request.POST.get('ftmandayeffort')
-	t.othersmicffort=request.POST.get('othersmicffort')
-	t.ft2=request.POST.get('ft2')
-	t.ft3=request.POST.get('ft3')
-	t.ft4=request.POST.get('ft4')
+	t.active=request.POST.get('active')
+	t.passive=request.POST.get('passive')
+	t.ddcsensor=request.POST.get('ddcsensor')
+	t.ft_hardware=request.POST.get('ft_hardware')
+	t.cabpiptray=request.POST.get('cabpiptray')
+	t.thirdparty=request.POST.get('thirdparty')
 	t.save()
 	temp=InputConfiguration.objects.all()
 	
