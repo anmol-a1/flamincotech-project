@@ -801,8 +801,8 @@
     document.getElementById("refno").value = tempref;
     function downloadpdf() {
         const invoice = this.document.getElementById("invoice");
-            document.getElementById("maintitle").style.marginLeft="5vw";
-            document.getElementById("maintitle").style.fontSize="18px"
+            // document.getElementById("maintitle").style.marginLeft="5vw";
+            // document.getElementById("maintitle").style.fontSize="18px"
             console.log(invoice);
             console.log(window);
             
@@ -817,14 +817,14 @@
             pdfs=html2pdf().from(invoice).set(opt).save();
             console.log(pdfs);
             
-            const myTimeout = setTimeout(myGreeting, 500);
-            function myGreeting() {
-                document.getElementById("maintitle").style.marginLeft="14vw";
-                document.getElementById("maintitle").style.fontSize="22px"
-            }
-            function myStopFunction() {
-                clearTimeout(myTimeout);
-            }
+            // const myTimeout = setTimeout(myGreeting, 500);
+            // function myGreeting() {
+            //     document.getElementById("maintitle").style.marginLeft="14vw";
+            //     document.getElementById("maintitle").style.fontSize="22px"
+            // }
+            // function myStopFunction() {
+            //     clearTimeout(myTimeout);
+            // }
         
 
     }

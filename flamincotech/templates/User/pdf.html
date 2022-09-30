@@ -144,7 +144,7 @@ a {
                     <div class="bg-primary text-white" style='display: flex;' width="300" height="200">
                         <img src="/static/logo.png" width="300" height="200" class="img-thumbnail" class="rounded float-left">
 
-                     <h4 id="maintitle" style="display:inline-block;margin-top: 32px;margin-left:14vw;font-size:22px" class="card-title text-center" width="300" height="200"> Flamenco Tech Commercial Quotation </h4>
+                     <h4 id="maintitle" style="display:inline-block;margin-top: 32px;margin-left:11vw;font-size:24px" class="card-title text-center" width="300" height="200"> Flamenco Tech Commercial Quotation </h4>
                     </div>
                     <div class="table-responsive">
                         <table class="table" border="1">
@@ -517,18 +517,25 @@ for (var key of Object.keys(inputdata)) {
 }
 console.log(inpdata);
 var pdfs;
-            const de = new Date();
-            const x = Math.random() * 100000;
-            const y = Math.random() * 100000;
-            const sr=parseInt(Math.random()*x*y);
-            var tempref="FT_"+clientdata.company_name+"_FY-"+yyyy+"-"+(yyyy*1+1)+"-"+sr;
-            tempref=tempref.replaceAll("/","_");
-            tempref=tempref.replaceAll(" ","_");
+var  today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+    console.log(yyyy);
+    yyyy=yyyy.toString();
+    yyyy=yyyy.substring(2,4);
+    today = mm + '' + dd + '' + yyyy;
+    const x = Math.random() * 100000;
+    const y = Math.random() * 100000;
+    const sr = parseInt(Math.random() * x * y);
+    var tempref="FT_"+clientdata.company_name+"_FY-"+yyyy+"-"+(yyyy*1+1)+"-"+sr;
+    tempref=tempref.replaceAll("/","_");
+    tempref=tempref.replaceAll(" ","_");
             document.getElementById("refno").value = tempref;
             function downloadpdf() {
             const invoice = this.document.getElementById("invoice");
-            document.getElementById("maintitle").style.marginLeft="5vw";
-            document.getElementById("maintitle").style.fontSize="18px"
+            // document.getElementById("maintitle").style.marginLeft="5vw";
+            // document.getElementById("maintitle").style.fontSize="18px"
             console.log(invoice);
             console.log(window);
             
@@ -538,19 +545,19 @@ var pdfs;
                 filename: `${tempref}.pdf`,
                 image: { type: 'jpeg', quality: 1 },
                 html2canvas: { scale: 4 },
-                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'landscape' }
             };
             pdfs=html2pdf().from(invoice).set(opt).save();
             console.log(pdfs);
             
-            const myTimeout = setTimeout(myGreeting, 500);
-            function myGreeting() {
-                document.getElementById("maintitle").style.marginLeft="14vw";
-                document.getElementById("maintitle").style.fontSize="22px"
-            }
-            function myStopFunction() {
-                clearTimeout(myTimeout);
-            }
+            // const myTimeout = setTimeout(myGreeting, 500);
+            // function myGreeting() {
+            //     document.getElementById("maintitle").style.marginLeft="14vw";
+            //     document.getElementById("maintitle").style.fontSize="22px"
+            // }
+            // function myStopFunction() {
+            //     clearTimeout(myTimeout);
+            // }
         
 }
 

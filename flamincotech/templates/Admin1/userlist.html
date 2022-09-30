@@ -212,7 +212,7 @@ input[type=file]::file-selector-button:hover {
          <button class="btns mx-3"> Download</button>
       </a>
     <div
-      style="width: 1000px; background-color: rgb(241, 241, 241)"
+      style="width: 1000px; background-color: rgb(241, 241, 241);background: radial-gradient(circle at 10% 20%, rgb(215, 223, 252) 0%, rgb(255, 255, 255) 0%, rgb(215, 223, 252) 84%);"
       class="container my-5 shadow p-3 mb-5 rounded"
     >
       <div style="text-align: center" class="container my-1">
@@ -279,7 +279,7 @@ input[type=file]::file-selector-button:hover {
     <script>
       $(document).on("click", ".deleteuser", function (e) {
         e.preventDefault();
-        if (confirm("Are You Sure To Delete A User") == true) {
+        if (confirm("Are you sure to delete the user") == true) {
           text = "You pressed OK!";
 
           var t = $(this).val();

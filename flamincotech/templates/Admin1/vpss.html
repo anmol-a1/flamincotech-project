@@ -57,33 +57,33 @@ input[type=file]::file-selector-button {
     <div style="width:3000px;" class="mx-3 shadow my-2 p-3 mb-5 rounded">
 
         <form class="my-1">
-            <table class="table" border='1' style="border:2px solid grey">
+            <table class="table" border='1' style="border:2px solid grey;">
                 <thead>
-                    <tr style="background-color: #20558B;;color:white">
+                    <tr style="background-color: #20558B;;color:white;">
                         <th>Sr No</th>
                         <th>Make/Brand</th>
                         <th>Model</th>
                         <th>Installation Equipments</th>
                         <th>Unit Description</th>
                         <th>Qty</th>
-                        <th>Input Price (₹)</th>
+                        <th>Input Price (₹)&emsp;&emsp;&emsp;&emsp;&emsp;</th>
                         <th>Discount (In %)</th>
-                        <th>Discounted Price (₹)</th>
+                        <th>Discounted&emsp;&ensp; Price (₹)</th>
                         <th>Freight (In %)</th>
                         <th>Input Cost Inclusive of freight (₹)</th>
                         <th>Interest or COM (In %)</th>
-                        <th>Unit Cost (₹)</th>
+                        <th>Unit Cost (₹)&emsp;&emsp;&emsp;&emsp;&emsp;</th>
                         <th>Inward Tax (In %)</th>
-                        <th>Unit Cost Inclusive of Risk</th>
+                        <th>Unit Cost Inclusive of Risk&emsp;&emsp;&emsp;&emsp;&ensp;</th>
                         <th>Contigency Percentage (In %)</th>
-                        <th>Unit Cost Inclusive of Contigency</th>
-                        <th> Total Cost (₹)</th>
+                        <th>Unit Cost Inclusive of Contigency&emsp;</th>
+                        <th> Total Cost (₹)&emsp;&emsp;&emsp;&emsp;&emsp;</th>
                         <th>Margin (In %)</th>
-                        <th>Unit Margin (₹)</th>
-                        <th>Total Price (₹)</th>
+                        <th>Unit Margin (₹)&emsp;&emsp;&emsp;&emsp;&emsp;</th>
+                        <th>Total Price (₹)&emsp;&emsp;&emsp;&emsp;&emsp;</th>
                         <th>Warranty Charges (In %)</th>
-                        <th>Unit Price (₹)</th>
-                        <th>Final Total Price (₹)</th>
+                        <th>Unit Price (₹)&emsp;&emsp;&emsp;&emsp;&emsp;</th>
+                        <th>Final Total Price (₹)&emsp;&emsp;&emsp;&emsp;&emsp;</th>
                         <th>Insurance Charges (In %) </th>
                         <th>List Price without Round up</th>
                         <th>List Price with Rounded up</th>
@@ -100,47 +100,47 @@ input[type=file]::file-selector-button {
                         <td>{{entry.UnitDescription}}</td>
                         <th><input onchange="abcd(event)" class="{{entry.sr_no}}" id="{{entry.sr_no}}Qty" style="width: 55px;border:none" value="{{entry.Qty}}"
                                     type="number"></th>
-                        <th><input onchange="efgh(event)" class="{{entry.sr_no}}" id="{{entry.sr_no}}InputPrice" style="width: 95px;border:none"  value="{{entry.InputPrice}}"
+                        <th>&#8377;<input onchange="efgh(event)" class="{{entry.sr_no}}" id="{{entry.sr_no}}InputPrice" style="width: 90px;border:none"  value="{{entry.InputPrice}}"
                                     type="number"></th>
                         <th><input  id="{{entry.sr_no}}Discount" style="width: 55px;border:none" readonly="true" value="{{InputConfigurations1.othersmicffort}}"
                                     type="number"></th>
-                        <th><input  id="{{entry.sr_no}}DiscountedPrice" style="width: 95px;border:none" readonly="true" value="{{entry.DiscountedPrice}}"
+                        <th>&#8377;<input  id="{{entry.sr_no}}DiscountedPrice" style="width: 95px;border:none" readonly="true" value="{{entry.DiscountedPrice}}"
                                     type="number"></th>
                         <th><input  id="{{entry.sr_no}}Freight" style="width: 55px;border:none" readonly="true" value="{{InputConfigurations2.othersmicffort}}"
                                     type="number"></th>
-                        <th><input  id="{{entry.sr_no}}InputCostInclusiveoffreight" style="width: 95px;border:none" readonly="true" value="{{entry.InputCostInclusiveoffreight}}"
+                        <th>&#8377;<input  id="{{entry.sr_no}}InputCostInclusiveoffreight" style="width: 95px;border:none" readonly="true" value="{{entry.InputCostInclusiveoffreight}}"
                                     type="number"></th>
                         <th><input  id="{{entry.sr_no}}InterestCOM" style="width: 55px;border:none" readonly="true" value="{{InputConfigurations3.othersmicffort}}"
                                     type="number"></th>
-                        <th><input  id="{{entry.sr_no}}UnitCost" style="width: 95px;border:none" readonly="true" value="{{entry.UnitCost}}"
+                        <th>&#8377;<input  id="{{entry.sr_no}}UnitCost" style="width: 90px;border:none" readonly="true" value="{{entry.UnitCost}}"
                                     type="number"></th>
                         <th><input  id="{{entry.sr_no}}InwardTax" style="width: 55px;border:none" readonly="true" value="{{InputConfigurations4.othersmicffort}}"
                                     type="number"></th>
-                        <th><input  id="{{entry.sr_no}}UnitCostInclusiveofRisk" style="width: 95px;border:none" readonly="true" value="{{entry.UnitCostInclusiveofRisk}}"
+                        <th>&#8377;<input  id="{{entry.sr_no}}UnitCostInclusiveofRisk" style="width: 90px;border:none" readonly="true" value="{{entry.UnitCostInclusiveofRisk}}"
                                     type="number"></th>
                         <th><input  id="{{entry.sr_no}}ContigencyPercentage" style="width: 55px;border:none" readonly="true" value="{{InputConfigurations5.othersmicffort}}"
                                     type="number"></th>
-                        <th><input  id="{{entry.sr_no}}UnitCostInclusiveofContigency" style="width: 95px;border:none" readonly="true" value="{{entry.UnitCostInclusiveofContigency}}"
+                        <th>&#8377;<input  id="{{entry.sr_no}}UnitCostInclusiveofContigency" style="width: 90px;border:none" readonly="true" value="{{entry.UnitCostInclusiveofContigency}}"
                                     type="number"></th>
-                        <th><input  id="{{entry.sr_no}}TotalCost" style="width: 95px;border:none" readonly="true" value="{{entry.TotalCost}}"
+                        <th>&#8377;<input  id="{{entry.sr_no}}TotalCost" style="width: 90px;border:none" readonly="true" value="{{entry.TotalCost}}"
                                     type="number"></th>
                         <th><input  id="{{entry.sr_no}}Margin" style="width: 55px;border:none" readonly="true" value="{{InputConfigurations6.othersmicffort}}"
                                     type="number"></th>
-                        <th><input  id="{{entry.sr_no}}Unit_Price" style="width: 95px;border:none" readonly="true" value="{{entry.Unit_Price}}"
+                        <th>&#8377;<input  id="{{entry.sr_no}}Unit_Price" style="width: 90px;border:none" readonly="true" value="{{entry.Unit_Price}}"
                                     type="number"></th>
-                        <th><input  id="{{entry.sr_no}}TotalPrice" style="width: 95px;border:none" readonly="true" value="{{entry.TotalPrice}}"
+                        <th>&#8377;<input  id="{{entry.sr_no}}TotalPrice" style="width: 90px;border:none" readonly="true" value="{{entry.TotalPrice}}"
                                     type="number"></th>
                         <th><input  id="{{entry.sr_no}}WarrantyCharges" style="width: 55px;border:none" readonly="true" value="{{InputConfigurations7.othersmicffort}}"
                                     type="number"></th>
-                        <th><input  id="{{entry.sr_no}}UnitPrice" style="width: 95px;border:none" readonly="true" value="{{entry.UnitPrice}}"
+                        <th>&#8377;<input  id="{{entry.sr_no}}UnitPrice" style="width: 90px;border:none" readonly="true" value="{{entry.UnitPrice}}"
                                     type="number"></th>
-                        <th><input  id="{{entry.sr_no}}FinalTotalPrice" style="width: 95px;border:none" readonly="true" value="{{entry.FinalTotalPrice}}"
+                        <th>&#8377;<input  id="{{entry.sr_no}}FinalTotalPrice" style="width: 90px;border:none" readonly="true" value="{{entry.FinalTotalPrice}}"
                                     type="number"></th>
                         <th><input  id="{{entry.sr_no}}InsuranceCharges" style="width: 55px;border:none" readonly="true" value="{{InputConfigurations8.othersmicffort}}"
                                     type="number"></th>
-                        <th><input  id="{{entry.sr_no}}ListPricewithoutRoundup" style="width: 95px;border:none" readonly="true" value="{{entry.ListPricewithoutRoundup}}"
+                        <th>&#8377;<input  id="{{entry.sr_no}}ListPricewithoutRoundup" style="width: 90px;border:none" readonly="true" value="{{entry.ListPricewithoutRoundup}}"
                                     type="number"></th>
-                        <th><input  id="{{entry.sr_no}}ListPricewithRoundedup" style="width: 95px;border:none" readonly="true" value="{{entry.ListPricewithRoundedup}}"
+                        <th>&#8377;<input  id="{{entry.sr_no}}ListPricewithRoundedup" style="width: 90px;border:none" readonly="true" value="{{entry.ListPricewithRoundedup}}"
                                     type="number"></th>
                         <td><button value="{{entry.sr_no}}" id="{{entry.sr_no}}" type="submit"  class="btn btn-primary save">Save</button></td>
                     </tr>
@@ -383,11 +383,11 @@ lmno=lmno+lmno1;
                 },
                 success: function (json) {
                    console.log(json.adg);
-                   window.alert("Changes Save Successfully");
+                   window.alert("Changes Saved Successfully");
             
                 },
                 error: function (xhr, errmsg, err) {
-                    window.alert(" Changes Could not Save Successfully");
+                    window.alert(" Changes Could not be Saved");
             
                 }
             });
