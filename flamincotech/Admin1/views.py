@@ -11,6 +11,7 @@ import tablib
 from tablib import Dataset
 import mimetypes
 import math
+
 # import os module
 from json import dumps
 import os
@@ -547,7 +548,7 @@ def editconfiguration1(request):
 		obj.UnitPrice=math.ceil(obj.Unit_Price+(obj.Unit_Price * (temp[6].ft_hardware1)/100))
 		obj.InsuranceCharges=temp[7].ft_hardware1
 		obj.ListPricewithoutRoundup= math.ceil(obj.UnitPrice+ (obj.UnitPrice* temp[7].ft_hardware1/100))
-		obj.ListPricewithRoundedup= math.ceil((obj.ListPricewithoutRoundup/500)*500)
+		obj.ListPricewithRoundedup= math.ceil((math.ceil(obj.ListPricewithoutRoundup/500))*500)
 		obj.save()
 	for obj in generalobjs2:
 		obj.Discount=temp[0].ft_hardware1
@@ -566,7 +567,8 @@ def editconfiguration1(request):
 		obj.UnitPrice=math.ceil(obj.Unit_Price+(obj.Unit_Price * (temp[6].ft_hardware1)/100))
 		obj.InsuranceCharges=temp[7].ft_hardware1
 		obj.ListPricewithoutRoundup= math.ceil(obj.UnitPrice+ (obj.UnitPrice* temp[7].ft_hardware1/100))
-		obj.ListPricewithRoundedup= math.ceil((obj.ListPricewithoutRoundup/50)*50)
+		obj.ListPricewithRoundedup= math.ceil((math.ceil(obj.ListPricewithoutRoundup/50))*50)
+		print(obj.ListPricewithoutRoundup,obj.ListPricewithRoundedup)
 		obj.save()
 	for obj in generalobjs3:
 		obj.Discount=temp[0].ft_hardware1
@@ -585,7 +587,8 @@ def editconfiguration1(request):
 		obj.UnitPrice=math.ceil(obj.Unit_Price+(obj.Unit_Price * (temp[6].ft_hardware1)/100))
 		obj.InsuranceCharges=temp[7].ft_hardware1
 		obj.ListPricewithoutRoundup= math.ceil(obj.UnitPrice+ (obj.UnitPrice* temp[7].ft_hardware1/100))
-		obj.ListPricewithRoundedup= math.ceil((obj.ListPricewithoutRoundup/500)*500)
+		obj.ListPricewithRoundedup= math.ceil((math.ceil(obj.ListPricewithoutRoundup/500))*500)
+		obj.save()
 	for obj in generalobjs4:
 		obj.Discount=temp[0].ft_hardware1
 		obj.DiscountedPrice=math.ceil(obj.InputPrice-(obj.InputPrice * (temp[0].ft_hardware1)/100))
@@ -603,7 +606,7 @@ def editconfiguration1(request):
 		obj.UnitPrice=math.ceil(obj.Unit_Price+(obj.Unit_Price * (temp[6].ft_hardware1)/100))
 		obj.InsuranceCharges=temp[7].ft_hardware1
 		obj.ListPricewithoutRoundup= math.ceil(obj.UnitPrice+ (obj.UnitPrice* temp[7].ft_hardware1/100))
-		obj.ListPricewithRoundedup= math.ceil((obj.ListPricewithoutRoundup/100)*100)
+		obj.ListPricewithRoundedup= math.ceil((math.ceil(obj.ListPricewithoutRoundup/100))*100)
 		obj.save()
 	
 	for obj in activeobjs:
@@ -623,7 +626,7 @@ def editconfiguration1(request):
 		obj.UnitPrice=math.ceil(obj.Unit_Price+(obj.Unit_Price * (temp[6].active1)/100))
 		obj.InsuranceCharges=temp[7].active1
 		obj.ListPricewithoutRoundup= math.ceil(obj.UnitPrice+ (obj.UnitPrice* temp[7].active1/100))
-		obj.ListPricewithRoundedup= math.ceil((obj.ListPricewithoutRoundup/50)*50)
+		obj.ListPricewithRoundedup= math.ceil((math.ceil(obj.ListPricewithoutRoundup/50))*50)
 		obj.save()
 
 
@@ -644,7 +647,7 @@ def editconfiguration1(request):
 		obj.UnitPrice=math.ceil(obj.Unit_Price+(obj.Unit_Price * (temp[6].passive1)/100))
 		obj.InsuranceCharges=temp[7].passive1
 		obj.ListPricewithoutRoundup= math.ceil(obj.UnitPrice+ (obj.UnitPrice* temp[7].passive1/100))
-		obj.ListPricewithRoundedup= math.ceil((obj.ListPricewithoutRoundup/50)*50)
+		obj.ListPricewithRoundedup= math.ceil((math.ceil(obj.ListPricewithoutRoundup/50))*50)
 		obj.save()
 
 
@@ -665,7 +668,7 @@ def editconfiguration1(request):
 		obj.UnitPrice=math.ceil(obj.Unit_Price+(obj.Unit_Price * (temp[6].passive1)/100))
 		obj.InsuranceCharges=temp[7].passive1
 		obj.ListPricewithoutRoundup= math.ceil(obj.UnitPrice+ (obj.UnitPrice* temp[7].passive1/100))
-		obj.ListPricewithRoundedup= math.ceil((obj.ListPricewithoutRoundup/50)*50)
+		obj.ListPricewithRoundedup= math.ceil((math.ceil(obj.ListPricewithoutRoundup/50))*50)
 		obj.save()
 
 
@@ -686,7 +689,7 @@ def editconfiguration1(request):
 		obj.UnitPrice=math.ceil(obj.Unit_Price+(obj.Unit_Price * (temp[6].ddcsensor1)/100))
 		obj.InsuranceCharges=temp[7].ddcsensor1
 		obj.ListPricewithoutRoundup= math.ceil(obj.UnitPrice+ (obj.UnitPrice* temp[7].ddcsensor1/100))
-		obj.ListPricewithRoundedup= math.ceil((obj.ListPricewithoutRoundup/50)*50)
+		obj.ListPricewithRoundedup= math.ceil((math.ceil(obj.ListPricewithoutRoundup/50))*50)
 		obj.save()
 	for obj in bmssensorobjs:
 		obj.Discount=temp[0].ddcsensor1
@@ -705,7 +708,7 @@ def editconfiguration1(request):
 		obj.UnitPrice=math.ceil(obj.Unit_Price+(obj.Unit_Price * (temp[6].ddcsensor1)/100))
 		obj.InsuranceCharges=temp[7].ddcsensor1
 		obj.ListPricewithoutRoundup= math.ceil(obj.UnitPrice+ (obj.UnitPrice* temp[7].ddcsensor1/100))
-		obj.ListPricewithRoundedup= math.ceil((obj.ListPricewithoutRoundup/50)*50)
+		obj.ListPricewithRoundedup= math.ceil((math.ceil(obj.ListPricewithoutRoundup/50))*50)
 		obj.save()
 
 
@@ -726,7 +729,7 @@ def editconfiguration1(request):
 		obj.UnitPrice=math.ceil(obj.Unit_Price+(obj.Unit_Price * (temp[6].thirdparty1)/100))
 		obj.InsuranceCharges=temp[7].thirdparty1
 		obj.ListPricewithoutRoundup= math.ceil(obj.UnitPrice+ (obj.UnitPrice* temp[7].thirdparty1/100))
-		obj.ListPricewithRoundedup= math.ceil((obj.ListPricewithoutRoundup/50)*50)
+		obj.ListPricewithRoundedup= math.ceil((math.ceil(obj.ListPricewithoutRoundup/50))*50)
 		obj.save()
 
 
@@ -749,7 +752,7 @@ def editconfiguration1(request):
 		obj.UnitPrice=math.ceil(obj.Unit_Price+(obj.Unit_Price * (temp[6].cabpiptray1)/100))
 		obj.InsuranceCharges=temp[7].cabpiptray1
 		obj.ListPricewithoutRoundup= math.ceil(obj.UnitPrice+ (obj.UnitPrice* temp[7].cabpiptray1/100))
-		obj.ListPricewithRoundedup= math.ceil((obj.ListPricewithoutRoundup/50)*50)
+		obj.ListPricewithRoundedup= math.ceil((math.ceil(obj.ListPricewithoutRoundup/50))*50)
 		obj.save()
 
 
@@ -770,7 +773,7 @@ def editconfiguration1(request):
 		obj.UnitPrice=math.ceil(obj.Unit_Price+(obj.Unit_Price * (temp[6].cabpiptray1)/100))
 		obj.InsuranceCharges=temp[7].cabpiptray1
 		obj.ListPricewithoutRoundup= math.ceil(obj.UnitPrice+ (obj.UnitPrice* temp[7].cabpiptray1/100))
-		obj.ListPricewithRoundedup= math.ceil((obj.ListPricewithoutRoundup/50)*50)
+		obj.ListPricewithRoundedup= math.ceil((math.ceil(obj.ListPricewithoutRoundup/50))*50)
 		obj.save()
 
 
@@ -791,7 +794,7 @@ def editconfiguration1(request):
 		obj.UnitPrice=math.ceil(obj.Unit_Price+(obj.Unit_Price * (temp[6].cabpiptray)/100))
 		obj.InsuranceCharges=temp[7].cabpiptray
 		obj.ListPricewithoutRoundup= math.ceil(obj.UnitPrice+ (obj.UnitPrice* temp[7].cabpiptray/100))
-		obj.ListPricewithRoundedup= math.ceil((obj.ListPricewithoutRoundup/50)*50)
+		obj.ListPricewithRoundedup= math.ceil((math.ceil(obj.ListPricewithoutRoundup/50))*50)
 		obj.save()
 	for obj in maneffortobjs:
 		obj.Discount=temp[0].ftmandayeffort
@@ -810,7 +813,7 @@ def editconfiguration1(request):
 		obj.UnitPrice=math.ceil(obj.Unit_Price+(obj.Unit_Price * (temp[6].ftmandayeffort)/100))
 		obj.InsuranceCharges=temp[7].ftmandayeffort
 		obj.ListPricewithoutRoundup= math.ceil(obj.UnitPrice+ (obj.UnitPrice* temp[7].ftmandayeffort/100))
-		obj.ListPricewithRoundedup= math.ceil((obj.ListPricewithoutRoundup/50)*50)
+		obj.ListPricewithRoundedup= math.ceil((math.ceil(obj.ListPricewithoutRoundup/50))*50)
 		obj.save()
 	for obj in trays1objs:
 		obj.Discount=temp[0].ddcsensor
@@ -829,7 +832,7 @@ def editconfiguration1(request):
 		obj.UnitPrice=math.ceil(obj.Unit_Price+(obj.Unit_Price * (temp[6].ddcsensor)/100))
 		obj.InsuranceCharges=temp[7].ddcsensor
 		obj.ListPricewithoutRoundup= math.ceil(obj.UnitPrice+ (obj.UnitPrice* temp[7].ddcsensor/100))
-		obj.ListPricewithRoundedup= math.ceil((obj.ListPricewithoutRoundup/50)*50)
+		obj.ListPricewithRoundedup= math.ceil((math.ceil(obj.ListPricewithoutRoundup/50))*50)
 		obj.save()
 	for obj in othersobjs:
 		obj.Discount=temp[0].othersmicffort
@@ -848,7 +851,7 @@ def editconfiguration1(request):
 		obj.UnitPrice=math.ceil(obj.Unit_Price+(obj.Unit_Price * (temp[6].othersmicffort)/100))
 		obj.InsuranceCharges=temp[7].othersmicffort
 		obj.ListPricewithoutRoundup= math.ceil(obj.UnitPrice+ (obj.UnitPrice* temp[7].othersmicffort/100))
-		obj.ListPricewithRoundedup= math.ceil((obj.ListPricewithoutRoundup/50)*50)
+		obj.ListPricewithRoundedup= math.ceil((math.ceil(obj.ListPricewithoutRoundup/50))*50)
 		obj.save()
 
 ##
@@ -904,7 +907,7 @@ def editconfiguration(request):
 		obj.UnitPrice=math.ceil(obj.Unit_Price+(obj.Unit_Price * (temp[6].ft_hardware)/100))
 		obj.InsuranceCharges=temp[7].ft_hardware
 		obj.ListPricewithoutRoundup= math.ceil(obj.UnitPrice+ (obj.UnitPrice* temp[7].ft_hardware/100))
-		obj.ListPricewithRoundedup= math.ceil((obj.ListPricewithoutRoundup/50)*50)
+		obj.ListPricewithRoundedup= math.ceil((math.ceil(obj.ListPricewithoutRoundup/50))*50)
 		obj.save()
 	for obj in ipobjs:
 		obj.Discount=temp[0].ft_hardware
@@ -923,7 +926,7 @@ def editconfiguration(request):
 		obj.UnitPrice=math.ceil(obj.Unit_Price+(obj.Unit_Price * (temp[6].ft_hardware)/100))
 		obj.InsuranceCharges=temp[7].ft_hardware
 		obj.ListPricewithoutRoundup= math.ceil(obj.UnitPrice+ (obj.UnitPrice* temp[7].ft_hardware/100))
-		obj.ListPricewithRoundedup= math.ceil((obj.ListPricewithoutRoundup/50)*50)
+		obj.ListPricewithRoundedup= math.ceil((math.ceil(obj.ListPricewithoutRoundup/50))*50)
 		obj.save()
 	for obj in activeobjs:
 		obj.Discount=temp[0].active
@@ -942,7 +945,7 @@ def editconfiguration(request):
 		obj.UnitPrice=math.ceil(obj.Unit_Price+(obj.Unit_Price * (temp[6].active)/100))
 		obj.InsuranceCharges=temp[7].active
 		obj.ListPricewithoutRoundup= math.ceil(obj.UnitPrice+ (obj.UnitPrice* temp[7].active/100))
-		obj.ListPricewithRoundedup= math.ceil((obj.ListPricewithoutRoundup/50)*50)
+		obj.ListPricewithRoundedup= math.ceil((math.ceil(obj.ListPricewithoutRoundup/50))*50)
 		obj.save()
 	for obj in passiveobjs:
 		obj.Discount=temp[0].passive
@@ -961,7 +964,7 @@ def editconfiguration(request):
 		obj.UnitPrice=math.ceil(obj.Unit_Price+(obj.Unit_Price * (temp[6].passive)/100))
 		obj.InsuranceCharges=temp[7].passive
 		obj.ListPricewithoutRoundup= math.ceil(obj.UnitPrice+ (obj.UnitPrice* temp[7].passive/100))
-		obj.ListPricewithRoundedup= math.ceil((obj.ListPricewithoutRoundup/50)*50)
+		obj.ListPricewithRoundedup= math.ceil((math.ceil(obj.ListPricewithoutRoundup/50))*50)
 		obj.save()
 	for obj in etherobjs:
 		obj.Discount=temp[0].passive
@@ -980,7 +983,7 @@ def editconfiguration(request):
 		obj.UnitPrice=math.ceil(obj.Unit_Price+(obj.Unit_Price * (temp[6].passive)/100))
 		obj.InsuranceCharges=temp[7].passive
 		obj.ListPricewithoutRoundup= math.ceil(obj.UnitPrice+ (obj.UnitPrice* temp[7].passive/100))
-		obj.ListPricewithRoundedup= math.ceil((obj.ListPricewithoutRoundup/50)*50)
+		obj.ListPricewithRoundedup= math.ceil((math.ceil(obj.ListPricewithoutRoundup/50))*50)
 		obj.save()
 	for obj in ddcobjs:
 		obj.Discount=temp[0].ddcsensor
@@ -999,7 +1002,7 @@ def editconfiguration(request):
 		obj.UnitPrice=math.ceil(obj.Unit_Price+(obj.Unit_Price * (temp[6].ddcsensor)/100))
 		obj.InsuranceCharges=temp[7].ddcsensor
 		obj.ListPricewithoutRoundup= math.ceil(obj.UnitPrice+ (obj.UnitPrice* temp[7].ddcsensor/100))
-		obj.ListPricewithRoundedup= math.ceil((obj.ListPricewithoutRoundup/50)*50)
+		obj.ListPricewithRoundedup= math.ceil((math.ceil(obj.ListPricewithoutRoundup/50))*50)
 		obj.save()
 	for obj in bmssensorobjs:
 		obj.Discount=temp[0].ddcsensor
@@ -1018,7 +1021,7 @@ def editconfiguration(request):
 		obj.UnitPrice=math.ceil(obj.Unit_Price+(obj.Unit_Price * (temp[6].ddcsensor)/100))
 		obj.InsuranceCharges=temp[7].ddcsensor
 		obj.ListPricewithoutRoundup= math.ceil(obj.UnitPrice+ (obj.UnitPrice* temp[7].ddcsensor/100))
-		obj.ListPricewithRoundedup= math.ceil((obj.ListPricewithoutRoundup/50)*50)
+		obj.ListPricewithRoundedup= math.ceil((math.ceil(obj.ListPricewithoutRoundup/50))*50)
 		obj.save()
 	for obj in thirdpartyobjs:
 		obj.Discount=temp[0].thirdparty
@@ -1037,7 +1040,7 @@ def editconfiguration(request):
 		obj.UnitPrice=math.ceil(obj.Unit_Price+(obj.Unit_Price * (temp[6].thirdparty)/100))
 		obj.InsuranceCharges=temp[7].thirdparty
 		obj.ListPricewithoutRoundup= math.ceil(obj.UnitPrice+ (obj.UnitPrice* temp[7].thirdparty/100))
-		obj.ListPricewithRoundedup= math.ceil((obj.ListPricewithoutRoundup/50)*50)
+		obj.ListPricewithRoundedup= math.ceil((math.ceil(obj.ListPricewithoutRoundup/50))*50)
 		obj.save()
 #bmscabobjs,pipobjs,traysobjs
 
@@ -1058,7 +1061,7 @@ def editconfiguration(request):
 		obj.UnitPrice=math.ceil(obj.Unit_Price+(obj.Unit_Price * (temp[6].cabpiptray)/100))
 		obj.InsuranceCharges=temp[7].cabpiptray
 		obj.ListPricewithoutRoundup= math.ceil(obj.UnitPrice+ (obj.UnitPrice* temp[7].cabpiptray/100))
-		obj.ListPricewithRoundedup= math.ceil((obj.ListPricewithoutRoundup/50)*50)
+		obj.ListPricewithRoundedup= math.ceil((math.ceil(obj.ListPricewithoutRoundup/50))*50)
 		obj.save()
 	for obj in pipobjs:
 		obj.Discount=temp[0].cabpiptray
@@ -1077,7 +1080,7 @@ def editconfiguration(request):
 		obj.UnitPrice=math.ceil(obj.Unit_Price+(obj.Unit_Price * (temp[6].cabpiptray)/100))
 		obj.InsuranceCharges=temp[7].cabpiptray
 		obj.ListPricewithoutRoundup= math.ceil(obj.UnitPrice+ (obj.UnitPrice* temp[7].cabpiptray/100))
-		obj.ListPricewithRoundedup= math.ceil((obj.ListPricewithoutRoundup/50)*50)
+		obj.ListPricewithRoundedup= math.ceil((math.ceil(obj.ListPricewithoutRoundup/50))*50)
 		obj.save()
 	for obj in traysobjs:
 		obj.Discount=temp[0].cabpiptray
@@ -1096,7 +1099,7 @@ def editconfiguration(request):
 		obj.UnitPrice=math.ceil(obj.Unit_Price+(obj.Unit_Price * (temp[6].cabpiptray)/100))
 		obj.InsuranceCharges=temp[7].cabpiptray
 		obj.ListPricewithoutRoundup= math.ceil(obj.UnitPrice+ (obj.UnitPrice* temp[7].cabpiptray/100))
-		obj.ListPricewithRoundedup= math.ceil((obj.ListPricewithoutRoundup/50)*50)
+		obj.ListPricewithRoundedup= math.ceil((math.ceil(obj.ListPricewithoutRoundup/50))*50)
 		obj.save()
 
 	return JsonResponse({'adg':'jyyj','sr_no':sr_no1})
@@ -1128,6 +1131,57 @@ def hardwaregeneral(request):
 class HardWareGeneralResource(resources.ModelResource):
 	class Meta:
 		model = HardWareGeneral
+def generals(request):
+	entries=General.objects.all()
+	context=fetchdata()
+	context['entries']=entries
+	return render(request,'Admin1/generala.html',context)
+class GeneralResource(resources.ModelResource):
+	class Meta:
+		model = General
+def export_general(request):
+	member_resource =GeneralResource()
+	dataset = member_resource.export()
+	fname=f"H_FlamencoTech  General{datetime.datetime.now().date()}"
+	response = HttpResponse(dataset.xls, content_type='application/vnd.ms-excel')
+	response['Content-Disposition'] = f'attachment; filename={fname}.xls'
+	return response
+def generalimport(request):
+	if request.method == 'POST':
+		dataset = Dataset()
+		new_persons = request.FILES['bookfile']
+		try:
+			imported_data = dataset.load(new_persons.read(),format='xls')
+			General.objects.all().delete()
+		except:
+			return redirect('generals')
+		try:
+			for data in imported_data: 
+				continue
+				#print(data[1],data[2],data[3],data[4],data[5],data[6],data[7],data[8],data[9],data[10],data[11],data[12],data[13],data[14],data[15],data[16],data[17],data[18],data[19],data[20],data[21],data[22],data[23],data[24])
+				#BookDetails.objects.create(relid=data[0],book_name=data[1])	
+# 				General.objects.createsr_no,Make,Model,Hardware_Items,Qty,Uom,Cost_Supply_Rate,Cost_Supply_Total,Cost_Installation_Rate,Cost_Installation_Total,MRS_Rate,MRS_Total,
+# MRI_Rate,MRI_Total,Supply_Rate,Supply_Total,Installation_Rate,Installation_Total,Remarks,Minimum_Qty,Minimum_Installation)
+		except:
+			print("errored")
+			pass    
+		return redirect('generals')
+def editgenerals(request):
+	sr_no=request.POST.get('sr_no')
+	t=HardWareGeneral.objects.get(sr_no=sr_no)
+	t.Qty=request.POST.get('Qty')
+	t.InputPrice=request.POST.get('InputPrice')
+	t.DiscountedPrice=request.POST.get('DiscountedPrice')
+	t.InputCostInclusiveoffreight=request.POST.get('InputCostInclusiveoffreight')
+	t.UnitCost=request.POST.get('UnitCost')
+	t.UnitCostInclusiveofRisk=request.POST.get('UnitCostInclusiveofRisk')
+	t.UnitCostInclusiveofContigency=request.POST.get('UnitCostInclusiveofContigency')
+	t.Unit_Price=request.POST.get('Unit_Price')
+	t.UnitPrice=request.POST.get('UnitPrice')
+	t.ListPricewithoutRoundup=request.POST.get('ListPricewithoutRoundup')
+	t.ListPricewithRoundedup=request.POST.get('ListPricewithRoundedup')
+	t.save()
+	return JsonResponse({'adg':'jyyj','sr_no':sr_no})
 def export_hardwaregeneral(request):
 	member_resource =HardWareGeneralResource()
 	dataset = member_resource.export()

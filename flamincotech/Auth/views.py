@@ -56,6 +56,7 @@ def signin(request):
 			 	return redirect('/admins')
 			return redirect('/user')
 		else:
+			messages.warning(request, "Invalid username or password")
 			return redirect('sign')
 	else:
 		return render(request,'signinsignup.html',{'LoginForm':LoginForm})
