@@ -1314,18 +1314,18 @@
                     if ((document.getElementById("c6").value).length < 3) {
                         alert("Please Enter a Proper Company Name");
                     }
-                    //       else if ((parseInt(document.getElementById("c1").value) < 1000000000) || (parseInt(document.getElementById("c1").value) > 9999999999)) {
-                    //           alert("Please Enter a Proper Number");
-                    //       }
-                    //      else if ((document.getElementById("c2").value).length < 3) {
-                    //          alert("Please Enter a Proper Location");
-                    //      }
-                    //      else if ((document.getElementById("c3").value).length < 3) {
-                    //           alert("Please Enter a Proper Name");
-                    //       }
-                    //       else if (!validateEmail(document.getElementById("c4").value)) {
-                    //          alert("Please Enter a Valid Email");
-                    //        }
+                          else if ((parseInt(document.getElementById("c1").value) < 1000000000) || (parseInt(document.getElementById("c1").value) > 9999999999)) {
+                              alert("Please Enter a Proper Number");
+                          }
+                         else if ((document.getElementById("c2").value).length < 3) {
+                             alert("Please Enter a Proper Location");
+                         }
+                         else if ((document.getElementById("c3").value).length < 3) {
+                              alert("Please Enter a Proper Name");
+                          }
+                          else if (!validateEmail(document.getElementById("c4").value)) {
+                             alert("Please Enter a Valid Email");
+                           }
                     else {
                         document.querySelectorAll('.maindiv').forEach(item2 => {
                             console.log(item2.id);

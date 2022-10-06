@@ -746,7 +746,7 @@ document.getElementById("date").value = d.toLocaleString(undefined, {timeZone: '
             mergedCellA1D15.value('Ref No:');
             mergedCellA1D16.value('Date:');
             mergedCellA1D17.value(tempref);
-            mergedCellA1D18.value(d.toUTCString());
+            mergedCellA1D18.value(d.toLocaleString(undefined, {timeZone: 'Asia/Kolkata'}));
            mergedCellA1D20.value('SUPPLY');
             mergedCellA1D21.value('INSTALLATION');
         mergedCellA1D15.cellFormat().font().bold(true);
