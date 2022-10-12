@@ -2649,7 +2649,7 @@ document.getElementById(abc + "Qty_ManEfforts").value=iandc_datas[abc-2];
                                 document.getElementById(i + "Cost_Installation_Total_ManEfforts").value = document.getElementById(i + "Qty_ManEfforts").value * 1 * document.getElementById(i + "Cost_Installation_Rate_ManEfforts").value;
 
                                 document.getElementById(i + "MRI_Rate_ManEfforts").value = document.getElementById(i + "Qty_ManEfforts").value == ("0" || 0) ? 0 : efforts_data[i - 2].Unit_Price;
-                                document.getElementById(i + "MRI_Total_ManEfforts").value = document.getElementById(i + "Qty_Trays1").value * 1 * document.getElementById(i + "MRI_Rate_ManEfforts").value;
+                                document.getElementById(i + "MRI_Total_ManEfforts").value = document.getElementById(i + "Qty_ManEfforts").value * 1 * document.getElementById(i + "MRI_Rate_ManEfforts").value;
                                 if(i==6){
                                         document.getElementById(i + "Installation_Rate_ManEfforts").value = preinstallationtotal;
                                         document.getElementById(i + "Installation_Total_ManEfforts").value = document.getElementById(i + "Qty_ManEfforts").value * 1 * document.getElementById(i + "Installation_Rate_ManEfforts").value;
@@ -2852,19 +2852,28 @@ continue;}
         localStorage.setItem('detailed_boq_p197', JSON.stringify(document.getElementById("17C_Total").value));
         localStorage.setItem('detailed_boq_p199', JSON.stringify(document.getElementById("C_Total").value));
         function manchanges(){
-        man_cos_t=0;
+        var man_cos_t=0;
+        var mri_t=0,cos_t=0;
         for(var nikmc=2;nikmc<=5;nikmc++){
             document.getElementById(nikmc+"Installation_Total_ManEfforts").value=document.getElementById(nikmc+"Installation_Rate_ManEfforts").value*1*document.getElementById(nikmc+"Qty_ManEfforts").value;
            
             man_cos_t=man_cos_t*1+1*document.getElementById(nikmc+"Installation_Total_ManEfforts").value;
+            cos_t=cos_t*1+1*document.getElementById(nikmc+"Cost_Installation_Total_ManEfforts").value;
+            mri_t=mri_t*1+1*document.getElementById(nikmc+"MRI_Total_ManEfforts").value;
        
         }
         console.log(man_cos_t);
         document.getElementById(1+"Installation_Total_ManEfforts").value=man_cos_t;
+        document.getElementById(1+"Cost_Installation_Total_ManEfforts").value=cos_t;
+        document.getElementById(1+"MRI_Total_ManEfforts").value=mri_t;
         console.log("im ,ams ",document.getElementById(1+"Installation_Total_ManEfforts").value);
         man_cos_t=1*man_cos_t+1*document.getElementById(6+"Installation_Total_ManEfforts").value;
+        cos_t=1*cos_t+1*document.getElementById(6+"Cost_Installation_Total_ManEfforts").value;
+        mri_t=1*mri_t+1*document.getElementById(6+"MRI_Total_ManEfforts").value;
         console.log(man_cos_t);
         document.getElementById("Sum_Installation_Total_ManEfforts").value=man_cos_t;
+        document.getElementById("Sum_Cost_Installation_Total_ManEfforts").value=cos_t;
+        document.getElementById("Sum_MRI_Total_ManEfforts").value=mri_t;
         }
         manchanges();
         function gotomargin() {
@@ -3006,6 +3015,13 @@ continue;}
                         person.N = temp[6].L - 1 * document.getElementById("5MRI_Total_Trays1").value;
                         person.P = 0;
                         person.R = temp[6].R - 1 * document.getElementById("5Installation_Total_Trays1").value;
+                        temp.push(person);
+                        person.H = 0;
+                        person.J = document.getElementById("6Cost_Installation_Total_ManEfforts").value;
+                        person.L = 0;
+                        person.N = document.getElementById("6MRI_Total_ManEfforts").value;
+                        person.P = 0;
+                        person.R = document.getElementById("6Installation_Total_ManEfforts").value;
                         temp.push(person);
 
 
@@ -3598,8 +3614,9 @@ console.log(Bms_TraysData);
         var UnitCostInclusiveofRisk=Math.ceil(1*(UnitCost)+1*(UnitCost * (efforts_data[4].InwardTax)/100));
         var UnitCostInclusiveofContigency=Math.ceil(1*(UnitCostInclusiveofRisk)+1*(UnitCostInclusiveofRisk * (efforts_data[4].ContigencyPercentage)/100));
             
+        document.getElementById("6Cost_Installation_Total_ManEfforts").value=UnitCostInclusiveofContigency;
         var Unit_Price=Math.ceil((100*UnitCostInclusiveofContigency)/(100-efforts_data[4].Margin));
-            
+        document.getElementById("6MRI_Total_ManEfforts").value=Unit_Price;
         var UnitPrice=Math.ceil(1*(Unit_Price)+1*(Unit_Price * (efforts_data[4].WarrantyCharges)/100));
            
         var ListPricewithoutRoundup=Math.ceil(1*(UnitPrice)+1*(UnitPrice*efforts_data[4].InsuranceCharges/100));

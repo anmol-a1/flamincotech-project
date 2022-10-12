@@ -115,7 +115,6 @@
                 var soft_revised = JSON.parse(localStorage.getItem('software_revised'));
                 console.log(detail_boq);
                 console.log(soft_revised);
-                soft_revised = [1, 2];
                 //Total_Cost,Pr_Wt_Mrgn,Gross_Mrgn,Gross_Mrgn_In_Prcnt,Sell_Price,Net_Price,Profit_On_Nt_Mrgn
                 document.getElementById("1Total_Cost").readonly = false;
                 document.getElementById("2Total_Cost").readonly = false;
@@ -139,7 +138,7 @@
                 document.getElementById("9Total_Cost").value = detail_boq[2].J;
                 document.getElementById("10Total_Cost").value = detail_boq[0].J;
                 document.getElementById("11Total_Cost").value = detail_boq[8].J;
-                document.getElementById("12Total_Cost").value = detail_boq[7].J;
+                document.getElementById("12Total_Cost").value = detail_boq[11].J;
                 document.getElementById("13Total_Cost").value = detail_boq[3].J * 1 + 1 * detail_boq[5].J;
                 document.getElementById("14Total_Cost").value = detail_boq[9].J;
                 document.getElementById("15Total_Cost").value = detail_boq[10].J;
@@ -152,7 +151,7 @@
                 document.getElementById("9Pr_Wt_Mrgn").value = detail_boq[2].N;
                 document.getElementById("10Pr_Wt_Mrgn").value = detail_boq[0].N;
                 document.getElementById("11Pr_Wt_Mrgn").value = detail_boq[8].N;
-                document.getElementById("12Pr_Wt_Mrgn").value = detail_boq[7].N;
+                document.getElementById("12Pr_Wt_Mrgn").value = detail_boq[11].N;
                 document.getElementById("13Pr_Wt_Mrgn").value = detail_boq[3].N * 1 + 1 * detail_boq[5].N;
                 document.getElementById("14Pr_Wt_Mrgn").value = detail_boq[9].N;
                 document.getElementById("15Pr_Wt_Mrgn").value = detail_boq[10].N;
@@ -165,7 +164,7 @@
                 document.getElementById("9Sell_Price").value = detail_boq[2].R;
                 document.getElementById("10Sell_Price").value = detail_boq[0].R;
                 document.getElementById("11Sell_Price").value = detail_boq[8].R;
-                document.getElementById("12Sell_Price").value = detail_boq[7].R;
+                document.getElementById("12Sell_Price").value = detail_boq[11].R;
                 document.getElementById("13Sell_Price").value = detail_boq[3].R * 1 + 1 * detail_boq[5].R;
                 document.getElementById("14Sell_Price").value = detail_boq[9].R;
                 document.getElementById("15Sell_Price").value = detail_boq[10].R;

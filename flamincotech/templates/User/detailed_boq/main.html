@@ -2995,13 +2995,13 @@ continue;}
         var UnitCost=Math.ceil(1*(InputCostInclusiveoffreight)+1*(InputCostInclusiveoffreight * (efforts_data[4].InterestCOM)/100));
         var UnitCostInclusiveofRisk=Math.ceil(1*(UnitCost)+1*(UnitCost * (efforts_data[4].InwardTax)/100));
         var UnitCostInclusiveofContigency=Math.ceil(1*(UnitCostInclusiveofRisk)+1*(UnitCostInclusiveofRisk * (efforts_data[4].ContigencyPercentage)/100));
-            
+        document.getElementById("6Cost_Installation_Total_ManEfforts").value=UnitCostInclusiveofContigency;
         var Unit_Price=Math.ceil((100*UnitCostInclusiveofContigency)/(100-efforts_data[4].Margin));
-            
+        document.getElementById("6MRI_Total_ManEfforts").value=Unit_Price;
         var UnitPrice=Math.ceil(1*(Unit_Price)+1*(Unit_Price * (efforts_data[4].WarrantyCharges)/100));
            
-        var ListPricewithRoundedup=Math.ceil(1*(UnitPrice)+1*(UnitPrice*efforts_data[4].InsuranceCharges/100));
-        preinstallationtotal=(Math.ceil(ListPricewithRoundedup/50))*50;
+        var ListPricewithoutRoundup=Math.ceil(1*(UnitPrice)+1*(UnitPrice*efforts_data[4].InsuranceCharges/100));
+        preinstallationtotal=(Math.ceil(ListPricewithoutRoundup/50))*50;
         document.getElementById("6Installation_Total_ManEfforts").value=preinstallationtotal;
         manchanges();
        
